@@ -1,0 +1,380 @@
+import React, { useState, useEffect } from 'react';
+import { ArrowLeft, BookOpen, Layers, FileText, X, Check, Clipboard, GraduationCap, Plus, LogOut, Settings, ChevronRight, Sparkles, PenTool } from 'lucide-react';
+import librosData from '../../data/librosData.json';
+
+interface SequenceScreenProps {
+  projectData: any;
+  plannedItems: any[];
+  actividades: Record<string, string>;
+  setActividades: React.Dispatch<React.SetStateAction<Record<string, string>>>;
+  onBack: () => void;
+  onGoToEvaluation: () => void;
+}
+
+export const SequenceScreen = ({ projectData, plannedItems, actividades, setActividades, onBack, onGoToEvaluation }: SequenceScreenProps) => {
+  const [showLibrary, setShowLibrary] = useState(false);
+  const [filtroGrado, setFiltroGrado] = useState(Number(projectData.grado) || 1);
+  const [filtroCampo, setFiltroCampo] = useState('Lenguajes');
+  const [copiedId, setCopiedId] = useState<string | null>(null);
+  const [proyectoCopiado, setProyectoCopiado] = useState<string | null>(null);
+  const [isGenerating, setIsGenerating] = useState<string | null>(null);
+
+  const determinarCampo = (disciplina: string) => {
+    const d = disciplina || "";
+    if (["Español", "Inglés", "Artes"].includes(d)) return "Lenguajes";
+    if (["Matemáticas", "Biología", "Física", "Química"].includes(d)) return "Saberes y Pensamiento Científico";
+    if (["Geografía", "Historia", "Formación Cívica y Ética"].includes(d)) return "Ética, Naturaleza y Sociedades";
+    if (["Educación Física", "Tecnología", "Tutoría / Ed. Socioemocional"].includes(d)) return "De lo Humano y lo Comunitario";
+    return "Lenguajes"; 
+  };
+
+  const campoActual = plannedItems.length > 0 ? determinarCampo(plannedItems[0].disciplina) : "Lenguajes";
+
+  const getFasesOficiales = (campo: string) => {
+    if (projectData.estrategia === 'Secuencia Didáctica') {
+      return [
+        { id: 'f1', titulo: 'Inicio', desc: 'Activación de conocimientos previos y motivación.' },
+        { id: 'f2', titulo: 'Desarrollo', desc: 'Construcción del aprendizaje y práctica.' },
+        { id: 'f3', titulo: 'Cierre', desc: 'Síntesis, evaluación y retroalimentación.' }
+      ];
+    }
+
+    switch (campo) {
+      case 'Lenguajes':
+        return [
+          { id: 'f1', titulo: 'Planificación', desc: 'Identificación de la situación y el producto.' },
+          { id: 'f2', titulo: 'Comprensión y producción', desc: 'Acercamiento y análisis del tema.' },
+          { id: 'f3', titulo: 'Reconocimiento', desc: 'Identificación de avances y dificultades.' },
+          { id: 'f4', titulo: 'Integración', desc: 'Ajustes y primeras versiones del producto.' },
+          { id: 'f5', titulo: 'Difusión', desc: 'Presentación del producto a la comunidad.' },
+          { id: 'f6', titulo: 'Consideración y avances', desc: 'Evaluación y retroalimentación.' }
+        ];
+      case 'Saberes y Pensamiento Científico':
+        return [
+          { id: 'f1', titulo: 'Diseño de la indagación', desc: '¡Aquí está el problema!' },
+          { id: 'f2', titulo: 'Busca y encuentra', desc: 'Desarrollo de la investigación.' },
+          { id: 'f3', titulo: 'Encuentra y aprende', desc: 'Organización de la información.' },
+          { id: 'f4', titulo: 'Construcción y comprobación', desc: 'Los caminos posibles.' },
+          { id: 'f5', titulo: 'Comunicación', desc: 'Ya lo tengo. Socialización.' },
+          { id: 'f6', titulo: 'Autorreflexión', desc: 'Valorando mis pasos.' }
+        ];
+      case 'Ética, Naturaleza y Sociedades':
+        return [
+          { id: 'f1', titulo: 'Propuestas a seguir', desc: 'Identificación de la problemática.' },
+          { id: 'f2', titulo: 'Organizamos los pasos', desc: 'Planificación de la acción.' },
+          { id: 'f3', titulo: 'Seguir el camino', desc: 'Desarrollo de la investigación.' },
+          { id: 'f4', titulo: 'Registro de experiencia', desc: 'Sistematización de lo vivido.' },
+          { id: 'f5', titulo: 'Valorando mis pasos', desc: 'Evaluación y reflexión.' }
+        ];
+      default:
+        return [
+          { id: 'f1', titulo: 'Sensibilización', desc: 'Lo que haremos (Punto de partida).' },
+          { id: 'f2', titulo: 'Lo que necesito saber', desc: 'Saberes previos y nueva info.' },
+          { id: 'f3', titulo: 'Organicemos las actividades', desc: 'Planificación de la acción.' },
+          { id: 'f4', titulo: 'Creatividad en marcha', desc: 'Puesta en práctica.' },
+          { id: 'f5', titulo: 'Compartimos y evaluamos', desc: 'Socialización de lo aprendido.' }
+        ];
+    }
+  };
+
+  const fases = getFasesOficiales(campoActual);
+
+  useEffect(() => {
+    if (Object.keys(actividades).length > 0) return;
+
+    const pdaDestacado = plannedItems.find(item => item.type === 'pda')?.text || "el tema central definido en el proyecto";
+    let gradoActual = Number(projectData.grado) || 1;
+    if (plannedItems.length > 0) {
+      gradoActual = plannedItems[0].grado;
+      setFiltroGrado(gradoActual);
+    }
+
+    const sugerencias: Record<string, string> = {};
+    fases.forEach((fase, idx) => {
+      if (idx === 0) sugerencias[fase.id] = `• LECTURA DE LA REALIDAD:\nPresentar a todos los estudiantes la problemática vinculada a: "${pdaDestacado}".\n\n• DIÁLOGO:\nLluvia de ideas o preguntas detonadoras.`;
+      else if (idx === 1) sugerencias[fase.id] = `• ACUERDOS:\nOrganizar a todos los estudiantes en comunidades.\n\n• ACCIONES:\nDefinir qué información necesitamos investigar.`;
+      else if (idx === 2) sugerencias[fase.id] = `• ACCIONES EN MARCHA:\nImplementar actividades prácticas guiándose con el proyecto. El docente funge como guía.`;
+      else if (idx === 3) sugerencias[fase.id] = `• SISTEMATIZACIÓN:\nTodos organizan la información recabada y elaboran su primer borrador o prototipo.`;
+      else if (idx === 4) sugerencias[fase.id] = `• SOCIALIZACIÓN:\nPresentación del producto final ante la asamblea.`;
+      else if (idx === 5) sugerencias[fase.id] = `• EVALUACIONES:\nValoración cualitativa en asamblea. Promover la Autoevaluación y reflexión final.`;
+    });
+    setActividades(sugerencias);
+  }, [plannedItems, campoActual, projectData.grado, actividades, setActividades]); 
+
+  const generateAIActivity = async (faseId: string, faseTitulo: string) => {
+    const apiKey = import.meta.env.VITE_GEMINI_API_KEY; 
+    
+    if (!apiKey) {
+      alert("⚠️ Falta configurar la Llave de Gemini en Vercel. Revisa el tutorial.");
+      return;
+    }
+
+    setIsGenerating(faseId); 
+    
+    try {
+      const pdaDestacado = plannedItems.find(item => item.type === 'pda')?.text || "tema general";
+      const contenidoDestacado = plannedItems.find(item => item.type === 'content')?.text || "contenido base";
+      
+      const prompt = `Eres un experto pedagogo de la Nueva Escuela Mexicana (NEM). Actúa como un asesor que ayuda a un docente a redactar actividades detalladas para su secuencia didáctica.
+      
+      Datos del proyecto:
+      - Campo Formativo: ${campoActual}
+      - Disciplina: ${plannedItems.length > 0 ? plannedItems[0].disciplina : "General"}
+      - Metodología: ${projectData.estrategia || "Libre"}
+      - Fase actual de la secuencia: ${faseTitulo}
+      - Contenido a tratar: ${contenidoDestacado}
+      - PDA (Proceso de Desarrollo de Aprendizaje): ${pdaDestacado}
+      
+      Instrucción: Redacta 2 actividades prácticas, creativas y específicas para llevarse a cabo dentro del salón de clases EN ESTA FASE ESPECÍFICA.
+      Reglas de formato obligatorio:
+      1. NO uses asteriscos dobles (**) para negritas.
+      2. Inicia el título de cada actividad con una viñeta (•) en mayúsculas.
+      3. Debajo del título, describe brevemente qué hará el alumno y qué hará el maestro.
+      
+      Ejemplo de formato:
+      • TITULO DE LA ACTIVIDAD:
+      Descripción clara y directa...`;
+
+      const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ contents: [{ parts: [{ text: prompt }] }] })
+      });
+
+      const data = await response.json();
+      if (data.error) throw new Error(data.error.message);
+      
+      const aiText = data.candidates[0].content.parts[0].text.replace(/\*\*/g, '');
+      
+      setActividades(prev => ({
+        ...prev,
+        [faseId]: aiText 
+      }));
+
+    } catch (error) {
+      console.error("Error AI:", error);
+      alert("Hubo un error al conectar con Gemini. Intenta de nuevo.");
+    } finally {
+      setIsGenerating(null); 
+    }
+  };
+
+  const handleCopy = (proyecto: any) => {
+    const texto = `Trabajar el proyecto: "${proyecto.nombre}" (Libro de Proyectos SEP, Páginas: ${proyecto.paginas}).`;
+    setProyectoCopiado(texto);
+    setCopiedId(proyecto.nombre);
+    setTimeout(() => setCopiedId(null), 1500);
+  };
+
+  const handlePasteToFase = (faseId: string) => {
+    if (proyectoCopiado) {
+      const faseActual = fases.find(f => f.id === faseId)?.titulo || "la fase";
+      const textoEnriquecido = `• VINCULACIÓN CON LTG:\n${proyectoCopiado}\n\n• ACTIVIDAD DE APOYO SUGERIDA (${faseActual.toUpperCase()}):\n1. Lectura comunitaria: Todos realizan la lectura guiada.\n2. Diálogo reflexivo: Plenaria para compartir puntos de vista.\n3. Sistematización: Elaboración de organizador gráfico.`;
+      setActividades(prev => ({
+        ...prev,
+        [faseId]: prev[faseId] ? prev[faseId] + '\n\n' + textoEnriquecido : textoEnriquecido
+      }));
+      setProyectoCopiado(null);
+    }
+  };
+
+  const camposDisponibles = ["Lenguajes", "Saberes y Pensamiento Científico", "Ética, Naturaleza y Sociedades", "De lo Humano y lo Comunitario"];
+  const libroSeleccionado = librosData.libros.find(l => l.grado === filtroGrado);
+  const proyectosFiltrados = libroSeleccionado?.proyectos.filter(p => p.campo === filtroCampo) || [];
+
+  return (
+    <div className="flex flex-col h-screen bg-[#f8fafc] text-slate-900 font-sans antialiased overflow-hidden selection:bg-[#135bec]/20 selection:text-[#135bec]">
+      <header className="h-14 md:h-16 border-b border-slate-200 bg-white sticky top-0 z-50 px-4 md:px-6 flex items-center justify-between shrink-0">
+        <div className="flex items-center gap-2 md:gap-4">
+          <div className="flex items-center gap-2 text-[#135bec]">
+            <Layers className="text-[#135bec]" size={20} />
+            <h2 className="text-base md:text-lg font-bold tracking-tight text-slate-900">Planeador <span className="hidden sm:inline">NEM</span> <span className="text-[#135bec]/80">Pro</span></h2>
+          </div>
+          <div className="h-6 w-px bg-slate-200 mx-1 md:mx-2"></div>
+          <div className="flex items-center gap-2 text-xs md:text-sm text-slate-500 font-medium">
+            <FileText size={16} />
+            <span className="hidden sm:inline">Planeación Didáctica</span>
+            <span className="sm:hidden">Secuencia</span>
+          </div>
+        </div>
+        <div className="flex items-center gap-2 md:gap-4">
+          <div className="flex items-center gap-1">
+            {!showLibrary && (
+              <button onClick={() => setShowLibrary(true)} className="flex items-center gap-2 px-3 py-1.5 md:px-4 md:py-2 text-xs md:text-sm font-bold text-indigo-700 bg-indigo-50 border border-indigo-100 hover:bg-indigo-100 hover:border-indigo-200 rounded-xl transition-all shadow-sm mr-1 md:mr-2">
+                <BookOpen size={16} />
+                <span className="hidden lg:inline">Ver Biblioteca</span>
+              </button>
+            )}
+            <button onClick={onBack} className="flex items-center gap-2 px-3 py-1.5 md:px-4 md:py-2 text-xs md:text-sm font-bold text-slate-700 bg-white border border-slate-200 hover:bg-slate-50 hover:text-indigo-600 hover:border-indigo-200 rounded-xl transition-all shadow-sm">
+              <ArrowLeft size={16} className="text-slate-400 group-hover:text-indigo-500" />
+              <span className="hidden md:inline">Volver al Lienzo</span>
+            </button>
+            
+            <button 
+              onClick={onGoToEvaluation}
+              className="flex items-center gap-1.5 px-5 py-2 text-sm font-bold text-white bg-indigo-600 rounded-lg shadow-md shadow-indigo-600/20 hover:bg-indigo-700 hover:shadow-lg transition-all ml-2 border border-indigo-500"
+            >
+              <PenTool size={18} />
+              <span className="hidden sm:inline">Siguiente: Evaluación</span>
+            </button>
+          </div>
+        </div>
+      </header>
+
+      <div className="flex flex-1 overflow-hidden">
+        <aside className="w-52 lg:w-60 xl:w-72 bg-[#0f172a] text-slate-300 flex flex-col shrink-0 z-20 transition-all">
+          <div className="p-4 xl:p-6 border-b border-slate-800">
+            <button onClick={onBack} className="flex items-center gap-2 text-[10px] xl:text-xs font-bold uppercase tracking-widest text-slate-500 hover:text-white transition-colors mb-4 xl:mb-6 group">
+              <ArrowLeft size={14} className="group-hover:-translate-x-1 transition-transform" /> 
+              <span className="hidden lg:inline">Volver al Lienzo</span>
+            </button>
+            <div className="space-y-3 xl:space-y-4">
+              <div>
+                <span className="text-[9px] xl:text-[10px] font-bold text-slate-500 uppercase tracking-wider block mb-1">Proyecto Activo</span>
+                <h3 className="text-white font-bold text-base xl:text-lg leading-snug truncate">{projectData.proyecto || "Proyecto sin nombre"}</h3>
+              </div>
+              <div className="space-y-2 mt-2">
+                <div className="flex items-center gap-2 text-xs xl:text-sm">
+                  <Layers size={14} className="text-[#135bec] shrink-0" />
+                  <span className="text-slate-400 font-medium truncate">{projectData.estrategia || "Metodología Libre"}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="flex-1 overflow-y-auto p-4 xl:p-6 scrollbar-thin">
+            <div className="mb-8">
+              <h4 className="text-[9px] xl:text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-3 xl:mb-4">Elementos Seleccionados</h4>
+              <div className="space-y-2 xl:space-y-3">
+                {plannedItems.length === 0 ? (
+                  <p className="text-xs text-slate-500 italic">No hay contenidos.</p>
+                ) : (
+                  plannedItems.map((item) => (
+                    <div key={item.id} className="p-2.5 xl:p-3 bg-slate-800/50 rounded-lg border border-slate-700/50 hover:border-slate-600 transition-colors">
+                      <p className="text-[10px] xl:text-xs text-slate-300 leading-relaxed font-medium line-clamp-3">
+                        <span className={`font-bold mr-1 ${item.type === 'content' ? 'text-blue-400' : 'text-emerald-400'}`}>[{item.type === 'content' ? 'C' : 'PDA'}]</span>
+                        {item.text}
+                      </p>
+                    </div>
+                  ))
+                )}
+              </div>
+            </div>
+          </div>
+        </aside>
+
+        <main className="flex-1 overflow-y-auto bg-slate-50/50 p-4 lg:p-6 xl:p-8 scrollbar-thin relative scroll-smooth">
+          <div className="w-full max-w-[1450px] mr-auto flex flex-col">
+            <div className="bg-white shadow-[0_0_40px_-10px_rgba(0,0,0,0.05)] rounded-2xl border border-slate-200 min-h-[calc(100vh-10rem)] h-auto p-6 lg:p-10 xl:p-16 mb-10 w-full">
+              <div className="mb-8 xl:mb-12 border-b border-slate-100 pb-6 xl:pb-8">
+                <div className="flex items-center gap-3 xl:gap-4 mb-4 xl:mb-6">
+                  <div className="p-2 xl:p-3 bg-[#135bec]/10 rounded-lg xl:rounded-xl text-[#135bec] shrink-0">
+                    <FileText size={24} className="xl:w-7 xl:h-7" />
+                  </div>
+                  <div>
+                    <h1 className="text-xl lg:text-2xl xl:text-3xl font-extrabold text-slate-900 tracking-tight leading-tight">Planeación Didáctica</h1>
+                    <p className="text-xs xl:text-sm text-slate-500 mt-1 font-medium hidden sm:block">Sugerencias vinculadas a los LTG Plan 2022.</p>
+                  </div>
+                </div>
+
+                {proyectoCopiado && (
+                  <div className="bg-amber-50 border border-amber-200 p-4 xl:p-5 rounded-xl mb-4 flex items-start gap-3 animate-in slide-in-from-top-4">
+                    <Clipboard size={18} className="text-amber-600 mt-0.5 shrink-0" />
+                    <div>
+                      <h4 className="text-xs xl:text-sm font-bold text-amber-900 mb-0.5">Proyecto en portapapeles</h4>
+                      <p className="text-[10px] xl:text-xs text-amber-800/80">Haz clic en <strong>"Insertar"</strong> en la fase correspondiente para pegarlo.</p>
+                    </div>
+                  </div>
+                )}
+              </div>
+
+              <div className="space-y-10 xl:space-y-14">
+                {fases.map((fase, index) => (
+                  <section key={fase.id}>
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b border-slate-200 pb-2 mb-4 xl:mb-6 gap-2 group">
+                      <div className="flex items-center gap-2 xl:gap-3">
+                        <span className="text-slate-300 font-extrabold text-lg xl:text-2xl tabular-nums tracking-tighter">0{index + 1}.</span>
+                        <h3 className="text-base xl:text-lg font-bold text-slate-900 uppercase tracking-tight leading-none">{fase.titulo}</h3>
+                      </div>
+                      <div className="flex items-center justify-between sm:justify-end w-full sm:w-auto gap-3">
+                        <span className="text-[10px] xl:text-xs text-slate-400 font-medium hidden lg:block truncate max-w-[150px] xl:max-w-[200px]">{fase.desc}</span>
+                        
+                        <button 
+                          onClick={() => generateAIActivity(fase.id, fase.titulo)}
+                          disabled={isGenerating === fase.id}
+                          className="flex items-center gap-1.5 bg-[#4f46e5]/10 text-[#4f46e5] hover:bg-[#4f46e5]/20 px-2.5 py-1.5 xl:px-3 rounded-lg text-[10px] xl:text-xs font-bold shadow-sm transition-colors shrink-0 disabled:opacity-50"
+                        >
+                          <Sparkles size={14} className={isGenerating === fase.id ? "animate-spin" : ""} /> 
+                          {isGenerating === fase.id ? "Generando..." : "Generar con IA"}
+                        </button>
+
+                        {proyectoCopiado && (
+                          <button 
+                            onClick={() => handlePasteToFase(fase.id)}
+                            className="flex items-center gap-1.5 bg-amber-400 text-amber-900 hover:bg-amber-500 px-2.5 py-1.5 xl:px-3 rounded-lg text-[10px] xl:text-xs font-bold shadow-sm transition-transform transform hover:scale-105 shrink-0"
+                          >
+                            <Check size={12} /> Insertar
+                          </button>
+                        )}
+                      </div>
+                    </div>
+                    <div className="relative pl-6 xl:pl-10 group/area">
+                      <div className="absolute left-2 xl:left-3 top-2 bottom-2 w-px bg-slate-200 group-focus-within/area:bg-[#135bec] transition-colors"></div>
+                      <textarea 
+                        value={actividades[fase.id] || ''}
+                        onChange={(e) => setActividades({ ...actividades, [fase.id]: e.target.value })}
+                        className="w-full min-h-[240px] xl:min-h-[300px] text-slate-700 leading-relaxed text-xs lg:text-sm xl:text-[15px] outline-none border-b border-transparent focus:border-slate-200 pb-2 transition-all bg-transparent resize-y"
+                        placeholder="Redacta o edita las actividades aquí..."
+                      ></textarea>
+                    </div>
+                  </section>
+                ))}
+              </div>
+            </div>
+          </div>
+        </main>
+
+        {showLibrary && (
+          <aside className="w-64 lg:w-72 xl:w-80 bg-white border-l border-slate-200 flex flex-col shrink-0 z-20 shadow-xl transition-all">
+            <div className="p-4 xl:p-5 border-b border-slate-200 bg-slate-50/50">
+              <div className="flex items-center justify-between mb-4 xl:mb-6">
+                <div className="flex items-center gap-2 xl:gap-3">
+                  <div className="size-7 xl:size-8 bg-amber-500 rounded flex items-center justify-center text-white shadow-sm shrink-0">
+                    <BookOpen size={16} />
+                  </div>
+                  <div>
+                    <h3 className="text-xs xl:text-sm font-bold text-slate-900 leading-tight">Biblioteca SEP</h3>
+                    <p className="text-[9px] xl:text-[10px] text-slate-400 uppercase font-bold tracking-tight">Libros de Proyectos</p>
+                  </div>
+                </div>
+                <button onClick={() => setShowLibrary(false)} className="text-slate-400 hover:text-slate-900 transition-colors p-1"><X size={18} /></button>
+              </div>
+              <div className="space-y-2 xl:space-y-3">
+                <select value={filtroGrado} onChange={(e) => setFiltroGrado(Number(e.target.value))} className="w-full bg-white border border-slate-200 rounded-lg text-[11px] xl:text-xs font-semibold py-2 px-2 xl:px-3 focus:ring-2 focus:ring-[#135bec] outline-none">
+                  <option value={1}>1º Grado - Ximhai</option>
+                  <option value={2}>2º Grado - Sk'asolil</option>
+                  <option value={3}>3º Grado - Nanahuatzin</option>
+                </select>
+                <select value={filtroCampo} onChange={(e) => setFiltroCampo(e.target.value)} className="w-full bg-white border border-slate-200 rounded-lg text-[11px] xl:text-xs font-semibold py-2 px-2 xl:px-3 focus:ring-2 focus:ring-[#135bec] outline-none">
+                  {camposDisponibles.map(c => <option key={c} value={c}>{c}</option>)}
+                </select>
+              </div>
+            </div>
+            <div className="flex-1 overflow-y-auto p-3 xl:p-4 scrollbar-thin bg-white">
+              <div className="space-y-3 xl:space-y-4">
+                {proyectosFiltrados.map((proyecto, idx) => (
+                  <div key={idx} className="p-3 xl:p-4 rounded-xl border border-slate-200 hover:border-[#135bec]/40 hover:shadow-lg transition-all group cursor-pointer bg-white">
+                    <h4 className="text-[11px] xl:text-xs font-bold text-slate-800 leading-tight group-hover:text-[#135bec] transition-colors pr-2 line-clamp-2 mb-2">{proyecto.nombre}</h4>
+                    <p className="text-[9px] xl:text-[10px] text-slate-400 mb-3 font-medium flex items-center gap-1"><FileText size={10}/> Págs: {proyecto.paginas}</p>
+                    <button onClick={() => handleCopy(proyecto)} className={`w-full py-1.5 xl:py-2 border rounded-lg text-[9px] xl:text-[10px] font-bold flex items-center justify-center gap-1.5 transition-all ${copiedId === proyecto.nombre ? 'bg-emerald-50 text-emerald-700 border-emerald-200' : 'bg-slate-50 text-slate-600 border-slate-200 hover:bg-[#135bec] hover:text-white hover:border-[#135bec]'}`}>
+                      {copiedId === proyecto.nombre ? <Check size={12}/> : <Plus size={12}/>} {copiedId === proyecto.nombre ? '¡Copiado!' : 'Vincular Proyecto'}
+                    </button>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </aside>
+        )}
+      </div>
+    </div>
+  );
+};

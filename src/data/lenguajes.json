@@ -1,0 +1,402 @@
+{
+  "campoFormativo": "Lenguajes",
+  "id": "lenguajes_fase6",
+  "disciplinas": [
+    {
+      "nombre": "Español",
+      "slug": "espanol",
+      "contenidos": [
+        {
+          "id": "esp_01",
+          "tema": "La diversidad de lenguas y su uso en la comunicación familiar, escolar y comunitaria.",
+          "pdas": [
+            { "grado": 1, "texto": "Reconoce la riqueza lingüística de México y el mundo, a partir de obras literarias procedentes de distintas culturas." },
+            { "grado": 2, "texto": "Comprende las características y recursos lingüísticos de la lengua española, para usarlos y valorarlos como parte de la riqueza pluricultural de México y del mundo." },
+            { "grado": 3, "texto": "Analiza y reconoce algunas variantes lingüísticas de la lengua española, para valorarla como riqueza cultural." }
+          ]
+        },
+        {
+          "id": "esp_02",
+          "tema": "La diversidad étnica, cultural y lingüística de México a favor de una sociedad intercultural.",
+          "pdas": [
+            { "grado": 1, "texto": "Comprende las ideas centrales y secundarias de textos relacionados con la diversidad étnica, cultural y lingüística, que favorecen una sociedad intercultural." },
+            { "grado": 2, "texto": "Compara y contrasta textos sobre las tensiones y conflictos en las sociedades contemporáneas y manifiesta la necesidad de practicar la comunicación asertiva." },
+            { "grado": 3, "texto": "Analiza textos sobre las sociedades multiculturales y expresa la función que tiene el diálogo intercultural para la construcción democrática." }
+          ]
+        },
+        {
+          "id": "esp_03",
+          "tema": "Las lenguas como manifestación de la identidad y del sentido de pertenencia.",
+          "pdas": [
+            { "grado": 1, "texto": "Describe en un texto cómo el lenguaje oral manifiesta las identidades personal y colectiva, para reconocer lo común y lo diferente." },
+            { "grado": 2, "texto": "Comprende y redacta textos narrativos sobre la construcción de la identidad y el sentido de pertenencia, a partir del análisis de variantes del español." },
+            { "grado": 3, "texto": "Elabora textos argumentativos acerca de la interculturalidad crítica, para reconocer el valor de las lenguas, a fin de promoverlas y fortalecerlas." }
+          ]
+        },
+        {
+          "id": "esp_04",
+          "tema": "El dinamismo de las lenguas y su relevancia como patrimonio cultural.",
+          "pdas": [
+            { "grado": 1, "texto": "Identifica y expresa la relevancia de valorar las lenguas como legado de la comunidad." },
+            { "grado": 2, "texto": "Reconoce cambios temporales y geográficos del español en la comunidad, el país o el mundo hispano." },
+            { "grado": 3, "texto": "Analiza en textos literarios neologismos, juegos de lenguajes, caló, jerga, préstamos lingüísticos y extranjerismos como parte del dinamismo de la lengua española." }
+          ]
+        },
+        {
+          "id": "esp_05",
+          "tema": "La función creativa del español en la expresión de necesidades e intereses comunitarios.",
+          "pdas": [
+            { "grado": 1, "texto": "Identifica una situación problemática de la comunidad, haciendo uso del pensamiento crítico, para plantear diversas formas creativas de resolverla." },
+            { "grado": 2, "texto": "Expresa, mediante un ensayo, una postura crítica sobre necesidades, intereses y problemas de la comunidad." },
+            { "grado": 3, "texto": "Crea textos literarios de distintos géneros para ofrecer una propuesta de solución a problemas de la comunidad." }
+          ]
+        },
+        {
+          "id": "esp_06",
+          "tema": "Los elementos y los recursos estéticos de la lengua española en la literatura oral y escrita.",
+          "pdas": [
+            { "grado": 1, "texto": "Reconoce los recursos estéticos en textos literarios líricos, orales y escritos, y disfruta de poemas, canciones y juegos de palabras." },
+            { "grado": 2, "texto": "Analiza las características y recursos estéticos de los textos narrativos, e interpreta y disfruta de cuentos y novelas." },
+            { "grado": 3, "texto": "Usa creativa e intencionalmente las características y los recursos estéticos de textos dramáticos, para escenificar situaciones vinculadas con la comunidad." }
+          ]
+        },
+        {
+          "id": "esp_07",
+          "tema": "Textos literarios escritos en español o traducidos.",
+          "pdas": [
+            { "grado": 1, "texto": "Reconoce el valor estético de diversos géneros literarios en textos de su elección, para elaborar comentarios y promover su lectura." },
+            { "grado": 2, "texto": "Analiza diversos textos literarios de su elección para expresar un juicio estético y lo comparte en la comunidad." },
+            { "grado": 3, "texto": "Elabora un ensayo acerca del tratamiento de un tema de su elección, con base en algún género literario de su preferencia, para argumentar un juicio estético." }
+          ]
+        },
+        {
+          "id": "esp_08",
+          "tema": "Creaciones literarias tradicionales y contemporáneas.",
+          "pdas": [
+            { "grado": 1, "texto": "Recupera y clasifica creaciones literarias de la comunidad o de un lugar de interés, como mitos, leyendas, fábulas, epopeyas, etc." },
+            { "grado": 2, "texto": "Valora textos literarios tradicionales y contemporáneos, como cuentos, novelas, poemas y textos dramáticos; los adapta a otros lenguajes." },
+            { "grado": 3, "texto": "Crea textos narrativos, poéticos, dramáticos y guiones para audiovisuales, entre otros, a partir del uso de recursos literarios." }
+          ]
+        },
+        {
+          "id": "esp_09",
+          "tema": "Recursos literarios en lengua española para expresar sensaciones, emociones, sentimientos e ideas.",
+          "pdas": [
+            { "grado": 1, "texto": "Identifica recursos literarios en lengua española y los emplea en la elaboración de cartas personales y biografías." },
+            { "grado": 2, "texto": "Analiza recursos literarios en lengua española para expresar sensaciones, emociones, sentimientos e ideas al elaborar una autobiografía." },
+            { "grado": 3, "texto": "Recupera recursos literarios de la lengua española para crear un texto libre que describa los vínculos con el entorno familiar, escolar o comunitario." }
+          ]
+        },
+        {
+          "id": "esp_10",
+          "tema": "Los géneros periodísticos y sus recursos para comunicar sucesos significativos.",
+          "pdas": [
+            { "grado": 1, "texto": "Identifica sucesos significativos familiares, escolares, comunitarios y sociales, y los comunica haciendo uso de las características de los géneros periodísticos informativos." },
+            { "grado": 2, "texto": "Investiga un evento familiar, escolar o comunitario significativo de la memoria colectiva, para comunicarlo utilizando las características de los géneros periodísticos de opinión." },
+            { "grado": 3, "texto": "Analiza los sucesos más significativos de la comunidad y los comunica empleando las características de los géneros periodísticos de interpretación." }
+          ]
+        },
+        {
+          "id": "esp_11",
+          "tema": "Comunicación asertiva y dialógica para erradicar expresiones de violencia.",
+          "pdas": [
+            { "grado": 1, "texto": "Realiza, de manera colectiva, una propuesta oral o por escrito, para promover acciones que posibiliten erradicar la violencia." },
+            { "grado": 2, "texto": "Participa en un debate acerca de algunas expresiones de violencia —como la de género y la sexual— para argumentar una postura de rechazo." },
+            { "grado": 3, "texto": "Discute de forma colectiva y diseña una estrategia sobre la importancia de sensibilizar a la comunidad acerca de la violencia." }
+          ]
+        },
+        {
+          "id": "esp_12",
+          "tema": "Mensajes para promover una vida saludable, expresados en medios comunitarios o masivos.",
+          "pdas": [
+            { "grado": 1, "texto": "Identifica las características y recursos de mensajes que promueven una vida saludable a través de los diferentes medios comunitarios o masivos." },
+            { "grado": 2, "texto": "Elabora un mensaje impreso empleando imágenes, textos, colores y otros recursos gráficos, para favorecer una vida saludable." },
+            { "grado": 3, "texto": "Construye narrativas acerca de una vida saludable, haciendo uso del lenguaje audiovisual y las transmite por medios comunitarios o masivos." }
+          ]
+        },
+        {
+          "id": "esp_13",
+          "tema": "Textos de divulgación científica.",
+          "pdas": [
+            { "grado": 1, "texto": "Identifica las características del texto de divulgación científica y elabora uno." },
+            { "grado": 2, "texto": "Analiza las características del texto de divulgación científica, para elaborar y dar a conocer diversos textos científicos orales o escritos." },
+            { "grado": 3, "texto": "Elabora una propuesta de divulgación científica, con la participación de la comunidad escolar, para fomentar el conocimiento de las ciencias." }
+          ]
+        },
+        {
+          "id": "esp_14",
+          "tema": "Manifestaciones culturales y artísticas que favorecen una sociedad incluyente.",
+          "pdas": [
+            { "grado": 1, "texto": "Reconoce manifestaciones culturales y artísticas creadas o ejecutadas por personas con alguna discapacidad, para distinguir sus valores estéticos." },
+            { "grado": 2, "texto": "Elabora un texto oral o escrito acerca de las manifestaciones culturales y artísticas que promuevan una sociedad incluyente." },
+            { "grado": 3, "texto": "Crea un texto literario que aborde un tema que promueva una sociedad incluyente." }
+          ]
+        }
+      ]
+    },
+    {
+      "nombre": "Inglés",
+      "slug": "ingles",
+      "contenidos": [
+        {
+          "id": "ing_01",
+          "tema": "La diversidad lingüística y sus formas de expresión en México y el mundo.",
+          "pdas": [
+            { "grado": 1, "texto": "Hace uso del alfabeto, los números y las expresiones básicas en inglés, para nombrar y recuperar datos factuales y características básicas de lenguas." },
+            { "grado": 2, "texto": "Comprende textos narrativos y biográficos en inglés sobre la vida cotidiana, formas de interacción y comportamiento de hablantes de diversas lenguas." },
+            { "grado": 3, "texto": "Utiliza diversos tipos de texto y medios de comunicación para expresar y difundir en inglés prácticas culturales y lingüísticas diversas." }
+          ]
+        },
+        {
+          "id": "ing_02",
+          "tema": "La identidad y cultura de pueblos de habla inglesa.",
+          "pdas": [
+            { "grado": 1, "texto": "Recupera información para llevar a cabo presentaciones en inglés, orales y escritas, que describan rasgos étnicos, culturales e identitarios." },
+            { "grado": 2, "texto": "Elabora fichas informativas en inglés sobre rasgos identitarios de pueblos de habla inglesa (acento, grafía, vestimenta, comida, tradiciones)." },
+            { "grado": 3, "texto": "Construye una propuesta de comunicación en inglés, oral y escrita, donde contraste, valore y promueva rasgos de una sociedad intercultural." }
+          ]
+        },
+        {
+          "id": "ing_03",
+          "tema": "Las manifestaciones culturales, lingüísticas y artísticas en inglés a favor de la interculturalidad.",
+          "pdas": [
+            { "grado": 1, "texto": "Elabora un cómic o manga en inglés sobre situaciones donde se rescata la importancia de la interculturalidad." },
+            { "grado": 2, "texto": "Interpreta juegos de roles en inglés sobre situaciones que favorezcan la comunicación asertiva." },
+            { "grado": 3, "texto": "Elabora guiones en inglés que aborden situaciones de conflicto resueltas mediante la comunicación asertiva e intercultural, y los dramatiza." }
+          ]
+        },
+        {
+          "id": "ing_04",
+          "tema": "Uso de diversos textos en inglés que promueven la preservación y conservación de las lenguas.",
+          "pdas": [
+            { "grado": 1, "texto": "Recupera estrategias acerca de la conservación y preservación de las lenguas, planteadas en textos informativos y científicos en inglés." },
+            { "grado": 2, "texto": "Indaga y construye propuestas en inglés para conservar y preservar las lenguas, como legado y sentido de pertenencia." },
+            { "grado": 3, "texto": "Participa en un debate en inglés sobre los cambios lingüísticos y culturales de las lenguas en el transcurso del tiempo." }
+          ]
+        },
+        {
+          "id": "ing_05",
+          "tema": "El uso del inglés para expresar necesidades, intereses y problemas de la comunidad.",
+          "pdas": [
+            { "grado": 1, "texto": "Investiga en textos en inglés soluciones implementadas sobre problemas de una comunidad, e informa de manera oral o escrita sus hallazgos." },
+            { "grado": 2, "texto": "Elabora escritos argumentativos en inglés sobre acciones colectivas que posibiliten la solución de problemas de una comunidad." },
+            { "grado": 3, "texto": "Organiza una campaña en inglés sobre soluciones a problemas de la comunidad." }
+          ]
+        },
+        {
+          "id": "ing_06",
+          "tema": "Elementos y recursos estéticos del inglés.",
+          "pdas": [
+            { "grado": 1, "texto": "Recupera de distintos tipos de textos literarios en inglés, expresiones, elementos y recursos estéticos y elabora un glosario." },
+            { "grado": 2, "texto": "Identifica y explica el uso de expresiones, elementos y recursos estéticos en manifestaciones culturales y artísticas de países de habla inglesa." },
+            { "grado": 3, "texto": "Emplea algunas figuras retóricas, elementos y recursos estéticos, para construir un texto literario corto, oral y escrito." }
+          ]
+        },
+        {
+          "id": "ing_07",
+          "tema": "Manifestaciones artísticas y culturales del inglés.",
+          "pdas": [
+            { "grado": 1, "texto": "Realiza una lectura crítica y emite su opinión en inglés sobre diversas manifestaciones culturales y artísticas de pueblos de habla inglesa." },
+            { "grado": 2, "texto": "Selecciona alguna manifestación artística o cultural y la difunde en inglés, mediante diversos elementos y recursos artísticos." },
+            { "grado": 3, "texto": "Crea poemas cortos a partir del uso de recursos estéticos del inglés en producciones orales y escritas." }
+          ]
+        },
+        {
+          "id": "ing_08",
+          "tema": "Creaciones literarias tradicionales y contemporáneas en inglés.",
+          "pdas": [
+            { "grado": 1, "texto": "Selecciona textos literarios en inglés que aborden temas de la comunidad o de algún lugar de interés, los resume y difunde por distintos medios." },
+            { "grado": 2, "texto": "Investiga en textos literarios en inglés sobre pueblos indígenas y/o afrodescendientes de México o el mundo." },
+            { "grado": 3, "texto": "Crea textos breves en inglés para exponer una situación o tema de interés, con recursos narrativos, poéticos, visuales, escénicos o musicales." }
+          ]
+        },
+        {
+          "id": "ing_09",
+          "tema": "El inglés para expresar sensaciones, emociones, sentimientos e ideas vinculados con las familias, la escuela y la comunidad.",
+          "pdas": [
+            { "grado": 1, "texto": "Lleva a cabo juegos del lenguaje en inglés para expresar sensaciones, emociones, sentimientos e ideas sobre las familias y la escuela." },
+            { "grado": 2, "texto": "Realiza entrevistas en inglés para recuperar opiniones acerca de emociones, sentimientos e ideas sobre la escuela y la comunidad." },
+            { "grado": 3, "texto": "Investiga y recupera manifestaciones culturales y artísticas de su comunidad, para difundirlas en inglés." }
+          ]
+        },
+        {
+          "id": "ing_10",
+          "tema": "Relatos en inglés para expresar sucesos significativos familiares, escolares, comunitarios y sociales.",
+          "pdas": [
+            { "grado": 1, "texto": "Entrevista y narra en inglés sucesos significativos familiares, escolares, comunitarios o sociales recuperados de la memoria colectiva." },
+            { "grado": 2, "texto": "Investiga un acontecimiento familiar, escolar o comunitario significativo, recuperado de la memoria colectiva, para redactar una reflexión en inglés." },
+            { "grado": 3, "texto": "Recupera un acontecimiento histórico comunitario y elabora un texto oral y escrito en inglés, para expresar su postura." }
+          ]
+        },
+        {
+          "id": "ing_11",
+          "tema": "Comunicación asertiva y dialógica en inglés, para sensibilizar sobre la erradicación de la violencia.",
+          "pdas": [
+            { "grado": 1, "texto": "Recupera de distintos textos en inglés, expresiones de violencia presentes en las familias y las escuelas." },
+            { "grado": 2, "texto": "Reflexiona y comunica de forma oral y escrita una postura de rechazo a la violencia, mediante la comunicación asertiva y dialógica." },
+            { "grado": 3, "texto": "Diseña y difunde en inglés propuestas escritas para sensibilizar a la comunidad acerca de la importancia de erradicar la violencia." }
+          ]
+        },
+        {
+          "id": "ing_12",
+          "tema": "Mensajes en inglés en medios de comunicación masiva, que promuevan una vida saludable.",
+          "pdas": [
+            { "grado": 1, "texto": "Recupera en inglés mensajes que promuevan una vida saludable y los difunde de manera oral o escrita." },
+            { "grado": 2, "texto": "Investiga en diversas fuentes en inglés sobre una vida saludable, para construir un texto informativo y difundirlo." },
+            { "grado": 3, "texto": "Cuenta historias en inglés sobre ejemplos de vida saludable y las difunde mediante el uso de medios de comunicación." }
+          ]
+        },
+        {
+          "id": "ing_13",
+          "tema": "El uso del inglés en la construcción de mensajes a favor de la inclusión.",
+          "pdas": [
+            { "grado": 1, "texto": "Investiga en diversas fuentes en inglés las características de los mensajes que presentan información a favor de la interacción, sensibilización y empatía." },
+            { "grado": 2, "texto": "Analiza las características y recursos empleados en la comunicación asertiva en inglés, y sugiere su uso para favorecer una sociedad incluyente." },
+            { "grado": 3, "texto": "Construye un proyecto en inglés para valorar la diversidad y fomentar la inclusión social en su entorno." }
+          ]
+        },
+        {
+          "id": "ing_14",
+          "tema": "El uso del inglés en las manifestaciones culturales y artísticas que favorecen la construcción de una sociedad incluyente.",
+          "pdas": [
+            { "grado": 1, "texto": "Elabora semblanzas en inglés sobre personas en condición de discapacidad, destacadas por contribuir a la cultura y las artes." },
+            { "grado": 2, "texto": "Investiga, reflexiona y expone en inglés acerca de los sistemas alternativos y aumentativos que favorecen el tránsito a una sociedad incluyente." },
+            { "grado": 3, "texto": "Crea en inglés alguna manifestación artística que aborde cómo los sistemas alternativos y aumentativos favorecen sociedades incluyentes." }
+          ]
+        }
+      ]
+    },
+    {
+      "nombre": "Artes",
+      "slug": "artes",
+      "contenidos": [
+        {
+          "id": "art_01",
+          "tema": "Diversidad de lenguajes artísticos en la riqueza pluricultural de México y del mundo.",
+          "pdas": [
+            { "grado": 1, "texto": "Reconoce en manifestaciones artísticas de México y del mundo el uso del cuerpo, del espacio y del tiempo, para valorarlas como parte de la riqueza pluricultural." },
+            { "grado": 2, "texto": "Explora la creación de secuencias y patrones al identificar el uso de formas, colores, movimientos y sonidos, en manifestaciones artísticas." },
+            { "grado": 3, "texto": "Experimenta con características de algunos estilos de los lenguajes artísticos, para representar la riqueza pluricultural de México y del mundo." }
+          ]
+        },
+        {
+          "id": "art_02",
+          "tema": "Manifestaciones culturales y artísticas que conforman la diversidad étnica, cultural y lingüística.",
+          "pdas": [
+            { "grado": 1, "texto": "Identifica diferentes manifestaciones culturales y artísticas de pueblos indígenas y afrodescendientes de México y del mundo." },
+            { "grado": 2, "texto": "Compara el uso de formas, colores, movimientos y sonidos, entre otros elementos de las artes, en manifestaciones culturales y artísticas de diferentes épocas." },
+            { "grado": 3, "texto": "Presenta una propuesta creativa, usando intencionalmente el cuerpo, espacio y tiempo, entre otros elementos de las artes, para valorar la diversidad." }
+          ]
+        },
+        {
+          "id": "art_03",
+          "tema": "Identidad y sentido de pertenencia en manifestaciones artísticas.",
+          "pdas": [
+            { "grado": 1, "texto": "Aprecia la intención expresiva en diversas manifestaciones artísticas, para la construcción crítica de las identidades personal y colectiva." },
+            { "grado": 2, "texto": "Reflexiona sobre la manera en que las artes fortalecen la identidad, dan sentido de pertenencia y resultan esenciales para favorecer la interculturalidad crítica." },
+            { "grado": 3, "texto": "Crea propuestas artísticas utilizando intencionalmente características de algunos estilos artísticos, a favor de la interculturalidad crítica." }
+          ]
+        },
+        {
+          "id": "art_04",
+          "tema": "Patrimonio cultural de la comunidad en manifestaciones artísticas que fomentan la identidad y el sentido de pertenencia.",
+          "pdas": [
+            { "grado": 1, "texto": "Interpreta manifestaciones artísticas del patrimonio cultural de la comunidad y de México, para fomentar las identidades personal y colectiva." },
+            { "grado": 2, "texto": "Expresa, mediante lenguajes artísticos, la relevancia de valorar, conservar y preservar el patrimonio cultural, como legado." },
+            { "grado": 3, "texto": "Reinterpreta de manera respetuosa manifestaciones artísticas del patrimonio cultural, para valorar su identidad y sentido de pertenencia." }
+          ]
+        },
+        {
+          "id": "art_05",
+          "tema": "Los lenguajes artísticos en la expresión de problemas de la comunidad.",
+          "pdas": [
+            { "grado": 1, "texto": "Usa intencionalmente formas, colores, movimientos y sonidos, entre otros elementos de las artes, para recrear una situación problemática de su contexto." },
+            { "grado": 2, "texto": "Investiga propuestas artísticas colectivas de entornos rurales y urbanos a favor de la inclusión, para presentar una postura crítica." },
+            { "grado": 3, "texto": "Experimenta con técnicas artísticas y elige una que implemente en un proyecto escolar creativo, para imaginar y proponer posibles soluciones." }
+          ]
+        },
+        {
+          "id": "art_06",
+          "tema": "Elementos de las artes y recursos estéticos apreciados en el entorno natural y social.",
+          "pdas": [
+            { "grado": 1, "texto": "Identifica el uso intencional del cuerpo, del espacio y del tiempo en manifestaciones artísticas, para apreciar e interpretar sus sentidos y significados." },
+            { "grado": 2, "texto": "Analiza el uso intencional de elementos de las artes y recursos estéticos como ritmo, repetición, armonía, contraste y variación." },
+            { "grado": 3, "texto": "Usa intencionalmente figuras retóricas como metáforas, hipérboles, sinécdoques, aliteraciones, en creaciones artísticas colectivas." }
+          ]
+        },
+        {
+          "id": "art_07",
+          "tema": "Valor estético de la naturaleza, de la vida cotidiana y de diferentes manifestaciones culturales y artísticas.",
+          "pdas": [
+            { "grado": 1, "texto": "Disfruta de manifestaciones culturales y artísticas de la comunidad y de otros lugares, para reconocer sus gustos e intereses estéticos." },
+            { "grado": 2, "texto": "Investiga diversas manifestaciones culturales y artísticas para expresar un juicio estético y lo difunde en la comunidad escolar." },
+            { "grado": 3, "texto": "Identifica algunas categorías estéticas como lo bello, lo sublime, lo grotesco, lo trágico, lo cómico y lo siniestro, al apreciarlas en la naturaleza." }
+          ]
+        },
+        {
+          "id": "art_08",
+          "tema": "Creaciones artísticas que tienen su origen en textos literarios.",
+          "pdas": [
+            { "grado": 1, "texto": "Explora con formas, colores, movimientos, sonidos, entre otros elementos de las artes, para reinterpretar textos literarios de la comunidad." },
+            { "grado": 2, "texto": "Adapta textos literarios provenientes de culturas indígenas o afrodescendientes, experimentando con elementos de las artes y recursos estéticos." },
+            { "grado": 3, "texto": "Construye una narrativa personal o colectiva, a partir de un texto literario de su interés, empleando en forma artística cuerpo, espacio y tiempo." }
+          ]
+        },
+        {
+          "id": "art_09",
+          "tema": "Expresión artística de sensaciones, emociones, sentimientos e ideas, a partir de experiencias familiares, escolares o comunitarias.",
+          "pdas": [
+            { "grado": 1, "texto": "Recrea lúdicamente sensaciones, emociones, sentimientos e ideas, mediante el uso del cuerpo, del espacio y del tiempo." },
+            { "grado": 2, "texto": "Explora con técnicas artísticas y elige una para apreciar, simbolizar y compartir sensaciones, emociones, sentimientos e ideas." },
+            { "grado": 3, "texto": "Usa intencionalmente características y funciones de algunos géneros artísticos, para crear una obra original que simbolice sus vínculos con la comunidad." }
+          ]
+        },
+        {
+          "id": "art_10",
+          "tema": "Memoria colectiva representada por medios artísticos, para registrar experiencias comunitarias.",
+          "pdas": [
+            { "grado": 1, "texto": "Recupera de la memoria colectiva acontecimientos significativos de las familias, escuela o comunidad, para representarlos de manera creativa." },
+            { "grado": 2, "texto": "Reinterpreta, mediante características de algunos géneros artísticos, un acontecimiento familiar, escolar o comunitario significativo." },
+            { "grado": 3, "texto": "Manifiesta una postura crítica sobre la memoria colectiva, acerca de un acontecimiento relevante para la comunidad." }
+          ]
+        },
+        {
+          "id": "art_11",
+          "tema": "Procesos creativos que ponen en práctica la comunicación dialógica como estrategia para erradicar expresiones de violencia.",
+          "pdas": [
+            { "grado": 1, "texto": "Expresa, mediante elementos de las artes como las formas, colores, movimientos y sonidos, la relevancia del diálogo como una alternativa." },
+            { "grado": 2, "texto": "Imagina y comparte propuestas artísticas de acción para contribuir en la erradicación de la violencia en la familia, escuela y comunidad." },
+            { "grado": 3, "texto": "Presenta al público una propuesta artística respetuosa y empática con la diversidad, a fin de sensibilizar a la comunidad." }
+          ]
+        },
+        {
+          "id": "art_12",
+          "tema": "Vida saludable expresada a través de mensajes construidos con elementos de las artes.",
+          "pdas": [
+            { "grado": 1, "texto": "Emplea intencionalmente formas, colores, movimientos, sonidos, entre otros elementos de las artes, para representar una vida saludable." },
+            { "grado": 2, "texto": "Crea mensajes que promuevan una vida saludable, utilizando artísticamente formas, colores, movimientos y sonidos." },
+            { "grado": 3, "texto": "Construye una narrativa a favor de una vida saludable, mediante el uso artístico de distintos formatos como fotografía, historieta, etc." }
+          ]
+        },
+        {
+          "id": "art_13",
+          "tema": "Sistemas alternativos y aumentativos de comunicación como herramientas creativas que favorecen la inclusión.",
+          "pdas": [
+            { "grado": 1, "texto": "Identifica algunas características sensoriales de la Lengua de Señas Mexicana, el código Braille, los tableros de comunicación, etc." },
+            { "grado": 2, "texto": "Experimenta con sistemas alternativos y aumentativos de comunicación al usar artísticamente el cuerpo, espacio, tiempo." },
+            { "grado": 3, "texto": "Crea códigos que favorezcan la inclusión, a través del uso artístico de formas, colores, texturas, movimientos, gestos, sonidos." }
+          ]
+        },
+        {
+          "id": "art_14",
+          "tema": "Manifestaciones artísticas que emplean sistemas alternativos y aumentativos de comunicación.",
+          "pdas": [
+            { "grado": 1, "texto": "Reconoce los valores estéticos y creativos de las manifestaciones artísticas realizadas por personas con alguna discapacidad." },
+            { "grado": 2, "texto": "Aprecia y reflexiona acerca del uso de sistemas alternativos y aumentativos en manifestaciones artísticas diseñadas para personas en condición de discapacidad." },
+            { "grado": 3, "texto": "Presenta una creación artística en la que experimente con sistemas alternativos y aumentativos de comunicación, para favorecer el tránsito a una sociedad incluyente." }
+          ]
+        }
+      ]
+    }
+  ]
+}
