@@ -129,7 +129,7 @@ export const SequenceScreen = ({ projectData, plannedItems, actividades, setActi
       const pdaDestacado = plannedItems.find(item => item.type === 'pda')?.text || "tema general";
       const contenidoDestacado = plannedItems.find(item => item.type === 'content')?.text || "contenido base";
       
-      const prompt = `Eres un experto pedagogo de la Nueva Escuela Mexicana (NEM). Actúa como un asesor que ayuda a un docente a redactar actividades detalladas para su secuencia didáctica.
+      const prompt = `Eres un experto pedagogo de la Nueva Escuela Mexicana (NEM). Actúa como un asesor que ayuda a un docente a redactar actividades detalladas para su secuencia didáctica. 4. Al final de tu respuesta, agrega una línea que diga EXACTAMENTE la palabra "RECURSOS:" seguida de una lista de 3 o 4 materiales o recursos didácticos necesarios para esta actividad (separados por comas).
       
       Datos del proyecto:
       - Campo Formativo: ${campoActual}
@@ -163,19 +163,23 @@ export const SequenceScreen = ({ projectData, plannedItems, actividades, setActi
       // Extraemos el texto crudo de la respuesta
       const rawText = data.candidates[0].content.parts[0].text;
       
-      // Separamos las actividades de los recursos buscando la palabra clave
+      // Separar las actividades de los recursos usando la palabra clave
       const parts = rawText.split('RECURSOS:');
       const actividadesText = parts[0].replace(/\*\*/g, '').trim();
       
-      // Verificamos si la IA nos dio recursos. Si no, ponemos un genérico.
+      // Si la IA generó los recursos, los limpiamos, si no, ponemos un default
       const recursosText = parts.length > 1 
         ? parts[1].replace(/\*\*/g, '').trim() 
         : "LTG, libreta, material de papelería";
       
-      // Guardamos en sus respectivos estados
       setActividades(prev => ({
         ...prev,
         [faseId]: actividadesText 
+      }));
+
+      setRecursos(prev => ({
+        ...prev,
+        [faseId]: recursosText
       }));
 
       setRecursos(prev => ({
