@@ -3,7 +3,6 @@ import { ArrowLeft, BookOpen, Layers, FileText, X, Check, Clipboard, GraduationC
 import librosData from '../../data/librosData.json';
 
 // --- INICIO DEL DICCIONARIO NEM ---
-// --- INICIO DEL DICCIONARIO NEM ---
 const fasesMetodologias: Record<string, { id: string, titulo: string, desc: string, guia: string }[]> = {
   "Aprendizaje basado en proyectos comunitarios": [
     { id: 'f1', titulo: 'Identificación', desc: 'Momento 1. Proponer planteamientos genuinos.', guia: '• LECTURA DE LA REALIDAD:\nProponer planteamientos para identificar la problemática general vinculada a: "{{PDA}}".' },
@@ -53,8 +52,8 @@ interface SequenceScreenProps {
   plannedItems: any[];
   actividades: Record<string, string>;
   setActividades: React.Dispatch<React.SetStateAction<Record<string, string>>>;
-  recursos: Record<string, string>; // NUEVO
-  setRecursos: React.Dispatch<React.SetStateAction<Record<string, string>>>; // NUEVO
+  recursos: Record<string, string>; 
+  setRecursos: React.Dispatch<React.SetStateAction<Record<string, string>>>; 
   onBack: () => void;
   onGoToEvaluation: () => void;
 }
@@ -78,11 +77,7 @@ export const SequenceScreen = ({ projectData, plannedItems, actividades, setActi
 
   const campoActual = plannedItems.length > 0 ? determinarCampo(plannedItems[0].disciplina) : "Lenguajes";
 
-  // Obtenemos las fases directamente de la metodología elegida. 
-  
-  // Función evaluadora robusta para mapear la selección con el diccionario
   const obtenerFases = (estrategia: string) => {
-    // Convertimos a minúsculas para evitar errores por mayúsculas/minúsculas
     const est = (estrategia || "").toLowerCase();
     
     if (est.includes("comunitario")) return fasesMetodologias["Aprendizaje basado en proyectos comunitarios"];
@@ -90,25 +85,19 @@ export const SequenceScreen = ({ projectData, plannedItems, actividades, setActi
     if (est.includes("problemas") || est.includes("abp")) return fasesMetodologias["Aprendizaje Basado en Problemas (ABP)"];
     if (est.includes("servicio") || est.includes("as")) return fasesMetodologias["Aprendizaje Servicio (AS)"];
     
-    // Si nada coincide (o si dice "Secuencia didáctica"), devuelve la secuencia por defecto
     return fasesMetodologias["Secuencia didáctica"];
   };
 
   const fases = obtenerFases(projectData.estrategia);
 
-  // Carga las sugerencias predeterminadas basadas en la metodología elegida
   useEffect(() => {
-    // Si el usuario ya escribió algo, no lo sobreescribimos
     if (Object.keys(actividades).length > 0) return;
 
-    // Extraemos el PDA para personalizar el texto
     const pdaDestacado = plannedItems.find(item => item.type === 'pda')?.text || "el tema central definido en el proyecto";
     
     const sugerencias: Record<string, string> = {};
     
-    // Iteramos sobre las fases correctas e inyectamos la guía mapeada
     fases.forEach((fase) => {
-      // Reemplazamos la etiqueta {{PDA}} por el texto real seleccionado por el docente
       sugerencias[fase.id] = (fase.guia || "").replace('{{PDA}}', pdaDestacado);
     });
     
@@ -129,7 +118,7 @@ export const SequenceScreen = ({ projectData, plannedItems, actividades, setActi
       const pdaDestacado = plannedItems.find(item => item.type === 'pda')?.text || "tema general";
       const contenidoDestacado = plannedItems.find(item => item.type === 'content')?.text || "contenido base";
       
-      const prompt = `Eres un experto pedagogo de la Nueva Escuela Mexicana (NEM). Actúa como un asesor que ayuda a un docente a redactar actividades detalladas para su secuencia didáctica. 4. Al final de tu respuesta, agrega una línea que diga EXACTAMENTE la palabra "RECURSOS:" seguida de una lista de 3 o 4 materiales o recursos didácticos necesarios para esta actividad (separados por comas).
+      const prompt = `Eres un experto pedagogo de la Nueva Escuela Mexicana (NEM). Actúa como un asesor que ayuda a un docente a redactar actividades detalladas para su secuencia didáctica.
       
       Datos del proyecto:
       - Campo Formativo: ${campoActual}
@@ -160,14 +149,11 @@ export const SequenceScreen = ({ projectData, plannedItems, actividades, setActi
       const data = await response.json();
       if (data.error) throw new Error(data.error.message);
       
-      // Extraemos el texto crudo de la respuesta
       const rawText = data.candidates[0].content.parts[0].text;
       
-      // Separar las actividades de los recursos usando la palabra clave
       const parts = rawText.split('RECURSOS:');
       const actividadesText = parts[0].replace(/\*\*/g, '').trim();
       
-      // Si la IA generó los recursos, los limpiamos, si no, ponemos un default
       const recursosText = parts.length > 1 
         ? parts[1].replace(/\*\*/g, '').trim() 
         : "LTG, libreta, material de papelería";
@@ -175,11 +161,6 @@ export const SequenceScreen = ({ projectData, plannedItems, actividades, setActi
       setActividades(prev => ({
         ...prev,
         [faseId]: actividadesText 
-      }));
-
-      setRecursos(prev => ({
-        ...prev,
-        [faseId]: recursosText
       }));
 
       setRecursos(prev => ({
@@ -378,7 +359,6 @@ export const SequenceScreen = ({ projectData, plannedItems, actividades, setActi
                           placeholder="Ej. LTG Proyectos Escolares pág. 24, cartulina, marcadores, proyector..."
                         ></textarea>
                       </div>
-                    </div>
                     </div>
                   </section>
                 ))}
