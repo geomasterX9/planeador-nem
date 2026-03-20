@@ -118,17 +118,28 @@ export const SequenceScreen = ({ projectData, plannedItems, actividades, setActi
       const pdaDestacado = plannedItems.find(item => item.type === 'pda')?.text || "tema general";
       const contenidoDestacado = plannedItems.find(item => item.type === 'content')?.text || "contenido base";
       
+      // NUEVO: Buscamos la fase exacta en nuestro diccionario para extraer sus reglas pedagógicas
+      const faseActualObjeto = fases.find(f => f.id === faseId);
+      const guiaFase = faseActualObjeto ? (faseActualObjeto.guia || "").replace('{{PDA}}', pdaDestacado) : "";
+      const descFase = faseActualObjeto ? faseActualObjeto.desc : "";
+      
       const prompt = `Eres un experto pedagogo de la Nueva Escuela Mexicana (NEM). Actúa como un asesor que ayuda a un docente a redactar actividades detalladas para su secuencia didáctica.
       
       Datos del proyecto:
       - Campo Formativo: ${campoActual}
       - Disciplina: ${plannedItems.length > 0 ? plannedItems[0].disciplina : "General"}
       - Metodología: ${projectData.estrategia || "Libre"}
-      - Fase actual de la secuencia: ${faseTitulo}
       - Contenido a tratar: ${contenidoDestacado}
       - PDA (Proceso de Desarrollo de Aprendizaje): ${pdaDestacado}
       
-      Instrucción: Redacta 2 actividades prácticas, creativas y específicas para llevarse a cabo dentro del salón de clases EN ESTA FASE ESPECÍFICA.
+      *** CONTEXTO METODOLÓGICO DE LA FASE ACTUAL ***
+      - Fase o Momento: ${faseTitulo}
+      - Descripción oficial de la fase: ${descFase}
+      - Guía de acción pedagógica: ${guiaFase}
+      
+      Instrucción CRÍTICA: Redacta 2 actividades prácticas, creativas y específicas. Es ESTRICTAMENTE OBLIGATORIO que el tipo de actividades correspondan EXACTAMENTE a la naturaleza y "Guía de acción pedagógica" de esta fase específica que te pasé arriba. 
+      (Por ejemplo: Si la fase es de planificar, haz que los alumnos organicen y acuerden; si es de indagación, ponlos a investigar; si es de cierre, ponlos a reflexionar y socializar el producto). Adapta el contenido y PDA para que se trabajen exclusivamente mediante las acciones que dicta esta fase en particular.
+      
       Reglas de formato obligatorio:
       1. NO uses asteriscos dobles (**) para negritas.
       2. Inicia el título de cada actividad con una viñeta (•) en mayúsculas.
