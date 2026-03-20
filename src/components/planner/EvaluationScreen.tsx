@@ -93,36 +93,42 @@ export const EvaluationScreen = ({ projectData, plannedItems, actividades, onBac
       const pdaText = plannedItems.filter(i => i.type === 'pda').map(i => i.text).join(", ") || "el tema central del proyecto";
       const contenidoText = plannedItems.filter(i => i.type === 'content').map(i => i.text).join(", ") || "los contenidos de la clase";
 
-      let prompt = `Eres un experto pedagogo de la Nueva Escuela Mexicana (NEM). Ayuda al docente a diseñar su instrumento de Evaluación Formativa.
+      // NUEVO: Regla estricta global para forzar a la IA a respetar las cantidades exactas
+      let prompt = `Eres un experto pedagogo y diseñador de evaluación formativa de la Nueva Escuela Mexicana (NEM). 
+      
+      🚨 REGLA ESTRICTA E INQUEBRANTABLE: 
+      Tu respuesta debe contener EXACTAMENTE la cantidad de elementos (criterios o preguntas) que se te solicitan en la Instrucción. Ni uno más, ni uno menos. No incluyas saludos, introducciones ni conclusiones. 
+      
       Tema/PDA a evaluar: ${pdaText}
       Contenidos: ${contenidoText}\n\n`;
 
       if (activeTab === 'Listas de cotejo') {
-        prompt += `Instrucción: Genera exactamente 5 indicadores observables y directos para una "Lista de Cotejo" (deben poder responderse con Sí/No o Lo Logró/En Proceso). 
-        Devuelve SOLO las 5 frases separadas por un salto de línea, sin viñetas ni números al inicio.`;
+        prompt += `Instrucción: Genera EXACTAMENTE 5 indicadores observables y directos para una "Lista de Cotejo" (deben poder responderse con Sí/No o Lo Logró/En Proceso). 
+        Devuelve ÚNICAMENTE las 5 frases separadas por un salto de línea, sin viñetas ni números al inicio.`;
       } else if (activeTab === 'Guías de observación') {
-        prompt += `Instrucción: Genera exactamente 5 aspectos actitudinales y procedimentales a observar en los estudiantes para una "Guía de Observación". 
-        Devuelve SOLO las 5 frases separadas por un salto de línea, sin viñetas ni números al inicio.`;
+        prompt += `Instrucción: Genera EXACTAMENTE 5 aspectos actitudinales y procedimentales a observar en los estudiantes para una "Guía de Observación". 
+        Devuelve ÚNICAMENTE las 5 frases separadas por un salto de línea, sin viñetas ni números al inicio.`;
       } else if (activeTab === 'Escalas estimativas') {
-        prompt += `Instrucción: Genera exactamente 5 criterios de desempeño o rasgos de aprendizaje para una "Escala Estimativa" (que se medirán con frecuencias como Siempre, A veces, Nunca). 
-        Devuelve SOLO las 5 frases separadas por un salto de línea, sin viñetas ni números al inicio.`;
+        prompt += `Instrucción: Genera EXACTAMENTE 5 criterios de desempeño o rasgos de aprendizaje para una "Escala Estimativa" (que se medirán con frecuencias como Siempre, A veces, Nunca). 
+        Devuelve ÚNICAMENTE las 5 frases separadas por un salto de línea, sin viñetas ni números al inicio.`;
       } else if (activeTab === 'Rúbricas') {
-        prompt += `Instrucción: Genera exactamente 3 criterios pedagógicos para una "Rúbrica". Para cada criterio redacta 4 niveles de desempeño de mayor a menor calidad.
-        DEBES DEVOLVER ESTRICTAMENTE ESTE FORMATO POR LÍNEA, SEPARANDO LOS NIVELES CON TRES BARRAS VERTICALES (|||):
+        prompt += `Instrucción: Genera EXACTAMENTE 5 criterios pedagógicos para una "Rúbrica". Para cada criterio redacta 4 niveles de desempeño de mayor a menor calidad.
+        DEBES DEVOLVER ESTRICTAMENTE ESTE FORMATO (UNA SOLA LÍNEA POR CADA UNO DE LOS 5 CRITERIOS), SEPARANDO LOS NIVELES CON TRES BARRAS VERTICALES (|||):
         Nombre del Criterio a evaluar ||| Descripción del Nivel Sobresaliente ||| Descripción del Nivel Satisfactorio ||| Descripción del Nivel Suficiente ||| Descripción del Nivel Requiere Apoyo
-        Devuelve solo las 3 líneas, separadas por un salto de línea.`;
+        Devuelve ÚNICAMENTE 5 líneas en total (una por cada criterio). SIN viñetas ni números al inicio.`;
       } else if (activeTab === 'Cuestionarios') {
-        prompt += `Instrucción: Redacta 5 preguntas abiertas, reflexivas y contextualizadas a la realidad del alumno relacionadas con el tema. 
-        Evita formatos de opción múltiple. Enumera las preguntas.`;
+        prompt += `Instrucción: Redacta EXACTAMENTE 10 preguntas abiertas, reflexivas y contextualizadas a la realidad del alumno relacionadas con el tema. 
+        Evita formatos de opción múltiple. Enumera las preguntas del 1 al 10.`;
       } else if (activeTab === 'Exámenes escritos') {
         if (examFormat === 'multiple') {
-          prompt += `Instrucción: Redacta 5 preguntas de OPCIÓN MÚLTIPLE relacionadas con el tema. 
-          Cada pregunta debe tener 4 incisos (a, b, c, d). Enumera las preguntas. 
-          Al final del examen, incluye una pequeña clave de respuestas correcta.`;
+          prompt += `Instrucción: Redacta EXACTAMENTE 10 preguntas de OPCIÓN MÚLTIPLE relacionadas con el tema. 
+          Cada pregunta debe estar enumerada del 1 al 10 y tener 4 incisos (a, b, c, d). 
+          Al final del examen, incluye una pequeña clave de respuestas correctas.`;
         } else {
-          prompt += `Instrucción: Redacta 5 preguntas ABIERTAS y de desarrollo, reflexivas y contextualizadas a la realidad del alumno relacionadas con el tema. 
-          Evita formatos de opción múltiple. Enumera las preguntas.`;
+          prompt += `Instrucción: Redacta EXACTAMENTE 10 preguntas ABIERTAS y de desarrollo, reflexivas y contextualizadas a la realidad del alumno relacionadas con el tema. 
+          Evita formatos de opción múltiple. Enumera las preguntas del 1 al 10.`;
         }
+      }
       }
 
       const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`, {
