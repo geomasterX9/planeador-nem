@@ -123,33 +123,32 @@ export const SequenceScreen = ({ projectData, plannedItems, actividades, setActi
       const guiaFase = faseActualObjeto ? (faseActualObjeto.guia || "").replace('{{PDA}}', pdaDestacado) : "";
       const descFase = faseActualObjeto ? faseActualObjeto.desc : "";
       
-      const prompt = `Eres un experto pedagogo de la Nueva Escuela Mexicana (NEM). Actúa como un asesor que ayuda a un docente a redactar actividades detalladas para su secuencia didáctica.
-      
-      Datos del proyecto:
-      - Campo Formativo: ${campoActual}
-      - Disciplina: ${plannedItems.length > 0 ? plannedItems[0].disciplina : "General"}
+      const prompt = `Eres un experto pedagogo de la Nueva Escuela Mexicana (NEM). Actúa como un asesor que ayuda a un docente a redactar actividades detalladas para su secuencia didáctica.const prompt = `Eres un experto pedagogo y diseñador curricular de la Nueva Escuela Mexicana (NEM). 
+
+      🚨 REGLA DE ORO INQUEBRANTABLE: 
+      La FASE METODOLÓGICA dicta las acciones. El Contenido/PDA es solo el pretexto o tema de fondo. 
+      - Si la fase dice "Planificación", los alumnos NO deben resolver el problema aún, deben organizarse y planear. 
+      - Si la fase es "Presentemos", solo deben sensibilizarse o leer el problema, no investigarlo aún.
+      - Si la fase es de "Cierre/Evaluación", deben reflexionar y socializar, no aprender conceptos nuevos.
+
+      📌 CONTEXTO METODOLÓGICO ESTRICTO (ESTO ES LO MÁS IMPORTANTE):
       - Metodología: ${projectData.estrategia || "Libre"}
-      - Contenido a tratar: ${contenidoDestacado}
+      - Fase o Momento actual: ${faseTitulo}
+      - Objetivo oficial de esta fase: ${descFase}
+      - Instrucción pedagógica obligatoria para esta fase: ${guiaFase}
+
+      📚 TEMA DE FONDO (Aplicar las acciones de la fase a este tema):
+      - Campo Formativo: ${campoActual}
+      - Contenido: ${contenidoDestacado}
       - PDA (Proceso de Desarrollo de Aprendizaje): ${pdaDestacado}
       
-      *** CONTEXTO METODOLÓGICO DE LA FASE ACTUAL ***
-      - Fase o Momento: ${faseTitulo}
-      - Descripción oficial de la fase: ${descFase}
-      - Guía de acción pedagógica: ${guiaFase}
-      
-      Instrucción CRÍTICA: Redacta 2 actividades prácticas, creativas y específicas. Es ESTRICTAMENTE OBLIGATORIO que el tipo de actividades correspondan EXACTAMENTE a la naturaleza y "Guía de acción pedagógica" de esta fase específica que te pasé arriba. 
-      (Por ejemplo: Si la fase es de planificar, haz que los alumnos organicen y acuerden; si es de indagación, ponlos a investigar; si es de cierre, ponlos a reflexionar y socializar el producto). Adapta el contenido y PDA para que se trabajen exclusivamente mediante las acciones que dicta esta fase en particular.
+      INSTRUCCIÓN: Redacta 2 actividades prácticas y específicas que CUMPLAN AL 100% con la "Instrucción pedagógica obligatoria" de esta fase.
       
       Reglas de formato obligatorio:
       1. NO uses asteriscos dobles (**) para negritas.
       2. Inicia el título de cada actividad con una viñeta (•) en mayúsculas.
-      3. Debajo del título, describe brevemente qué hará el alumno y qué hará el maestro.
-      4. Al final de tu respuesta, agrega una línea que diga EXACTAMENTE la palabra "RECURSOS:" seguida de una lista de 3 o 4 materiales o recursos didácticos necesarios para esta actividad (separados por comas).
-      
-      Ejemplo de formato:
-      • TITULO DE LA ACTIVIDAD:
-      Descripción clara y directa...
-      RECURSOS: Cuaderno, proyector, Libro de Texto, papel bond.`;
+      3. Debajo del título, describe claramente qué hará el alumno y cómo mediará el maestro, respetando la fase.
+      4. Al final de tu respuesta, agrega una línea que diga EXACTAMENTE la palabra "RECURSOS:" seguida de una lista de 3 o 4 materiales necesarios (separados por comas).`;
 
       const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`, {
         method: 'POST',
