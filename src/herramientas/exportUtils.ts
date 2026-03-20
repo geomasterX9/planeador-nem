@@ -50,7 +50,13 @@ const getDefaultActivity = (idx: number, pdaText: string) => {
 };
 
 export const exportToWord = async (projectData: any, plannedItems: any[], actividades: Record<string, string>, evaluationData: any) => {
-    
+    // NUEVO: LEER LOS RECURSOS DESDE LA SESIÓN
+    let recursos: Record<string, string> = {};
+    try {
+        const savedRecursos = sessionStorage.getItem('planeador_recursos');
+        if (savedRecursos) recursos = JSON.parse(savedRecursos);
+    } catch(e) { console.error("Error leyendo recursos", e); }
+
     const disciplinaText = plannedItems.length > 0 ? plannedItems[0].disciplina : "General";
     const campoActual = determinarCampo(disciplinaText);
     
@@ -140,7 +146,12 @@ export const exportToWord = async (projectData: any, plannedItems: any[], activi
         });
         rowChildren.push(new TableCell({ children: actParrafos }));
 
-        rowChildren.push(new TableCell({ children: [pBold("LTG, Libreta, Material de papelería.", 16, AlignmentType.CENTER)], verticalAlign: VerticalAlign.CENTER }));
+        // NUEVO: Imprimir el recurso de esta fase (o uno por defecto)
+        let recText = (recursos && recursos[fase.id]) ? recursos[fase.id] : "LTG, Libreta, Material de papelería.";
+        const recParrafos = recText.split('\n').map(line => {
+            return new Paragraph({ children: [new TextRun({ text: line, size: 14 })], alignment: AlignmentType.CENTER, spacing: { after: 60 } });
+        });
+        rowChildren.push(new TableCell({ children: recParrafos, verticalAlign: VerticalAlign.CENTER }));
 
         mainTableRows.push(new TableRow({ children: rowChildren }));
     });

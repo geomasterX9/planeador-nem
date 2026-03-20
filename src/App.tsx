@@ -52,25 +52,6 @@ function App() {
   }, []);
 
   // Guardar cambios
-  // Cargar datos guardados
-  useEffect(() => {
-    try {
-      localStorage.removeItem('planeador_data');
-      localStorage.removeItem('planeador_items');
-
-      const savedData = sessionStorage.getItem('planeador_data');
-      const savedItems = sessionStorage.getItem('planeador_items');
-      const savedRecursos = sessionStorage.getItem('planeador_recursos'); // NUEVO
-
-      if (savedData) setProjectData(JSON.parse(savedData));
-      if (savedItems) setPlannedItems(JSON.parse(savedItems));
-      if (savedRecursos) setRecursos(JSON.parse(savedRecursos)); // NUEVO
-    } catch (error) {
-      console.error("Error al cargar datos:", error);
-    }
-  }, []);
-
-  // Guardar cambios
   useEffect(() => {
     sessionStorage.setItem('planeador_data', JSON.stringify(projectData));
     sessionStorage.setItem('planeador_items', JSON.stringify(plannedItems));
@@ -180,11 +161,11 @@ function App() {
         plannedItems={plannedItems}
         actividades={actividades}
         setActividades={setActividades}
-        recursos={recursos}         // NUEVO
-        setRecursos={setRecursos}   // NUEVO
-        onBack={() => setScreen('lienzo')}
-        onGoToEvaluation={() => setScreen('evaluacion')}
-/>
+        recursos={recursos}         
+        setRecursos={setRecursos}   
+        onBack={() => setCurrentView('planner')} // ¡AQUÍ ESTABA EL ERROR!
+        onGoToEvaluation={() => setCurrentView('evaluation')} // ¡AQUÍ TAMBIÉN!
+      />
     );
   }
 
