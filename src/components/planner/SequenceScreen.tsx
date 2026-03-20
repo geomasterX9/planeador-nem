@@ -3,46 +3,47 @@ import { ArrowLeft, BookOpen, Layers, FileText, X, Check, Clipboard, GraduationC
 import librosData from '../../data/librosData.json';
 
 // --- INICIO DEL DICCIONARIO NEM ---
-const fasesMetodologias: Record<string, { id: string, titulo: string, desc: string }[]> = {
+// --- INICIO DEL DICCIONARIO NEM ---
+const fasesMetodologias: Record<string, { id: string, titulo: string, desc: string, guia: string }[]> = {
   "Aprendizaje basado en proyectos comunitarios": [
-    { id: 'f1', titulo: 'Identificación', desc: 'Momento 1. Proponer planteamientos genuinos.' },
-    { id: 'f2', titulo: 'Recuperación', desc: 'Momento 2. Vinculación de conocimientos previos.' },
-    { id: 'f3', titulo: 'Planificación', desc: 'Momento 3. Negociación de los pasos a seguir.' },
-    { id: 'f4', titulo: 'Acercamiento', desc: 'Momento 4. Exploración del problema a resolver.' },
-    { id: 'f5', titulo: 'Comprensión y producción', desc: 'Momento 5. Analizar aspectos y experimentar.' },
-    { id: 'f6', titulo: 'Reconocimiento', desc: 'Momento 6. Identificar avances y dificultades.' },
-    { id: 'f7', titulo: 'Concreción', desc: 'Momento 7. Primera versión del producto.' },
-    { id: 'f8', titulo: 'Integración', desc: 'Momento 8. Intercambio y retroalimentación.' },
-    { id: 'f9', titulo: 'Difusión', desc: 'Momento 9. Presentación del producto al aula.' },
-    { id: 'f10', titulo: 'Consideraciones', desc: 'Momento 10. Seguimiento y evaluación del impacto.' },
-    { id: 'f11', titulo: 'Avances', desc: 'Momento 11. Toma de decisiones y mejora.' }
+    { id: 'f1', titulo: 'Identificación', desc: 'Momento 1. Proponer planteamientos genuinos.', guia: '• LECTURA DE LA REALIDAD:\nProponer planteamientos para identificar la problemática general vinculada a: "{{PDA}}".' },
+    { id: 'f2', titulo: 'Recuperación', desc: 'Momento 2. Vinculación de conocimientos previos.', guia: '• DIÁLOGO:\nVincular conocimientos previos sobre el contenido a desarrollar.' },
+    { id: 'f3', titulo: 'Planificación', desc: 'Momento 3. Negociación de los pasos a seguir.', guia: '• ACUERDOS:\nNegociar las acciones del proyecto (producciones, tiempos, tipos de acción).' },
+    { id: 'f4', titulo: 'Acercamiento', desc: 'Momento 4. Exploración del problema a resolver.', guia: '• EXPLORACIÓN:\nFormular una primera aproximación a las diversas facetas del problema a resolver.' },
+    { id: 'f5', titulo: 'Comprensión y producción', desc: 'Momento 5. Analizar aspectos y experimentar.', guia: '• ACCIONES EN MARCHA:\nRealizar las producciones necesarias, haciendo las experimentaciones y revisiones pertinentes.' },
+    { id: 'f6', titulo: 'Reconocimiento', desc: 'Momento 6. Identificar avances y dificultades.', guia: '• PAUSA REFLEXIVA:\nIdentificar los avances y las dificultades en el proceso. Realizar ajustes.' },
+    { id: 'f7', titulo: 'Concreción', desc: 'Momento 7. Primera versión del producto.', guia: '• PROTOTIPO:\nDesarrollar una primera versión del producto planteado.' },
+    { id: 'f8', titulo: 'Integración', desc: 'Momento 8. Intercambio y retroalimentación.', guia: '• RETROALIMENTACIÓN:\nIntercambiar producciones, explicar lo que hicieron y recibir opiniones.' },
+    { id: 'f9', titulo: 'Difusión', desc: 'Momento 9. Presentación del producto al aula.', guia: '• PRESENTACIÓN:\nMostrar el producto final al aula para dar cuenta de cómo se resolvió la problemática.' },
+    { id: 'f10', titulo: 'Consideraciones', desc: 'Momento 10. Seguimiento y evaluación del impacto.', guia: '• SEGUIMIENTO:\nDar seguimiento y recibir opiniones sobre el impacto del producto en los escenarios.' },
+    { id: 'f11', titulo: 'Avances', desc: 'Momento 11. Toma de decisiones y mejora.', guia: '• TOMA DE DECISIONES:\nAnalizar la retroalimentación recibida para mejorar en proyectos futuros.' }
   ],
   "Aprendizaje basado en indagación (STEAM como enfoque)": [
-    { id: 'f1', titulo: 'Introducción al tema', desc: 'Fase 1. Uso de conocimientos previos e identificación de la problemática.' },
-    { id: 'f2', titulo: 'Diseño de investigación', desc: 'Fase 2. Desarrollo de la indagación.' },
-    { id: 'f3', titulo: 'Organizar y estructurar', desc: 'Fase 3. Respuestas a las preguntas específicas de indagación.' },
-    { id: 'f4', titulo: 'Presentación de resultados', desc: 'Fase 4. Presentación y aplicación.' },
-    { id: 'f5', titulo: 'Metacognición', desc: 'Fase 5. Reflexión sobre lo realizado.' }
+    { id: 'f1', titulo: 'Introducción al tema', desc: 'Fase 1. Uso de conocimientos previos e identificación de la problemática.', guia: '• SABERES PREVIOS:\nIntroducir el tema y usar conocimientos previos para generar disonancia. Identificar la problemática de: "{{PDA}}".' },
+    { id: 'f2', titulo: 'Diseño de investigación', desc: 'Fase 2. Desarrollo de la indagación.', guia: '• PLANIFICACIÓN Y DISEÑO:\nAcordar: ¿Qué se va a hacer?, ¿quién?, ¿cómo?, ¿cuándo?, ¿dónde? y ¿con qué?' },
+    { id: 'f3', titulo: 'Organizar y estructurar', desc: 'Fase 3. Respuestas a las preguntas específicas de indagación.', guia: '• ANÁLISIS DE DATOS:\nOrganizar e interpretar datos, sintetizar ideas y clarificar conceptos.' },
+    { id: 'f4', titulo: 'Presentación de resultados', desc: 'Fase 4. Presentación y aplicación.', guia: '• SOCIALIZACIÓN:\nPresentar los resultados de indagación y elaborar propuestas de acción para resolver el problema.' },
+    { id: 'f5', titulo: 'Metacognición', desc: 'Fase 5. Reflexión sobre lo realizado.', guia: '• REFLEXIÓN:\nReflexionar sobre todo lo realizado: planes, actuaciones, logros y dificultades.' }
   ],
   "Aprendizaje Basado en Problemas (ABP)": [
-    { id: 'f1', titulo: 'Presentemos', desc: '1. Plantea la reflexión inicial.' },
-    { id: 'f2', titulo: 'Recolectemos', desc: '2. Exploran y recuperan saberes.' },
-    { id: 'f3', titulo: 'Formulemos el problema', desc: '3. Determina con claridad el problema.' },
-    { id: 'f4', titulo: 'Organicemos la experiencia', desc: '4. Ruta de trabajo y proceso de indagación.' },
-    { id: 'f5', titulo: 'Vivamos la experiencia', desc: '5. Indagación documental o vivencial.' },
-    { id: 'f6', titulo: 'Resultados y análisis', desc: '6. Divulgación y evaluación de aprendizajes.' }
+    { id: 'f1', titulo: 'Presentemos', desc: '1. Plantea la reflexión inicial.', guia: '• REFLEXIÓN INICIAL:\nIntroducir el escenario mediante una imagen o lectura breve vinculada a: "{{PDA}}".' },
+    { id: 'f2', titulo: 'Recolectemos', desc: '2. Exploran y recuperan saberes.', guia: '• EXPLORACIÓN:\nExplorar y recuperar de manera general los saberes previos respecto a la temática.' },
+    { id: 'f3', titulo: 'Formulemos el problema', desc: '3. Determina con claridad el problema.', guia: '• DEFINICIÓN:\nDeterminar con claridad el problema sobre el cual se trabajará y las inquietudes de los alumnos.' },
+    { id: 'f4', titulo: 'Organicemos la experiencia', desc: '4. Ruta de trabajo y proceso de indagación.', guia: '• RUTA DE TRABAJO:\nPlantear la ruta de indagación (objetivos, acuerdos, medios, recursos y tiempo).' },
+    { id: 'f5', titulo: 'Vivamos la experiencia', desc: '5. Indagación documental o vivencial.', guia: '• INDAGACIÓN:\nGuiar la indagación documental o vivencial para aportar elementos que lleven a comprender e intervenir el problema.' },
+    { id: 'f6', titulo: 'Resultados y análisis', desc: '6. Divulgación y evaluación de aprendizajes.', guia: '• CIERRE:\nRetomar el problema inicial, presentar los aprendizajes obtenidos y divulgar los resultados.' }
   ],
   "Aprendizaje Servicio (AS)": [
-    { id: 'f1', titulo: 'Punto de partida', desc: 'Etapa 1. Interés o necesidad de la comunidad.' },
-    { id: 'f2', titulo: 'Lo que sé y lo que quiero saber', desc: 'Etapa 2. Actividades de análisis y debates.' },
-    { id: 'f3', titulo: 'Organicemos las actividades', desc: 'Etapa 3. Herramientas básicas de planificación.' },
-    { id: 'f4', titulo: 'Creatividad en marcha', desc: 'Etapa 4. Puesta en práctica de lo planificado.' },
-    { id: 'f5', titulo: 'Compartimos y evaluamos lo aprendido', desc: 'Etapa 5. Evaluación de resultados y servicio.' }
+    { id: 'f1', titulo: 'Punto de partida', desc: 'Etapa 1. Interés o necesidad de la comunidad.', guia: '• SENSIBILIZACIÓN:\nPartir del interés de los alumnos o necesidad de la comunidad vinculada a: "{{PDA}}".' },
+    { id: 'f2', titulo: 'Lo que sé y lo que quiero saber', desc: 'Etapa 2. Actividades de análisis y debates.', guia: '• DIAGNÓSTICO:\nRecabar información, identificar recursos y establecer vínculos con la familia/comunidad.' },
+    { id: 'f3', titulo: 'Organicemos las actividades', desc: 'Etapa 3. Herramientas básicas de planificación.', guia: '• PLANIFICACIÓN:\nArticular la intención pedagógica con el servicio (¿Qué? ¿Por qué? ¿Para qué? ¿A quiénes?).' },
+    { id: 'f4', titulo: 'Creatividad en marcha', desc: 'Etapa 4. Puesta en práctica de lo planificado.', guia: '• PUESTA EN PRÁCTICA:\nMonitorear las actividades planificadas, los espacios y tiempos. Desarrollar el servicio.' },
+    { id: 'f5', titulo: 'Compartimos y evaluamos lo aprendido', desc: 'Etapa 5. Evaluación de resultados y servicio.', guia: '• EVALUACIÓN FINAL:\nEvaluar el cumplimiento de los objetivos y reflexionar sobre el logro del proyecto.' }
   ],
   "Secuencia didáctica": [
-    { id: 'f1', titulo: 'Inicio', desc: 'Activación de conocimientos previos y motivación.' },
-    { id: 'f2', titulo: 'Desarrollo', desc: 'Construcción del aprendizaje y práctica.' },
-    { id: 'f3', titulo: 'Cierre', desc: 'Síntesis, evaluación y retroalimentación.' }
+    { id: 'f1', titulo: 'Inicio', desc: 'Activación de conocimientos previos y motivación.', guia: '• ACTIVACIÓN:\nRecuperar saberes previos y presentar el propósito (PDA: "{{PDA}}").\n\n• MOTIVACIÓN:\nGenerar interés mediante una pregunta detonadora o situación breve.' },
+    { id: 'f2', titulo: 'Desarrollo', desc: 'Construcción del aprendizaje y práctica.', guia: '• CONSTRUCCIÓN DEL APRENDIZAJE:\nImplementar actividades prácticas o investigación.\n\n• ROL DEL DOCENTE:\nAcompañar, mediar y orientar el proceso.' },
+    { id: 'f3', titulo: 'Cierre', desc: 'Síntesis, evaluación y retroalimentación.', guia: '• SÍNTESIS:\nRecapitular lo aprendido y socializar resultados.\n\n• EVALUACIÓN FORMATIVA:\nReflexionar sobre las dificultades y logros obtenidos.' }
   ]
 };
 // --- FIN DEL DICCIONARIO NEM ---
@@ -93,27 +94,24 @@ export const SequenceScreen = ({ projectData, plannedItems, actividades, setActi
 
   const fases = obtenerFases(projectData.estrategia);
 
+  // Carga las sugerencias predeterminadas basadas en la metodología elegida
   useEffect(() => {
+    // Si el usuario ya escribió algo, no lo sobreescribimos
     if (Object.keys(actividades).length > 0) return;
 
+    // Extraemos el PDA para personalizar el texto
     const pdaDestacado = plannedItems.find(item => item.type === 'pda')?.text || "el tema central definido en el proyecto";
-    let gradoActual = Number(projectData.grado) || 1;
-    if (plannedItems.length > 0) {
-      gradoActual = plannedItems[0].grado;
-      setFiltroGrado(gradoActual);
-    }
-
+    
     const sugerencias: Record<string, string> = {};
-    fases.forEach((fase, idx) => {
-      if (idx === 0) sugerencias[fase.id] = `• LECTURA DE LA REALIDAD:\nPresentar a todos los estudiantes la problemática vinculada a: "${pdaDestacado}".\n\n• DIÁLOGO:\nLluvia de ideas o preguntas detonadoras.`;
-      else if (idx === 1) sugerencias[fase.id] = `• ACUERDOS:\nOrganizar a todos los estudiantes en comunidades.\n\n• ACCIONES:\nDefinir qué información necesitamos investigar.`;
-      else if (idx === 2) sugerencias[fase.id] = `• ACCIONES EN MARCHA:\nImplementar actividades prácticas guiándose con el proyecto. El docente funge como guía.`;
-      else if (idx === 3) sugerencias[fase.id] = `• SISTEMATIZACIÓN:\nTodos organizan la información recabada y elaboran su primer borrador o prototipo.`;
-      else if (idx === 4) sugerencias[fase.id] = `• SOCIALIZACIÓN:\nPresentación del producto final ante la asamblea.`;
-      else if (idx === 5) sugerencias[fase.id] = `• EVALUACIONES:\nValoración cualitativa en asamblea. Promover la Autoevaluación y reflexión final.`;
+    
+    // Iteramos sobre las fases correctas e inyectamos la guía mapeada
+    fases.forEach((fase) => {
+      // Reemplazamos la etiqueta {{PDA}} por el texto real seleccionado por el docente
+      sugerencias[fase.id] = (fase.guia || "").replace('{{PDA}}', pdaDestacado);
     });
+    
     setActividades(sugerencias);
-  }, [plannedItems, campoActual, projectData.grado, actividades, setActividades]); 
+  }, [plannedItems, fases, actividades, setActividades]); 
 
   const generateAIActivity = async (faseId: string, faseTitulo: string) => {
     const apiKey = import.meta.env.VITE_GEMINI_API_KEY; 
