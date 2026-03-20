@@ -25,36 +25,57 @@ function App() {
   const [plannedItems, setPlannedItems] = useState<any[]>([]);
   const [activeItem, setActiveItem] = useState<any>(null);
   const [actividades, setActividades] = useState<Record<string, string>>({});
-  
+  const [recursos, setRecursos] = useState<Record<string, string>>({});
+
   const [selectedCampoIndex, setSelectedCampoIndex] = useState(0); 
   const [selectedDisciplinaIndex, setSelectedDisciplinaIndex] = useState(0); 
   const [selectedGrado, setSelectedGrado] = useState(1); 
 
   const [showMobileSidebar, setShowMobileSidebar] = useState(false);
 
-  // Cargar datos guardados (Ahora usa sessionStorage)
+  // Cargar datos guardados
   useEffect(() => {
     try {
-      // Limpieza de seguridad: Borramos cualquier rastro viejo de localStorage 
-      // para los docentes que ya se les había quedado pegado el caché anterior.
       localStorage.removeItem('planeador_data');
       localStorage.removeItem('planeador_items');
 
-      // Leemos de la sesión actual
       const savedData = sessionStorage.getItem('planeador_data');
       const savedItems = sessionStorage.getItem('planeador_items');
+      const savedRecursos = sessionStorage.getItem('planeador_recursos'); // NUEVO
+
       if (savedData) setProjectData(JSON.parse(savedData));
       if (savedItems) setPlannedItems(JSON.parse(savedItems));
+      if (savedRecursos) setRecursos(JSON.parse(savedRecursos)); // NUEVO
     } catch (error) {
       console.error("Error al cargar datos:", error);
     }
   }, []);
 
-  // Guardar cambios (Ahora usa sessionStorage)
+  // Guardar cambios
+  // Cargar datos guardados
+  useEffect(() => {
+    try {
+      localStorage.removeItem('planeador_data');
+      localStorage.removeItem('planeador_items');
+
+      const savedData = sessionStorage.getItem('planeador_data');
+      const savedItems = sessionStorage.getItem('planeador_items');
+      const savedRecursos = sessionStorage.getItem('planeador_recursos'); // NUEVO
+
+      if (savedData) setProjectData(JSON.parse(savedData));
+      if (savedItems) setPlannedItems(JSON.parse(savedItems));
+      if (savedRecursos) setRecursos(JSON.parse(savedRecursos)); // NUEVO
+    } catch (error) {
+      console.error("Error al cargar datos:", error);
+    }
+  }, []);
+
+  // Guardar cambios
   useEffect(() => {
     sessionStorage.setItem('planeador_data', JSON.stringify(projectData));
     sessionStorage.setItem('planeador_items', JSON.stringify(plannedItems));
-  }, [projectData, plannedItems]);
+    sessionStorage.setItem('planeador_recursos', JSON.stringify(recursos)); // NUEVO
+  }, [projectData, plannedItems, recursos]);
 
   const handleDataChange = (field: string, value: any) => setProjectData(prev => ({ ...prev, [field]: value }));
   
@@ -155,13 +176,15 @@ function App() {
   if (currentView === 'sequence') {
     return (
       <SequenceScreen 
-        projectData={projectData} 
-        plannedItems={plannedItems} 
+        projectData={projectData}
+        plannedItems={plannedItems}
         actividades={actividades}
         setActividades={setActividades}
-        onBack={() => setCurrentView('planner')} 
-        onGoToEvaluation={() => setCurrentView('evaluation')} 
-      />
+        recursos={recursos}         // NUEVO
+        setRecursos={setRecursos}   // NUEVO
+        onBack={() => setScreen('lienzo')}
+        onGoToEvaluation={() => setScreen('evaluacion')}
+/>
     );
   }
 

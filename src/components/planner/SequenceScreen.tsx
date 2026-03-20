@@ -53,11 +53,13 @@ interface SequenceScreenProps {
   plannedItems: any[];
   actividades: Record<string, string>;
   setActividades: React.Dispatch<React.SetStateAction<Record<string, string>>>;
+  recursos: Record<string, string>; // NUEVO
+  setRecursos: React.Dispatch<React.SetStateAction<Record<string, string>>>; // NUEVO
   onBack: () => void;
   onGoToEvaluation: () => void;
 }
 
-export const SequenceScreen = ({ projectData, plannedItems, actividades, setActividades, onBack, onGoToEvaluation }: SequenceScreenProps) => {
+export const SequenceScreen = ({ projectData, plannedItems, actividades, setActividades, recursos, setRecursos, onBack, onGoToEvaluation }: SequenceScreenProps) => {
   const [showLibrary, setShowLibrary] = useState(false);
   const [filtroGrado, setFiltroGrado] = useState(Number(projectData.grado) || 1);
   const [filtroCampo, setFiltroCampo] = useState('Lenguajes');
@@ -142,10 +144,12 @@ export const SequenceScreen = ({ projectData, plannedItems, actividades, setActi
       1. NO uses asteriscos dobles (**) para negritas.
       2. Inicia el título de cada actividad con una viñeta (•) en mayúsculas.
       3. Debajo del título, describe brevemente qué hará el alumno y qué hará el maestro.
+      4. Al final de tu respuesta, agrega una línea que diga EXACTAMENTE la palabra "RECURSOS:" seguida de una lista de 3 o 4 materiales o recursos didácticos necesarios para esta actividad (separados por comas).
       
       Ejemplo de formato:
       • TITULO DE LA ACTIVIDAD:
-      Descripción clara y directa...`;
+      Descripción clara y directa...
+      RECURSOS: Cuaderno, proyector, Libro de Texto, papel bond.`;
 
       const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`, {
         method: 'POST',
@@ -156,11 +160,27 @@ export const SequenceScreen = ({ projectData, plannedItems, actividades, setActi
       const data = await response.json();
       if (data.error) throw new Error(data.error.message);
       
-      const aiText = data.candidates[0].content.parts[0].text.replace(/\*\*/g, '');
+      // Extraemos el texto crudo de la respuesta
+      const rawText = data.candidates[0].content.parts[0].text;
       
+      // Separamos las actividades de los recursos buscando la palabra clave
+      const parts = rawText.split('RECURSOS:');
+      const actividadesText = parts[0].replace(/\*\*/g, '').trim();
+      
+      // Verificamos si la IA nos dio recursos. Si no, ponemos un genérico.
+      const recursosText = parts.length > 1 
+        ? parts[1].replace(/\*\*/g, '').trim() 
+        : "LTG, libreta, material de papelería";
+      
+      // Guardamos en sus respectivos estados
       setActividades(prev => ({
         ...prev,
-        [faseId]: aiText 
+        [faseId]: actividadesText 
+      }));
+
+      setRecursos(prev => ({
+        ...prev,
+        [faseId]: recursosText
       }));
 
     } catch (error) {
@@ -329,14 +349,32 @@ export const SequenceScreen = ({ projectData, plannedItems, actividades, setActi
                         )}
                       </div>
                     </div>
-                    <div className="relative pl-6 xl:pl-10 group/area">
+                    <div className="relative pl-6 xl:pl-10 group/area space-y-4">
                       <div className="absolute left-2 xl:left-3 top-2 bottom-2 w-px bg-slate-200 group-focus-within/area:bg-[#135bec] transition-colors"></div>
-                      <textarea 
-                        value={actividades[fase.id] || ''}
-                        onChange={(e) => setActividades({ ...actividades, [fase.id]: e.target.value })}
-                        className="w-full min-h-[240px] xl:min-h-[300px] text-slate-700 leading-relaxed text-xs lg:text-sm xl:text-[15px] outline-none border-b border-transparent focus:border-slate-200 pb-2 transition-all bg-transparent resize-y"
-                        placeholder="Redacta o edita las actividades aquí..."
-                      ></textarea>
+                      
+                      {/* CAJA 1: ACTIVIDADES */}
+                      <div className="flex flex-col">
+                        <textarea 
+                          value={actividades[fase.id] || ''}
+                          onChange={(e) => setActividades({ ...actividades, [fase.id]: e.target.value })}
+                          className="w-full min-h-[200px] xl:min-h-[260px] text-slate-700 leading-relaxed text-xs lg:text-sm xl:text-[15px] outline-none border-b border-transparent focus:border-slate-200 pb-2 transition-all bg-transparent resize-y"
+                          placeholder="Redacta o edita las actividades aquí..."
+                        ></textarea>
+                      </div>
+
+                      {/* CAJA 2: RECURSOS */}
+                      <div className="flex flex-col bg-slate-50 p-3 xl:p-4 rounded-xl border border-slate-200/60 focus-within:border-[#135bec]/30 focus-within:bg-[#135bec]/5 transition-colors">
+                        <label className="text-[10px] xl:text-xs font-bold text-slate-500 uppercase tracking-widest mb-2 flex items-center gap-1.5">
+                          <Layers size={14} className="text-[#135bec]" /> Recursos y Materiales para esta fase
+                        </label>
+                        <textarea 
+                          value={recursos[fase.id] || ''}
+                          onChange={(e) => setRecursos({ ...recursos, [fase.id]: e.target.value })}
+                          className="w-full min-h-[60px] text-slate-600 font-medium leading-relaxed text-xs xl:text-sm outline-none bg-transparent resize-y"
+                          placeholder="Ej. LTG Proyectos Escolares pág. 24, cartulina, marcadores, proyector..."
+                        ></textarea>
+                      </div>
+                    </div>
                     </div>
                   </section>
                 ))}
