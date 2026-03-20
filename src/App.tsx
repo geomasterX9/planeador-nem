@@ -32,11 +32,17 @@ function App() {
 
   const [showMobileSidebar, setShowMobileSidebar] = useState(false);
 
-  // Cargar datos guardados
+  // Cargar datos guardados (Ahora usa sessionStorage)
   useEffect(() => {
     try {
-      const savedData = localStorage.getItem('planeador_data');
-      const savedItems = localStorage.getItem('planeador_items');
+      // Limpieza de seguridad: Borramos cualquier rastro viejo de localStorage 
+      // para los docentes que ya se les había quedado pegado el caché anterior.
+      localStorage.removeItem('planeador_data');
+      localStorage.removeItem('planeador_items');
+
+      // Leemos de la sesión actual
+      const savedData = sessionStorage.getItem('planeador_data');
+      const savedItems = sessionStorage.getItem('planeador_items');
       if (savedData) setProjectData(JSON.parse(savedData));
       if (savedItems) setPlannedItems(JSON.parse(savedItems));
     } catch (error) {
@@ -44,10 +50,10 @@ function App() {
     }
   }, []);
 
-  // Guardar cambios
+  // Guardar cambios (Ahora usa sessionStorage)
   useEffect(() => {
-    localStorage.setItem('planeador_data', JSON.stringify(projectData));
-    localStorage.setItem('planeador_items', JSON.stringify(plannedItems));
+    sessionStorage.setItem('planeador_data', JSON.stringify(projectData));
+    sessionStorage.setItem('planeador_items', JSON.stringify(plannedItems));
   }, [projectData, plannedItems]);
 
   const handleDataChange = (field: string, value: any) => setProjectData(prev => ({ ...prev, [field]: value }));
