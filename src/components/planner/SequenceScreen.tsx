@@ -76,8 +76,22 @@ export const SequenceScreen = ({ projectData, plannedItems, actividades, setActi
   const campoActual = plannedItems.length > 0 ? determinarCampo(plannedItems[0].disciplina) : "Lenguajes";
 
   // Obtenemos las fases directamente de la metodología elegida. 
-  // Usamos "Secuencia didáctica" como fallback seguro por si viene vacío o no coincide.
-  const fases = fasesMetodologias[projectData.estrategia] || fasesMetodologias["Secuencia didáctica"];
+  
+  // Función evaluadora robusta para mapear la selección con el diccionario
+  const obtenerFases = (estrategia: string) => {
+    // Convertimos a minúsculas para evitar errores por mayúsculas/minúsculas
+    const est = (estrategia || "").toLowerCase();
+    
+    if (est.includes("comunitario")) return fasesMetodologias["Aprendizaje basado en proyectos comunitarios"];
+    if (est.includes("steam") || est.includes("indagación") || est.includes("indagacion")) return fasesMetodologias["Aprendizaje basado en indagación (STEAM como enfoque)"];
+    if (est.includes("problemas") || est.includes("abp")) return fasesMetodologias["Aprendizaje Basado en Problemas (ABP)"];
+    if (est.includes("servicio") || est.includes("as")) return fasesMetodologias["Aprendizaje Servicio (AS)"];
+    
+    // Si nada coincide (o si dice "Secuencia didáctica"), devuelve la secuencia por defecto
+    return fasesMetodologias["Secuencia didáctica"];
+  };
+
+  const fases = obtenerFases(projectData.estrategia);
 
   useEffect(() => {
     if (Object.keys(actividades).length > 0) return;
