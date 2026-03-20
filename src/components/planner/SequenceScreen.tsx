@@ -2,6 +2,51 @@ import React, { useState, useEffect } from 'react';
 import { ArrowLeft, BookOpen, Layers, FileText, X, Check, Clipboard, GraduationCap, Plus, LogOut, Settings, ChevronRight, Sparkles, PenTool } from 'lucide-react';
 import librosData from '../../data/librosData.json';
 
+// --- INICIO DEL DICCIONARIO NEM ---
+const fasesMetodologias: Record<string, { id: string, titulo: string, desc: string }[]> = {
+  "Aprendizaje basado en proyectos comunitarios": [
+    { id: 'f1', titulo: 'Identificación', desc: 'Momento 1. Proponer planteamientos genuinos.' },
+    { id: 'f2', titulo: 'Recuperación', desc: 'Momento 2. Vinculación de conocimientos previos.' },
+    { id: 'f3', titulo: 'Planificación', desc: 'Momento 3. Negociación de los pasos a seguir.' },
+    { id: 'f4', titulo: 'Acercamiento', desc: 'Momento 4. Exploración del problema a resolver.' },
+    { id: 'f5', titulo: 'Comprensión y producción', desc: 'Momento 5. Analizar aspectos y experimentar.' },
+    { id: 'f6', titulo: 'Reconocimiento', desc: 'Momento 6. Identificar avances y dificultades.' },
+    { id: 'f7', titulo: 'Concreción', desc: 'Momento 7. Primera versión del producto.' },
+    { id: 'f8', titulo: 'Integración', desc: 'Momento 8. Intercambio y retroalimentación.' },
+    { id: 'f9', titulo: 'Difusión', desc: 'Momento 9. Presentación del producto al aula.' },
+    { id: 'f10', titulo: 'Consideraciones', desc: 'Momento 10. Seguimiento y evaluación del impacto.' },
+    { id: 'f11', titulo: 'Avances', desc: 'Momento 11. Toma de decisiones y mejora.' }
+  ],
+  "Aprendizaje basado en indagación (STEAM como enfoque)": [
+    { id: 'f1', titulo: 'Introducción al tema', desc: 'Fase 1. Uso de conocimientos previos e identificación de la problemática.' },
+    { id: 'f2', titulo: 'Diseño de investigación', desc: 'Fase 2. Desarrollo de la indagación.' },
+    { id: 'f3', titulo: 'Organizar y estructurar', desc: 'Fase 3. Respuestas a las preguntas específicas de indagación.' },
+    { id: 'f4', titulo: 'Presentación de resultados', desc: 'Fase 4. Presentación y aplicación.' },
+    { id: 'f5', titulo: 'Metacognición', desc: 'Fase 5. Reflexión sobre lo realizado.' }
+  ],
+  "Aprendizaje Basado en Problemas (ABP)": [
+    { id: 'f1', titulo: 'Presentemos', desc: '1. Plantea la reflexión inicial.' },
+    { id: 'f2', titulo: 'Recolectemos', desc: '2. Exploran y recuperan saberes.' },
+    { id: 'f3', titulo: 'Formulemos el problema', desc: '3. Determina con claridad el problema.' },
+    { id: 'f4', titulo: 'Organicemos la experiencia', desc: '4. Ruta de trabajo y proceso de indagación.' },
+    { id: 'f5', titulo: 'Vivamos la experiencia', desc: '5. Indagación documental o vivencial.' },
+    { id: 'f6', titulo: 'Resultados y análisis', desc: '6. Divulgación y evaluación de aprendizajes.' }
+  ],
+  "Aprendizaje Servicio (AS)": [
+    { id: 'f1', titulo: 'Punto de partida', desc: 'Etapa 1. Interés o necesidad de la comunidad.' },
+    { id: 'f2', titulo: 'Lo que sé y lo que quiero saber', desc: 'Etapa 2. Actividades de análisis y debates.' },
+    { id: 'f3', titulo: 'Organicemos las actividades', desc: 'Etapa 3. Herramientas básicas de planificación.' },
+    { id: 'f4', titulo: 'Creatividad en marcha', desc: 'Etapa 4. Puesta en práctica de lo planificado.' },
+    { id: 'f5', titulo: 'Compartimos y evaluamos lo aprendido', desc: 'Etapa 5. Evaluación de resultados y servicio.' }
+  ],
+  "Secuencia didáctica": [
+    { id: 'f1', titulo: 'Inicio', desc: 'Activación de conocimientos previos y motivación.' },
+    { id: 'f2', titulo: 'Desarrollo', desc: 'Construcción del aprendizaje y práctica.' },
+    { id: 'f3', titulo: 'Cierre', desc: 'Síntesis, evaluación y retroalimentación.' }
+  ]
+};
+// --- FIN DEL DICCIONARIO NEM ---
+
 interface SequenceScreenProps {
   projectData: any;
   plannedItems: any[];
@@ -30,54 +75,9 @@ export const SequenceScreen = ({ projectData, plannedItems, actividades, setActi
 
   const campoActual = plannedItems.length > 0 ? determinarCampo(plannedItems[0].disciplina) : "Lenguajes";
 
-  const getFasesOficiales = (campo: string) => {
-    if (projectData.estrategia === 'Secuencia Didáctica') {
-      return [
-        { id: 'f1', titulo: 'Inicio', desc: 'Activación de conocimientos previos y motivación.' },
-        { id: 'f2', titulo: 'Desarrollo', desc: 'Construcción del aprendizaje y práctica.' },
-        { id: 'f3', titulo: 'Cierre', desc: 'Síntesis, evaluación y retroalimentación.' }
-      ];
-    }
-
-    switch (campo) {
-      case 'Lenguajes':
-        return [
-          { id: 'f1', titulo: 'Planificación', desc: 'Identificación de la situación y el producto.' },
-          { id: 'f2', titulo: 'Comprensión y producción', desc: 'Acercamiento y análisis del tema.' },
-          { id: 'f3', titulo: 'Reconocimiento', desc: 'Identificación de avances y dificultades.' },
-          { id: 'f4', titulo: 'Integración', desc: 'Ajustes y primeras versiones del producto.' },
-          { id: 'f5', titulo: 'Difusión', desc: 'Presentación del producto a la comunidad.' },
-          { id: 'f6', titulo: 'Consideración y avances', desc: 'Evaluación y retroalimentación.' }
-        ];
-      case 'Saberes y Pensamiento Científico':
-        return [
-          { id: 'f1', titulo: 'Diseño de la indagación', desc: '¡Aquí está el problema!' },
-          { id: 'f2', titulo: 'Busca y encuentra', desc: 'Desarrollo de la investigación.' },
-          { id: 'f3', titulo: 'Encuentra y aprende', desc: 'Organización de la información.' },
-          { id: 'f4', titulo: 'Construcción y comprobación', desc: 'Los caminos posibles.' },
-          { id: 'f5', titulo: 'Comunicación', desc: 'Ya lo tengo. Socialización.' },
-          { id: 'f6', titulo: 'Autorreflexión', desc: 'Valorando mis pasos.' }
-        ];
-      case 'Ética, Naturaleza y Sociedades':
-        return [
-          { id: 'f1', titulo: 'Propuestas a seguir', desc: 'Identificación de la problemática.' },
-          { id: 'f2', titulo: 'Organizamos los pasos', desc: 'Planificación de la acción.' },
-          { id: 'f3', titulo: 'Seguir el camino', desc: 'Desarrollo de la investigación.' },
-          { id: 'f4', titulo: 'Registro de experiencia', desc: 'Sistematización de lo vivido.' },
-          { id: 'f5', titulo: 'Valorando mis pasos', desc: 'Evaluación y reflexión.' }
-        ];
-      default:
-        return [
-          { id: 'f1', titulo: 'Sensibilización', desc: 'Lo que haremos (Punto de partida).' },
-          { id: 'f2', titulo: 'Lo que necesito saber', desc: 'Saberes previos y nueva info.' },
-          { id: 'f3', titulo: 'Organicemos las actividades', desc: 'Planificación de la acción.' },
-          { id: 'f4', titulo: 'Creatividad en marcha', desc: 'Puesta en práctica.' },
-          { id: 'f5', titulo: 'Compartimos y evaluamos', desc: 'Socialización de lo aprendido.' }
-        ];
-    }
-  };
-
-  const fases = getFasesOficiales(campoActual);
+  // Obtenemos las fases directamente de la metodología elegida. 
+  // Usamos "Secuencia didáctica" como fallback seguro por si viene vacío o no coincide.
+  const fases = fasesMetodologias[projectData.estrategia] || fasesMetodologias["Secuencia didáctica"];
 
   useEffect(() => {
     if (Object.keys(actividades).length > 0) return;
