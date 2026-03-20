@@ -52,8 +52,8 @@ interface SequenceScreenProps {
   plannedItems: any[];
   actividades: Record<string, string>;
   setActividades: React.Dispatch<React.SetStateAction<Record<string, string>>>;
-  recursos: Record<string, string>; 
-  setRecursos: React.Dispatch<React.SetStateAction<Record<string, string>>>; 
+  recursos: Record<string, string>;
+  setRecursos: React.Dispatch<React.SetStateAction<Record<string, string>>>;
   onBack: () => void;
   onGoToEvaluation: () => void;
 }
@@ -118,12 +118,12 @@ export const SequenceScreen = ({ projectData, plannedItems, actividades, setActi
       const pdaDestacado = plannedItems.find(item => item.type === 'pda')?.text || "tema general";
       const contenidoDestacado = plannedItems.find(item => item.type === 'content')?.text || "contenido base";
       
-      // NUEVO: Buscamos la fase exacta en nuestro diccionario para extraer sus reglas pedagógicas
       const faseActualObjeto = fases.find(f => f.id === faseId);
       const guiaFase = faseActualObjeto ? (faseActualObjeto.guia || "").replace('{{PDA}}', pdaDestacado) : "";
       const descFase = faseActualObjeto ? faseActualObjeto.desc : "";
-      
-      const prompt = `Eres un experto pedagogo de la Nueva Escuela Mexicana (NEM). Actúa como un asesor que ayuda a un docente a redactar actividades detalladas para su secuencia didáctica.const prompt = `Eres un experto pedagogo y diseñador curricular de la Nueva Escuela Mexicana (NEM). 
+
+      // PROMPT RESTAURADO PARA OBLIGAR A RESPETAR LAS FASES
+      const prompt = `Eres un experto pedagogo y diseñador curricular de la Nueva Escuela Mexicana (NEM). 
 
       🚨 REGLA DE ORO INQUEBRANTABLE: 
       La FASE METODOLÓGICA dicta las acciones. El Contenido/PDA es solo el pretexto o tema de fondo. 
@@ -157,9 +157,11 @@ export const SequenceScreen = ({ projectData, plannedItems, actividades, setActi
       });
 
       const data = await response.json();
-      if (data.error) throw new Error(data.error.message);
       
-      const rawText = data.candidates[0].content.parts[0].text;
+      if (data.error) throw new Error(`API de Google: ${data.error.message}`);
+      
+      const rawText = data.candidates?.[0]?.content?.parts?.[0]?.text;
+      if (!rawText) throw new Error("La IA no devolvió respuesta o fue bloqueada.");
       
       const parts = rawText.split('RECURSOS:');
       const actividadesText = parts[0].replace(/\*\*/g, '').trim();
@@ -178,9 +180,9 @@ export const SequenceScreen = ({ projectData, plannedItems, actividades, setActi
         [faseId]: recursosText
       }));
 
-    } catch (error) {
+    } catch (error: any) {
       console.error("Error AI:", error);
-      alert("Hubo un error al conectar con Gemini. Intenta de nuevo.");
+      alert(`FALLO EN LA GENERACIÓN:\n\n${error.message || 'Error desconocido'}\n\n💡 Nota: Si dice "429 Too Many Requests", significa que has superado el límite gratuito de Google (15 consultas por minuto). Espera 60 segundos e intenta de nuevo.`);
     } finally {
       setIsGenerating(null); 
     }
