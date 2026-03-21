@@ -230,8 +230,9 @@ export const SetupScreen = ({ data, onChange, onComplete }: SetupScreenProps) =>
                 </div>
               </div>
 
-              <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 mt-5">
-                <div className="lg:col-span-5">
+              {/* MAGIA RESPONSIVA APLICADA AQUÍ */}
+              <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-12 gap-5 mt-5">
+                <div className="md:col-span-1 xl:col-span-5">
                   <label className={labelClass}>Metodología Didáctica</label>
                    <select name="estrategia" value={safeData.estrategia || ''} onChange={handleChange} className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:bg-white focus:ring-2 focus:ring-[#135bec] outline-none text-slate-800 text-sm font-bold">
                       <option value="">Seleccione...</option>
@@ -243,7 +244,7 @@ export const SetupScreen = ({ data, onChange, onComplete }: SetupScreenProps) =>
                     </select>
                 </div>
 
-                <div className="lg:col-span-3">
+                <div className="md:col-span-1 xl:col-span-3">
                   <label className={labelClass}>Total Sesiones</label>
                   <div className="relative group">
                     <Clock className="absolute left-3.5 top-3.5 text-slate-400 group-focus-within:text-[#135bec] transition-colors" size={18} />
@@ -251,13 +252,13 @@ export const SetupScreen = ({ data, onChange, onComplete }: SetupScreenProps) =>
                   </div>
                 </div>
 
-                <div className="lg:col-span-4">
+                <div className="md:col-span-2 xl:col-span-4">
                   <label className={labelClass}>Periodo de Aplicación</label>
-                  <div className="flex items-center gap-1 bg-slate-50 rounded-xl border border-slate-200 p-2.5 focus-within:ring-2 focus-within:ring-[#135bec] focus-within:bg-white transition-all h-[46px]">
+                  <div className="flex items-center gap-1 bg-slate-50 rounded-xl border border-slate-200 p-2.5 focus-within:ring-2 focus-within:ring-[#135bec] focus-within:bg-white transition-all min-h-[46px]">
                     <Calendar className="text-slate-400 shrink-0 mx-1" size={16} />
-                    <input type="date" name="fechaInicio" value={safeData.fechaInicio || ''} onChange={handleChange} className="bg-transparent text-[10px] md:text-xs font-bold text-slate-700 outline-none w-full" />
-                    <span className="text-slate-400 text-[10px] mx-0.5">➜</span>
-                    <input type="date" name="fechaFin" value={safeData.fechaFin || ''} onChange={handleChange} className="bg-transparent text-[10px] md:text-xs font-bold text-slate-700 outline-none w-full" />
+                    <input type="date" name="fechaInicio" value={safeData.fechaInicio || ''} onChange={handleChange} className="bg-transparent text-[10px] md:text-xs font-bold text-slate-700 outline-none w-full min-w-0" />
+                    <span className="text-slate-400 text-[10px] mx-0.5 shrink-0">➜</span>
+                    <input type="date" name="fechaFin" value={safeData.fechaFin || ''} onChange={handleChange} className="bg-transparent text-[10px] md:text-xs font-bold text-slate-700 outline-none w-full min-w-0" />
                   </div>
                 </div>
               </div>
