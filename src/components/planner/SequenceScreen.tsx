@@ -144,10 +144,11 @@ export const SequenceScreen = ({ projectData, plannedItems, actividades, setActi
       INSTRUCCIÓN: Redacta 2 actividades prácticas y específicas que CUMPLAN AL 100% con la "Instrucción pedagógica obligatoria" de esta fase.
       
       Reglas de formato obligatorio:
-      1. NO uses asteriscos dobles (**) para negritas.
-      2. Inicia el título de cada actividad con una viñeta (•) en mayúsculas.
-      3. Debajo del título, describe claramente qué hará el alumno y cómo mediará el maestro, respetando la fase.
-      4. Al final de tu respuesta, agrega una línea que diga EXACTAMENTE la palabra "RECURSOS:" seguida de una lista de 3 o 4 materiales necesarios (separados por comas).`;
+      1. ESTRICTAMENTE PROHIBIDO incluir saludos, introducciones, confirmaciones o conclusiones. Inicia directamente con el título de la primera actividad.
+      2. NO uses asteriscos dobles (**) para negritas ni formato markdown.
+      3. Inicia el título de cada actividad con una viñeta (•) en mayúsculas.
+      4. Debajo del título, describe claramente qué hará el alumno y cómo mediará el maestro, respetando la fase.
+      5. Al final de tu respuesta, agrega un salto de línea y la palabra EXACTA "RECURSOS:" seguida de una lista de 3 o 4 materiales necesarios (separados por comas).`;
 
       const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`, {
         method: 'POST',
