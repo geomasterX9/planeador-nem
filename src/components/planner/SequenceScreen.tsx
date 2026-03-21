@@ -315,7 +315,7 @@ export const SequenceScreen = ({ projectData, plannedItems, actividades, setActi
                   <div>
                     <h4 className="text-xs font-bold text-indigo-900 mb-1">Sobre el uso de Inteligencia Artificial</h4>
                     <p className="text-[11px] text-indigo-800/80 leading-relaxed">
-                      Para asegurar que el sistema gratuito funcione bien para todos los docentes de la técnica, dispones de <strong>hasta 15 generaciones por minuto</strong>. Si notas un error o no carga, por favor <strong>espera de 1 a 2 minutos</strong> para que tu cuota se recargue.
+                      Para asegurar que el sistema gratuito funcione bien para todos los docentes, dispones de <strong>hasta 15 generaciones por minuto</strong>. Si notas un error o no carga, por favor <strong>espera de 1 a 2 minutos</strong> para que tu cuota se recargue.
                     </p>
                   </div>
                 </div>
