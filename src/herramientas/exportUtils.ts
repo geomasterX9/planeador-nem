@@ -1,4 +1,4 @@
-import { Document, Packer, Paragraph, TextRun, Table, TableRow, TableCell, WidthType, AlignmentType, PageOrientation, VerticalAlign, BorderStyle, ImageRun } from "docx";
+import { Document, Packer, Paragraph, TextRun, Table, TableRow, TableCell, WidthType, AlignmentType, PageOrientation, VerticalAlign, BorderStyle, ImageRun, Footer } from "docx";
 import { saveAs } from "file-saver";
 
 // --- FUNCIONES "AYUDANTES" PREMIUM ---
@@ -263,16 +263,25 @@ export const exportToWord = async (projectData: any, plannedItems: any[], activi
         }
     }
 
-    // PIE DE PÁGINA (MARCA COMERCIAL)
-    docChildren.push(new Paragraph({
-        children: [new TextRun({ text: "Documento generado por Planeador NEM Pro - Plataforma de Innovación Docente", size: 12, color: "999999", italics: true })],
-        alignment: AlignmentType.CENTER,
-        spacing: { before: 800 }
-    }));
-
     const doc = new Document({
         styles: { default: { document: { run: { font: "Calibri" } } } },
-        sections: [{ properties: { page: { size: { orientation: PageOrientation.LANDSCAPE }, margin: { top: 700, right: 700, bottom: 700, left: 700 } } }, children: docChildren }]
+        sections: [{ 
+            properties: { 
+                page: { size: { orientation: PageOrientation.LANDSCAPE }, margin: { top: 700, right: 700, bottom: 700, left: 700 } } 
+            },
+            // NUEVO: PIE DE PÁGINA NATIVO DE WORD
+            footers: {
+                default: new Footer({
+                    children: [
+                        new Paragraph({
+                            children: [new TextRun({ text: "Documento generado con Planeador NEM Pro - Plataforma de Innovación Docente", size: 14, color: "888888", italics: true })],
+                            alignment: AlignmentType.CENTER,
+                        })
+                    ]
+                })
+            },
+            children: docChildren 
+        }]
     });
 
     Packer.toBlob(doc)
