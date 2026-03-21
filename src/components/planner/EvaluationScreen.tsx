@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ArrowLeft, Layers, PenTool, CheckSquare, Table as TableIcon, GraduationCap, LogOut, FileDown, Plus, Trash2, Eye, SlidersHorizontal, FileQuestion, FileSignature, Sparkles } from 'lucide-react';
+import { ArrowLeft, Layers, PenTool, CheckSquare, Table as TableIcon, GraduationCap, LogOut, FileDown, Plus, Trash2, Eye, SlidersHorizontal, FileQuestion, FileSignature, Sparkles, Info } from 'lucide-react';
 import { exportToWord } from '../../herramientas/exportUtils';
 
 interface EvaluationScreenProps {
@@ -191,7 +191,7 @@ export const EvaluationScreen = ({ projectData, plannedItems, actividades, onBac
 
     } catch (error: any) {
       console.error("Error en IA:", error);
-      alert(`FALLO EN LA GENERACIÓN:\n\n${error.message || 'Error desconocido'}\n\n💡 Nota: Si dice "429 Too Many Requests", significa que has superado el límite gratuito de Google (15 consultas por minuto). Espera 60 segundos e intenta de nuevo.`);
+      alert(`FALLO EN LA GENERACIÓN:\n\n${error.message || 'Error desconocido'}\n\n💡 Nota: Si dice "429 Too Many Requests", significa que has superado el límite gratuito de Google (15 consultas por minuto). Espera 1 a 2 minutos e intenta de nuevo.`);
     } finally {
       setIsGenerating(false);
     }
@@ -266,7 +266,7 @@ export const EvaluationScreen = ({ projectData, plannedItems, actividades, onBac
           <div className="w-full max-w-[1200px] mr-auto flex flex-col">
             <div className="bg-white shadow-[0_0_40px_-10px_rgba(0,0,0,0.05)] rounded-2xl border border-slate-200 min-h-[calc(100vh-10rem)] h-auto p-6 lg:p-10 xl:p-16 mb-10 w-full">
               
-              {/* ENCABEZADO Y BOTON IA */}
+              {/* ENCABEZADO Y AVISO IA */}
               <div className="mb-8 xl:mb-12 border-b border-slate-100 pb-6 xl:pb-8 flex justify-between items-center">
                 <div className="flex items-center gap-3 xl:gap-4">
                   <div className="p-2 xl:p-3 bg-emerald-50 rounded-lg xl:rounded-xl text-emerald-600 shrink-0"><PenTool size={24} /></div>
@@ -285,6 +285,19 @@ export const EvaluationScreen = ({ projectData, plannedItems, actividades, onBac
                     {isGenerating ? "Generando Instrumento..." : "Generar con IA"}
                   </button>
                 )}
+              </div>
+
+              {/* BANNER AVISO IA */}
+              <div className="bg-indigo-50/80 border border-indigo-100 p-4 rounded-xl mb-8 flex items-start gap-3">
+                <div className="bg-indigo-100 text-indigo-600 p-1.5 rounded-lg shrink-0 mt-0.5">
+                  <Info size={18} />
+                </div>
+                <div>
+                  <h4 className="text-xs font-bold text-indigo-900 mb-1">Sobre el uso de Inteligencia Artificial</h4>
+                  <p className="text-[11px] text-indigo-800/80 leading-relaxed">
+                    Para asegurar que el sistema gratuito funcione bien para todos los docentes, dispones de <strong>hasta 15 generaciones por minuto</strong>. Si notas un error o no carga, por favor <strong>espera de 1 a 2 minutos</strong> para que tu cuota se recargue automáticamente.
+                  </p>
+                </div>
               </div>
 
               {herramientasSeleccionadas.length === 0 && (

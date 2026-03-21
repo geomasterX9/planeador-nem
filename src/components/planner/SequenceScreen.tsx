@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ArrowLeft, BookOpen, Layers, FileText, X, Check, Clipboard, GraduationCap, Plus, LogOut, Settings, ChevronRight, Sparkles, PenTool } from 'lucide-react';
+import { ArrowLeft, BookOpen, Layers, FileText, X, Check, Clipboard, GraduationCap, Plus, LogOut, Settings, ChevronRight, Sparkles, PenTool, Info } from 'lucide-react';
 import librosData from '../../data/librosData.json';
 
 // --- INICIO DEL DICCIONARIO NEM ---
@@ -122,7 +122,6 @@ export const SequenceScreen = ({ projectData, plannedItems, actividades, setActi
       const guiaFase = faseActualObjeto ? (faseActualObjeto.guia || "").replace('{{PDA}}', pdaDestacado) : "";
       const descFase = faseActualObjeto ? faseActualObjeto.desc : "";
 
-      // PROMPT RESTAURADO PARA OBLIGAR A RESPETAR LAS FASES
       const prompt = `Eres un experto pedagogo y diseñador curricular de la Nueva Escuela Mexicana (NEM). 
 
       🚨 REGLA DE ORO INQUEBRANTABLE: 
@@ -182,7 +181,7 @@ export const SequenceScreen = ({ projectData, plannedItems, actividades, setActi
 
     } catch (error: any) {
       console.error("Error AI:", error);
-      alert(`FALLO EN LA GENERACIÓN:\n\n${error.message || 'Error desconocido'}\n\n💡 Nota: Si dice "429 Too Many Requests", significa que has superado el límite gratuito de Google (15 consultas por minuto). Espera 60 segundos e intenta de nuevo.`);
+      alert(`FALLO EN LA GENERACIÓN:\n\n${error.message || 'Error desconocido'}\n\n💡 Nota: Si dice "429 Too Many Requests", significa que has superado el límite gratuito de Google. Espera 1 minuto e intenta de nuevo.`);
     } finally {
       setIsGenerating(null); 
     }
@@ -294,6 +293,8 @@ export const SequenceScreen = ({ projectData, plannedItems, actividades, setActi
         <main className="flex-1 overflow-y-auto bg-slate-50/50 p-4 lg:p-6 xl:p-8 scrollbar-thin relative scroll-smooth">
           <div className="w-full max-w-[1450px] mr-auto flex flex-col">
             <div className="bg-white shadow-[0_0_40px_-10px_rgba(0,0,0,0.05)] rounded-2xl border border-slate-200 min-h-[calc(100vh-10rem)] h-auto p-6 lg:p-10 xl:p-16 mb-10 w-full">
+              
+              {/* ENCABEZADO Y AVISO IA */}
               <div className="mb-8 xl:mb-12 border-b border-slate-100 pb-6 xl:pb-8">
                 <div className="flex items-center gap-3 xl:gap-4 mb-4 xl:mb-6">
                   <div className="p-2 xl:p-3 bg-[#135bec]/10 rounded-lg xl:rounded-xl text-[#135bec] shrink-0">
@@ -302,6 +303,19 @@ export const SequenceScreen = ({ projectData, plannedItems, actividades, setActi
                   <div>
                     <h1 className="text-xl lg:text-2xl xl:text-3xl font-extrabold text-slate-900 tracking-tight leading-tight">Planeación Didáctica</h1>
                     <p className="text-xs xl:text-sm text-slate-500 mt-1 font-medium hidden sm:block">Sugerencias vinculadas a los LTG Plan 2022.</p>
+                  </div>
+                </div>
+
+                {/* BANNER AVISO IA */}
+                <div className="bg-indigo-50/80 border border-indigo-100 p-4 rounded-xl mb-6 flex items-start gap-3">
+                  <div className="bg-indigo-100 text-indigo-600 p-1.5 rounded-lg shrink-0 mt-0.5">
+                    <Info size={18} />
+                  </div>
+                  <div>
+                    <h4 className="text-xs font-bold text-indigo-900 mb-1">Sobre el uso de Inteligencia Artificial</h4>
+                    <p className="text-[11px] text-indigo-800/80 leading-relaxed">
+                      Para asegurar que el sistema gratuito funcione bien para todos los docentes de la técnica, dispones de <strong>hasta 15 generaciones por minuto</strong>. Si notas un error o no carga, por favor <strong>espera de 1 a 2 minutos</strong> para que tu cuota se recargue.
+                    </p>
                   </div>
                 </div>
 
