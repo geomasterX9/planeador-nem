@@ -19,7 +19,7 @@ const fasesMetodologias: Record<string, { id: string, titulo: string, desc: stri
   ],
   "Aprendizaje basado en indagación (STEAM como enfoque)": [
     { id: 'f1', titulo: 'Introducción al tema', desc: 'Fase 1. Uso de conocimientos previos e identificación de la problemática.', guia: '• SABERES PREVIOS:\nIntroducir el tema y usar conocimientos previos para generar disonancia. Identificar la problemática de: "{{PDA}}".' },
-    { id: 'f2', titulo: 'Diseño de investigación', desc: 'Fase 2. Desarrollo de la indagación.', guia: '• PLANIFICACIÓN Y DISEÑO:\nAcordar: ¿Qué se va a hacer?, ¿quién?, ¿cómo?, ¿cuándo?, ¿dónde? y ¿con qué?' },
+    { id: 'f2', titulo: 'Diseño de investigación', desc: 'Fase 2. Desarrollo de la indagación.', guia: '• PLANIFICACIÓN Y DISEÑO:\nAcordar: ¿Qué se va a hacer?, ¿quién?, ¿cómo?, ¿cuándo?, ¿donde? y ¿con qué?' },
     { id: 'f3', titulo: 'Organizar y estructurar', desc: 'Fase 3. Respuestas a las preguntas específicas de indagación.', guia: '• ANÁLISIS DE DATOS:\nOrganizar e interpretar datos, sintetizar ideas y clarificar conceptos.' },
     { id: 'f4', titulo: 'Presentación de resultados', desc: 'Fase 4. Presentación y aplicación.', guia: '• SOCIALIZACIÓN:\nPresentar los resultados de indagación y elaborar propuestas de acción para resolver el problema.' },
     { id: 'f5', titulo: 'Metacognición', desc: 'Fase 5. Reflexión sobre lo realizado.', guia: '• REFLEXIÓN:\nReflexionar sobre todo lo realizado: planes, actuaciones, logros y dificultades.' }
@@ -150,7 +150,7 @@ export const SequenceScreen = ({ projectData, plannedItems, actividades, setActi
       4. Debajo del título, describe claramente qué hará el alumno y cómo mediará el maestro, respetando la fase.
       5. Al final de tu respuesta, agrega un salto de línea y la palabra EXACTA "RECURSOS:" seguida de una lista de 3 o 4 materiales necesarios (separados por comas).`;
 
-      const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`, {
+      const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ contents: [{ parts: [{ text: prompt }] }] })
@@ -251,8 +251,9 @@ export const SequenceScreen = ({ projectData, plannedItems, actividades, setActi
       </header>
 
       <div className="flex flex-1 overflow-hidden">
-        <aside className="w-52 lg:w-60 xl:w-72 bg-[#0f172a] text-slate-300 flex flex-col shrink-0 z-20 transition-all">
-          <div className="p-4 xl:p-6 border-b border-slate-800">
+        {/* BARRA LATERAL AJUSTADA PARA PROYECTOR */}
+        <aside className="w-48 lg:w-56 xl:w-64 bg-[#0f172a] text-slate-300 flex flex-col shrink-0 z-20 transition-all">
+          <div className="p-3 xl:p-6 border-b border-slate-800">
             <button onClick={onBack} className="flex items-center gap-2 text-[10px] xl:text-xs font-bold uppercase tracking-widest text-slate-500 hover:text-white transition-colors mb-4 xl:mb-6 group">
               <ArrowLeft size={14} className="group-hover:-translate-x-1 transition-transform" /> 
               <span className="hidden lg:inline">Volver al Lienzo</span>
@@ -260,26 +261,26 @@ export const SequenceScreen = ({ projectData, plannedItems, actividades, setActi
             <div className="space-y-3 xl:space-y-4">
               <div>
                 <span className="text-[9px] xl:text-[10px] font-bold text-slate-500 uppercase tracking-wider block mb-1">Proyecto Activo</span>
-                <h3 className="text-white font-bold text-base xl:text-lg leading-snug truncate">{projectData.proyecto || "Proyecto sin nombre"}</h3>
+                <h3 className="text-white font-bold text-sm xl:text-lg leading-snug truncate">{projectData.proyecto || "Proyecto sin nombre"}</h3>
               </div>
               <div className="space-y-2 mt-2">
-                <div className="flex items-center gap-2 text-xs xl:text-sm">
+                <div className="flex items-center gap-2 text-[10px] xl:text-sm">
                   <Layers size={14} className="text-[#135bec] shrink-0" />
                   <span className="text-slate-400 font-medium truncate">{projectData.estrategia || "Metodología Libre"}</span>
                 </div>
               </div>
             </div>
           </div>
-          <div className="flex-1 overflow-y-auto p-4 xl:p-6 scrollbar-thin">
+          <div className="flex-1 overflow-y-auto p-3 xl:p-6 scrollbar-thin">
             <div className="mb-8">
               <h4 className="text-[9px] xl:text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-3 xl:mb-4">Elementos Seleccionados</h4>
               <div className="space-y-2 xl:space-y-3">
                 {plannedItems.length === 0 ? (
-                  <p className="text-xs text-slate-500 italic">No hay contenidos.</p>
+                  <p className="text-[10px] text-slate-500 italic">No hay contenidos.</p>
                 ) : (
                   plannedItems.map((item) => (
-                    <div key={item.id} className="p-2.5 xl:p-3 bg-slate-800/50 rounded-lg border border-slate-700/50 hover:border-slate-600 transition-colors">
-                      <p className="text-[10px] xl:text-xs text-slate-300 leading-relaxed font-medium line-clamp-3">
+                    <div key={item.id} className="p-2 xl:p-3 bg-slate-800/50 rounded-lg border border-slate-700/50 hover:border-slate-600 transition-colors">
+                      <p className="text-[9px] xl:text-xs text-slate-300 leading-relaxed font-medium line-clamp-3">
                         <span className={`font-bold mr-1 ${item.type === 'content' ? 'text-blue-400' : 'text-emerald-400'}`}>[{item.type === 'content' ? 'C' : 'PDA'}]</span>
                         {item.text}
                       </p>
@@ -291,99 +292,96 @@ export const SequenceScreen = ({ projectData, plannedItems, actividades, setActi
           </div>
         </aside>
 
-        <main className="flex-1 overflow-y-auto bg-slate-50/50 p-4 lg:p-6 xl:p-8 scrollbar-thin relative scroll-smooth">
-          <div className="w-full max-w-[1450px] mr-auto flex flex-col">
-            <div className="bg-white shadow-[0_0_40px_-10px_rgba(0,0,0,0.05)] rounded-2xl border border-slate-200 min-h-[calc(100vh-10rem)] h-auto p-6 lg:p-10 xl:p-16 mb-10 w-full">
+        {/* ÁREA DE TRABAJO OPTIMIZADA (LIENZO) */}
+        <main className="flex-1 overflow-y-auto bg-slate-50/50 p-3 md:p-6 lg:p-8 scrollbar-thin relative scroll-smooth">
+          <div className="w-full xl:max-w-[1450px] mr-auto flex flex-col">
+            <div className="bg-white shadow-[0_0_40px_-10px_rgba(0,0,0,0.05)] rounded-2xl border border-slate-200 min-h-[calc(100vh-10rem)] h-auto p-4 md:p-8 xl:p-16 mb-10 w-full">
               
-              {/* ENCABEZADO Y AVISO IA */}
-              <div className="mb-8 xl:mb-12 border-b border-slate-100 pb-6 xl:pb-8">
-                <div className="flex items-center gap-3 xl:gap-4 mb-4 xl:mb-6">
+              <div className="mb-6 xl:mb-12 border-b border-slate-100 pb-4 xl:pb-8">
+                <div className="flex items-center gap-3 xl:gap-4 mb-3 xl:mb-6">
                   <div className="p-2 xl:p-3 bg-[#135bec]/10 rounded-lg xl:rounded-xl text-[#135bec] shrink-0">
                     <FileText size={24} className="xl:w-7 xl:h-7" />
                   </div>
                   <div>
-                    <h1 className="text-xl lg:text-2xl xl:text-3xl font-extrabold text-slate-900 tracking-tight leading-tight">Planeación Didáctica</h1>
-                    <p className="text-xs xl:text-sm text-slate-500 mt-1 font-medium hidden sm:block">Sugerencias vinculadas a los LTG Plan 2022.</p>
+                    <h1 className="text-lg lg:text-2xl xl:text-3xl font-extrabold text-slate-900 tracking-tight leading-tight uppercase">Planeación Didáctica</h1>
+                    <p className="text-[10px] xl:text-sm text-slate-500 mt-1 font-medium hidden sm:block">Sugerencias vinculadas a los LTG Plan 2022.</p>
                   </div>
                 </div>
 
-                {/* BANNER AVISO IA */}
-                <div className="bg-indigo-50/80 border border-indigo-100 p-4 rounded-xl mb-6 flex items-start gap-3">
+                <div className="bg-indigo-50/80 border border-indigo-100 p-3 xl:p-4 rounded-xl mb-6 flex items-start gap-3">
                   <div className="bg-indigo-100 text-indigo-600 p-1.5 rounded-lg shrink-0 mt-0.5">
-                    <Info size={18} />
+                    <Info size={16} />
                   </div>
                   <div>
-                    <h4 className="text-xs font-bold text-indigo-900 mb-1">Sobre el uso de Inteligencia Artificial</h4>
-                    <p className="text-[11px] text-indigo-800/80 leading-relaxed">
-                      Para asegurar que el sistema gratuito funcione bien para todos los docentes, dispones de <strong>hasta 15 generaciones por minuto</strong>. Si notas un error o no carga, por favor <strong>espera de 1 a 2 minutos</strong> para que tu cuota se recargue.
+                    <h4 className="text-[10px] font-bold text-indigo-900 mb-0.5 uppercase">Uso de Inteligencia Artificial</h4>
+                    <p className="text-[10px] xl:text-[11px] text-indigo-800/80 leading-relaxed">
+                      Límite de <strong>15 generaciones por minuto</strong>. Si hay error, espera <strong>1 o 2 minutos</strong> para recargar.
                     </p>
                   </div>
                 </div>
 
                 {proyectoCopiado && (
-                  <div className="bg-amber-50 border border-amber-200 p-4 xl:p-5 rounded-xl mb-4 flex items-start gap-3 animate-in slide-in-from-top-4">
-                    <Clipboard size={18} className="text-amber-600 mt-0.5 shrink-0" />
+                  <div className="bg-amber-50 border border-amber-200 p-3 rounded-xl mb-4 flex items-start gap-3 animate-in slide-in-from-top-4">
+                    <Clipboard size={16} className="text-amber-600 mt-0.5 shrink-0" />
                     <div>
-                      <h4 className="text-xs xl:text-sm font-bold text-amber-900 mb-0.5">Proyecto en portapapeles</h4>
-                      <p className="text-[10px] xl:text-xs text-amber-800/80">Haz clic en <strong>"Insertar"</strong> en la fase correspondiente para pegarlo.</p>
+                      <h4 className="text-[10px] font-bold text-amber-900 mb-0.5 uppercase">Proyecto en portapapeles</h4>
+                      <p className="text-[10px] text-amber-800/80">Haz clic en <strong>"Insertar"</strong> en la fase correspondiente.</p>
                     </div>
                   </div>
                 )}
               </div>
 
-              <div className="space-y-10 xl:space-y-14">
+              <div className="space-y-8 xl:space-y-14">
                 {fases.map((fase, index) => (
                   <section key={fase.id}>
-                    <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b border-slate-200 pb-2 mb-4 xl:mb-6 gap-2 group">
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b border-slate-200 pb-2 mb-3 xl:mb-6 gap-2 group">
                       <div className="flex items-center gap-2 xl:gap-3">
-                        <span className="text-slate-300 font-extrabold text-lg xl:text-2xl tabular-nums tracking-tighter">0{index + 1}.</span>
-                        <h3 className="text-base xl:text-lg font-bold text-slate-900 uppercase tracking-tight leading-none">{fase.titulo}</h3>
+                        <span className="text-slate-300 font-extrabold text-base xl:text-2xl tabular-nums tracking-tighter">0{index + 1}.</span>
+                        <h3 className="text-sm xl:text-lg font-bold text-slate-900 uppercase tracking-tight leading-none">{fase.titulo}</h3>
                       </div>
-                      <div className="flex items-center justify-between sm:justify-end w-full sm:w-auto gap-3">
-                        <span className="text-[10px] xl:text-xs text-slate-400 font-medium hidden lg:block truncate max-w-[150px] xl:max-w-[200px]">{fase.desc}</span>
+                      <div className="flex items-center justify-between sm:justify-end w-full sm:w-auto gap-2">
+                        <span className="text-[9px] xl:text-xs text-slate-400 font-medium hidden lg:block truncate max-w-[150px] xl:max-w-[200px]">{fase.desc}</span>
                         
                         <button 
                           onClick={() => generateAIActivity(fase.id, fase.titulo)}
                           disabled={isGenerating === fase.id}
-                          className="flex items-center gap-1.5 bg-[#4f46e5]/10 text-[#4f46e5] hover:bg-[#4f46e5]/20 px-2.5 py-1.5 xl:px-3 rounded-lg text-[10px] xl:text-xs font-bold shadow-sm transition-colors shrink-0 disabled:opacity-50"
+                          className="flex items-center gap-1.5 bg-[#4f46e5]/10 text-[#4f46e5] hover:bg-[#4f46e5]/20 px-2 py-1.5 xl:px-3 rounded-lg text-[9px] xl:text-xs font-bold shadow-sm transition-colors shrink-0 disabled:opacity-50"
                         >
-                          <Sparkles size={14} className={isGenerating === fase.id ? "animate-spin" : ""} /> 
+                          <Sparkles size={12} className={isGenerating === fase.id ? "animate-spin" : ""} /> 
                           {isGenerating === fase.id ? "Generando..." : "Generar con IA"}
                         </button>
 
                         {proyectoCopiado && (
                           <button 
                             onClick={() => handlePasteToFase(fase.id)}
-                            className="flex items-center gap-1.5 bg-amber-400 text-amber-900 hover:bg-amber-500 px-2.5 py-1.5 xl:px-3 rounded-lg text-[10px] xl:text-xs font-bold shadow-sm transition-transform transform hover:scale-105 shrink-0"
+                            className="flex items-center gap-1.5 bg-amber-400 text-amber-900 hover:bg-amber-500 px-2 py-1.5 xl:px-3 rounded-lg text-[9px] xl:text-xs font-bold shadow-sm transition-transform transform hover:scale-105 shrink-0"
                           >
-                            <Check size={12} /> Insertar
+                            <Check size={10} /> Insertar
                           </button>
                         )}
                       </div>
                     </div>
-                    <div className="relative pl-6 xl:pl-10 group/area space-y-4">
-                      <div className="absolute left-2 xl:left-3 top-2 bottom-2 w-px bg-slate-200 group-focus-within/area:bg-[#135bec] transition-colors"></div>
+                    <div className="relative pl-4 xl:pl-10 group/area space-y-4">
+                      <div className="absolute left-1 xl:left-3 top-1 bottom-1 w-px bg-slate-200 group-focus-within/area:bg-[#135bec] transition-colors"></div>
                       
-                      {/* CAJA 1: ACTIVIDADES */}
                       <div className="flex flex-col">
                         <textarea 
                           value={actividades[fase.id] || ''}
                           onChange={(e) => setActividades({ ...actividades, [fase.id]: e.target.value })}
-                          className="w-full min-h-[200px] xl:min-h-[260px] text-slate-700 leading-relaxed text-xs lg:text-sm xl:text-[15px] outline-none border-b border-transparent focus:border-slate-200 pb-2 transition-all bg-transparent resize-y"
+                          className="w-full min-h-[160px] xl:min-h-[260px] text-slate-700 leading-relaxed text-[11px] lg:text-sm xl:text-[15px] outline-none border-b border-transparent focus:border-slate-200 pb-2 transition-all bg-transparent resize-y font-medium"
                           placeholder="Redacta o edita las actividades aquí..."
                         ></textarea>
                       </div>
 
-                      {/* CAJA 2: RECURSOS */}
-                      <div className="flex flex-col bg-slate-50 p-3 xl:p-4 rounded-xl border border-slate-200/60 focus-within:border-[#135bec]/30 focus-within:bg-[#135bec]/5 transition-colors">
-                        <label className="text-[10px] xl:text-xs font-bold text-slate-500 uppercase tracking-widest mb-2 flex items-center gap-1.5">
-                          <Layers size={14} className="text-[#135bec]" /> Recursos y Materiales para esta fase
+                      <div className="flex flex-col bg-slate-50 p-2.5 xl:p-4 rounded-xl border border-slate-200/60 focus-within:border-[#135bec]/30 focus-within:bg-[#135bec]/5 transition-colors">
+                        <label className="text-[9px] xl:text-xs font-bold text-slate-500 uppercase tracking-widest mb-1.5 flex items-center gap-1.5">
+                          <Layers size={12} className="text-[#135bec]" /> Recursos para esta fase
                         </label>
                         <textarea 
                           value={recursos[fase.id] || ''}
                           onChange={(e) => setRecursos({ ...recursos, [fase.id]: e.target.value })}
-                          className="w-full min-h-[60px] text-slate-600 font-medium leading-relaxed text-xs xl:text-sm outline-none bg-transparent resize-y"
-                          placeholder="Ej. LTG Proyectos Escolares pág. 24, cartulina, marcadores, proyector..."
+                          className="w-full min-h-[50px] text-slate-600 font-bold leading-relaxed text-[10px] xl:text-sm outline-none bg-transparent resize-y"
+                          placeholder="Ej. LTG Proyectos Escolares pág. 24, cartulina, marcadores..."
                         ></textarea>
                       </div>
                     </div>
@@ -395,39 +393,39 @@ export const SequenceScreen = ({ projectData, plannedItems, actividades, setActi
         </main>
 
         {showLibrary && (
-          <aside className="w-64 lg:w-72 xl:w-80 bg-white border-l border-slate-200 flex flex-col shrink-0 z-20 shadow-xl transition-all">
-            <div className="p-4 xl:p-5 border-b border-slate-200 bg-slate-50/50">
+          <aside className="w-56 lg:w-72 xl:w-80 bg-white border-l border-slate-200 flex flex-col shrink-0 z-20 shadow-xl transition-all">
+            <div className="p-3 xl:p-5 border-b border-slate-200 bg-slate-50/50">
               <div className="flex items-center justify-between mb-4 xl:mb-6">
                 <div className="flex items-center gap-2 xl:gap-3">
-                  <div className="size-7 xl:size-8 bg-amber-500 rounded flex items-center justify-center text-white shadow-sm shrink-0">
-                    <BookOpen size={16} />
+                  <div className="size-6 xl:size-8 bg-amber-500 rounded flex items-center justify-center text-white shadow-sm shrink-0">
+                    <BookOpen size={14} />
                   </div>
                   <div>
-                    <h3 className="text-xs xl:text-sm font-bold text-slate-900 leading-tight">Biblioteca SEP</h3>
-                    <p className="text-[9px] xl:text-[10px] text-slate-400 uppercase font-bold tracking-tight">Libros de Proyectos</p>
+                    <h3 className="text-[10px] xl:text-sm font-bold text-slate-900 leading-tight uppercase">Biblioteca SEP</h3>
+                    <p className="text-[8px] xl:text-[10px] text-slate-400 uppercase font-bold tracking-tight">Proyectos</p>
                   </div>
                 </div>
-                <button onClick={() => setShowLibrary(false)} className="text-slate-400 hover:text-slate-900 transition-colors p-1"><X size={18} /></button>
+                <button onClick={() => setShowLibrary(false)} className="text-slate-400 hover:text-slate-900 transition-colors p-1"><X size={16} /></button>
               </div>
               <div className="space-y-2 xl:space-y-3">
-                <select value={filtroGrado} onChange={(e) => setFiltroGrado(Number(e.target.value))} className="w-full bg-white border border-slate-200 rounded-lg text-[11px] xl:text-xs font-semibold py-2 px-2 xl:px-3 focus:ring-2 focus:ring-[#135bec] outline-none">
-                  <option value={1}>1º Grado - Ximhai</option>
-                  <option value={2}>2º Grado - Sk'asolil</option>
-                  <option value={3}>3º Grado - Nanahuatzin</option>
+                <select value={filtroGrado} onChange={(e) => setFiltroGrado(Number(e.target.value))} className="w-full bg-white border border-slate-200 rounded-lg text-[10px] xl:text-xs font-bold py-1.5 px-2 focus:ring-2 focus:ring-[#135bec] outline-none">
+                  <option value={1}>1º Grado</option>
+                  <option value={2}>2º Grado</option>
+                  <option value={3}>3º Grado</option>
                 </select>
-                <select value={filtroCampo} onChange={(e) => setFiltroCampo(e.target.value)} className="w-full bg-white border border-slate-200 rounded-lg text-[11px] xl:text-xs font-semibold py-2 px-2 xl:px-3 focus:ring-2 focus:ring-[#135bec] outline-none">
+                <select value={filtroCampo} onChange={(e) => setFiltroCampo(e.target.value)} className="w-full bg-white border border-slate-200 rounded-lg text-[10px] xl:text-xs font-bold py-1.5 px-2 focus:ring-2 focus:ring-[#135bec] outline-none">
                   {camposDisponibles.map(c => <option key={c} value={c}>{c}</option>)}
                 </select>
               </div>
             </div>
-            <div className="flex-1 overflow-y-auto p-3 xl:p-4 scrollbar-thin bg-white">
-              <div className="space-y-3 xl:space-y-4">
+            <div className="flex-1 overflow-y-auto p-2 xl:p-4 scrollbar-thin bg-white">
+              <div className="space-y-2 xl:space-y-4">
                 {proyectosFiltrados.map((proyecto, idx) => (
-                  <div key={idx} className="p-3 xl:p-4 rounded-xl border border-slate-200 hover:border-[#135bec]/40 hover:shadow-lg transition-all group cursor-pointer bg-white">
-                    <h4 className="text-[11px] xl:text-xs font-bold text-slate-800 leading-tight group-hover:text-[#135bec] transition-colors pr-2 line-clamp-2 mb-2">{proyecto.nombre}</h4>
-                    <p className="text-[9px] xl:text-[10px] text-slate-400 mb-3 font-medium flex items-center gap-1"><FileText size={10}/> Págs: {proyecto.paginas}</p>
-                    <button onClick={() => handleCopy(proyecto)} className={`w-full py-1.5 xl:py-2 border rounded-lg text-[9px] xl:text-[10px] font-bold flex items-center justify-center gap-1.5 transition-all ${copiedId === proyecto.nombre ? 'bg-emerald-50 text-emerald-700 border-emerald-200' : 'bg-slate-50 text-slate-600 border-slate-200 hover:bg-[#135bec] hover:text-white hover:border-[#135bec]'}`}>
-                      {copiedId === proyecto.nombre ? <Check size={12}/> : <Plus size={12}/>} {copiedId === proyecto.nombre ? '¡Copiado!' : 'Vincular Proyecto'}
+                  <div key={idx} className="p-2 xl:p-4 rounded-xl border border-slate-200 hover:border-[#135bec]/40 hover:shadow-lg transition-all group cursor-pointer bg-white">
+                    <h4 className="text-[10px] xl:text-xs font-bold text-slate-800 leading-tight group-hover:text-[#135bec] transition-colors pr-2 line-clamp-2 mb-1 uppercase">{proyecto.nombre}</h4>
+                    <p className="text-[8px] xl:text-[10px] text-slate-400 mb-2 font-bold flex items-center gap-1 uppercase"><FileText size={9}/> Págs: {proyecto.paginas}</p>
+                    <button onClick={() => handleCopy(proyecto)} className={`w-full py-1 xl:py-2 border rounded-lg text-[8px] xl:text-[10px] font-bold flex items-center justify-center gap-1 transition-all ${copiedId === proyecto.nombre ? 'bg-emerald-50 text-emerald-700 border-emerald-200' : 'bg-slate-50 text-slate-600 border-slate-200 hover:bg-[#135bec] hover:text-white hover:border-[#135bec]'}`}>
+                      {copiedId === proyecto.nombre ? <Check size={10}/> : <Plus size={10}/>} {copiedId === proyecto.nombre ? '¡Copiado!' : 'Vincular'}
                     </button>
                   </div>
                 ))}
