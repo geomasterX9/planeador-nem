@@ -163,8 +163,8 @@ function App() {
         setActividades={setActividades}
         recursos={recursos}         
         setRecursos={setRecursos}   
-        onBack={() => setCurrentView('planner')} // ¡AQUÍ ESTABA EL ERROR!
-        onGoToEvaluation={() => setCurrentView('evaluation')} // ¡AQUÍ TAMBIÉN!
+        onBack={() => setCurrentView('planner')} 
+        onGoToEvaluation={() => setCurrentView('evaluation')} 
       />
     );
   }
@@ -272,7 +272,9 @@ function App() {
 
         <main className="flex-1 flex overflow-hidden relative">
           <div className={`absolute lg:static inset-y-0 left-0 z-30 flex flex-row h-full bg-white transition-transform duration-300 ${showMobileSidebar ? 'translate-x-0' : '-translate-x-full'} lg:translate-x-0`}>
-            <aside className="w-[280px] border-r border-slate-200 bg-white flex flex-col shrink-0">
+            
+            {/* SIDEBAR CONTENIDOS - ANCHO AJUSTADO */}
+            <aside className="w-[220px] xl:w-[280px] border-r border-slate-200 bg-white flex flex-col shrink-0 transition-all">
               <div className="p-4 border-b border-slate-50 flex items-center justify-between">
                 <h3 className="text-[11px] font-black text-slate-400 uppercase tracking-widest flex items-center gap-2">
                   <BookMarked size={14} /> Contenidos
@@ -285,7 +287,8 @@ function App() {
               </div>
             </aside>
 
-            <aside className="w-[300px] border-r border-slate-200 bg-white flex flex-col shrink-0">
+            {/* SIDEBAR PDAs - ANCHO AJUSTADO */}
+            <aside className="w-[250px] xl:w-[300px] border-r border-slate-200 bg-white flex flex-col shrink-0 transition-all">
               <div className="p-4 border-b border-slate-50 flex items-center justify-between">
                 <h3 className="text-[11px] font-black text-slate-400 uppercase tracking-widest flex items-center gap-2">
                   <Target size={14} /> PDAs
@@ -304,7 +307,8 @@ function App() {
           </div>
 
           <div className="flex-1 flex flex-col min-w-0 relative bg-[#f8fafc]">
-            <div className="absolute inset-0 overflow-y-auto p-8 flex flex-col items-center">
+            {/* PADDING DEL LIENZO REDUCIDO EN PANTALLAS PEQUEÑAS (p-4 en lugar de p-8) */}
+            <div className="absolute inset-0 overflow-y-auto p-4 lg:p-8 flex flex-col items-center">
               <div className="w-full max-w-4xl flex items-center justify-between mb-8">
                  <h2 className="text-sm font-black text-slate-700 flex items-center gap-3 bg-white px-5 py-3 rounded-2xl shadow-sm border border-slate-100">
                     <LayoutTemplate size={20} className="text-[#4f46e5]" />
