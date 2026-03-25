@@ -58,49 +58,79 @@ const createCell = (text: string, isHeader: boolean = false, widthPct: number = 
   });
 };
 
-// --- EL ESCUDO PROTECTOR PARA LAS IMÁGENES ---
-const getSafeImageData = (base64DataUrl: string) => {
+// Transformador de Imagen de React a Word (Base64 a Uint8Array) - CORREGIDO
+const base64ToArrayBuffer = (base64DataUrl: string) => {
   try {
-    if (!base64DataUrl || typeof base64DataUrl !== 'string' || !base64DataUrl.includes(',')) {
-      return null;
+    if (!base64DataUrl || typeof base64DataUrl !== 'string') {
+      console.error('URL de imagen inválida');
+      return new Uint8Array(0);
     }
     const base64String = base64DataUrl.split(',')[1];
+    if (!base64String) {
+      console.error('No se pudo extraer la cadena base64');
+      return new Uint8Array(0);
+    }
     const binaryString = window.atob(base64String);
     const len = binaryString.length;
     const bytes = new Uint8Array(len);
     for (let i = 0; i < len; i++) {
       bytes[i] = binaryString.charCodeAt(i);
     }
-    return bytes.length > 0 ? bytes : null;
+    return bytes;
   } catch (error) {
-    console.warn("Se bloqueó una imagen corrupta para salvar el documento");
-    return null;
+    console.error('Error procesando imagen:', error);
+    return new Uint8Array(0);
   }
 };
 
 export const exportToWord = async (projectData: any, plannedItems: any[], actividades: Record<string, string>, evaluationData?: any) => {
   
-  const pdas = plannedItems.filter(i => i.type === 'pda').map(i => i.text).join('\n• ');
-  const contenidos = plannedItems.filter(i => i.type === 'content').map(i => i.text).join('\n• ');
-  const ejesText = (projectData.ejes || []).join(', ');
-  const evaluacionText = `${(projectData.estrategiaEvaluacion || []).join(', ')}\nInstrumentos: ${(projectData.herramientas || []).join(', ')}`;
+  // Sanitizar textos para evitar caracteres problemáticos
+  const sanitizeText = (text: any): string => {
+    if (text === null || text === undefined) return '';
+    let str = String(text);
+    // Reemplazar caracteres que pueden romper XML
+    str = str.replace(/[\x00-\x08\x0B\x0C\x0E-\x1F\x7F]/g, '');
+    return str;
+  };
+  
+  const pdas = plannedItems.filter(i => i.type === 'pda').map(i => sanitizeText(i.text)).join('\n• ');
+  const contenidos = plannedItems.filter(i => i.type === 'content').map(i => sanitizeText(i.text)).join('\n• ');
+  const ejesText = (projectData.ejes || []).map((e: any) => sanitizeText(e)).join(', ');
+  const evaluacionText = `${(projectData.estrategiaEvaluacion || []).map((e: any) => sanitizeText(e)).join(', ')}\nInstrumentos: ${(projectData.herramientas || []).map((h: any) => sanitizeText(h)).join(', ')}`;
   const fases = obtenerFases(projectData.estrategia);
-
-  // Procesamos los logos con el escudo protector
-  const logoIzqData = getSafeImageData(projectData.logoIzquierdo);
-  const logoDerData = getSafeImageData(projectData.logoDerecho);
+  
+  // Sanitizar datos del proyecto
+  const escuela = sanitizeText(projectData.escuela) || "NOMBRE DE LA ESCUELA";
+  const cct = sanitizeText(projectData.cct) || "";
+  const turno = sanitizeText(projectData.turno) || "";
+  const campo = sanitizeText(projectData.campo) || "Lenguajes";
+  const estrategia = sanitizeText(projectData.estrategia) || "";
+  const disciplina = sanitizeText(projectData.disciplina) || "";
+  const maestro = sanitizeText(projectData.maestro) || "";
+  const grado = sanitizeText(projectData.grado) || "";
+  const grupo = (projectData.grupo || []).map((g: any) => sanitizeText(g)).join(', ');
+  const proyecto = sanitizeText(projectData.proyecto) || "";
+  const fechaInicio = sanitizeText(projectData.fechaInicio) || "";
+  const fechaFin = sanitizeText(projectData.fechaFin) || "";
+  const sesiones = sanitizeText(projectData.sesiones) || "";
 
   // CONSTRUCCIÓN DEL ENCABEZADO CON LOGOS (TABLA INVISIBLE)
   const headerCells = [];
 
   // 1. Logo Izquierdo
-  if (logoIzqData) {
-    headerCells.push(new TableCell({
-      width: { size: 15, type: WidthType.PERCENTAGE },
-      borders: { top: { style: BorderStyle.NONE, size: 0 }, bottom: { style: BorderStyle.NONE, size: 0 }, left: { style: BorderStyle.NONE, size: 0 }, right: { style: BorderStyle.NONE, size: 0 } },
-      verticalAlign: VerticalAlign.CENTER,
-      children: [new Paragraph({ alignment: AlignmentType.CENTER, children: [new ImageRun({ data: logoIzqData, transformation: { width: 90, height: 90 } })] })]
-    }));
+  if (projectData.logoIzquierdo) {
+    const imgData = base64ToArrayBuffer(projectData.logoIzquierdo);
+    if (imgData.length > 0) {
+      headerCells.push(new TableCell({
+        width: { size: 15, type: WidthType.PERCENTAGE },
+        borders: { top: { style: BorderStyle.NONE, size: 0 }, bottom: { style: BorderStyle.NONE, size: 0 }, left: { style: BorderStyle.NONE, size: 0 }, right: { style: BorderStyle.NONE, size: 0 } },
+        verticalAlign: VerticalAlign.CENTER,
+        children: [new Paragraph({ alignment: AlignmentType.CENTER, children: [new ImageRun({ data: imgData, transformation: { width: 90, height: 90 } })] })]
+      }));
+    } else {
+      headerCells.push(new TableCell({ width: { size: 15, type: WidthType.PERCENTAGE }, borders: { top: { style: BorderStyle.NONE, size: 0 }, bottom: { style: BorderStyle.NONE, size: 0 }, left: { style: BorderStyle.NONE, size: 0 }, right: { style: BorderStyle.NONE, size: 0 } }, children: [new Paragraph("")] }));
+    }
   } else {
     headerCells.push(new TableCell({ width: { size: 15, type: WidthType.PERCENTAGE }, borders: { top: { style: BorderStyle.NONE, size: 0 }, bottom: { style: BorderStyle.NONE, size: 0 }, left: { style: BorderStyle.NONE, size: 0 }, right: { style: BorderStyle.NONE, size: 0 } }, children: [new Paragraph("")] }));
   }
@@ -113,20 +143,25 @@ export const exportToWord = async (projectData: any, plannedItems: any[], activi
     children: [
       new Paragraph({ children: [new TextRun({ text: "SECRETARÍA DE EDUCACIÓN PÚBLICA", bold: true, size: 22, font: "Calibri" })], alignment: AlignmentType.CENTER }),
       new Paragraph({ children: [new TextRun({ text: "DIRECCIÓN DE EDUCACIÓN SECUNDARIA GENERAL", bold: true, size: 18, font: "Calibri" })], alignment: AlignmentType.CENTER }),
-      new Paragraph({ children: [new TextRun({ text: projectData.escuela || "NOMBRE DE LA ESCUELA", bold: true, size: 18, font: "Calibri" })], alignment: AlignmentType.CENTER }),
-      new Paragraph({ children: [new TextRun({ text: `CLAVE: ${projectData.cct || ""}    TURNO: ${projectData.turno || ""}`, bold: true, size: 18, font: "Calibri" })], alignment: AlignmentType.CENTER }),
+      new Paragraph({ children: [new TextRun({ text: escuela, bold: true, size: 18, font: "Calibri" })], alignment: AlignmentType.CENTER }),
+      new Paragraph({ children: [new TextRun({ text: `CLAVE: ${cct}    TURNO: ${turno}`, bold: true, size: 18, font: "Calibri" })], alignment: AlignmentType.CENTER }),
       new Paragraph({ children: [new TextRun({ text: "PLANEACIÓN DIDÁCTICA", bold: true, size: 20, font: "Calibri" })], alignment: AlignmentType.CENTER, spacing: { before: 200 } }),
     ]
   }));
 
   // 3. Logo Derecho
-  if (logoDerData) {
-    headerCells.push(new TableCell({
-      width: { size: 15, type: WidthType.PERCENTAGE },
-      borders: { top: { style: BorderStyle.NONE, size: 0 }, bottom: { style: BorderStyle.NONE, size: 0 }, left: { style: BorderStyle.NONE, size: 0 }, right: { style: BorderStyle.NONE, size: 0 } },
-      verticalAlign: VerticalAlign.CENTER,
-      children: [new Paragraph({ alignment: AlignmentType.CENTER, children: [new ImageRun({ data: logoDerData, transformation: { width: 90, height: 90 } })] })]
-    }));
+  if (projectData.logoDerecho) {
+    const imgData = base64ToArrayBuffer(projectData.logoDerecho);
+    if (imgData.length > 0) {
+      headerCells.push(new TableCell({
+        width: { size: 15, type: WidthType.PERCENTAGE },
+        borders: { top: { style: BorderStyle.NONE, size: 0 }, bottom: { style: BorderStyle.NONE, size: 0 }, left: { style: BorderStyle.NONE, size: 0 }, right: { style: BorderStyle.NONE, size: 0 } },
+        verticalAlign: VerticalAlign.CENTER,
+        children: [new Paragraph({ alignment: AlignmentType.CENTER, children: [new ImageRun({ data: imgData, transformation: { width: 90, height: 90 } })] })]
+      }));
+    } else {
+      headerCells.push(new TableCell({ width: { size: 15, type: WidthType.PERCENTAGE }, borders: { top: { style: BorderStyle.NONE, size: 0 }, bottom: { style: BorderStyle.NONE, size: 0 }, left: { style: BorderStyle.NONE, size: 0 }, right: { style: BorderStyle.NONE, size: 0 } }, children: [new Paragraph("")] }));
+    }
   } else {
     headerCells.push(new TableCell({ width: { size: 15, type: WidthType.PERCENTAGE }, borders: { top: { style: BorderStyle.NONE, size: 0 }, bottom: { style: BorderStyle.NONE, size: 0 }, left: { style: BorderStyle.NONE, size: 0 }, right: { style: BorderStyle.NONE, size: 0 } }, children: [new Paragraph("")] }));
   }
@@ -141,34 +176,40 @@ export const exportToWord = async (projectData: any, plannedItems: any[], activi
   const tableMetadata = new Table({
     width: { size: 100, type: WidthType.PERCENTAGE },
     rows: [
-      new TableRow({ children: [ createCell("CAMPO FORMATIVO", true, 25, AlignmentType.CENTER, "f1f5f9"), createCell(projectData.campo || "Lenguajes", true, 25, AlignmentType.CENTER), createCell("METODOLOGÍA", true, 25, AlignmentType.CENTER, "f1f5f9"), createCell(projectData.estrategia || "", true, 25, AlignmentType.CENTER) ] }),
-      new TableRow({ children: [ createCell("DISCIPLINA Y DOCENTE", true, 25, AlignmentType.CENTER, "f1f5f9"), createCell(`${projectData.disciplina || ""} - ${projectData.maestro || ""}`, true, 25, AlignmentType.CENTER), createCell("GRADO Y GRUPO", true, 25, AlignmentType.CENTER, "f1f5f9"), createCell(`${projectData.grado || ""} "${(projectData.grupo || []).join(', ')}"`, true, 25, AlignmentType.CENTER) ] }),
-      new TableRow({ children: [ createCell("PROYECTO", true, 25, AlignmentType.CENTER, "f1f5f9"), createCell(projectData.proyecto || "", true, 25, AlignmentType.CENTER), createCell("INICIO", true, 25, AlignmentType.CENTER, "f1f5f9"), createCell(projectData.fechaInicio || "", true, 25, AlignmentType.CENTER) ] }),
-      new TableRow({ children: [ createCell("FASE NEM", true, 25, AlignmentType.CENTER, "f1f5f9"), createCell("6", true, 25, AlignmentType.CENTER), createCell("TÉRMINO", true, 25, AlignmentType.CENTER, "f1f5f9"), createCell(projectData.fechaFin || "", true, 25, AlignmentType.CENTER) ] }),
+      new TableRow({ children: [ createCell("CAMPO FORMATIVO", true, 25, AlignmentType.CENTER, "f1f5f9"), createCell(campo, true, 25, AlignmentType.CENTER), createCell("METODOLOGÍA", true, 25, AlignmentType.CENTER, "f1f5f9"), createCell(estrategia, true, 25, AlignmentType.CENTER) ] }),
+      new TableRow({ children: [ createCell("DISCIPLINA Y DOCENTE", true, 25, AlignmentType.CENTER, "f1f5f9"), createCell(`${disciplina} - ${maestro}`, true, 25, AlignmentType.CENTER), createCell("GRADO Y GRUPO", true, 25, AlignmentType.CENTER, "f1f5f9"), createCell(`${grado} "${grupo}"`, true, 25, AlignmentType.CENTER) ] }),
+      new TableRow({ children: [ createCell("PROYECTO", true, 25, AlignmentType.CENTER, "f1f5f9"), createCell(proyecto, true, 25, AlignmentType.CENTER), createCell("INICIO", true, 25, AlignmentType.CENTER, "f1f5f9"), createCell(fechaInicio, true, 25, AlignmentType.CENTER) ] }),
+      new TableRow({ children: [ createCell("FASE NEM", true, 25, AlignmentType.CENTER, "f1f5f9"), createCell("6", true, 25, AlignmentType.CENTER), createCell("TÉRMINO", true, 25, AlignmentType.CENTER, "f1f5f9"), createCell(fechaFin, true, 25, AlignmentType.CENTER) ] }),
       new TableRow({ children: [ createCell("EJES ARTICULADORES", true, 25, AlignmentType.CENTER, "f1f5f9"), createCell(ejesText, false, 25, AlignmentType.CENTER), createCell("EVIDENCIAS / PRODUCTO", true, 25, AlignmentType.CENTER, "f1f5f9"), createCell("", false, 25, AlignmentType.CENTER) ] }),
-      new TableRow({ children: [ createCell("TOTAL SESIONES", true, 25, AlignmentType.CENTER, "f1f5f9"), createCell(projectData.sesiones?.toString() || "", true, 25, AlignmentType.CENTER), createCell("EVALUACIÓN FORMATIVA", true, 25, AlignmentType.CENTER, "f1f5f9"), createCell(evaluacionText, false, 25, AlignmentType.CENTER) ] }),
+      new TableRow({ children: [ createCell("TOTAL SESIONES", true, 25, AlignmentType.CENTER, "f1f5f9"), createCell(sesiones, true, 25, AlignmentType.CENTER), createCell("EVALUACIÓN FORMATIVA", true, 25, AlignmentType.CENTER, "f1f5f9"), createCell(evaluacionText, false, 25, AlignmentType.CENTER) ] }),
     ]
   });
 
-  // TABLA 2: CONTENIDOS Y PDAS
+  // TABLA 2: CONTENIDOS Y PDAS - MANTENIENDO EL MISMO ESTILO QUE EL FUNCIONAL
   const tableCurricula = new Table({
     width: { size: 100, type: WidthType.PERCENTAGE },
     rows: [
       new TableRow({ children: [ createCell("CONTENIDOS", true, 50, AlignmentType.CENTER, "1e3a8a"), createCell("PROCESOS DE DESARROLLO DE APRENDIZAJE (PDA)", true, 50, AlignmentType.CENTER, "1e3a8a") ] }),
       new TableRow({ children: [ 
-        new TableCell({ margins: { top: 80, bottom: 80, left: 100, right: 100 }, children: [ new Paragraph({ children: [new TextRun({ text: `• ${contenidos}`, size: 18, font: "Calibri" })] }) ] }),
-        new TableCell({ margins: { top: 80, bottom: 80, left: 100, right: 100 }, children: [ new Paragraph({ children: [new TextRun({ text: `• ${pdas}`, size: 18, font: "Calibri" })] }) ] })
+        new TableCell({ 
+          margins: { top: 80, bottom: 80, left: 100, right: 100 }, 
+          children: [ new Paragraph({ children: [new TextRun({ text: `• ${contenidos}`, size: 18, font: "Calibri" })] }) ] 
+        }),
+        new TableCell({ 
+          margins: { top: 80, bottom: 80, left: 100, right: 100 }, 
+          children: [ new Paragraph({ children: [new TextRun({ text: `• ${pdas}`, size: 18, font: "Calibri" })] }) ] 
+        })
       ] })
     ]
   });
 
-  // TABLA 3: SECUENCIA DIDÁCTICA
+  // TABLA 3: SECUENCIA DIDÁCTICA - MANTENIENDO EL MISMO ESTILO QUE EL FUNCIONAL
   const secuenciaRows = [
     new TableRow({ children: [ createCell("FASES / MOMENTOS", true, 20, AlignmentType.CENTER, "1e3a8a"), createCell("DESARROLLO DE ACTIVIDADES", true, 80, AlignmentType.CENTER, "1e3a8a") ] })
   ];
 
   fases.forEach(fase => {
-    const actText = actividades[fase.id] || "";
+    const actText = sanitizeText(actividades[fase.id]) || "";
     secuenciaRows.push(
       new TableRow({
         children: [
@@ -177,10 +218,11 @@ export const exportToWord = async (projectData: any, plannedItems: any[], activi
             margins: { top: 100, bottom: 100, left: 100, right: 100 },
             children: [new Paragraph({ children: [new TextRun({ text: fase.titulo, bold: true, size: 18, font: "Calibri" })], alignment: AlignmentType.CENTER })]
           }),
+          // IMPORTANTE: Usar un solo párrafo, no múltiples con split, como en el funcional
           new TableCell({
             width: { size: 80, type: WidthType.PERCENTAGE },
             margins: { top: 150, bottom: 150, left: 150, right: 150 },
-            children: actText.split('\n').map(line => new Paragraph({ children: [new TextRun({ text: line, size: 18, font: "Calibri" })], spacing: { after: 100 } }))
+            children: [new Paragraph({ children: [new TextRun({ text: actText, size: 18, font: "Calibri" })] })]
           })
         ]
       })
@@ -201,7 +243,7 @@ export const exportToWord = async (projectData: any, plannedItems: any[], activi
             children: [
               new Paragraph({ text: "________________________________________________", alignment: AlignmentType.CENTER }),
               new Paragraph({ children: [new TextRun({ text: "FIRMA DEL DOCENTE", bold: true, size: 18, font: "Calibri" })], alignment: AlignmentType.CENTER, spacing: { before: 100 } }),
-              new Paragraph({ children: [new TextRun({ text: projectData.maestro || "Nombre del Docente", size: 18, font: "Calibri" })], alignment: AlignmentType.CENTER, spacing: { before: 50 } })
+              new Paragraph({ children: [new TextRun({ text: maestro || "Nombre del Docente", size: 18, font: "Calibri" })], alignment: AlignmentType.CENTER, spacing: { before: 50 } })
             ]
           }),
           new TableCell({
@@ -233,23 +275,19 @@ export const exportToWord = async (projectData: any, plannedItems: any[], activi
         }
       },
       children: [
-        tableHeaderOficial, // <-- AQUÍ INSERTAMOS LA TABLA CON LOS LOGOS
+        tableHeaderOficial,
         new Paragraph({ spacing: { before: 200 } }), 
-        
         tableMetadata,
         new Paragraph({ spacing: { before: 200 } }), 
-        
         tableCurricula,
         new Paragraph({ spacing: { before: 200 } }), 
-        
         tableSecuencia,
         new Paragraph({ spacing: { before: 800 } }), 
-        
         tableFirmas
       ],
     }],
   });
 
   const blob = await Packer.toBlob(doc);
-  saveAs(blob, `Planeacion_${projectData.proyecto || "NEM"}.docx`);
+  saveAs(blob, `Planeacion_${proyecto.replace(/[^a-z0-9]/gi, '_') || "NEM"}.docx`);
 };
