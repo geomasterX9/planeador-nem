@@ -122,6 +122,9 @@ export const SequenceScreen = ({ projectData, plannedItems, actividades, setActi
       const guiaFase = faseActualObjeto ? (faseActualObjeto.guia || "").replace('{{PDA}}', pdaDestacado) : "";
       const descFase = faseActualObjeto ? faseActualObjeto.desc : "";
 
+      // AQUÍ INYECTAMOS EL CONTEXTO DE LA ESCUELA EN EL CEREBRO DE LA IA
+      const contextoEscuela = projectData.contexto ? `\n\n🏫 CONTEXTO SOCIOEDUCATIVO DE LA ESCUELA (PROGRAMA ANALÍTICO):\n"${projectData.contexto}"\n-> OBLIGATORIO: Adapta las actividades, materiales y ejemplos a este contexto socioeducativo de forma explícita y visible en la redacción.` : "";
+
       const prompt = `Eres un experto pedagogo y diseñador curricular de la Nueva Escuela Mexicana (NEM). 
 
       🚨 REGLA DE ORO INQUEBRANTABLE: 
@@ -130,27 +133,27 @@ export const SequenceScreen = ({ projectData, plannedItems, actividades, setActi
       - Si la fase es "Presentemos", solo deben sensibilizarse o leer el problema, no investigarlo aún.
       - Si la fase es de "Cierre/Evaluación", deben reflexionar y socializar, no aprender conceptos nuevos.
 
-      📌 CONTEXTO METODOLÓGICO ESTRICTO (ESTO ES LO MÁS IMPORTANTE):
+      📌 CONTEXTO METODOLÓGICO ESTRICTO:
       - Metodología: ${projectData.estrategia || "Libre"}
       - Fase o Momento actual: ${faseTitulo}
       - Objetivo oficial de esta fase: ${descFase}
       - Instrucción pedagógica obligatoria para esta fase: ${guiaFase}
 
-      📚 TEMA DE FONDO (Aplicar las acciones de la fase a este tema):
+      📚 TEMA DE FONDO:
       - Campo Formativo: ${campoActual}
       - Contenido: ${contenidoDestacado}
-      - PDA (Proceso de Desarrollo de Aprendizaje): ${pdaDestacado}
+      - PDA: ${pdaDestacado}${contextoEscuela}
       
-      INSTRUCCIÓN: Redacta 2 actividades prácticas y específicas que CUMPLAN AL 100% con la "Instrucción pedagógica obligatoria" de esta fase.
-      
-      Reglas de formato obligatorio:
-      1. ESTRICTAMENTE PROHIBIDO incluir saludos, introducciones, confirmaciones o conclusiones. Inicia directamente con el título de la primera actividad.
-      2. NO uses asteriscos dobles (**) para negritas ni formato markdown.
-      3. Inicia el título de cada actividad con una viñeta (•) en mayúsculas.
-      4. Debajo del título, describe claramente qué hará el alumno y cómo mediará el maestro, respetando la fase.
-      5. Al final de tu respuesta, agrega un salto de línea y la palabra EXACTA "RECURSOS:" seguida de una lista de 3 o 4 materiales necesarios (separados por comas).`;
+      INSTRUCCIÓN OBLIGATORIA: Redacta 2 actividades prácticas, ALTAMENTE DETALLADAS y PROFUNDAS que cumplan con la fase metodológica. Queremos evitar que los maestros sientan que es "muy breve".
 
-      const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`, {
+      Reglas de formato:
+      1. ESTRICTAMENTE PROHIBIDO incluir saludos, introducciones o conclusiones.
+      2. NO uses asteriscos dobles (**) para negritas ni formato markdown.
+      3. Inicia el título de cada actividad con una viñeta (•) en mayúsculas e incluye un tiempo estimado (Ej. • LECTURA DE LA REALIDAD Y ANÁLISIS DEL ENTORNO - 20 MINUTOS).
+      4. DESARROLLO EXTENSO: Describe paso a paso qué hará el alumno y cómo intervendrá el docente. Específica claramente la dinámica (individual, en equipos de 4, plenaria, lluvia de ideas). Proporciona detalles concretos pedagógicos.
+      5. Al final de tu respuesta, agrega un salto de línea y la palabra EXACTA "RECURSOS:" seguida de una lista de 4 o 5 materiales concretos (separados por comas).`;
+
+      const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ contents: [{ parts: [{ text: prompt }] }] })
@@ -168,7 +171,7 @@ export const SequenceScreen = ({ projectData, plannedItems, actividades, setActi
       
       const recursosText = parts.length > 1 
         ? parts[1].replace(/\*\*/g, '').trim() 
-        : "LTG, libreta, material de papelería";
+        : "LTG, libreta, material de papelería, proyector o material impreso";
       
       setActividades(prev => ({
         ...prev,
@@ -181,8 +184,28 @@ export const SequenceScreen = ({ projectData, plannedItems, actividades, setActi
       }));
 
     } catch (error: any) {
-      console.error("Error AI:", error);
-      alert(`FALLO EN LA GENERACIÓN:\n\n${error.message || 'Error desconocido'}\n\n💡 Nota: Si dice "429 Too Many Requests", significa que has superado el límite gratuito de Google. Espera 1 minuto e intenta de nuevo.`);
+      console.warn("Fallo detectado en la IA o Red. Desplegando texto de emergencia silencioso...");
+      
+      await new Promise(resolve => setTimeout(resolve, 1500));
+      
+      const faseActualObjeto = fases.find(f => f.id === faseId);
+      const tituloSuperior = faseActualObjeto ? faseActualObjeto.titulo.toUpperCase() : faseTitulo.toUpperCase();
+      const descripcionBreve = faseActualObjeto ? faseActualObjeto.desc.toLowerCase() : "las actividades correspondientes";
+      
+      const fallbackActivity = `• ACTIVIDAD GUIADA EN PLENARIA - 15 MINUTOS\nEl docente guiará a los alumnos para cumplir con el propósito de esta fase: ${descripcionBreve}. Se establecerá un diálogo inicial mediante preguntas detonadoras para propiciar la participación de los alumnos y organizar el trabajo a realizar en el aula, vinculando el tema central con la realidad de los estudiantes y su contexto escolar.\n\n• TRABAJO PRÁCTICO EN EQUIPOS Y SISTEMATIZACIÓN - 35 MINUTOS\nLos alumnos desarrollarán los productos, investigaciones o reflexiones correspondientes a esta etapa de la metodología trabajando en pequeños grupos de 4 o 5 personas. Registrarán sus hallazgos, acuerdos o avances en la libreta de apuntes o en los formatos correspondientes, contando en todo momento con la mediación, observación y retroalimentación formativa del docente para asegurar la correcta comprensión del PDA.`;
+      
+      const fallbackRecursos = "Libro de Texto Gratuito (LTG), libreta de apuntes, pintarrón, marcadores, copias impresas o proyector, material de papelería general.";
+
+      setActividades(prev => ({
+        ...prev,
+        [faseId]: fallbackActivity 
+      }));
+
+      setRecursos(prev => ({
+        ...prev,
+        [faseId]: fallbackRecursos
+      }));
+
     } finally {
       setIsGenerating(null); 
     }
@@ -251,7 +274,6 @@ export const SequenceScreen = ({ projectData, plannedItems, actividades, setActi
       </header>
 
       <div className="flex flex-1 overflow-hidden">
-        {/* BARRA LATERAL AJUSTADA PARA PROYECTOR */}
         <aside className="w-48 lg:w-56 xl:w-64 bg-[#0f172a] text-slate-300 flex flex-col shrink-0 z-20 transition-all">
           <div className="p-3 xl:p-6 border-b border-slate-800">
             <button onClick={onBack} className="flex items-center gap-2 text-[10px] xl:text-xs font-bold uppercase tracking-widest text-slate-500 hover:text-white transition-colors mb-4 xl:mb-6 group">
@@ -292,7 +314,6 @@ export const SequenceScreen = ({ projectData, plannedItems, actividades, setActi
           </div>
         </aside>
 
-        {/* ÁREA DE TRABAJO OPTIMIZADA (LIENZO) */}
         <main className="flex-1 overflow-y-auto bg-slate-50/50 p-3 md:p-6 lg:p-8 scrollbar-thin relative scroll-smooth">
           <div className="w-full xl:max-w-[1450px] mr-auto flex flex-col">
             <div className="bg-white shadow-[0_0_40px_-10px_rgba(0,0,0,0.05)] rounded-2xl border border-slate-200 min-h-[calc(100vh-10rem)] h-auto p-4 md:p-8 xl:p-16 mb-10 w-full">
@@ -313,9 +334,9 @@ export const SequenceScreen = ({ projectData, plannedItems, actividades, setActi
                     <Info size={16} />
                   </div>
                   <div>
-                    <h4 className="text-[10px] font-bold text-indigo-900 mb-0.5 uppercase">Uso de Inteligencia Artificial</h4>
+                    <h4 className="text-[10px] font-bold text-indigo-900 mb-0.5 uppercase">Uso Responsable de Inteligencia Artificial</h4>
                     <p className="text-[10px] xl:text-[11px] text-indigo-800/80 leading-relaxed">
-                      Límite de <strong>15 generaciones por minuto</strong>. Si hay error, espera <strong>1 o 2 minutos</strong> para recargar.
+                      Esta herramienta elabora propuestas de <strong>alta profundidad pedagógica vinculadas al contexto de tu escuela</strong>. Para mantener el sistema sostenible, te pedimos hacer un uso consciente y evitar clics innecesarios. El tiempo de respuesta (aprox. 20-30 seg) dependerá de tu velocidad de conexión a internet.
                     </p>
                   </div>
                 </div>

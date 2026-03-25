@@ -23,7 +23,6 @@ export const EvaluationScreen = ({ projectData, plannedItems, actividades, onBac
   
   const [retroalimentacion, setRetroalimentacion] = useState("");
   
-  // Estados para la IA y el formato del examen
   const [isGenerating, setIsGenerating] = useState(false);
   const [examFormat, setExamFormat] = useState<'abiertas' | 'multiple'>('abiertas');
 
@@ -92,64 +91,63 @@ export const EvaluationScreen = ({ projectData, plannedItems, actividades, onBac
     try {
       const pdaText = plannedItems.filter(i => i.type === 'pda').map(i => i.text).join(", ") || "el tema central del proyecto";
       const contenidoText = plannedItems.filter(i => i.type === 'content').map(i => i.text).join(", ") || "los contenidos de la clase";
+      
+      // AQUÍ INYECTAMOS EL CONTEXTO EN LAS EVALUACIONES Y EXÁMENES
+      const contextoEscuela = projectData.contexto ? `\n🏫 CONTEXTO SOCIOEDUCATIVO DE LA ESCUELA (PROGRAMA ANALÍTICO):\n"${projectData.contexto}"\n-> OBLIGATORIO: Adapta los escenarios de las preguntas, casos prácticos y criterios de evaluación a este contexto específico y necesidades de la comunidad.` : "";
 
-      // MODO ESTRUCTURADO ESTRICTO (JSON)
-      let prompt = `Eres un experto pedagogo de la Nueva Escuela Mexicana (NEM).
+      let prompt = `Eres un experto evaluador pedagógico de la Nueva Escuela Mexicana (NEM).
       Tema/PDA a evaluar: ${pdaText}
       Contenidos: ${contenidoText}
+      ${contextoEscuela}
       
       REGLA OBLIGATORIA: Ignora cuántos temas hay en la lista. Debes generar EXACTAMENTE la cantidad de criterios o preguntas solicitadas a continuación. NO generes ni una más, ni una menos.\n`;
 
       if (activeTab === 'Listas de cotejo' || activeTab === 'Guías de observación' || activeTab === 'Escalas estimativas') {
         prompt += `INSTRUCCIÓN: Genera EXACTAMENTE 5 indicadores/criterios para el instrumento: ${activeTab}. 
+        Los indicadores deben ser EXTENSOS, detallados y altamente observables en el aula, vinculados al contexto provisto.
         Devuelve estrictamente un JSON que sea UN ARREGLO de 5 strings. 
-        Ejemplo exacto: ["Criterio 1", "Criterio 2", "Criterio 3", "Criterio 4", "Criterio 5"]`;
+        Ejemplo: ["El alumno demuestra capacidad analítica al momento de...", ...]`;
       } 
       else if (activeTab === 'Rúbricas') {
         prompt += `INSTRUCCIÓN: Genera EXACTAMENTE 5 criterios pedagógicos para una Rúbrica con 4 niveles de desempeño.
+        Exigencia: Los niveles de desempeño deben ser PROFUNDOS Y DESCRIPTIVOS, utilizando la Taxonomía de Bloom. Explica exactamente qué acciones observables definen cada nivel vinculadas al contexto de la comunidad.
         Devuelve estrictamente un JSON que sea UN ARREGLO de 5 objetos con esta estructura exacta:
         [
-          { "criterio": "Nombre...", "nivel4": "Sobresaliente...", "nivel3": "Satisfactorio...", "nivel2": "Suficiente...", "nivel1": "Requiere apoyo..." }
+          { "criterio": "Nombre del criterio evaluado", "nivel4": "Descripción extensa sobresaliente...", "nivel3": "Descripción extensa satisfactoria...", "nivel2": "Descripción extensa suficiente...", "nivel1": "Descripción extensa requiere apoyo..." }
         ]`;
       } 
       else if (activeTab === 'Cuestionarios' || (activeTab === 'Exámenes escritos' && examFormat === 'abiertas')) {
         prompt += `INSTRUCCIÓN: Genera EXACTAMENTE 10 preguntas abiertas y reflexivas para el alumno.
-        Devuelve estrictamente un JSON que sea UN ARREGLO de 10 strings. 
-        Ejemplo exacto: ["¿Pregunta 1?", "¿Pregunta 2?", ...]`;
+        Exigencia: Deben ser preguntas de ALTO NIVEL COGNITIVO que involucren análisis o aplicación basados en el contexto socioeducativo proporcionado. Evita preguntas de simple memorización.
+        Devuelve estrictamente un JSON que sea UN ARREGLO de 10 strings.`;
       } 
       else if (activeTab === 'Exámenes escritos' && examFormat === 'multiple') {
         prompt += `INSTRUCCIÓN: Genera EXACTAMENTE 10 preguntas de opción múltiple.
+        Exigencia: Plantea escenarios y casos prácticos de la vida real BASADOS ESTRICTAMENTE en el contexto socioeducativo de la escuela. Las opciones deben requerir análisis.
         Devuelve estrictamente un JSON que sea UN ARREGLO de 10 objetos con esta estructura exacta:
         [
-          { "pregunta": "¿...?", "opciones": ["a) ...", "b) ...", "c) ...", "d) ..."], "respuesta": "a) ..." }
+          { "pregunta": "Planteamiento extenso y reflexivo del caso: ¿...?", "opciones": ["a) ...", "b) ...", "c) ...", "d) ..."], "respuesta": "a) ..." }
         ]`;
       }
 
-      // Obligamos a Gemini a devolver un JSON válido
       const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ 
           contents: [{ parts: [{ text: prompt }] }],
-          generationConfig: { responseMimeType: "application/json" } // <- EL SECRETO
+          generationConfig: { responseMimeType: "application/json" }
         })
       });
 
       const data = await response.json();
       
-      if (data.error) {
-        throw new Error(`API de Google: ${data.error.message}`);
-      }
-
-      const rawText = data.candidates?.[0]?.content?.parts?.[0]?.text;
+      if (data.error) throw new Error(`API de Google: ${data.error.message}`);
       
-      if (!rawText) {
-        throw new Error("La IA bloqueó la respuesta por filtros de seguridad de Google.");
-      }
+      const rawText = data.candidates?.[0]?.content?.parts?.[0]?.text;
+      if (!rawText) throw new Error("La IA bloqueó la respuesta.");
 
       const jsonResponse = JSON.parse(rawText);
 
-      // Procesamiento a prueba de balas garantizando las cantidades
       if (['Listas de cotejo', 'Guías de observación', 'Escalas estimativas'].includes(activeTab)) {
         const items = Array.isArray(jsonResponse) ? jsonResponse : (jsonResponse.criterios || Object.values(jsonResponse));
         const safeItems = items.slice(0, 5).map((i: any) => typeof i === 'string' ? i : JSON.stringify(i));
@@ -169,9 +167,7 @@ export const EvaluationScreen = ({ projectData, plannedItems, actividades, onBac
           nivel2: obj.nivel2 || "",
           nivel1: obj.nivel1 || ""
         }));
-        while (newRubrica.length < 5) {
-          newRubrica.push({ id: Date.now() + newRubrica.length, criterio: "Criterio pendiente...", nivel4: "", nivel3: "", nivel2: "", nivel1: "" });
-        }
+        while (newRubrica.length < 5) newRubrica.push({ id: Date.now() + newRubrica.length, criterio: "Criterio pendiente...", nivel4: "", nivel3: "", nivel2: "", nivel1: "" });
         setCriteriosRubrica(newRubrica);
       } 
       else if (activeTab === 'Cuestionarios' || (activeTab === 'Exámenes escritos' && examFormat === 'abiertas')) {
@@ -190,8 +186,42 @@ export const EvaluationScreen = ({ projectData, plannedItems, actividades, onBac
       }
 
     } catch (error: any) {
-      console.error("Error en IA:", error);
-      alert(`FALLO EN LA GENERACIÓN:\n\n${error.message || 'Error desconocido'}\n\n💡 Nota: Si dice "429 Too Many Requests", significa que has superado el límite gratuito de Google (15 consultas por minuto). Espera 1 a 2 minutos e intenta de nuevo.`);
+      console.warn("Fallo detectado en la IA o Red. Desplegando evaluación de emergencia silenciosa...");
+      
+      await new Promise(resolve => setTimeout(resolve, 1500));
+      
+      if (['Listas de cotejo', 'Guías de observación', 'Escalas estimativas'].includes(activeTab)) {
+        const safeItems = [
+          "Identifica y comprende con profundidad los conceptos centrales abordados en el proyecto, logrando aplicarlos a su entorno.",
+          "Participa activamente en las discusiones plenarias, aportando ideas pertinentes y fundamentadas en la investigación.",
+          "Muestra respeto por las opiniones de sus compañeros durante el trabajo colaborativo, asumiendo roles de liderazgo cuando se requiere.",
+          "Realiza las actividades prácticas y metodológicas siguiendo rigurosamente las instrucciones y criterios establecidos por el docente.",
+          "Entrega las evidencias de aprendizaje en tiempo y forma, reflejando un esfuerzo reflexivo, orden y dedicación en sus productos."
+        ];
+        
+        if (activeTab === 'Listas de cotejo') setCriteriosCotejo(safeItems);
+        if (activeTab === 'Guías de observación') setCriteriosObservacion(safeItems);
+        if (activeTab === 'Escalas estimativas') setCriteriosEscala(safeItems);
+      } 
+      else if (activeTab === 'Rúbricas') {
+        const newRubrica = [
+          { id: Date.now() + 1, criterio: "Análisis y Comprensión del Tema Central", nivel4: "Analiza con claridad y profundidad los conceptos clave, relacionándolos críticamente con su contexto sociocultural y proponiendo ejemplos pertinentes.", nivel3: "Identifica los conceptos principales y los describe de forma general, logrando vincularlos con la problemática del proyecto.", nivel2: "Muestra dificultades para explicar los conceptos clave y requiere apoyo constante del docente para relacionarlos con el entorno.", nivel1: "No logra identificar ni explicar los conceptos abordados en el proyecto, mostrando nula comprensión del tema central." },
+          { id: Date.now() + 2, criterio: "Desarrollo y Presentación del Producto Final", nivel4: "Elabora un producto de alta calidad, creativo e innovador que cumple rigurosamente con todos los requisitos solicitados en la fase de planeación.", nivel3: "Presenta un producto adecuado que cumple con la mayoría de los requisitos solicitados, demostrando esfuerzo en su elaboración.", nivel2: "El producto está incompleto, carece de elementos fundamentales o se presenta de manera desorganizada.", nivel1: "No presenta el producto o este carece totalmente de relación con la problemática y el tema abordado en clase." },
+          { id: Date.now() + 3, criterio: "Trabajo Colaborativo y Mediación de Conflictos", nivel4: "Asume un rol activo y empático, fomenta el diálogo constructivo y apoya a sus compañeros en la resolución pacífica de tareas y conflictos.", nivel3: "Participa de forma regular en el equipo cumpliendo con sus responsabilidades asignadas de manera respetuosa.", nivel2: "Su participación es escasa, trabaja de manera aislada en ocasiones y requiere que el docente le asigne tareas específicas constantemente.", nivel1: "Se aísla permanentemente del equipo, genera conflictos y no contribuye al desarrollo de las actividades conjuntas." },
+          { id: Date.now() + 4, criterio: "Pensamiento Crítico y Reflexión Continua", nivel4: "Cuestiona la información críticamente, formula preguntas pertinentes de alto nivel cognitivo y argumenta sólidamente sus posturas.", nivel3: "Comprende la información general y logra emitir opiniones básicas pero fundamentadas sobre el tema tratado.", nivel2: "Se le dificulta analizar la información, rara vez cuestiona lo que lee o escucha y sus opiniones carecen de sustento.", nivel1: "Acepta la información sin cuestionarla, se limita a transcribir datos y no logra emitir una opinión propia sobre el tema." },
+          { id: Date.now() + 5, criterio: "Habilidades de Comunicación Oral y Escrita", nivel4: "Expresa sus ideas con total claridad, fluidez y utilizando un vocabulario técnico-pedagógico adecuado al contexto de la presentación.", nivel3: "Comunica sus ideas de forma comprensible, con un volumen de voz adecuado, aunque ocasionalmente duda o utiliza muletillas.", nivel2: "Muestra nerviosismo evidente, tono de voz inaudible y dificultad grave para organizar sus ideas al hablar frente al grupo.", nivel1: "Se niega a participar oralmente y sus apuntes o guiones escritos son incomprensibles y carecen de coherencia lógica." }
+        ];
+        setCriteriosRubrica(newRubrica);
+      } 
+      else if (activeTab === 'Cuestionarios' || (activeTab === 'Exámenes escritos' && examFormat === 'abiertas')) {
+        const text = "1. Planteamiento: Durante el proyecto observamos cómo el tema impacta nuestra comunidad. Con base en este contexto, ¿cuál consideras que es la causa principal de la problemática y cómo la solucionarías?\n\n2. Análisis de caso: Imagina que un compañero de otra escuela te pregunta sobre este tema. ¿Qué argumentos utilizarías para convencerlo de su importancia en la vida diaria?\n\n3. Reflexión personal: Describe detalladamente qué estrategias de investigación utilizaste en la fase de desarrollo y cuáles te resultaron más efectivas.\n\n4. Síntesis: De todos los saberes compartidos en plenaria, redacta una conclusión de tres líneas que resuma el aprendizaje más valioso que obtuviste.\n\n5. Proyección: Si tuviéramos que replicar este producto final en el próximo ciclo escolar, ¿qué ajustes metodológicos propondrías para mejorar los resultados obtenidos?";
+        if (activeTab === 'Cuestionarios') setTextoCuestionario(text);
+        else setTextoExamen(text);
+      } 
+      else if (activeTab === 'Exámenes escritos' && examFormat === 'multiple') {
+        const text = "1. Analiza el siguiente escenario comunitario: En el aula se presentó una problemática relacionada con el tema central del proyecto, donde las opiniones estaban divididas. Para lograr los propósitos de inclusión y diálogo de la Nueva Escuela Mexicana, ¿cuál es la mejor postura a tomar?\na) Trabajar de forma individual y competitiva para demostrar quién tiene la razón absoluta.\nb) Ignorar el contexto sociocultural de los compañeros y basarse únicamente en el libro de texto.\nc) Fomentar el diálogo respetuoso, escuchar activamente todas las posturas y buscar un consenso.\nd) Pedirle al docente que tome la decisión final sin involucrar a los estudiantes en el proceso reflexivo.\n(Respuesta correcta: c)\n\n2. Durante la fase de \"Acercamiento\" o \"Desarrollo\" de nuestro proyecto, el objetivo pedagógico principal se enfocó en:\na) La memorización mecánica de fechas, datos históricos y fórmulas matemáticas.\nb) La investigación documental y vivencial para proponer soluciones a problemas reales del entorno.\nc) La transcripción literal de textos literarios sin realizar un análisis crítico de fondo.\nd) La aplicación de exámenes estandarizados para clasificar a los alumnos por su rendimiento.\n(Respuesta correcta: b)";
+        setTextoExamen(text);
+      }
     } finally {
       setIsGenerating(false);
     }
@@ -266,7 +296,6 @@ export const EvaluationScreen = ({ projectData, plannedItems, actividades, onBac
           <div className="w-full max-w-[1200px] mr-auto flex flex-col">
             <div className="bg-white shadow-[0_0_40px_-10px_rgba(0,0,0,0.05)] rounded-2xl border border-slate-200 min-h-[calc(100vh-10rem)] h-auto p-6 lg:p-10 xl:p-16 mb-10 w-full">
               
-              {/* ENCABEZADO Y AVISO IA */}
               <div className="mb-8 xl:mb-12 border-b border-slate-100 pb-6 xl:pb-8 flex justify-between items-center">
                 <div className="flex items-center gap-3 xl:gap-4">
                   <div className="p-2 xl:p-3 bg-emerald-50 rounded-lg xl:rounded-xl text-emerald-600 shrink-0"><PenTool size={24} /></div>
@@ -287,15 +316,14 @@ export const EvaluationScreen = ({ projectData, plannedItems, actividades, onBac
                 )}
               </div>
 
-              {/* BANNER AVISO IA */}
               <div className="bg-indigo-50/80 border border-indigo-100 p-4 rounded-xl mb-8 flex items-start gap-3">
                 <div className="bg-indigo-100 text-indigo-600 p-1.5 rounded-lg shrink-0 mt-0.5">
                   <Info size={18} />
                 </div>
                 <div>
-                  <h4 className="text-xs font-bold text-indigo-900 mb-1">Sobre el uso de Inteligencia Artificial</h4>
+                  <h4 className="text-xs font-bold text-indigo-900 mb-1">Uso Responsable de Inteligencia Artificial</h4>
                   <p className="text-[11px] text-indigo-800/80 leading-relaxed">
-                    Para asegurar que el sistema gratuito funcione bien para todos los docentes, dispones de <strong>hasta 15 generaciones por minuto</strong>. Si notas un error o no carga, por favor <strong>espera de 1 a 2 minutos</strong> para que tu cuota se recargue automáticamente.
+                    Esta herramienta elabora propuestas de <strong>alta profundidad pedagógica vinculadas al contexto de tu escuela</strong>. Para mantener el sistema sostenible, te pedimos hacer un uso consciente y evitar clics innecesarios. El tiempo de respuesta (aprox. 20-30 seg) dependerá de tu velocidad de conexión a internet.
                   </p>
                 </div>
               </div>

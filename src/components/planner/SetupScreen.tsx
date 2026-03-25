@@ -1,5 +1,5 @@
 import React from 'react';
-import { User, Briefcase, Calendar, Layers, PenTool, ArrowRight, BookOpen, Clock, CheckCircle2, Building2, ImagePlus, X, Settings } from 'lucide-react';
+import { User, Briefcase, Calendar, Layers, PenTool, ArrowRight, BookOpen, Clock, CheckCircle2, Building2, ImagePlus, X, Settings, Map } from 'lucide-react';
 
 interface SetupScreenProps {
   data: any;
@@ -10,9 +10,9 @@ interface SetupScreenProps {
 export const SetupScreen = ({ data, onChange, onComplete }: SetupScreenProps) => {
   const safeData = data || {};
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     let value = e.target.value;
-    // Forzar mayúsculas solo si es un campo de texto
+    // Forzar mayúsculas solo si es un campo de texto corto (no el textarea del contexto)
     if (e.target.type === 'text') {
       value = value.toUpperCase();
     }
@@ -94,6 +94,7 @@ export const SetupScreen = ({ data, onChange, onComplete }: SetupScreenProps) =>
               <h4 className="text-[9px] xl:text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-3">Progreso</h4>
               <ul className="space-y-3 text-xs font-medium">
                 <li className={`flex items-center gap-2 ${safeData.escuela ? 'text-emerald-400' : 'text-slate-500'}`}><CheckCircle2 size={16}/> Escuela / CCT</li>
+                <li className={`flex items-center gap-2 ${safeData.contexto ? 'text-emerald-400' : 'text-slate-500'}`}><CheckCircle2 size={16}/> Contexto Analítico</li>
                 <li className={`flex items-center gap-2 ${safeData.proyecto ? 'text-emerald-400' : 'text-slate-500'}`}><CheckCircle2 size={16}/> Proyecto / Docente</li>
                 <li className={`flex items-center gap-2 ${safeData.estrategia ? 'text-emerald-400' : 'text-slate-500'}`}><CheckCircle2 size={16}/> Metodología</li>
                 <li className={`flex items-center gap-2 ${(safeData.grupo && safeData.grupo.length > 0) ? 'text-emerald-400' : 'text-slate-500'}`}><CheckCircle2 size={16}/> Grados y Grupos</li>
@@ -182,6 +183,26 @@ export const SetupScreen = ({ data, onChange, onComplete }: SetupScreenProps) =>
                       )}
                    </div>
                  </div>
+              </div>
+            </div>
+
+            {/* NUEVO PANEL: DIAGNÓSTICO Y PROGRAMA ANALÍTICO */}
+            <div className={panelClass}>
+              <h2 className="text-sm md:text-base font-black text-slate-800 uppercase tracking-wider flex items-center gap-2 pb-4 border-b border-slate-100 mb-5">
+                <Map className="text-[#135bec]" size={20}/> Diagnóstico y Programa Analítico
+              </h2>
+              <div>
+                <label className={labelClass}>Contexto Socioeducativo de la Escuela y Grupo</label>
+                <p className="text-[10px] md:text-xs text-slate-500 mb-3 font-medium leading-relaxed">
+                  Copia y pega aquí los elementos clave de tu Programa Analítico (diagnóstico de la comunidad, intereses de los alumnos, problemáticas locales, etc.). <br/><span className="text-[#135bec] font-bold">¡La Inteligencia Artificial utilizará este texto para contextualizar tus actividades!</span>
+                </p>
+                <textarea 
+                  name="contexto" 
+                  value={safeData.contexto || ''} 
+                  onChange={handleChange} 
+                  placeholder="Ej. La Secundaria Técnica 84 se encuentra en una zona urbana con problemas de escasez de agua. Los alumnos muestran gran interés por la tecnología, pero un 30% tiene rezago en comprensión lectora. Su estilo de aprendizaje es predominantemente kinestésico..." 
+                  className="w-full px-4 py-4 bg-slate-50 border border-slate-200 rounded-xl focus:bg-white focus:ring-2 focus:ring-[#135bec] outline-none transition-all text-slate-800 text-sm resize-y min-h-[140px]"
+                />
               </div>
             </div>
 
