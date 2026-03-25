@@ -1,4 +1,4 @@
-import { Document, Packer, Paragraph, TextRun, Table, TableRow, TableCell, WidthType, BorderStyle, AlignmentType, VerticalAlign, convertMillimetersToTwip, PageOrientation } from "docx";
+import { Document, Packer, Paragraph, TextRun, Table, TableRow, TableCell, WidthType, BorderStyle, AlignmentType, VerticalAlign, convertMillimetersToTwip, PageOrientation, ImageRun } from "docx";
 import { saveAs } from "file-saver";
 
 // Diccionario interno para saber el nombre de las fases
@@ -40,9 +40,9 @@ const obtenerFases = (estrategia: string) => {
   return fasesMetodologias["Secuencia didáctica"];
 };
 
-// Creador de celdas 100% seguro para XML
+// Creador de celdas 100% seguro
 const createCell = (text: string, isHeader: boolean = false, widthPct: number = 0, alignment: AlignmentType = AlignmentType.LEFT, bgColor?: string, colSpan: number = 1) => {
-  const textColor = bgColor === "1e3a8a" ? "FFFFFF" : "000000"; // Blanco solo en azul oscuro
+  const textColor = bgColor === "1e3a8a" ? "FFFFFF" : "000000";
   
   const lineas = (text || "").split('\n');
   const paragraphs = lineas.map(linea => 
@@ -57,9 +57,42 @@ const createCell = (text: string, isHeader: boolean = false, widthPct: number = 
     columnSpan: colSpan,
     shading: bgColor ? { fill: bgColor } : undefined,
     verticalAlign: VerticalAlign.CENTER,
-    margins: { top: 40, bottom: 40, left: 80, right: 80 }, // Compacto pero seguro
-    children: paragraphs.length > 0 ? paragraphs : [new Paragraph({ children: [new TextRun("")] })],
+    margins: { top: 40, bottom: 40, left: 80, right: 80 },
+    children: paragraphs.length > 0 ? paragraphs : [new Paragraph({ text: "" })],
   });
+};
+
+// PROCESADOR NATIVO DE IMÁGENES (A prueba de balas)
+const procesarImagenNativa = async (dataUrl: string): Promise<ArrayBuffer | null> => {
+  if (!dataUrl) return null;
+  try {
+    // 1. Forzamos formato PNG mediante un canvas invisible
+    const pngDataUrl = await new Promise<string>((resolve, reject) => {
+      const img = new Image();
+      img.onload = () => {
+        const canvas = document.createElement('canvas');
+        canvas.width = img.width;
+        canvas.height = img.height;
+        const ctx = canvas.getContext('2d');
+        if (ctx) {
+          ctx.drawImage(img, 0, 0);
+          resolve(canvas.toDataURL('image/png'));
+        } else {
+          resolve(dataUrl);
+        }
+      };
+      img.onerror = () => reject(new Error("Error al cargar la imagen"));
+      img.src = dataUrl;
+    });
+
+    // 2. Usamos el motor del navegador (fetch) para crear el binario perfecto
+    const response = await fetch(pngDataUrl);
+    const arrayBuffer = await response.arrayBuffer();
+    return arrayBuffer;
+  } catch (error) {
+    console.warn("Fallo al procesar imagen, se omitirá el logo", error);
+    return null;
+  }
 };
 
 export const exportToWord = async (projectData: any, plannedItems: any[], actividades: Record<string, string>, evaluationData?: any) => {
@@ -69,6 +102,57 @@ export const exportToWord = async (projectData: any, plannedItems: any[], activi
   const ejesText = (projectData.ejes || []).join(', ');
   const evaluacionText = `${(projectData.estrategiaEvaluacion || []).join(', ')}\nInstrumentos: ${(projectData.herramientas || []).join(', ')}`;
   const fases = obtenerFases(projectData.estrategia);
+
+  // PROCESAMOS LAS IMÁGENES ANTES DE ARMAR EL DOCUMENTO
+  const logoIzqBuffer = await procesarImagenNativa(projectData.logoIzquierdo);
+  const logoDerBuffer = await procesarImagenNativa(projectData.logoDerecho);
+
+  // ARMADO DEL ENCABEZADO OFICIAL
+  const headerCells = [];
+
+  // Logo Izquierdo
+  if (logoIzqBuffer) {
+    headerCells.push(new TableCell({
+      width: { size: 15, type: WidthType.PERCENTAGE },
+      borders: { top: { style: BorderStyle.NONE, size: 0 }, bottom: { style: BorderStyle.NONE, size: 0 }, left: { style: BorderStyle.NONE, size: 0 }, right: { style: BorderStyle.NONE, size: 0 } },
+      verticalAlign: VerticalAlign.CENTER,
+      children: [new Paragraph({ alignment: AlignmentType.CENTER, children: [new ImageRun({ data: logoIzqBuffer, transformation: { width: 80, height: 80 } })] })]
+    }));
+  } else {
+    headerCells.push(new TableCell({ width: { size: 15, type: WidthType.PERCENTAGE }, borders: { top: { style: BorderStyle.NONE, size: 0 }, bottom: { style: BorderStyle.NONE, size: 0 }, left: { style: BorderStyle.NONE, size: 0 }, right: { style: BorderStyle.NONE, size: 0 } }, children: [new Paragraph({ text: "" })] }));
+  }
+
+  // Textos Centrales
+  headerCells.push(new TableCell({
+    width: { size: 70, type: WidthType.PERCENTAGE },
+    borders: { top: { style: BorderStyle.NONE, size: 0 }, bottom: { style: BorderStyle.NONE, size: 0 }, left: { style: BorderStyle.NONE, size: 0 }, right: { style: BorderStyle.NONE, size: 0 } },
+    verticalAlign: VerticalAlign.CENTER,
+    children: [
+      new Paragraph({ children: [new TextRun({ text: "SECRETARÍA DE EDUCACIÓN PÚBLICA", bold: true, size: 22, font: "Calibri" })], alignment: AlignmentType.CENTER }),
+      new Paragraph({ children: [new TextRun({ text: "DIRECCIÓN DE EDUCACIÓN SECUNDARIA GENERAL", bold: true, size: 18, font: "Calibri" })], alignment: AlignmentType.CENTER }),
+      new Paragraph({ children: [new TextRun({ text: projectData.escuela || "NOMBRE DE LA ESCUELA", bold: true, size: 18, font: "Calibri" })], alignment: AlignmentType.CENTER }),
+      new Paragraph({ children: [new TextRun({ text: `CLAVE: ${projectData.cct || ""}    TURNO: ${projectData.turno || ""}`, bold: true, size: 18, font: "Calibri" })], alignment: AlignmentType.CENTER }),
+      new Paragraph({ children: [new TextRun({ text: "PLANEACIÓN DIDÁCTICA", bold: true, size: 20, font: "Calibri" })], alignment: AlignmentType.CENTER, spacing: { before: 200 } }),
+    ]
+  }));
+
+  // Logo Derecho
+  if (logoDerBuffer) {
+    headerCells.push(new TableCell({
+      width: { size: 15, type: WidthType.PERCENTAGE },
+      borders: { top: { style: BorderStyle.NONE, size: 0 }, bottom: { style: BorderStyle.NONE, size: 0 }, left: { style: BorderStyle.NONE, size: 0 }, right: { style: BorderStyle.NONE, size: 0 } },
+      verticalAlign: VerticalAlign.CENTER,
+      children: [new Paragraph({ alignment: AlignmentType.CENTER, children: [new ImageRun({ data: logoDerBuffer, transformation: { width: 80, height: 80 } })] })]
+    }));
+  } else {
+    headerCells.push(new TableCell({ width: { size: 15, type: WidthType.PERCENTAGE }, borders: { top: { style: BorderStyle.NONE, size: 0 }, bottom: { style: BorderStyle.NONE, size: 0 }, left: { style: BorderStyle.NONE, size: 0 }, right: { style: BorderStyle.NONE, size: 0 } }, children: [new Paragraph({ text: "" })] }));
+  }
+
+  const tableHeaderOficial = new Table({
+    width: { size: 100, type: WidthType.PERCENTAGE },
+    borders: { top: { style: BorderStyle.NONE, size: 0 }, bottom: { style: BorderStyle.NONE, size: 0 }, left: { style: BorderStyle.NONE, size: 0 }, right: { style: BorderStyle.NONE, size: 0 }, insideHorizontal: { style: BorderStyle.NONE, size: 0 }, insideVertical: { style: BorderStyle.NONE, size: 0 } },
+    rows: [new TableRow({ children: headerCells })]
+  });
 
   // TABLA 1: DATOS INSTITUCIONALES Y METADATOS
   const tableMetadata = new Table({
@@ -155,8 +239,7 @@ export const exportToWord = async (projectData: any, plannedItems: any[], activi
     ]
   });
 
-  // Espaciador 100% legal para Word
-  const espaciador = new Paragraph({ children: [new TextRun("")] });
+  const espaciador = new Paragraph({ text: "" });
 
   const doc = new Document({
     sections: [{
@@ -172,24 +255,17 @@ export const exportToWord = async (projectData: any, plannedItems: any[], activi
         }
       },
       children: [
-        new Paragraph({ children: [new TextRun({ text: "SECRETARÍA DE EDUCACIÓN PÚBLICA", bold: true, size: 22, font: "Calibri" })], alignment: AlignmentType.CENTER }),
-        new Paragraph({ children: [new TextRun({ text: "DIRECCIÓN DE EDUCACIÓN SECUNDARIA GENERAL", bold: true, size: 18, font: "Calibri" })], alignment: AlignmentType.CENTER }),
-        new Paragraph({ children: [new TextRun({ text: projectData.escuela || "NOMBRE DE LA ESCUELA", bold: true, size: 18, font: "Calibri" })], alignment: AlignmentType.CENTER }),
-        new Paragraph({ children: [new TextRun({ text: `CLAVE: ${projectData.cct || ""}    TURNO: ${projectData.turno || ""}`, bold: true, size: 18, font: "Calibri" })], alignment: AlignmentType.CENTER }),
-        new Paragraph({ children: [new TextRun({ text: "PLANEACIÓN DIDÁCTICA", bold: true, size: 20, font: "Calibri" })], alignment: AlignmentType.CENTER, spacing: { before: 100, after: 200 } }),
-        
+        tableHeaderOficial,
+        espaciador,
         tableMetadata,
         espaciador, 
-        
         tableCurricula,
         espaciador, 
-        
         tableSecuencia,
         espaciador,
-        new Paragraph({ children: [new TextRun("")] }), // Espacio extra para firmas
-        
+        new Paragraph({ text: "", spacing: { before: 600 } }), // Espacio extra para firmas
         tableFirmas,
-        espaciador // Paracaídas final para que Word no cierre con tabla
+        espaciador // Paracaídas final
       ],
     }],
   });
