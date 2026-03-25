@@ -57,7 +57,7 @@ export const SetupScreen = ({ data, onChange, onComplete }: SetupScreenProps) =>
   const btnUnselected = "bg-white text-slate-500 border border-slate-200 hover:bg-slate-50 hover:border-slate-300 transition-all";
   const btnSelected = "bg-[#135bec] text-white border-[#135bec] shadow-md shadow-blue-500/20 transform scale-[1.02] transition-all";
 
-  const isFormValid = safeData.proyecto && safeData.maestro && safeData.estrategia && (safeData.grupo && safeData.grupo.length > 0);
+  const isFormValid = safeData.proyecto && safeData.maestro && safeData.estrategia && (safeData.grupo && safeData.grupo.length > 0) && safeData.trimestre;
 
   return (
     <div className="flex flex-col h-screen bg-[#f8fafc] text-slate-900 font-sans antialiased overflow-hidden selection:bg-[#135bec]/20 selection:text-[#135bec]">
@@ -79,7 +79,7 @@ export const SetupScreen = ({ data, onChange, onComplete }: SetupScreenProps) =>
 
       <div className="flex flex-1 overflow-hidden">
         
-        {/* BARRA LATERAL OSCURA (Consistencia con SequenceScreen) */}
+        {/* BARRA LATERAL OSCURA */}
         <aside className="hidden md:flex w-52 lg:w-60 xl:w-72 bg-[#0f172a] text-slate-300 flex-col shrink-0 z-20">
           <div className="p-4 xl:p-6 border-b border-slate-800">
             <h3 className="text-white font-bold text-base xl:text-lg">Paso 1: Datos</h3>
@@ -94,16 +94,15 @@ export const SetupScreen = ({ data, onChange, onComplete }: SetupScreenProps) =>
               <h4 className="text-[9px] xl:text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-3">Progreso</h4>
               <ul className="space-y-3 text-xs font-medium">
                 <li className={`flex items-center gap-2 ${safeData.escuela ? 'text-emerald-400' : 'text-slate-500'}`}><CheckCircle2 size={16}/> Escuela / CCT</li>
+                <li className={`flex items-center gap-2 ${safeData.trimestre ? 'text-emerald-400' : 'text-slate-500'}`}><CheckCircle2 size={16}/> Trimestre</li>
                 <li className={`flex items-center gap-2 ${safeData.contexto ? 'text-emerald-400' : 'text-slate-500'}`}><CheckCircle2 size={16}/> Contexto Analítico</li>
                 <li className={`flex items-center gap-2 ${safeData.proyecto ? 'text-emerald-400' : 'text-slate-500'}`}><CheckCircle2 size={16}/> Proyecto / Docente</li>
-                <li className={`flex items-center gap-2 ${safeData.estrategia ? 'text-emerald-400' : 'text-slate-500'}`}><CheckCircle2 size={16}/> Metodología</li>
-                <li className={`flex items-center gap-2 ${(safeData.grupo && safeData.grupo.length > 0) ? 'text-emerald-400' : 'text-slate-500'}`}><CheckCircle2 size={16}/> Grados y Grupos</li>
               </ul>
             </div>
           </div>
         </aside>
 
-        {/* ÁREA DE TRABAJO (Light Mode) */}
+        {/* ÁREA DE TRABAJO */}
         <main className="flex-1 overflow-y-auto bg-slate-50/50 p-4 lg:p-6 xl:p-8 scrollbar-thin">
           <div className="max-w-4xl mx-auto flex flex-col gap-6 lg:gap-8 pb-10">
             
@@ -149,6 +148,22 @@ export const SetupScreen = ({ data, onChange, onComplete }: SetupScreenProps) =>
                     <option value="Tiempo Completo">Tiempo Completo</option>
                   </select>
                 </div>
+
+                {/* --- NUEVO SELECTOR DE TRIMESTRE --- */}
+                <div className="md:col-span-2">
+                  <label className={labelClass}>Trimestre del Ciclo Escolar</label>
+                  <select 
+                    name="trimestre" 
+                    value={safeData.trimestre || ''} 
+                    onChange={handleChange} 
+                    className="w-full px-4 py-3 bg-blue-50/50 border border-blue-100 rounded-xl focus:bg-white focus:ring-2 focus:ring-[#135bec] outline-none text-[#135bec] text-sm font-black uppercase tracking-wider"
+                  >
+                    <option value="">Seleccione el trimestre de trabajo...</option>
+                    <option value="Primer Trimestre">Primer Trimestre</option>
+                    <option value="Segundo Trimestre">Segundo Trimestre</option>
+                    <option value="Tercer Trimestre">Tercer Trimestre</option>
+                  </select>
+                </div>
               </div>
 
               <div>
@@ -186,7 +201,7 @@ export const SetupScreen = ({ data, onChange, onComplete }: SetupScreenProps) =>
               </div>
             </div>
 
-            {/* NUEVO PANEL: DIAGNÓSTICO Y PROGRAMA ANALÍTICO */}
+            {/* DIAGNÓSTICO Y PROGRAMA ANALÍTICO */}
             <div className={panelClass}>
               <h2 className="text-sm md:text-base font-black text-slate-800 uppercase tracking-wider flex items-center gap-2 pb-4 border-b border-slate-100 mb-5">
                 <Map className="text-[#135bec]" size={20}/> Diagnóstico y Programa Analítico
@@ -194,13 +209,13 @@ export const SetupScreen = ({ data, onChange, onComplete }: SetupScreenProps) =>
               <div>
                 <label className={labelClass}>Contexto Socioeducativo de la Escuela y Grupo</label>
                 <p className="text-[10px] md:text-xs text-slate-500 mb-3 font-medium leading-relaxed">
-                  Copia y pega aquí los elementos clave de tu Programa Analítico (diagnóstico de la comunidad, intereses de los alumnos, problemáticas locales, etc.). <br/><span className="text-[#135bec] font-bold">¡La Inteligencia Artificial utilizará este texto para contextualizar tus actividades!</span>
+                  Copia y pega aquí los elementos clave de tu Programa Analítico. <br/><span className="text-[#135bec] font-bold">¡La IA utilizará este texto para contextualizar tus actividades!</span>
                 </p>
                 <textarea 
                   name="contexto" 
                   value={safeData.contexto || ''} 
                   onChange={handleChange} 
-                  placeholder="Ej. La Secundaria Técnica 84 se encuentra en una zona urbana con problemas de escasez de agua. Los alumnos muestran gran interés por la tecnología, pero un 30% tiene rezago en comprensión lectora. Su estilo de aprendizaje es predominantemente kinestésico..." 
+                  placeholder="Ej. La Secundaria Técnica 84 se encuentra en una zona urbana con problemas de escasez de agua..." 
                   className="w-full px-4 py-4 bg-slate-50 border border-slate-200 rounded-xl focus:bg-white focus:ring-2 focus:ring-[#135bec] outline-none transition-all text-slate-800 text-sm resize-y min-h-[140px]"
                 />
               </div>
@@ -251,7 +266,6 @@ export const SetupScreen = ({ data, onChange, onComplete }: SetupScreenProps) =>
                 </div>
               </div>
 
-              {/* MAGIA RESPONSIVA APLICADA AQUÍ */}
               <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-12 gap-5 mt-5">
                 <div className="md:col-span-1 xl:col-span-5">
                   <label className={labelClass}>Metodología Didáctica</label>
