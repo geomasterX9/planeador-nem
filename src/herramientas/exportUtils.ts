@@ -72,7 +72,7 @@ const base64ToArrayBuffer = (base64DataUrl: string) => {
   for (let i = 0; i < binaryString.length; i++) {
     bytes[i] = binaryString.charCodeAt(i);
   }
-  return bytes.buffer; // Devolvemos el buffer limpio
+  return bytes.buffer; 
 };
 
 export const exportToWord = async (projectData: any, plannedItems: any[], actividades: Record<string, string>, evaluationData?: any) => {
@@ -94,8 +94,8 @@ export const exportToWord = async (projectData: any, plannedItems: any[], activi
       children: [new Paragraph({ alignment: AlignmentType.CENTER, spacing: { before: 0, after: 0 }, children: [new ImageRun({ data: base64ToArrayBuffer(projectData.logoIzquierdo), transformation: { width: 90, height: 90 } })] })]
     }));
   } else {
-    // Si no hay logo, mandamos un párrafo vacío legal para Word
-    headerCells.push(new TableCell({ width: { size: 15, type: WidthType.PERCENTAGE }, borders: { top: { style: BorderStyle.NONE, size: 0 }, bottom: { style: BorderStyle.NONE, size: 0 }, left: { style: BorderStyle.NONE, size: 0 }, right: { style: BorderStyle.NONE, size: 0 } }, children: [new Paragraph({ children: [] })] }));
+    // Celda vacía segura
+    headerCells.push(new TableCell({ width: { size: 15, type: WidthType.PERCENTAGE }, borders: { top: { style: BorderStyle.NONE, size: 0 }, bottom: { style: BorderStyle.NONE, size: 0 }, left: { style: BorderStyle.NONE, size: 0 }, right: { style: BorderStyle.NONE, size: 0 } }, children: [new Paragraph({ children: [new TextRun("")] })] }));
   }
 
   headerCells.push(new TableCell({
@@ -119,7 +119,8 @@ export const exportToWord = async (projectData: any, plannedItems: any[], activi
       children: [new Paragraph({ alignment: AlignmentType.CENTER, spacing: { before: 0, after: 0 }, children: [new ImageRun({ data: base64ToArrayBuffer(projectData.logoDerecho), transformation: { width: 90, height: 90 } })] })]
     }));
   } else {
-    headerCells.push(new TableCell({ width: { size: 15, type: WidthType.PERCENTAGE }, borders: { top: { style: BorderStyle.NONE, size: 0 }, bottom: { style: BorderStyle.NONE, size: 0 }, left: { style: BorderStyle.NONE, size: 0 }, right: { style: BorderStyle.NONE, size: 0 } }, children: [new Paragraph({ children: [] })] }));
+    // Celda vacía segura
+    headerCells.push(new TableCell({ width: { size: 15, type: WidthType.PERCENTAGE }, borders: { top: { style: BorderStyle.NONE, size: 0 }, bottom: { style: BorderStyle.NONE, size: 0 }, left: { style: BorderStyle.NONE, size: 0 }, right: { style: BorderStyle.NONE, size: 0 } }, children: [new Paragraph({ children: [new TextRun("")] })] }));
   }
 
   const tableHeaderOficial = new Table({
@@ -177,7 +178,7 @@ export const exportToWord = async (projectData: any, plannedItems: any[], activi
           new TableCell({
             width: { size: 80, type: WidthType.PERCENTAGE },
             margins: { top: 60, bottom: 60, left: 100, right: 100 },
-            // Blindaje final en las actividades extensas
+            // Blindaje en las actividades extensas
             children: actText.split('\n').map(line => new Paragraph({ spacing: { before: 0, after: 40 }, children: [new TextRun({ text: line || " ", size: 18, font: "Calibri" })] }))
           })
         ]
@@ -214,8 +215,11 @@ export const exportToWord = async (projectData: any, plannedItems: any[], activi
     ]
   });
 
-  // PÁRRAFO INVISIBLE SÚPER PEQUEÑO PARA SEPARAR TABLAS (evita que se peguen y deformen)
+  // Espaciadores invisibles
   const miniEspaciador = new Paragraph({ spacing: { before: 30, after: 0 }, children: [new TextRun({ text: " ", size: 2 })] });
+  
+  // *** LA CLAVE DEL ÉXITO: EL PÁRRAFO FINAL INVISIBLE ***
+  const parrafoFinalSeguro = new Paragraph({ text: "", spacing: { before: 0, after: 0 } });
 
   // CONSTRUCCIÓN DEL DOCUMENTO FINAL
   const doc = new Document({
@@ -244,7 +248,8 @@ export const exportToWord = async (projectData: any, plannedItems: any[], activi
         tableSecuencia,
         new Paragraph({ spacing: { before: 600, after: 0 }, children: [new TextRun({ text: " " })] }), 
         
-        tableFirmas
+        tableFirmas,
+        parrafoFinalSeguro // ¡Este es el que salva a Word de crashear!
       ],
     }],
   });
