@@ -40,59 +40,34 @@ const obtenerFases = (estrategia: string) => {
   return fasesMetodologias["Secuencia didáctica"];
 };
 
-// Creador de celdas 100% seguro
+// Utilidad optimizada para celdas compactas y contraste inteligente
 const createCell = (text: string, isHeader: boolean = false, widthPct: number = 0, alignment: AlignmentType = AlignmentType.LEFT, bgColor?: string, colSpan: number = 1) => {
   const textColor = bgColor === "1e3a8a" ? "FFFFFF" : "000000";
-  
-  const lineas = (text || "").split('\n');
-  const paragraphs = lineas.map(linea => 
-    new Paragraph({
-      alignment: alignment,
-      children: [new TextRun({ text: linea || "", bold: isHeader, size: 18, color: textColor, font: "Calibri" })],
-    })
-  );
-
   return new TableCell({
     width: widthPct > 0 ? { size: widthPct, type: WidthType.PERCENTAGE } : undefined,
     columnSpan: colSpan,
     shading: bgColor ? { fill: bgColor } : undefined,
     verticalAlign: VerticalAlign.CENTER,
-    margins: { top: 40, bottom: 40, left: 80, right: 80 },
-    children: paragraphs.length > 0 ? paragraphs : [new Paragraph({ text: "" })],
+    margins: { top: 30, bottom: 30, left: 80, right: 80 }, 
+    children: [
+      new Paragraph({
+        alignment: alignment,
+        children: [new TextRun({ text: text, bold: isHeader, size: 18, color: textColor, font: "Calibri" })],
+      }),
+    ],
   });
 };
 
-// PROCESADOR NATIVO DE IMÁGENES (A prueba de balas)
-const procesarImagenNativa = async (dataUrl: string): Promise<ArrayBuffer | null> => {
-  if (!dataUrl) return null;
-  try {
-    // 1. Forzamos formato PNG mediante un canvas invisible
-    const pngDataUrl = await new Promise<string>((resolve, reject) => {
-      const img = new Image();
-      img.onload = () => {
-        const canvas = document.createElement('canvas');
-        canvas.width = img.width;
-        canvas.height = img.height;
-        const ctx = canvas.getContext('2d');
-        if (ctx) {
-          ctx.drawImage(img, 0, 0);
-          resolve(canvas.toDataURL('image/png'));
-        } else {
-          resolve(dataUrl);
-        }
-      };
-      img.onerror = () => reject(new Error("Error al cargar la imagen"));
-      img.src = dataUrl;
-    });
-
-    // 2. Usamos el motor del navegador (fetch) para crear el binario perfecto
-    const response = await fetch(pngDataUrl);
-    const arrayBuffer = await response.arrayBuffer();
-    return arrayBuffer;
-  } catch (error) {
-    console.warn("Fallo al procesar imagen, se omitirá el logo", error);
-    return null;
+// Transformador de Imagen de React a Word (Base64 a Uint8Array)
+const base64ToArrayBuffer = (base64DataUrl: string) => {
+  const base64String = base64DataUrl.split(',')[1];
+  const binaryString = window.atob(base64String);
+  const len = binaryString.length;
+  const bytes = new Uint8Array(len);
+  for (let i = 0; i < len; i++) {
+    bytes[i] = binaryString.charCodeAt(i);
   }
+  return bytes;
 };
 
 export const exportToWord = async (projectData: any, plannedItems: any[], actividades: Record<string, string>, evaluationData?: any) => {
@@ -103,26 +78,22 @@ export const exportToWord = async (projectData: any, plannedItems: any[], activi
   const evaluacionText = `${(projectData.estrategiaEvaluacion || []).join(', ')}\nInstrumentos: ${(projectData.herramientas || []).join(', ')}`;
   const fases = obtenerFases(projectData.estrategia);
 
-  // PROCESAMOS LAS IMÁGENES ANTES DE ARMAR EL DOCUMENTO
-  const logoIzqBuffer = await procesarImagenNativa(projectData.logoIzquierdo);
-  const logoDerBuffer = await procesarImagenNativa(projectData.logoDerecho);
-
-  // ARMADO DEL ENCABEZADO OFICIAL
+  // CONSTRUCCIÓN DEL ENCABEZADO CON LOGOS (TABLA INVISIBLE)
   const headerCells = [];
 
-  // Logo Izquierdo
-  if (logoIzqBuffer) {
+  // 1. Logo Izquierdo
+  if (projectData.logoIzquierdo) {
     headerCells.push(new TableCell({
       width: { size: 15, type: WidthType.PERCENTAGE },
       borders: { top: { style: BorderStyle.NONE, size: 0 }, bottom: { style: BorderStyle.NONE, size: 0 }, left: { style: BorderStyle.NONE, size: 0 }, right: { style: BorderStyle.NONE, size: 0 } },
       verticalAlign: VerticalAlign.CENTER,
-      children: [new Paragraph({ alignment: AlignmentType.CENTER, children: [new ImageRun({ data: logoIzqBuffer, transformation: { width: 80, height: 80 } })] })]
+      children: [new Paragraph({ alignment: AlignmentType.CENTER, children: [new ImageRun({ data: base64ToArrayBuffer(projectData.logoIzquierdo), transformation: { width: 90, height: 90 } })] })]
     }));
   } else {
-    headerCells.push(new TableCell({ width: { size: 15, type: WidthType.PERCENTAGE }, borders: { top: { style: BorderStyle.NONE, size: 0 }, bottom: { style: BorderStyle.NONE, size: 0 }, left: { style: BorderStyle.NONE, size: 0 }, right: { style: BorderStyle.NONE, size: 0 } }, children: [new Paragraph({ text: "" })] }));
+    headerCells.push(new TableCell({ width: { size: 15, type: WidthType.PERCENTAGE }, borders: { top: { style: BorderStyle.NONE, size: 0 }, bottom: { style: BorderStyle.NONE, size: 0 }, left: { style: BorderStyle.NONE, size: 0 }, right: { style: BorderStyle.NONE, size: 0 } }, children: [new Paragraph("")] }));
   }
 
-  // Textos Centrales
+  // 2. Centro (Textos Oficiales)
   headerCells.push(new TableCell({
     width: { size: 70, type: WidthType.PERCENTAGE },
     borders: { top: { style: BorderStyle.NONE, size: 0 }, bottom: { style: BorderStyle.NONE, size: 0 }, left: { style: BorderStyle.NONE, size: 0 }, right: { style: BorderStyle.NONE, size: 0 } },
@@ -136,16 +107,16 @@ export const exportToWord = async (projectData: any, plannedItems: any[], activi
     ]
   }));
 
-  // Logo Derecho
-  if (logoDerBuffer) {
+  // 3. Logo Derecho
+  if (projectData.logoDerecho) {
     headerCells.push(new TableCell({
       width: { size: 15, type: WidthType.PERCENTAGE },
       borders: { top: { style: BorderStyle.NONE, size: 0 }, bottom: { style: BorderStyle.NONE, size: 0 }, left: { style: BorderStyle.NONE, size: 0 }, right: { style: BorderStyle.NONE, size: 0 } },
       verticalAlign: VerticalAlign.CENTER,
-      children: [new Paragraph({ alignment: AlignmentType.CENTER, children: [new ImageRun({ data: logoDerBuffer, transformation: { width: 80, height: 80 } })] })]
+      children: [new Paragraph({ alignment: AlignmentType.CENTER, children: [new ImageRun({ data: base64ToArrayBuffer(projectData.logoDerecho), transformation: { width: 90, height: 90 } })] })]
     }));
   } else {
-    headerCells.push(new TableCell({ width: { size: 15, type: WidthType.PERCENTAGE }, borders: { top: { style: BorderStyle.NONE, size: 0 }, bottom: { style: BorderStyle.NONE, size: 0 }, left: { style: BorderStyle.NONE, size: 0 }, right: { style: BorderStyle.NONE, size: 0 } }, children: [new Paragraph({ text: "" })] }));
+    headerCells.push(new TableCell({ width: { size: 15, type: WidthType.PERCENTAGE }, borders: { top: { style: BorderStyle.NONE, size: 0 }, bottom: { style: BorderStyle.NONE, size: 0 }, left: { style: BorderStyle.NONE, size: 0 }, right: { style: BorderStyle.NONE, size: 0 } }, children: [new Paragraph("")] }));
   }
 
   const tableHeaderOficial = new Table({
@@ -154,7 +125,7 @@ export const exportToWord = async (projectData: any, plannedItems: any[], activi
     rows: [new TableRow({ children: headerCells })]
   });
 
-  // TABLA 1: DATOS INSTITUCIONALES Y METADATOS
+  // TABLA 1: DATOS INSTITUCIONALES Y METADATOS COMPACTA
   const tableMetadata = new Table({
     width: { size: 100, type: WidthType.PERCENTAGE },
     rows: [
@@ -173,14 +144,8 @@ export const exportToWord = async (projectData: any, plannedItems: any[], activi
     rows: [
       new TableRow({ children: [ createCell("CONTENIDOS", true, 50, AlignmentType.CENTER, "1e3a8a"), createCell("PROCESOS DE DESARROLLO DE APRENDIZAJE (PDA)", true, 50, AlignmentType.CENTER, "1e3a8a") ] }),
       new TableRow({ children: [ 
-        new TableCell({ 
-          margins: { top: 40, bottom: 40, left: 80, right: 80 }, 
-          children: (`• ${contenidos}`).split('\n').map(line => new Paragraph({ children: [new TextRun({ text: line || "", size: 18, font: "Calibri" })] })) 
-        }),
-        new TableCell({ 
-          margins: { top: 40, bottom: 40, left: 80, right: 80 }, 
-          children: (`• ${pdas}`).split('\n').map(line => new Paragraph({ children: [new TextRun({ text: line || "", size: 18, font: "Calibri" })] })) 
-        })
+        new TableCell({ margins: { top: 80, bottom: 80, left: 100, right: 100 }, children: [ new Paragraph({ children: [new TextRun({ text: `• ${contenidos}`, size: 18, font: "Calibri" })] }) ] }),
+        new TableCell({ margins: { top: 80, bottom: 80, left: 100, right: 100 }, children: [ new Paragraph({ children: [new TextRun({ text: `• ${pdas}`, size: 18, font: "Calibri" })] }) ] })
       ] })
     ]
   });
@@ -197,13 +162,13 @@ export const exportToWord = async (projectData: any, plannedItems: any[], activi
         children: [
           new TableCell({
             width: { size: 20, type: WidthType.PERCENTAGE },
-            margins: { top: 60, bottom: 60, left: 60, right: 60 },
+            margins: { top: 100, bottom: 100, left: 100, right: 100 },
             children: [new Paragraph({ children: [new TextRun({ text: fase.titulo, bold: true, size: 18, font: "Calibri" })], alignment: AlignmentType.CENTER })]
           }),
           new TableCell({
             width: { size: 80, type: WidthType.PERCENTAGE },
-            margins: { top: 60, bottom: 60, left: 100, right: 100 },
-            children: actText.split('\n').map(line => new Paragraph({ children: [new TextRun({ text: line || "", size: 18, font: "Calibri" })] }))
+            margins: { top: 150, bottom: 150, left: 150, right: 150 },
+            children: actText.split('\n').map(line => new Paragraph({ children: [new TextRun({ text: line, size: 18, font: "Calibri" })], spacing: { after: 100 } }))
           })
         ]
       })
@@ -223,15 +188,15 @@ export const exportToWord = async (projectData: any, plannedItems: any[], activi
             width: { size: 50, type: WidthType.PERCENTAGE },
             children: [
               new Paragraph({ text: "________________________________________________", alignment: AlignmentType.CENTER }),
-              new Paragraph({ children: [new TextRun({ text: "FIRMA DEL DOCENTE", bold: true, size: 18, font: "Calibri" })], alignment: AlignmentType.CENTER, spacing: { before: 40 } }),
-              new Paragraph({ children: [new TextRun({ text: projectData.maestro || "Nombre del Docente", size: 18, font: "Calibri" })], alignment: AlignmentType.CENTER, spacing: { before: 20 } })
+              new Paragraph({ children: [new TextRun({ text: "FIRMA DEL DOCENTE", bold: true, size: 18, font: "Calibri" })], alignment: AlignmentType.CENTER, spacing: { before: 100 } }),
+              new Paragraph({ children: [new TextRun({ text: projectData.maestro || "Nombre del Docente", size: 18, font: "Calibri" })], alignment: AlignmentType.CENTER, spacing: { before: 50 } })
             ]
           }),
           new TableCell({
             width: { size: 50, type: WidthType.PERCENTAGE },
             children: [
               new Paragraph({ text: "________________________________________________", alignment: AlignmentType.CENTER }),
-              new Paragraph({ children: [new TextRun({ text: "Vo. Bo. COORDINADOR ACADÉMICO / DIRECCIÓN", bold: true, size: 18, font: "Calibri" })], alignment: AlignmentType.CENTER, spacing: { before: 40 } }),
+              new Paragraph({ children: [new TextRun({ text: "Vo. Bo. COORDINADOR ACADÉMICO / DIRECCIÓN", bold: true, size: 18, font: "Calibri" })], alignment: AlignmentType.CENTER, spacing: { before: 100 } }),
             ]
           })
         ]
@@ -239,13 +204,14 @@ export const exportToWord = async (projectData: any, plannedItems: any[], activi
     ]
   });
 
-  const espaciador = new Paragraph({ text: "" });
-
+  // CONSTRUCCIÓN DEL DOCUMENTO FINAL
   const doc = new Document({
     sections: [{
       properties: {
         page: {
-          size: { orientation: PageOrientation.LANDSCAPE },
+          size: {
+            orientation: PageOrientation.LANDSCAPE,
+          },
           margin: {
             top: convertMillimetersToTwip(12.7),
             bottom: convertMillimetersToTwip(12.7),
@@ -255,17 +221,19 @@ export const exportToWord = async (projectData: any, plannedItems: any[], activi
         }
       },
       children: [
-        tableHeaderOficial,
-        espaciador,
+        tableHeaderOficial, // <-- AQUÍ INSERTAMOS LA TABLA CON LOS LOGOS
+        new Paragraph({ spacing: { before: 200 } }), 
+        
         tableMetadata,
-        espaciador, 
+        new Paragraph({ spacing: { before: 200 } }), 
+        
         tableCurricula,
-        espaciador, 
+        new Paragraph({ spacing: { before: 200 } }), 
+        
         tableSecuencia,
-        espaciador,
-        new Paragraph({ text: "", spacing: { before: 600 } }), // Espacio extra para firmas
-        tableFirmas,
-        espaciador // Paracaídas final
+        new Paragraph({ spacing: { before: 800 } }), 
+        
+        tableFirmas
       ],
     }],
   });
