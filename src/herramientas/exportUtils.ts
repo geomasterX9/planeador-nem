@@ -40,17 +40,15 @@ const obtenerFases = (estrategia: string) => {
   return fasesMetodologias["Secuencia didáctica"];
 };
 
-// Utilidad MÁXIMA COMPACTACIÓN con Anti-Corrupción de XML
+// Creador de celdas 100% seguro para XML
 const createCell = (text: string, isHeader: boolean = false, widthPct: number = 0, alignment: AlignmentType = AlignmentType.LEFT, bgColor?: string, colSpan: number = 1) => {
   const textColor = bgColor === "1e3a8a" ? "FFFFFF" : "000000";
   
-  // Magia: Destruimos los \n y creamos párrafos reales para que Word no llore.
-  const lineas = (text || " ").split('\n');
+  const lineas = (text || "").split('\n');
   const paragraphs = lineas.map(linea => 
     new Paragraph({
       alignment: alignment,
-      spacing: { before: 0, after: 0, line: 240 },
-      children: [new TextRun({ text: linea || " ", bold: isHeader, size: 18, color: textColor, font: "Calibri" })],
+      children: [new TextRun({ text: linea || "", bold: isHeader, size: 18, color: textColor, font: "Calibri" })],
     })
   );
 
@@ -59,12 +57,12 @@ const createCell = (text: string, isHeader: boolean = false, widthPct: number = 
     columnSpan: colSpan,
     shading: bgColor ? { fill: bgColor } : undefined,
     verticalAlign: VerticalAlign.CENTER,
-    margins: { top: 20, bottom: 20, left: 60, right: 60 },
-    children: paragraphs,
+    margins: { top: 40, bottom: 40, left: 80, right: 80 }, // Compacto por dentro
+    children: paragraphs.length > 0 ? paragraphs : [new Paragraph({ children: [new TextRun("")] })],
   });
 };
 
-// Transformador de Imagen de React a Word Seguro
+// Procesador de imágenes seguro
 const base64ToArrayBuffer = (base64DataUrl: string) => {
   const base64String = base64DataUrl.split(',')[1];
   const binaryString = window.atob(base64String);
@@ -91,10 +89,9 @@ export const exportToWord = async (projectData: any, plannedItems: any[], activi
       width: { size: 15, type: WidthType.PERCENTAGE },
       borders: { top: { style: BorderStyle.NONE, size: 0 }, bottom: { style: BorderStyle.NONE, size: 0 }, left: { style: BorderStyle.NONE, size: 0 }, right: { style: BorderStyle.NONE, size: 0 } },
       verticalAlign: VerticalAlign.CENTER,
-      children: [new Paragraph({ alignment: AlignmentType.CENTER, spacing: { before: 0, after: 0 }, children: [new ImageRun({ data: base64ToArrayBuffer(projectData.logoIzquierdo), transformation: { width: 90, height: 90 } })] })]
+      children: [new Paragraph({ alignment: AlignmentType.CENTER, children: [new ImageRun({ data: base64ToArrayBuffer(projectData.logoIzquierdo), transformation: { width: 90, height: 90 } })] })]
     }));
   } else {
-    // Celda vacía segura
     headerCells.push(new TableCell({ width: { size: 15, type: WidthType.PERCENTAGE }, borders: { top: { style: BorderStyle.NONE, size: 0 }, bottom: { style: BorderStyle.NONE, size: 0 }, left: { style: BorderStyle.NONE, size: 0 }, right: { style: BorderStyle.NONE, size: 0 } }, children: [new Paragraph({ children: [new TextRun("")] })] }));
   }
 
@@ -103,11 +100,11 @@ export const exportToWord = async (projectData: any, plannedItems: any[], activi
     borders: { top: { style: BorderStyle.NONE, size: 0 }, bottom: { style: BorderStyle.NONE, size: 0 }, left: { style: BorderStyle.NONE, size: 0 }, right: { style: BorderStyle.NONE, size: 0 } },
     verticalAlign: VerticalAlign.CENTER,
     children: [
-      new Paragraph({ spacing: { before: 0, after: 0 }, children: [new TextRun({ text: "SECRETARÍA DE EDUCACIÓN PÚBLICA", bold: true, size: 22, font: "Calibri" })], alignment: AlignmentType.CENTER }),
-      new Paragraph({ spacing: { before: 0, after: 0 }, children: [new TextRun({ text: "DIRECCIÓN DE EDUCACIÓN SECUNDARIA GENERAL", bold: true, size: 18, font: "Calibri" })], alignment: AlignmentType.CENTER }),
-      new Paragraph({ spacing: { before: 0, after: 0 }, children: [new TextRun({ text: projectData.escuela || "NOMBRE DE LA ESCUELA", bold: true, size: 18, font: "Calibri" })], alignment: AlignmentType.CENTER }),
-      new Paragraph({ spacing: { before: 0, after: 0 }, children: [new TextRun({ text: `CLAVE: ${projectData.cct || ""}    TURNO: ${projectData.turno || ""}`, bold: true, size: 18, font: "Calibri" })], alignment: AlignmentType.CENTER }),
-      new Paragraph({ spacing: { before: 100, after: 0 }, children: [new TextRun({ text: "PLANEACIÓN DIDÁCTICA", bold: true, size: 20, font: "Calibri" })], alignment: AlignmentType.CENTER }),
+      new Paragraph({ children: [new TextRun({ text: "SECRETARÍA DE EDUCACIÓN PÚBLICA", bold: true, size: 22, font: "Calibri" })], alignment: AlignmentType.CENTER }),
+      new Paragraph({ children: [new TextRun({ text: "DIRECCIÓN DE EDUCACIÓN SECUNDARIA GENERAL", bold: true, size: 18, font: "Calibri" })], alignment: AlignmentType.CENTER }),
+      new Paragraph({ children: [new TextRun({ text: projectData.escuela || "NOMBRE DE LA ESCUELA", bold: true, size: 18, font: "Calibri" })], alignment: AlignmentType.CENTER }),
+      new Paragraph({ children: [new TextRun({ text: `CLAVE: ${projectData.cct || ""}    TURNO: ${projectData.turno || ""}`, bold: true, size: 18, font: "Calibri" })], alignment: AlignmentType.CENTER }),
+      new Paragraph({ children: [new TextRun({ text: "PLANEACIÓN DIDÁCTICA", bold: true, size: 20, font: "Calibri" })], alignment: AlignmentType.CENTER, spacing: { before: 200 } }),
     ]
   }));
 
@@ -116,10 +113,9 @@ export const exportToWord = async (projectData: any, plannedItems: any[], activi
       width: { size: 15, type: WidthType.PERCENTAGE },
       borders: { top: { style: BorderStyle.NONE, size: 0 }, bottom: { style: BorderStyle.NONE, size: 0 }, left: { style: BorderStyle.NONE, size: 0 }, right: { style: BorderStyle.NONE, size: 0 } },
       verticalAlign: VerticalAlign.CENTER,
-      children: [new Paragraph({ alignment: AlignmentType.CENTER, spacing: { before: 0, after: 0 }, children: [new ImageRun({ data: base64ToArrayBuffer(projectData.logoDerecho), transformation: { width: 90, height: 90 } })] })]
+      children: [new Paragraph({ alignment: AlignmentType.CENTER, children: [new ImageRun({ data: base64ToArrayBuffer(projectData.logoDerecho), transformation: { width: 90, height: 90 } })] })]
     }));
   } else {
-    // Celda vacía segura
     headerCells.push(new TableCell({ width: { size: 15, type: WidthType.PERCENTAGE }, borders: { top: { style: BorderStyle.NONE, size: 0 }, bottom: { style: BorderStyle.NONE, size: 0 }, left: { style: BorderStyle.NONE, size: 0 }, right: { style: BorderStyle.NONE, size: 0 } }, children: [new Paragraph({ children: [new TextRun("")] })] }));
   }
 
@@ -142,7 +138,7 @@ export const exportToWord = async (projectData: any, plannedItems: any[], activi
     ]
   });
 
-  // TABLA 2: CONTENIDOS Y PDAS (Con blindaje anti-saltos de línea)
+  // TABLA 2: CONTENIDOS Y PDAS
   const tableCurricula = new Table({
     width: { size: 100, type: WidthType.PERCENTAGE },
     rows: [
@@ -150,11 +146,11 @@ export const exportToWord = async (projectData: any, plannedItems: any[], activi
       new TableRow({ children: [ 
         new TableCell({ 
           margins: { top: 40, bottom: 40, left: 80, right: 80 }, 
-          children: (`• ${contenidos}`).split('\n').map(line => new Paragraph({ spacing: { before: 0, after: 0 }, children: [new TextRun({ text: line || " ", size: 18, font: "Calibri" })] })) 
+          children: (`• ${contenidos}`).split('\n').map(line => new Paragraph({ children: [new TextRun({ text: line || "", size: 18, font: "Calibri" })] })) 
         }),
         new TableCell({ 
           margins: { top: 40, bottom: 40, left: 80, right: 80 }, 
-          children: (`• ${pdas}`).split('\n').map(line => new Paragraph({ spacing: { before: 0, after: 0 }, children: [new TextRun({ text: line || " ", size: 18, font: "Calibri" })] })) 
+          children: (`• ${pdas}`).split('\n').map(line => new Paragraph({ children: [new TextRun({ text: line || "", size: 18, font: "Calibri" })] })) 
         })
       ] })
     ]
@@ -173,13 +169,12 @@ export const exportToWord = async (projectData: any, plannedItems: any[], activi
           new TableCell({
             width: { size: 20, type: WidthType.PERCENTAGE },
             margins: { top: 60, bottom: 60, left: 60, right: 60 },
-            children: [new Paragraph({ spacing: { before: 0, after: 0 }, children: [new TextRun({ text: fase.titulo, bold: true, size: 18, font: "Calibri" })], alignment: AlignmentType.CENTER })]
+            children: [new Paragraph({ children: [new TextRun({ text: fase.titulo, bold: true, size: 18, font: "Calibri" })], alignment: AlignmentType.CENTER })]
           }),
           new TableCell({
             width: { size: 80, type: WidthType.PERCENTAGE },
             margins: { top: 60, bottom: 60, left: 100, right: 100 },
-            // Blindaje en las actividades extensas
-            children: actText.split('\n').map(line => new Paragraph({ spacing: { before: 0, after: 40 }, children: [new TextRun({ text: line || " ", size: 18, font: "Calibri" })] }))
+            children: actText.split('\n').map(line => new Paragraph({ children: [new TextRun({ text: line || "", size: 18, font: "Calibri" })] }))
           })
         ]
       })
@@ -198,16 +193,16 @@ export const exportToWord = async (projectData: any, plannedItems: any[], activi
           new TableCell({
             width: { size: 50, type: WidthType.PERCENTAGE },
             children: [
-              new Paragraph({ text: "________________________________________________", alignment: AlignmentType.CENTER, spacing: { before: 0, after: 0 } }),
-              new Paragraph({ children: [new TextRun({ text: "FIRMA DEL DOCENTE", bold: true, size: 18, font: "Calibri" })], alignment: AlignmentType.CENTER, spacing: { before: 40, after: 0 } }),
-              new Paragraph({ children: [new TextRun({ text: projectData.maestro || "Nombre del Docente", size: 18, font: "Calibri" })], alignment: AlignmentType.CENTER, spacing: { before: 20, after: 0 } })
+              new Paragraph({ text: "________________________________________________", alignment: AlignmentType.CENTER }),
+              new Paragraph({ children: [new TextRun({ text: "FIRMA DEL DOCENTE", bold: true, size: 18, font: "Calibri" })], alignment: AlignmentType.CENTER, spacing: { before: 40 } }),
+              new Paragraph({ children: [new TextRun({ text: projectData.maestro || "Nombre del Docente", size: 18, font: "Calibri" })], alignment: AlignmentType.CENTER, spacing: { before: 20 } })
             ]
           }),
           new TableCell({
             width: { size: 50, type: WidthType.PERCENTAGE },
             children: [
-              new Paragraph({ text: "________________________________________________", alignment: AlignmentType.CENTER, spacing: { before: 0, after: 0 } }),
-              new Paragraph({ children: [new TextRun({ text: "Vo. Bo. COORDINADOR ACADÉMICO / DIRECCIÓN", bold: true, size: 18, font: "Calibri" })], alignment: AlignmentType.CENTER, spacing: { before: 40, after: 0 } }),
+              new Paragraph({ text: "________________________________________________", alignment: AlignmentType.CENTER }),
+              new Paragraph({ children: [new TextRun({ text: "Vo. Bo. COORDINADOR ACADÉMICO / DIRECCIÓN", bold: true, size: 18, font: "Calibri" })], alignment: AlignmentType.CENTER, spacing: { before: 40 } }),
             ]
           })
         ]
@@ -215,13 +210,9 @@ export const exportToWord = async (projectData: any, plannedItems: any[], activi
     ]
   });
 
-  // Espaciadores invisibles
-  const miniEspaciador = new Paragraph({ spacing: { before: 30, after: 0 }, children: [new TextRun({ text: " ", size: 2 })] });
-  
-  // *** LA CLAVE DEL ÉXITO: EL PÁRRAFO FINAL INVISIBLE ***
-  const parrafoFinalSeguro = new Paragraph({ text: "", spacing: { before: 0, after: 0 } });
+  // Espaciador 100% legal para Word
+  const espaciador = new Paragraph({ children: [new TextRun("")] });
 
-  // CONSTRUCCIÓN DEL DOCUMENTO FINAL
   const doc = new Document({
     sections: [{
       properties: {
@@ -237,19 +228,17 @@ export const exportToWord = async (projectData: any, plannedItems: any[], activi
       },
       children: [
         tableHeaderOficial, 
-        miniEspaciador, 
-        
+        espaciador, 
         tableMetadata,
-        miniEspaciador, 
-        
+        espaciador, 
         tableCurricula,
-        miniEspaciador, 
-        
+        espaciador, 
         tableSecuencia,
-        new Paragraph({ spacing: { before: 600, after: 0 }, children: [new TextRun({ text: " " })] }), 
-        
+        new Paragraph({ children: [new TextRun("")] }),
+        new Paragraph({ children: [new TextRun("")] }),
+        new Paragraph({ children: [new TextRun("")] }), // Espacio extra para firmas
         tableFirmas,
-        parrafoFinalSeguro // ¡Este es el que salva a Word de crashear!
+        espaciador // Paracaídas final para que Word no llore
       ],
     }],
   });
