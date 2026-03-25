@@ -58,16 +58,24 @@ const createCell = (text: string, isHeader: boolean = false, widthPct: number = 
   });
 };
 
-// Transformador de Imagen de React a Word (Base64 a Uint8Array)
-const base64ToArrayBuffer = (base64DataUrl: string) => {
-  const base64String = base64DataUrl.split(',')[1];
-  const binaryString = window.atob(base64String);
-  const len = binaryString.length;
-  const bytes = new Uint8Array(len);
-  for (let i = 0; i < len; i++) {
-    bytes[i] = binaryString.charCodeAt(i);
+// --- EL ESCUDO PROTECTOR PARA LAS IMÁGENES ---
+const getSafeImageData = (base64DataUrl: string) => {
+  try {
+    if (!base64DataUrl || typeof base64DataUrl !== 'string' || !base64DataUrl.includes(',')) {
+      return null;
+    }
+    const base64String = base64DataUrl.split(',')[1];
+    const binaryString = window.atob(base64String);
+    const len = binaryString.length;
+    const bytes = new Uint8Array(len);
+    for (let i = 0; i < len; i++) {
+      bytes[i] = binaryString.charCodeAt(i);
+    }
+    return bytes.length > 0 ? bytes : null;
+  } catch (error) {
+    console.warn("Se bloqueó una imagen corrupta para salvar el documento");
+    return null;
   }
-  return bytes;
 };
 
 export const exportToWord = async (projectData: any, plannedItems: any[], actividades: Record<string, string>, evaluationData?: any) => {
@@ -78,16 +86,20 @@ export const exportToWord = async (projectData: any, plannedItems: any[], activi
   const evaluacionText = `${(projectData.estrategiaEvaluacion || []).join(', ')}\nInstrumentos: ${(projectData.herramientas || []).join(', ')}`;
   const fases = obtenerFases(projectData.estrategia);
 
+  // Procesamos los logos con el escudo protector
+  const logoIzqData = getSafeImageData(projectData.logoIzquierdo);
+  const logoDerData = getSafeImageData(projectData.logoDerecho);
+
   // CONSTRUCCIÓN DEL ENCABEZADO CON LOGOS (TABLA INVISIBLE)
   const headerCells = [];
 
   // 1. Logo Izquierdo
-  if (projectData.logoIzquierdo) {
+  if (logoIzqData) {
     headerCells.push(new TableCell({
       width: { size: 15, type: WidthType.PERCENTAGE },
       borders: { top: { style: BorderStyle.NONE, size: 0 }, bottom: { style: BorderStyle.NONE, size: 0 }, left: { style: BorderStyle.NONE, size: 0 }, right: { style: BorderStyle.NONE, size: 0 } },
       verticalAlign: VerticalAlign.CENTER,
-      children: [new Paragraph({ alignment: AlignmentType.CENTER, children: [new ImageRun({ data: base64ToArrayBuffer(projectData.logoIzquierdo), transformation: { width: 90, height: 90 } })] })]
+      children: [new Paragraph({ alignment: AlignmentType.CENTER, children: [new ImageRun({ data: logoIzqData, transformation: { width: 90, height: 90 } })] })]
     }));
   } else {
     headerCells.push(new TableCell({ width: { size: 15, type: WidthType.PERCENTAGE }, borders: { top: { style: BorderStyle.NONE, size: 0 }, bottom: { style: BorderStyle.NONE, size: 0 }, left: { style: BorderStyle.NONE, size: 0 }, right: { style: BorderStyle.NONE, size: 0 } }, children: [new Paragraph("")] }));
@@ -108,12 +120,12 @@ export const exportToWord = async (projectData: any, plannedItems: any[], activi
   }));
 
   // 3. Logo Derecho
-  if (projectData.logoDerecho) {
+  if (logoDerData) {
     headerCells.push(new TableCell({
       width: { size: 15, type: WidthType.PERCENTAGE },
       borders: { top: { style: BorderStyle.NONE, size: 0 }, bottom: { style: BorderStyle.NONE, size: 0 }, left: { style: BorderStyle.NONE, size: 0 }, right: { style: BorderStyle.NONE, size: 0 } },
       verticalAlign: VerticalAlign.CENTER,
-      children: [new Paragraph({ alignment: AlignmentType.CENTER, children: [new ImageRun({ data: base64ToArrayBuffer(projectData.logoDerecho), transformation: { width: 90, height: 90 } })] })]
+      children: [new Paragraph({ alignment: AlignmentType.CENTER, children: [new ImageRun({ data: logoDerData, transformation: { width: 90, height: 90 } })] })]
     }));
   } else {
     headerCells.push(new TableCell({ width: { size: 15, type: WidthType.PERCENTAGE }, borders: { top: { style: BorderStyle.NONE, size: 0 }, bottom: { style: BorderStyle.NONE, size: 0 }, left: { style: BorderStyle.NONE, size: 0 }, right: { style: BorderStyle.NONE, size: 0 } }, children: [new Paragraph("")] }));
