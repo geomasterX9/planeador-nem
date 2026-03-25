@@ -40,35 +40,39 @@ const obtenerFases = (estrategia: string) => {
   return fasesMetodologias["Secuencia didáctica"];
 };
 
-// Utilidad MÁXIMA COMPACTACIÓN (Padding y Spacing al mínimo)
+// Utilidad MÁXIMA COMPACTACIÓN con Anti-Corrupción de XML
 const createCell = (text: string, isHeader: boolean = false, widthPct: number = 0, alignment: AlignmentType = AlignmentType.LEFT, bgColor?: string, colSpan: number = 1) => {
   const textColor = bgColor === "1e3a8a" ? "FFFFFF" : "000000";
+  
+  // Magia: Destruimos los \n y creamos párrafos reales para que Word no llore.
+  const lineas = (text || " ").split('\n');
+  const paragraphs = lineas.map(linea => 
+    new Paragraph({
+      alignment: alignment,
+      spacing: { before: 0, after: 0, line: 240 },
+      children: [new TextRun({ text: linea || " ", bold: isHeader, size: 18, color: textColor, font: "Calibri" })],
+    })
+  );
+
   return new TableCell({
     width: widthPct > 0 ? { size: widthPct, type: WidthType.PERCENTAGE } : undefined,
     columnSpan: colSpan,
     shading: bgColor ? { fill: bgColor } : undefined,
     verticalAlign: VerticalAlign.CENTER,
-    margins: { top: 20, bottom: 20, left: 60, right: 60 }, // <-- Márgenes súper apretados
-    children: [
-      new Paragraph({
-        alignment: alignment,
-        spacing: { before: 0, after: 0, line: 240 }, // <-- Fuerza a que no haya saltos de línea invisibles
-        children: [new TextRun({ text: text, bold: isHeader, size: 18, color: textColor, font: "Calibri" })],
-      }),
-    ],
+    margins: { top: 20, bottom: 20, left: 60, right: 60 },
+    children: paragraphs,
   });
 };
 
-// Transformador de Imagen de React a Word
+// Transformador de Imagen de React a Word Seguro
 const base64ToArrayBuffer = (base64DataUrl: string) => {
   const base64String = base64DataUrl.split(',')[1];
   const binaryString = window.atob(base64String);
-  const len = binaryString.length;
-  const bytes = new Uint8Array(len);
-  for (let i = 0; i < len; i++) {
+  const bytes = new Uint8Array(binaryString.length);
+  for (let i = 0; i < binaryString.length; i++) {
     bytes[i] = binaryString.charCodeAt(i);
   }
-  return bytes;
+  return bytes.buffer; // Devolvemos el buffer limpio
 };
 
 export const exportToWord = async (projectData: any, plannedItems: any[], actividades: Record<string, string>, evaluationData?: any) => {
@@ -90,7 +94,8 @@ export const exportToWord = async (projectData: any, plannedItems: any[], activi
       children: [new Paragraph({ alignment: AlignmentType.CENTER, spacing: { before: 0, after: 0 }, children: [new ImageRun({ data: base64ToArrayBuffer(projectData.logoIzquierdo), transformation: { width: 90, height: 90 } })] })]
     }));
   } else {
-    headerCells.push(new TableCell({ width: { size: 15, type: WidthType.PERCENTAGE }, borders: { top: { style: BorderStyle.NONE, size: 0 }, bottom: { style: BorderStyle.NONE, size: 0 }, left: { style: BorderStyle.NONE, size: 0 }, right: { style: BorderStyle.NONE, size: 0 } }, children: [new Paragraph("")] }));
+    // Si no hay logo, mandamos un párrafo vacío legal para Word
+    headerCells.push(new TableCell({ width: { size: 15, type: WidthType.PERCENTAGE }, borders: { top: { style: BorderStyle.NONE, size: 0 }, bottom: { style: BorderStyle.NONE, size: 0 }, left: { style: BorderStyle.NONE, size: 0 }, right: { style: BorderStyle.NONE, size: 0 } }, children: [new Paragraph({ children: [] })] }));
   }
 
   headerCells.push(new TableCell({
@@ -114,7 +119,7 @@ export const exportToWord = async (projectData: any, plannedItems: any[], activi
       children: [new Paragraph({ alignment: AlignmentType.CENTER, spacing: { before: 0, after: 0 }, children: [new ImageRun({ data: base64ToArrayBuffer(projectData.logoDerecho), transformation: { width: 90, height: 90 } })] })]
     }));
   } else {
-    headerCells.push(new TableCell({ width: { size: 15, type: WidthType.PERCENTAGE }, borders: { top: { style: BorderStyle.NONE, size: 0 }, bottom: { style: BorderStyle.NONE, size: 0 }, left: { style: BorderStyle.NONE, size: 0 }, right: { style: BorderStyle.NONE, size: 0 } }, children: [new Paragraph("")] }));
+    headerCells.push(new TableCell({ width: { size: 15, type: WidthType.PERCENTAGE }, borders: { top: { style: BorderStyle.NONE, size: 0 }, bottom: { style: BorderStyle.NONE, size: 0 }, left: { style: BorderStyle.NONE, size: 0 }, right: { style: BorderStyle.NONE, size: 0 } }, children: [new Paragraph({ children: [] })] }));
   }
 
   const tableHeaderOficial = new Table({
@@ -136,14 +141,20 @@ export const exportToWord = async (projectData: any, plannedItems: any[], activi
     ]
   });
 
-  // TABLA 2: CONTENIDOS Y PDAS
+  // TABLA 2: CONTENIDOS Y PDAS (Con blindaje anti-saltos de línea)
   const tableCurricula = new Table({
     width: { size: 100, type: WidthType.PERCENTAGE },
     rows: [
       new TableRow({ children: [ createCell("CONTENIDOS", true, 50, AlignmentType.CENTER, "1e3a8a"), createCell("PROCESOS DE DESARROLLO DE APRENDIZAJE (PDA)", true, 50, AlignmentType.CENTER, "1e3a8a") ] }),
       new TableRow({ children: [ 
-        new TableCell({ margins: { top: 40, bottom: 40, left: 80, right: 80 }, children: [ new Paragraph({ spacing: { before: 0, after: 0 }, children: [new TextRun({ text: `• ${contenidos}`, size: 18, font: "Calibri" })] }) ] }),
-        new TableCell({ margins: { top: 40, bottom: 40, left: 80, right: 80 }, children: [ new Paragraph({ spacing: { before: 0, after: 0 }, children: [new TextRun({ text: `• ${pdas}`, size: 18, font: "Calibri" })] }) ] })
+        new TableCell({ 
+          margins: { top: 40, bottom: 40, left: 80, right: 80 }, 
+          children: (`• ${contenidos}`).split('\n').map(line => new Paragraph({ spacing: { before: 0, after: 0 }, children: [new TextRun({ text: line || " ", size: 18, font: "Calibri" })] })) 
+        }),
+        new TableCell({ 
+          margins: { top: 40, bottom: 40, left: 80, right: 80 }, 
+          children: (`• ${pdas}`).split('\n').map(line => new Paragraph({ spacing: { before: 0, after: 0 }, children: [new TextRun({ text: line || " ", size: 18, font: "Calibri" })] })) 
+        })
       ] })
     ]
   });
@@ -166,8 +177,8 @@ export const exportToWord = async (projectData: any, plannedItems: any[], activi
           new TableCell({
             width: { size: 80, type: WidthType.PERCENTAGE },
             margins: { top: 60, bottom: 60, left: 100, right: 100 },
-            // Redujimos el espaciado entre los renglones de la IA
-            children: actText.split('\n').map(line => new Paragraph({ spacing: { before: 0, after: 40 }, children: [new TextRun({ text: line, size: 18, font: "Calibri" })] }))
+            // Blindaje final en las actividades extensas
+            children: actText.split('\n').map(line => new Paragraph({ spacing: { before: 0, after: 40 }, children: [new TextRun({ text: line || " ", size: 18, font: "Calibri" })] }))
           })
         ]
       })
@@ -204,7 +215,7 @@ export const exportToWord = async (projectData: any, plannedItems: any[], activi
   });
 
   // PÁRRAFO INVISIBLE SÚPER PEQUEÑO PARA SEPARAR TABLAS (evita que se peguen y deformen)
-  const miniEspaciador = new Paragraph({ text: "", spacing: { before: 30, after: 0 }, children: [new TextRun({ size: 2 })] });
+  const miniEspaciador = new Paragraph({ spacing: { before: 30, after: 0 }, children: [new TextRun({ text: " ", size: 2 })] });
 
   // CONSTRUCCIÓN DEL DOCUMENTO FINAL
   const doc = new Document({
@@ -231,7 +242,7 @@ export const exportToWord = async (projectData: any, plannedItems: any[], activi
         miniEspaciador, 
         
         tableSecuencia,
-        new Paragraph({ spacing: { before: 600, after: 0 } }), // Espacio para que firmen con pluma real
+        new Paragraph({ spacing: { before: 600, after: 0 }, children: [new TextRun({ text: " " })] }), 
         
         tableFirmas
       ],
