@@ -133,12 +133,24 @@ export const exportToWord = async (projectData: any, plannedItems: any[], activi
         rows: [ new TableRow({ children: [ createCell([ pBold("________________________________________________", 16, AlignmentType.CENTER), pBold("FIRMA DEL DOCENTE", 16, AlignmentType.CENTER), pReg(projectData.maestro || "Docente", 16, AlignmentType.CENTER) ], 50), createCell([ pBold("________________________________________________", 16, AlignmentType.CENTER), pBold("Vo. Bo. COORDINADOR ACADÉMICO", 16, AlignmentType.CENTER) ], 50) ] }) ]
     });
 
+    // --- BUSCA ESTA PARTE AL FINAL DE TU ARCHIVO ---
+
     const doc = new Document({
         styles: { default: { document: { run: { font: "Calibri" } } } },
         sections: [{ 
             properties: { page: { size: { orientation: PageOrientation.LANDSCAPE }, margin: { top: 700, right: 700, bottom: 700, left: 700 } } },
             footers: { default: new Footer({ children: [ new Paragraph({ children: [new TextRun({ text: "Documento generado con Planeador NEM Pro", size: 14, color: "888888", italics: true, font: "Calibri" })], alignment: AlignmentType.CENTER }) ] }) },
-            children: [ headerTable, new Paragraph({ spacing: { before: 150 } }), metadataTable, new Paragraph({ spacing: { before: 200 } }), curriculaTable, new Paragraph({ spacing: { before: 200 } }), secuenciaTable, new Paragraph({ spacing: { before: 800 } }), firmasTable ]
+            children: [ 
+                headerTable, 
+                new Paragraph({ spacing: { before: 50, after: 50 } }), // Reducido de 150 a 50
+                metadataTable, 
+                new Paragraph({ spacing: { before: 80, after: 80 } }), // Reducido de 200 a 80
+                curriculaTable, 
+                new Paragraph({ spacing: { before: 80, after: 80 } }), // Reducido de 200 a 80
+                secuenciaTable, 
+                new Paragraph({ spacing: { before: 400 } }),          // Reducido de 800 a 400 para las firmas
+                firmasTable 
+            ]
         }]
     });
 
