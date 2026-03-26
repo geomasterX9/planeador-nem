@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { ArrowLeft, Layers, PenTool, CheckSquare, Table as TableIcon, GraduationCap, LogOut, FileDown, Plus, Trash2, Eye, SlidersHorizontal, FileQuestion, FileSignature, Sparkles, Info } from 'lucide-react';
+import { ArrowLeft, Layers, PenTool, CheckSquare, Table as TableIcon, GraduationCap, LogOut, FileDown, Plus, Trash2, Eye, SlidersHorizontal, FileQuestion, FileSignature, Sparkles, Info, Cloud } from 'lucide-react';
 import { exportToWord } from '../../herramientas/exportUtils';
+import { useGoogleLogin } from '@react-oauth/google'; // NUEVO: Importación de Google
+import { saveAs } from 'file-saver'; // NUEVO: Para la descarga local
 
 interface EvaluationScreenProps {
   projectData: any;
@@ -25,6 +27,9 @@ export const EvaluationScreen = ({ projectData, plannedItems, actividades, onBac
   
   const [isGenerating, setIsGenerating] = useState(false);
   const [examFormat, setExamFormat] = useState<'abiertas' | 'multiple'>('abiertas');
+  
+  // NUEVO: Estado para el botón de Google Drive
+  const [isUploadingDrive, setIsUploadingDrive] = useState(false);
 
   useEffect(() => {
     const pdas = plannedItems.filter(item => item.type === 'pda').map(item => item.text);
@@ -64,20 +69,76 @@ export const EvaluationScreen = ({ projectData, plannedItems, actividades, onBac
   const removeCriterioRubrica = (id: number) => setCriteriosRubrica(criteriosRubrica.filter(item => item.id !== id));
   const updateRubricaHeader = (index: number, value: string) => { const newH = [...rubricaHeaders]; newH[index] = value; setRubricaHeaders(newH); };
 
-  const handleExport = () => {
-    const evaluationData = {
-      herramientas: herramientasSeleccionadas,
-      cotejo: criteriosCotejo,
-      rubrica: criteriosRubrica,
-      rubricaHeaders: rubricaHeaders,
-      observacion: criteriosObservacion,
-      escala: criteriosEscala,
-      cuestionario: textoCuestionario,
-      examen: textoExamen,
-      retroalimentacion: retroalimentacion
-    };
-    exportToWord(projectData, plannedItems, actividades, evaluationData);
+  // --- NUEVA LÓGICA DE EXPORTACIÓN Y GOOGLE DRIVE ---
+
+  const getEvaluationData = () => ({
+    herramientas: herramientasSeleccionadas,
+    cotejo: criteriosCotejo,
+    rubrica: criteriosRubrica,
+    rubricaHeaders: rubricaHeaders,
+    observacion: criteriosObservacion,
+    escala: criteriosEscala,
+    cuestionario: textoCuestionario,
+    examen: textoExamen,
+    retroalimentacion: retroalimentacion
+  });
+
+  const getFileName = () => `Planeacion_${projectData.proyecto?.replace(/\s+/g, '_') || 'NEM'}.docx`;
+
+  const handleExport = async () => {
+    try {
+      const evaluationData = getEvaluationData();
+      const wordBlob = await exportToWord(projectData, plannedItems, actividades, evaluationData);
+      saveAs(wordBlob, getFileName());
+    } catch (error) {
+      console.error("Error al exportar:", error);
+      alert("Hubo un error al generar el documento Word.");
+    }
   };
+
+  const loginToDrive = useGoogleLogin({
+    scope: 'https://www.googleapis.com/auth/drive.file',
+    onSuccess: async (tokenResponse) => {
+      setIsUploadingDrive(true);
+      try {
+        const evaluationData = getEvaluationData();
+        const wordBlob = await exportToWord(projectData, plannedItems, actividades, evaluationData);
+        
+        const metadata = {
+          name: getFileName(),
+          mimeType: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+        };
+
+        const form = new FormData();
+        form.append('metadata', new Blob([JSON.stringify(metadata)], { type: 'application/json' }));
+        form.append('file', wordBlob);
+
+        const response = await fetch('https://www.googleapis.com/upload/drive/v3/files?uploadType=multipart', {
+          method: 'POST',
+          headers: {
+            Authorization: `Bearer ${tokenResponse.access_token}`,
+          },
+          body: form,
+        });
+
+        if (response.ok) {
+          alert('¡Guardado exitosamente en tu Google Drive!');
+        } else {
+          throw new Error('Error al subir el archivo a Drive');
+        }
+      } catch (error) {
+        console.error('Error Drive:', error);
+        alert('Hubo un error al intentar guardar en Drive.');
+      } finally {
+        setIsUploadingDrive(false);
+      }
+    },
+    onError: () => {
+      alert('Error de autenticación con Google.');
+    }
+  });
+
+  // --- FIN LÓGICA GOOGLE DRIVE ---
 
   const generateAIEvaluation = async () => {
     const apiKey = import.meta.env.VITE_GEMINI_API_KEY;
@@ -92,7 +153,6 @@ export const EvaluationScreen = ({ projectData, plannedItems, actividades, onBac
       const pdaText = plannedItems.filter(i => i.type === 'pda').map(i => i.text).join(", ") || "el tema central del proyecto";
       const contenidoText = plannedItems.filter(i => i.type === 'content').map(i => i.text).join(", ") || "los contenidos de la clase";
       
-      // AQUÍ INYECTAMOS EL CONTEXTO EN LAS EVALUACIONES Y EXÁMENES
       const contextoEscuela = projectData.contexto ? `\n🏫 CONTEXTO SOCIOEDUCATIVO DE LA ESCUELA (PROGRAMA ANALÍTICO):\n"${projectData.contexto}"\n-> OBLIGATORIO: Adapta los escenarios de las preguntas, casos prácticos y criterios de evaluación a este contexto específico y necesidades de la comunidad.` : "";
 
       let prompt = `Eres un experto evaluador pedagógico de la Nueva Escuela Mexicana (NEM).
@@ -256,9 +316,20 @@ export const EvaluationScreen = ({ projectData, plannedItems, actividades, onBac
             <ArrowLeft size={16} />
             <span className="hidden md:inline">Volver a Secuencia</span>
           </button>
-          <button onClick={handleExport} className="flex items-center gap-1.5 px-5 py-2 text-sm font-bold text-white bg-indigo-600 rounded-lg shadow-md shadow-indigo-600/20 hover:bg-indigo-700 hover:shadow-lg transition-all ml-2 border border-indigo-500">
+          
+          {/* NUEVO: Botón de Guardar en Drive */}
+          <button 
+            onClick={() => loginToDrive()} 
+            disabled={isUploadingDrive}
+            className="flex items-center gap-1.5 px-5 py-2 text-sm font-bold text-slate-700 bg-white border border-slate-300 rounded-lg shadow-sm hover:bg-slate-50 transition-all ml-2 disabled:opacity-50"
+          >
+            <Cloud size={18} className={isUploadingDrive ? "animate-pulse text-indigo-500" : "text-[#0F9D58]"} />
+            <span className="hidden sm:inline">{isUploadingDrive ? "Subiendo..." : "Guardar en Drive"}</span>
+          </button>
+
+          <button onClick={handleExport} className="flex items-center gap-1.5 px-5 py-2 text-sm font-bold text-white bg-indigo-600 rounded-lg shadow-md shadow-indigo-600/20 hover:bg-indigo-700 hover:shadow-lg transition-all border border-indigo-500">
             <FileDown size={18} />
-            <span className="hidden sm:inline">Exportar Todo a Word</span>
+            <span className="hidden sm:inline">Descargar Word</span>
           </button>
         </div>
       </header>
