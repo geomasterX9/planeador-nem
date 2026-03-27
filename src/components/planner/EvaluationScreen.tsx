@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
+import { useGoogleLogin } from '@react-oauth/google';
+import { saveAs } from 'file-saver';
 import { ArrowLeft, Layers, PenTool, CheckSquare, Table as TableIcon, GraduationCap, LogOut, FileDown, Plus, Trash2, Eye, SlidersHorizontal, FileQuestion, FileSignature, Sparkles, Info, Cloud } from 'lucide-react';
 import { exportToWord } from '../../herramientas/exportUtils';
-import { useGoogleLogin } from '@react-oauth/google'; // NUEVO: Importación de Google
-import { saveAs } from 'file-saver'; // NUEVO: Para la descarga local
 
 interface EvaluationScreenProps {
   projectData: any;
@@ -27,9 +27,6 @@ export const EvaluationScreen = ({ projectData, plannedItems, actividades, onBac
   
   const [isGenerating, setIsGenerating] = useState(false);
   const [examFormat, setExamFormat] = useState<'abiertas' | 'multiple'>('abiertas');
-  
-  // NUEVO: Estado para el botón de Google Drive
-  const [isUploadingDrive, setIsUploadingDrive] = useState(false);
 
   useEffect(() => {
     const pdas = plannedItems.filter(item => item.type === 'pda').map(item => item.text);
@@ -69,7 +66,20 @@ export const EvaluationScreen = ({ projectData, plannedItems, actividades, onBac
   const removeCriterioRubrica = (id: number) => setCriteriosRubrica(criteriosRubrica.filter(item => item.id !== id));
   const updateRubricaHeader = (index: number, value: string) => { const newH = [...rubricaHeaders]; newH[index] = value; setRubricaHeaders(newH); };
 
-  // --- NUEVA LÓGICA DE EXPORTACIÓN Y GOOGLE DRIVE ---
+  // --- NUEVAS FUNCIONES DE EXPORTACIÓN Y DRIVE ---
+  const getFileName = () => {
+    const trimestre = projectData.trimestre || "Trimestre";
+    const maestro = projectData.maestro || "Docente";
+    const disciplina = plannedItems.length > 0 ? plannedItems[0].disciplina : "General";
+    
+    // Extraemos el grado de los datos del proyecto
+    const grado = projectData.grado || "1"; 
+    
+    const clean = (str: string) => str.trim().replace(/\s+/g, '_').replace(/[^a-zA-Z0-9_áéíóúÁÉÍÓÚñÑ]/g, '');
+    
+    // Le agregamos el grado al final de la cadena
+    return `${clean(trimestre)}-${clean(maestro)}-${clean(disciplina)}-${clean(grado)}.docx`;
+  };
 
   const getEvaluationData = () => ({
     herramientas: herramientasSeleccionadas,
@@ -83,62 +93,55 @@ export const EvaluationScreen = ({ projectData, plannedItems, actividades, onBac
     retroalimentacion: retroalimentacion
   });
 
-  const getFileName = () => `Planeacion_${projectData.proyecto?.replace(/\s+/g, '_') || 'NEM'}.docx`;
-
-  const handleExport = async () => {
+  const handleDownloadLocal = async () => {
     try {
-      const evaluationData = getEvaluationData();
-      const wordBlob = await exportToWord(projectData, plannedItems, actividades, evaluationData);
+      const wordBlob = await exportToWord(projectData, plannedItems, actividades, getEvaluationData());
       saveAs(wordBlob, getFileName());
     } catch (error) {
-      console.error("Error al exportar:", error);
-      alert("Hubo un error al generar el documento Word.");
+      console.error(error);
+      alert("Hubo un error al generar el archivo Word.");
     }
   };
 
   const loginToDrive = useGoogleLogin({
     scope: 'https://www.googleapis.com/auth/drive.file',
+    prompt: 'consent',
     onSuccess: async (tokenResponse) => {
-      setIsUploadingDrive(true);
       try {
-        const evaluationData = getEvaluationData();
-        const wordBlob = await exportToWord(projectData, plannedItems, actividades, evaluationData);
-        
-        const metadata = {
-          name: getFileName(),
-          mimeType: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
-        };
+        const wordBlob = await exportToWord(projectData, plannedItems, actividades, getEvaluationData());
+        const fileName = getFileName();
 
-        const form = new FormData();
-        form.append('metadata', new Blob([JSON.stringify(metadata)], { type: 'application/json' }));
-        form.append('file', wordBlob);
-
-        const response = await fetch('https://www.googleapis.com/upload/drive/v3/files?uploadType=multipart', {
+        const metadataResponse = await fetch('https://www.googleapis.com/drive/v3/files', {
           method: 'POST',
           headers: {
             Authorization: `Bearer ${tokenResponse.access_token}`,
+            'Content-Type': 'application/json',
           },
-          body: form,
+          body: JSON.stringify({ name: fileName, mimeType: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' }),
         });
 
-        if (response.ok) {
-          alert('¡Guardado exitosamente en tu Google Drive!');
-        } else {
-          throw new Error('Error al subir el archivo a Drive');
+        if (!metadataResponse.ok) throw new Error('Error de conexión con Google');
+        const file = await metadataResponse.json();
+
+        const uploadResponse = await fetch(`https://www.googleapis.com/upload/drive/v3/files/${file.id}?uploadType=media`, {
+          method: 'PATCH',
+          headers: { 
+            Authorization: `Bearer ${tokenResponse.access_token}`, 
+            'Content-Type': 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' 
+          },
+          body: wordBlob,
+        });
+
+        if (uploadResponse.ok) {
+            alert(`¡Guardado exitosamente en Drive como: ${fileName}!`);
         }
       } catch (error) {
-        console.error('Error Drive:', error);
-        alert('Hubo un error al intentar guardar en Drive.');
-      } finally {
-        setIsUploadingDrive(false);
+        console.error(error);
+        alert("Hubo un detalle al guardar en Drive. Revisa la consola.");
       }
     },
-    onError: () => {
-      alert('Error de autenticación con Google.');
-    }
   });
-
-  // --- FIN LÓGICA GOOGLE DRIVE ---
+  // --- FIN FUNCIONES NUEVAS ---
 
   const generateAIEvaluation = async () => {
     const apiKey = import.meta.env.VITE_GEMINI_API_KEY;
@@ -317,19 +320,15 @@ export const EvaluationScreen = ({ projectData, plannedItems, actividades, onBac
             <span className="hidden md:inline">Volver a Secuencia</span>
           </button>
           
-          {/* NUEVO: Botón de Guardar en Drive */}
-          <button 
-            onClick={() => loginToDrive()} 
-            disabled={isUploadingDrive}
-            className="flex items-center gap-1.5 px-5 py-2 text-sm font-bold text-slate-700 bg-white border border-slate-300 rounded-lg shadow-sm hover:bg-slate-50 transition-all ml-2 disabled:opacity-50"
-          >
-            <Cloud size={18} className={isUploadingDrive ? "animate-pulse text-indigo-500" : "text-[#0F9D58]"} />
-            <span className="hidden sm:inline">{isUploadingDrive ? "Subiendo..." : "Guardar en Drive"}</span>
-          </button>
-
-          <button onClick={handleExport} className="flex items-center gap-1.5 px-5 py-2 text-sm font-bold text-white bg-indigo-600 rounded-lg shadow-md shadow-indigo-600/20 hover:bg-indigo-700 hover:shadow-lg transition-all border border-indigo-500">
+          {/* BOTONES DE EXPORTACIÓN Y DRIVE ACTUALIZADOS */}
+          <button onClick={handleDownloadLocal} className="flex items-center gap-1.5 px-4 py-2 text-sm font-bold text-slate-700 bg-white border border-slate-300 rounded-lg shadow-sm hover:bg-slate-50 transition-all ml-2">
             <FileDown size={18} />
-            <span className="hidden sm:inline">Descargar Word</span>
+            <span className="hidden lg:inline">Descargar Word</span>
+          </button>
+          
+          <button onClick={() => loginToDrive()} className="flex items-center gap-1.5 px-4 py-2 text-sm font-bold text-white bg-blue-600 rounded-lg shadow-md shadow-blue-600/20 hover:bg-blue-700 hover:shadow-lg transition-all ml-2 border border-blue-500">
+            <Cloud size={18} />
+            <span className="hidden lg:inline">Guardar en Drive</span>
           </button>
         </div>
       </header>
@@ -412,8 +411,8 @@ export const EvaluationScreen = ({ projectData, plannedItems, actividades, onBac
                   <div className="bg-slate-50 p-4 rounded-xl border border-slate-200 mb-6">
                     <p className="text-xs text-slate-600 leading-relaxed font-medium">Estima la presencia o ausencia de los atributos relevantes en la ejecución o producto de todos los estudiantes.</p>
                   </div>
-                  <div className="border border-slate-200 rounded-xl overflow-hidden shadow-sm">
-                    <table className="w-full text-left border-collapse bg-white">
+                  <div className="border border-slate-200 rounded-xl overflow-x-auto shadow-sm">
+                    <table className="w-full text-left border-collapse bg-white min-w-[600px]">
                       <thead>
                         <tr className="bg-slate-100 text-[10px] uppercase tracking-widest text-slate-500 border-b border-slate-200">
                           <th className="p-3 xl:p-4 font-bold w-12 text-center">No.</th>
@@ -446,8 +445,8 @@ export const EvaluationScreen = ({ projectData, plannedItems, actividades, onBac
                   <div className="bg-slate-50 p-4 rounded-xl border border-slate-200 mb-6">
                     <p className="text-xs text-slate-600 leading-relaxed font-medium">Define los comportamientos, actitudes o procedimientos que observarás en todos los estudiantes durante las sesiones.</p>
                   </div>
-                  <div className="border border-slate-200 rounded-xl overflow-hidden shadow-sm">
-                    <table className="w-full text-left border-collapse bg-white">
+                  <div className="border border-slate-200 rounded-xl overflow-x-auto shadow-sm">
+                    <table className="w-full text-left border-collapse bg-white min-w-[600px]">
                       <thead>
                         <tr className="bg-slate-100 text-[10px] uppercase tracking-widest text-slate-500 border-b border-slate-200">
                           <th className="p-3 xl:p-4 font-bold w-12 text-center">No.</th>
@@ -478,8 +477,8 @@ export const EvaluationScreen = ({ projectData, plannedItems, actividades, onBac
                   <div className="bg-slate-50 p-4 rounded-xl border border-slate-200 mb-6">
                     <p className="text-xs text-slate-600 leading-relaxed font-medium">Mide la frecuencia o intensidad de la conducta o aprendizaje de todos los alumnos usando una escala categórica.</p>
                   </div>
-                  <div className="border border-slate-200 rounded-xl overflow-hidden shadow-sm">
-                    <table className="w-full text-left border-collapse bg-white">
+                  <div className="border border-slate-200 rounded-xl overflow-x-auto shadow-sm">
+                    <table className="w-full text-left border-collapse bg-white min-w-[600px]">
                       <thead>
                         <tr className="bg-slate-100 text-[10px] uppercase tracking-widest text-slate-500 border-b border-slate-200">
                           <th className="p-3 xl:p-4 font-bold">Criterio / Rasgo</th>

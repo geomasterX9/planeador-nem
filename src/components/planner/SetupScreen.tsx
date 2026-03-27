@@ -168,7 +168,7 @@ export const SetupScreen = ({ data, onChange, onComplete }: SetupScreenProps) =>
 
               <div>
                  <label className={labelClass}>Logotipos para Encabezado Oficial</label>
-                 <div className="grid grid-cols-2 gap-4">
+                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                    <div className="relative border-2 border-dashed border-slate-200 rounded-xl bg-slate-50 hover:bg-slate-100 transition-colors flex flex-col items-center justify-center p-4 group overflow-hidden h-28">
                       {safeData.logoIzquierdo ? (
                         <>

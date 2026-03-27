@@ -1,17 +1,23 @@
-import { exportToWord } from './herramientas/exportUtils';
+import { GoogleOAuthProvider } from '@react-oauth/google';
 import React, { useState, useEffect } from 'react';
 import { DndContext, DragOverlay, DragStartEvent, DragEndEvent } from '@dnd-kit/core';
-import { GraduationCap, LogOut, BookMarked, Cloud, LayoutTemplate, Layers, CheckSquare, Menu, X, Calendar, FileDown, Target, PenTool, Settings } from 'lucide-react';
+import { GraduationCap, LogOut, BookMarked, Cloud, LayoutTemplate, Layers, CheckSquare, Menu, X, Calendar, FileDown, Target, PenTool, Settings, Sparkles, ChevronRight, Zap, ShieldCheck } from 'lucide-react';
 
 import nemData from './data/nemData.json';
 import { SourceCard } from './components/planner/SourceCard';
 import { PlannerCanvas } from './components/planner/PlannerCanvas';
 import { SetupScreen } from './components/planner/SetupScreen'; 
 import { SequenceScreen } from './components/planner/SequenceScreen';
-import { EvaluationScreen } from './components/planner/EvaluationScreen';
+import { EvaluationScreen } from "./components/planner/EvaluationScreen";
+
+// === CONFIGURACIÓN DE SEGURIDAD GOOGLE ===
+const GOOGLE_CLIENT_ID = "77099002011-s8ek3lmkchak77m1dpk5tockb3rh3a5t.apps.googleusercontent.com";
 
 function App() {
-  // 1. SEGURIDAD (Siempre empieza en false al refrescar)
+  // 0. ESTADO DE LA LANDING PAGE (La Cerezota en el pastel)
+  const [showLanding, setShowLanding] = useState(true);
+
+  // 1. SEGURIDAD 
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [passwordInput, setPasswordInput] = useState('');
   const CLAVE_ACCESO = "Tecnica84";
@@ -41,11 +47,11 @@ function App() {
 
       const savedData = sessionStorage.getItem('planeador_data');
       const savedItems = sessionStorage.getItem('planeador_items');
-      const savedRecursos = sessionStorage.getItem('planeador_recursos'); // NUEVO
+      const savedRecursos = sessionStorage.getItem('planeador_recursos');
 
       if (savedData) setProjectData(JSON.parse(savedData));
       if (savedItems) setPlannedItems(JSON.parse(savedItems));
-      if (savedRecursos) setRecursos(JSON.parse(savedRecursos)); // NUEVO
+      if (savedRecursos) setRecursos(JSON.parse(savedRecursos));
     } catch (error) {
       console.error("Error al cargar datos:", error);
     }
@@ -55,7 +61,7 @@ function App() {
   useEffect(() => {
     sessionStorage.setItem('planeador_data', JSON.stringify(projectData));
     sessionStorage.setItem('planeador_items', JSON.stringify(plannedItems));
-    sessionStorage.setItem('planeador_recursos', JSON.stringify(recursos)); // NUEVO
+    sessionStorage.setItem('planeador_recursos', JSON.stringify(recursos));
   }, [projectData, plannedItems, recursos]);
 
   const handleDataChange = (field: string, value: any) => setProjectData(prev => ({ ...prev, [field]: value }));
@@ -102,25 +108,112 @@ function App() {
     setActiveItem(null);
   }
 
-  // --- PASO 1: VERIFICAR LA LLAVE ---
+  // --- PASO 0: LANDING PAGE PREMIUM ---
+  if (showLanding) {
+    return (
+      <div className="h-screen bg-slate-50 font-sans selection:bg-indigo-100 flex flex-col relative overflow-hidden">
+        {/* Elementos decorativos de fondo */}
+        <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-indigo-500/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div className="absolute bottom-[-10%] right-[-5%] w-[30%] h-[50%] bg-blue-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+        {/* Header simple */}
+        <header className="px-6 py-4 flex items-center justify-between relative z-10 shrink-0">
+          <div className="flex items-center gap-3">
+            <div className="bg-[#4f46e5] p-2.5 rounded-2xl text-white shadow-lg shadow-indigo-200">
+              <GraduationCap size={24} />
+            </div>
+            <span className="text-lg font-black tracking-tight text-slate-900">Planeador NEM <span className="text-[#4f46e5]">Pro</span></span>
+          </div>
+          <div className="hidden md:flex items-center gap-6 text-sm font-bold text-slate-500">
+            <span className="hover:text-indigo-600 cursor-pointer transition-colors">Innovación</span>
+            <span className="hover:text-indigo-600 cursor-pointer transition-colors">Tecnología</span>
+            <span className="hover:text-indigo-600 cursor-pointer transition-colors">NEM</span>
+          </div>
+        </header>
+
+        {/* Hero Section - AHORA CENTRADO PERFECTAMENTE SIN SOBRANTES */}
+        <main className="flex-1 flex flex-col items-center justify-center px-4 sm:px-6 relative z-10 text-center py-4">
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-indigo-50 border border-indigo-100 text-indigo-700 text-[10px] md:text-xs font-bold tracking-wide mb-4 animate-fade-in-up">
+            <Sparkles size={14} className="text-indigo-500" />
+            <span>Versión 1.0 con Inteligencia Artificial Integrada</span>
+          </div>
+          
+          <h1 className="text-4xl md:text-6xl font-extrabold text-slate-900 tracking-tight max-w-4xl leading-[1.1] mb-4">
+            La revolución de la <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#4f46e5] to-blue-500">planeación docente</span> ha llegado.
+          </h1>
+          
+          <p className="text-base md:text-lg text-slate-500 max-w-2xl mb-8 font-medium leading-relaxed">
+            Diseña, estructura y evalúa proyectos para la Nueva Escuela Mexicana en minutos. Una plataforma inteligente creada por docentes, para docentes.
+          </p>
+          
+          <button 
+            onClick={() => setShowLanding(false)}
+            className="group relative inline-flex items-center justify-center gap-3 px-6 py-3 bg-[#4f46e5] text-white rounded-full font-black text-base overflow-hidden transition-all hover:scale-105 hover:shadow-[0_0_30px_-10px_rgba(79,70,229,0.5)] active:scale-95"
+          >
+            <span className="relative z-10 flex items-center gap-2">
+              Ingresar al Sistema <ChevronRight size={18} className="group-hover:translate-x-1 transition-transform" />
+            </span>
+            <div className="absolute inset-0 bg-gradient-to-r from-indigo-600 to-blue-600 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+          </button>
+        </main>
+
+        {/* Cards de características - REDUCIDO EL MARGEN INFERIOR */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-5xl mx-auto w-full px-4 pb-6 relative z-10 shrink-0">
+          <div className="bg-white p-5 rounded-2xl shadow-lg shadow-slate-200/50 border border-slate-100 hover:-translate-y-1 transition-transform duration-300">
+            <div className="w-10 h-10 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center mb-3">
+              <Layers size={20} />
+            </div>
+            <h3 className="text-lg font-bold text-slate-900 mb-2">Lienzo Interactivo</h3>
+            <p className="text-slate-500 text-xs leading-relaxed">Arrastra y suelta Contenidos y PDAs directamente desde los programas sintéticos oficiales.</p>
+          </div>
+          <div className="bg-white p-5 rounded-2xl shadow-lg shadow-slate-200/50 border border-slate-100 hover:-translate-y-1 transition-transform duration-300">
+            <div className="w-10 h-10 bg-indigo-50 text-indigo-600 rounded-xl flex items-center justify-center mb-3">
+              <Zap size={20} />
+            </div>
+            <h3 className="text-lg font-bold text-slate-900 mb-2">Evaluación con IA</h3>
+            <p className="text-slate-500 text-xs leading-relaxed">Genera rúbricas, listas de cotejo y exámenes contextualizados a tu comunidad en segundos.</p>
+          </div>
+          <div className="bg-white p-5 rounded-2xl shadow-lg shadow-slate-200/50 border border-slate-100 hover:-translate-y-1 transition-transform duration-300">
+            <div className="w-10 h-10 bg-emerald-50 text-emerald-600 rounded-xl flex items-center justify-center mb-3">
+              <ShieldCheck size={20} />
+            </div>
+            <h3 className="text-lg font-bold text-slate-900 mb-2">Exportación Segura</h3>
+            <p className="text-slate-500 text-xs leading-relaxed">Descarga en Word institucional o respalda directamente en tu Google Drive personal.</p>
+          </div>
+        </div>
+
+        {/* Footer Premium Autoría - MÁS COMPACTO */}
+        <footer className="py-4 flex flex-col items-center justify-center gap-0.5 text-center text-slate-500 text-xs font-medium border-t border-slate-200/50 relative z-10 bg-white/50 backdrop-blur-sm shrink-0">
+          <p className="tracking-wide">© {new Date().getFullYear()} Copyright derechos reservados</p>
+          <p className="font-bold text-slate-700 text-sm">Mtro. Jorge Alfonso López Cruz</p>
+        </footer>
+      </div>
+    );
+  }
+
+  // --- PASO 1: VERIFICAR LA LLAVE (LOGIN) ---
   if (!isAuthenticated) {
     return (
-      <div className="h-screen w-full flex items-center justify-center bg-[#0f172a] font-sans p-4">
-        <div className="bg-white p-8 rounded-3xl shadow-2xl w-full max-w-md text-center border border-slate-100">
-          <div className="bg-[#4f46e5] w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-8 text-white shadow-lg rotate-3">
-            <GraduationCap size={40} />
+      <div className="h-screen w-full flex items-center justify-center bg-[#0f172a] font-sans p-4 relative overflow-hidden">
+        {/* Decoración de fondo del login */}
+        <div className="absolute top-[-20%] right-[-10%] w-[50%] h-[50%] bg-indigo-600/20 rounded-full blur-3xl pointer-events-none"></div>
+        <div className="absolute bottom-[-20%] left-[-10%] w-[50%] h-[50%] bg-blue-600/20 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div className="bg-white p-10 rounded-[2.5rem] shadow-2xl w-full max-w-md text-center border border-slate-100 relative z-10">
+          <div className="bg-gradient-to-br from-[#4f46e5] to-blue-600 w-24 h-24 rounded-3xl flex items-center justify-center mx-auto mb-8 text-white shadow-xl shadow-indigo-200 rotate-3">
+            <GraduationCap size={48} />
           </div>
-          <h1 className="text-3xl font-black text-slate-900 mb-2 tracking-tight">Acceso Docente</h1>
-          <p className="text-slate-500 mb-8 text-sm font-medium">Introduce el código de Acceso</p>
+          <h1 className="text-3xl font-black text-slate-900 mb-2 tracking-tight">Acceso Seguro</h1>
+          <p className="text-slate-500 mb-10 text-sm font-medium">Introduce tu código de acceso docente</p>
           
-          <div className="space-y-4">
+          <div className="space-y-5">
             <input 
               type="password"
               value={passwordInput}
               onChange={(e) => setPasswordInput(e.target.value)}
               onKeyDown={(e) => e.key === 'Enter' && passwordInput === CLAVE_ACCESO && setIsAuthenticated(true)}
               placeholder="••••••••"
-              className="w-full px-6 py-4 rounded-2xl bg-slate-50 border-2 border-slate-100 focus:border-[#4f46e5] focus:bg-white outline-none transition-all text-center text-xl tracking-[0.5em] font-bold"
+              className="w-full px-6 py-4 rounded-2xl bg-slate-50 border-2 border-slate-100 focus:border-[#4f46e5] focus:bg-white outline-none transition-all text-center text-2xl tracking-[0.5em] font-black text-slate-800"
               autoFocus
             />
             
@@ -133,16 +226,16 @@ function App() {
                   setPasswordInput('');
                 }
               }}
-              className="w-full bg-[#4f46e5] text-white py-4 rounded-2xl font-bold text-lg hover:bg-[#4338ca] transition-all shadow-xl shadow-indigo-100 active:scale-[0.98]"
+              className="w-full bg-slate-900 text-white py-4 rounded-2xl font-bold text-lg hover:bg-slate-800 transition-all shadow-xl shadow-slate-200 active:scale-[0.98]"
             >
-              Entrar al Planeador
+              Ingresar
             </button>
-          </div>
-          <div className="mt-10 pt-6 border-t border-slate-50 flex flex-col gap-2">
-            <p className="text-[16px] text-slate-400/80 font-medium tracking-wide leading-relaxed">
-              © {new Date().getFullYear()} Copyright derechos reservados<br />
-              Mtro. Jorge Alfonso López Cruz
-            </p>
+            <button 
+              onClick={() => setShowLanding(true)}
+              className="w-full text-slate-400 text-sm font-bold hover:text-slate-600 mt-4"
+            >
+              ← Volver al inicio
+            </button>
           </div>
         </div>
       </div>
@@ -171,12 +264,14 @@ function App() {
 
   if (currentView === 'evaluation') {
     return (
-      <EvaluationScreen 
-        projectData={projectData} 
-        plannedItems={plannedItems} 
-        actividades={actividades}
-        onBack={() => setCurrentView('sequence')} 
-      />
+      <GoogleOAuthProvider clientId={GOOGLE_CLIENT_ID}>
+        <EvaluationScreen 
+          projectData={projectData} 
+          plannedItems={plannedItems} 
+          actividades={actividades}
+          onBack={() => setCurrentView('sequence')} 
+        />
+      </GoogleOAuthProvider>
     );
   }
 
