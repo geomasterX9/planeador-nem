@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useGoogleLogin } from '@react-oauth/google';
 import { saveAs } from 'file-saver';
-import { ArrowLeft, Layers, PenTool, CheckSquare, Table as TableIcon, GraduationCap, LogOut, FileDown, Plus, Trash2, Eye, SlidersHorizontal, FileQuestion, FileSignature, Sparkles, Info, Cloud } from 'lucide-react';
+import { ArrowLeft, Layers, PenTool, CheckSquare, Table as TableIcon, GraduationCap, LogOut, FileDown, Plus, Trash2, Eye, SlidersHorizontal, FileQuestion, FileSignature, Sparkles, Info, Cloud, Settings } from 'lucide-react';
 import { exportToWord } from '../../herramientas/exportUtils';
 
 interface EvaluationScreenProps {
@@ -66,19 +66,23 @@ export const EvaluationScreen = ({ projectData, plannedItems, actividades, onBac
   const removeCriterioRubrica = (id: number) => setCriteriosRubrica(criteriosRubrica.filter(item => item.id !== id));
   const updateRubricaHeader = (index: number, value: string) => { const newH = [...rubricaHeaders]; newH[index] = value; setRubricaHeaders(newH); };
 
-  // --- NUEVAS FUNCIONES DE EXPORTACIÓN Y DRIVE ---
+  // --- LÓGICA CORREGIDA DEL NOMBRE DEL ARCHIVO ---
   const getFileName = () => {
-    const trimestre = projectData.trimestre || "Trimestre";
-    const maestro = projectData.maestro || "Docente";
-    const disciplina = plannedItems.length > 0 ? plannedItems[0].disciplina : "General";
+    const trimestre = projectData.trimestre || "TRIMESTRE";
     
-    // Extraemos el grado de los datos del proyecto
+    // Extraemos fechas y cambiamos diagonales por guiones medios (ej. 12/04/2026 -> 12-04-2026)
+    const inicio = projectData.fechaInicio ? projectData.fechaInicio.replace(/\//g, '-') : "INICIO";
+    const fin = projectData.fechaFin ? projectData.fechaFin.replace(/\//g, '-') : "FIN";
+    const periodo = `${inicio}_AL_${fin}`;
+    
+    const maestro = projectData.maestro || "DOCENTE";
+    const disciplina = plannedItems.length > 0 ? plannedItems[0].disciplina : "GENERAL";
     const grado = projectData.grado || "1"; 
     
-    const clean = (str: string) => str.trim().replace(/\s+/g, '_').replace(/[^a-zA-Z0-9_áéíóúÁÉÍÓÚñÑ]/g, '');
+    // NOTA DEV: Agregamos el guión medio (\-) a la regla de limpieza para que no lo borre del nombre
+    const clean = (str: string) => str.trim().replace(/\s+/g, '_').replace(/[^a-zA-Z0-9_áéíóúÁÉÍÓÚñÑ\-]/g, '');
     
-    // Le agregamos el grado al final de la cadena
-    return `${clean(trimestre)}-${clean(maestro)}-${clean(disciplina)}-${clean(grado)}.docx`;
+    return `${clean(trimestre)}-${clean(periodo)}-${clean(maestro)}-${clean(disciplina)}-${clean(grado)}.docx`.toUpperCase();
   };
 
   const getEvaluationData = () => ({
@@ -133,7 +137,7 @@ export const EvaluationScreen = ({ projectData, plannedItems, actividades, onBac
         });
 
         if (uploadResponse.ok) {
-            alert(`¡Guardado exitosamente en Drive como: ${fileName}!`);
+            alert(`¡Guardado exitosamente en Drive como:\n${fileName}!`);
         }
       } catch (error) {
         console.error(error);
@@ -141,7 +145,6 @@ export const EvaluationScreen = ({ projectData, plannedItems, actividades, onBac
       }
     },
   });
-  // --- FIN FUNCIONES NUEVAS ---
 
   const generateAIEvaluation = async () => {
     const apiKey = import.meta.env.VITE_GEMINI_API_KEY;
@@ -158,35 +161,50 @@ export const EvaluationScreen = ({ projectData, plannedItems, actividades, onBac
       
       const contextoEscuela = projectData.contexto ? `\n🏫 CONTEXTO SOCIOEDUCATIVO DE LA ESCUELA (PROGRAMA ANALÍTICO):\n"${projectData.contexto}"\n-> OBLIGATORIO: Adapta los escenarios de las preguntas, casos prácticos y criterios de evaluación a este contexto específico y necesidades de la comunidad.` : "";
 
+      const actividadesText = Object.values(actividades).filter(text => text.trim() !== "").join('\n\n') || "El docente evaluará la participación general y los productos derivados del PDA.";
+
       let prompt = `Eres un experto evaluador pedagógico de la Nueva Escuela Mexicana (NEM).
       Tema/PDA a evaluar: ${pdaText}
       Contenidos: ${contenidoText}
       ${contextoEscuela}
       
+      🚨 ACTIVIDADES REALIZADAS POR LOS ALUMNOS EN LA SECUENCIA DIDÁCTICA:
+      Para que la evaluación sea auténtica y congruente, DEBES basar los criterios, preguntas o rúbricas en las siguientes acciones y productos que los alumnos realmente desarrollaron:
+      """
+      ${actividadesText}
+      """
+      
       REGLA OBLIGATORIA: Ignora cuántos temas hay en la lista. Debes generar EXACTAMENTE la cantidad de criterios o preguntas solicitadas a continuación. NO generes ni una más, ni una menos.\n`;
 
       if (activeTab === 'Listas de cotejo' || activeTab === 'Guías de observación' || activeTab === 'Escalas estimativas') {
         prompt += `INSTRUCCIÓN: Genera EXACTAMENTE 5 indicadores/criterios para el instrumento: ${activeTab}. 
-        Los indicadores deben ser EXTENSOS, detallados y altamente observables en el aula, vinculados al contexto provisto.
+        Los indicadores deben evaluar explícitamente las ACTIVIDADES arriba descritas. Deben ser EXTENSOS, detallados y observables.
         Devuelve estrictamente un JSON que sea UN ARREGLO de 5 strings. 
-        Ejemplo: ["El alumno demuestra capacidad analítica al momento de...", ...]`;
+        Ejemplo: ["Durante el desarrollo del mural comunitario, el alumno demostró capacidad analítica al momento de...", ...]`;
       } 
       else if (activeTab === 'Rúbricas') {
         prompt += `INSTRUCCIÓN: Genera EXACTAMENTE 5 criterios pedagógicos para una Rúbrica con 4 niveles de desempeño.
-        Exigencia: Los niveles de desempeño deben ser PROFUNDOS Y DESCRIPTIVOS, utilizando la Taxonomía de Bloom. Explica exactamente qué acciones observables definen cada nivel vinculadas al contexto de la comunidad.
+        Exigencia: Evalúa directamente las ACTIVIDADES y productos descritos arriba. Los niveles deben usar verbos de la Taxonomía de Bloom de forma progresiva. 
+        - Nivel 1 (Requiere Apoyo): Verbos de memorización/recepción pasiva.
+        - Nivel 2 (Suficiente): Verbos de comprensión básica.
+        - Nivel 3 (Satisfactorio): Verbos de aplicación y análisis.
+        - Nivel 4 (Sobresaliente): Verbos de evaluación, creación y propuesta activa.
+        
         Devuelve estrictamente un JSON que sea UN ARREGLO de 5 objetos con esta estructura exacta:
         [
-          { "criterio": "Nombre del criterio evaluado", "nivel4": "Descripción extensa sobresaliente...", "nivel3": "Descripción extensa satisfactoria...", "nivel2": "Descripción extensa suficiente...", "nivel1": "Descripción extensa requiere apoyo..." }
+          { "criterio": "Nombre del criterio (Ej. Diseño del producto final)", "nivel4": "Descripción extensa...", "nivel3": "Descripción extensa...", "nivel2": "Descripción extensa...", "nivel1": "Descripción extensa..." }
         ]`;
       } 
       else if (activeTab === 'Cuestionarios' || (activeTab === 'Exámenes escritos' && examFormat === 'abiertas')) {
         prompt += `INSTRUCCIÓN: Genera EXACTAMENTE 10 preguntas abiertas y reflexivas para el alumno.
-        Exigencia: Deben ser preguntas de ALTO NIVEL COGNITIVO que involucren análisis o aplicación basados en el contexto socioeducativo proporcionado. Evita preguntas de simple memorización.
+        Exigencia: Deben ser preguntas de ALTO NIVEL COGNITIVO que involucren análisis o aplicación basados en el contexto socioeducativo y en las ACTIVIDADES que realizaron. Evita preguntas de simple memorización ("¿Qué es...?").
         Devuelve estrictamente un JSON que sea UN ARREGLO de 10 strings.`;
       } 
       else if (activeTab === 'Exámenes escritos' && examFormat === 'multiple') {
         prompt += `INSTRUCCIÓN: Genera EXACTAMENTE 10 preguntas de opción múltiple.
-        Exigencia: Plantea escenarios y casos prácticos de la vida real BASADOS ESTRICTAMENTE en el contexto socioeducativo de la escuela. Las opciones deben requerir análisis.
+        Exigencia: Plantea escenarios y casos prácticos de la vida real BASADOS ESTRICTAMENTE en las actividades planeadas y el contexto socioeducativo de la escuela.
+        OJO CON LAS OPCIONES: Las 3 opciones incorrectas (distractores) no deben ser absurdas; deben representar errores comunes de comprensión que los alumnos suelen cometer sobre este tema.
+        
         Devuelve estrictamente un JSON que sea UN ARREGLO de 10 objetos con esta estructura exacta:
         [
           { "pregunta": "Planteamiento extenso y reflexivo del caso: ¿...?", "opciones": ["a) ...", "b) ...", "c) ...", "d) ..."], "respuesta": "a) ..." }
@@ -255,8 +273,8 @@ export const EvaluationScreen = ({ projectData, plannedItems, actividades, onBac
       
       if (['Listas de cotejo', 'Guías de observación', 'Escalas estimativas'].includes(activeTab)) {
         const safeItems = [
-          "Identifica y comprende con profundidad los conceptos centrales abordados en el proyecto, logrando aplicarlos a su entorno.",
-          "Participa activamente en las discusiones plenarias, aportando ideas pertinentes y fundamentadas en la investigación.",
+          "Identifica y comprende con profundidad los conceptos centrales abordados en las actividades del proyecto, logrando aplicarlos a su entorno.",
+          "Participa activamente en las discusiones plenarias, aportando ideas pertinentes y fundamentadas en las investigaciones realizadas.",
           "Muestra respeto por las opiniones de sus compañeros durante el trabajo colaborativo, asumiendo roles de liderazgo cuando se requiere.",
           "Realiza las actividades prácticas y metodológicas siguiendo rigurosamente las instrucciones y criterios establecidos por el docente.",
           "Entrega las evidencias de aprendizaje en tiempo y forma, reflejando un esfuerzo reflexivo, orden y dedicación en sus productos."
@@ -268,21 +286,21 @@ export const EvaluationScreen = ({ projectData, plannedItems, actividades, onBac
       } 
       else if (activeTab === 'Rúbricas') {
         const newRubrica = [
-          { id: Date.now() + 1, criterio: "Análisis y Comprensión del Tema Central", nivel4: "Analiza con claridad y profundidad los conceptos clave, relacionándolos críticamente con su contexto sociocultural y proponiendo ejemplos pertinentes.", nivel3: "Identifica los conceptos principales y los describe de forma general, logrando vincularlos con la problemática del proyecto.", nivel2: "Muestra dificultades para explicar los conceptos clave y requiere apoyo constante del docente para relacionarlos con el entorno.", nivel1: "No logra identificar ni explicar los conceptos abordados en el proyecto, mostrando nula comprensión del tema central." },
-          { id: Date.now() + 2, criterio: "Desarrollo y Presentación del Producto Final", nivel4: "Elabora un producto de alta calidad, creativo e innovador que cumple rigurosamente con todos los requisitos solicitados en la fase de planeación.", nivel3: "Presenta un producto adecuado que cumple con la mayoría de los requisitos solicitados, demostrando esfuerzo en su elaboración.", nivel2: "El producto está incompleto, carece de elementos fundamentales o se presenta de manera desorganizada.", nivel1: "No presenta el producto o este carece totalmente de relación con la problemática y el tema abordado en clase." },
-          { id: Date.now() + 3, criterio: "Trabajo Colaborativo y Mediación de Conflictos", nivel4: "Asume un rol activo y empático, fomenta el diálogo constructivo y apoya a sus compañeros en la resolución pacífica de tareas y conflictos.", nivel3: "Participa de forma regular en el equipo cumpliendo con sus responsabilidades asignadas de manera respetuosa.", nivel2: "Su participación es escasa, trabaja de manera aislada en ocasiones y requiere que el docente le asigne tareas específicas constantemente.", nivel1: "Se aísla permanentemente del equipo, genera conflictos y no contribuye al desarrollo de las actividades conjuntas." },
-          { id: Date.now() + 4, criterio: "Pensamiento Crítico y Reflexión Continua", nivel4: "Cuestiona la información críticamente, formula preguntas pertinentes de alto nivel cognitivo y argumenta sólidamente sus posturas.", nivel3: "Comprende la información general y logra emitir opiniones básicas pero fundamentadas sobre el tema tratado.", nivel2: "Se le dificulta analizar la información, rara vez cuestiona lo que lee o escucha y sus opiniones carecen de sustento.", nivel1: "Acepta la información sin cuestionarla, se limita a transcribir datos y no logra emitir una opinión propia sobre el tema." },
-          { id: Date.now() + 5, criterio: "Habilidades de Comunicación Oral y Escrita", nivel4: "Expresa sus ideas con total claridad, fluidez y utilizando un vocabulario técnico-pedagógico adecuado al contexto de la presentación.", nivel3: "Comunica sus ideas de forma comprensible, con un volumen de voz adecuado, aunque ocasionalmente duda o utiliza muletillas.", nivel2: "Muestra nerviosismo evidente, tono de voz inaudible y dificultad grave para organizar sus ideas al hablar frente al grupo.", nivel1: "Se niega a participar oralmente y sus apuntes o guiones escritos son incomprensibles y carecen de coherencia lógica." }
+          { id: Date.now() + 1, criterio: "Análisis y Comprensión (Fase de Desarrollo)", nivel4: "Analiza con claridad y profundidad los conceptos clave de las actividades, relacionándolos críticamente con su contexto sociocultural y proponiendo ejemplos pertinentes.", nivel3: "Identifica los conceptos principales y los describe de forma general, logrando vincularlos con la problemática del proyecto.", nivel2: "Muestra dificultades para explicar los conceptos clave y requiere apoyo constante del docente para relacionarlos con el entorno.", nivel1: "No logra identificar ni explicar los conceptos abordados en las actividades prácticas, mostrando nula comprensión del tema central." },
+          { id: Date.now() + 2, criterio: "Desarrollo y Presentación del Producto Final", nivel4: "Elabora un producto de alta calidad, creativo e innovador que cumple rigurosamente con todos los requisitos solicitados en la fase de concreción.", nivel3: "Presenta un producto adecuado que cumple con la mayoría de los requisitos solicitados, demostrando esfuerzo en su elaboración.", nivel2: "El producto está incompleto, carece de elementos fundamentales o se presenta de manera desorganizada.", nivel1: "No presenta el producto o este carece totalmente de relación con la problemática y el tema abordado en clase." },
+          { id: Date.now() + 3, criterio: "Trabajo Colaborativo en Equipos", nivel4: "Asume un rol activo y empático, fomenta el diálogo constructivo y apoya a sus compañeros en la resolución pacífica de tareas y conflictos durante el proyecto.", nivel3: "Participa de forma regular en el equipo cumpliendo con sus responsabilidades asignadas de manera respetuosa.", nivel2: "Su participación es escasa, trabaja de manera aislada en ocasiones y requiere que el docente le asigne tareas específicas constantemente.", nivel1: "Se aísla permanentemente del equipo, genera conflictos y no contribuye al desarrollo de las dinámicas conjuntas." },
+          { id: Date.now() + 4, criterio: "Pensamiento Crítico y Reflexión Continua", nivel4: "Cuestiona la información críticamente, formula preguntas pertinentes de alto nivel cognitivo y argumenta sólidamente sus posturas al investigar.", nivel3: "Comprende la información general y logra emitir opiniones básicas pero fundamentadas sobre el tema tratado en clase.", nivel2: "Se le dificulta analizar la información, rara vez cuestiona lo que lee o escucha y sus opiniones carecen de sustento.", nivel1: "Acepta la información sin cuestionarla, se limita a transcribir datos y no logra emitir una opinión propia sobre el tema abordado." },
+          { id: Date.now() + 5, criterio: "Habilidades de Comunicación Oral", nivel4: "Expresa sus ideas en plenaria con total claridad, fluidez y utilizando un vocabulario técnico-pedagógico adecuado al contexto de la presentación.", nivel3: "Comunica sus ideas de forma comprensible, con un volumen de voz adecuado, aunque ocasionalmente duda o utiliza muletillas.", nivel2: "Muestra nerviosismo evidente, tono de voz inaudible y dificultad grave para organizar sus ideas al hablar frente al grupo.", nivel1: "Se niega a participar oralmente y sus aportaciones verbales son incomprensibles y carecen de coherencia lógica." }
         ];
         setCriteriosRubrica(newRubrica);
       } 
       else if (activeTab === 'Cuestionarios' || (activeTab === 'Exámenes escritos' && examFormat === 'abiertas')) {
-        const text = "1. Planteamiento: Durante el proyecto observamos cómo el tema impacta nuestra comunidad. Con base en este contexto, ¿cuál consideras que es la causa principal de la problemática y cómo la solucionarías?\n\n2. Análisis de caso: Imagina que un compañero de otra escuela te pregunta sobre este tema. ¿Qué argumentos utilizarías para convencerlo de su importancia en la vida diaria?\n\n3. Reflexión personal: Describe detalladamente qué estrategias de investigación utilizaste en la fase de desarrollo y cuáles te resultaron más efectivas.\n\n4. Síntesis: De todos los saberes compartidos en plenaria, redacta una conclusión de tres líneas que resuma el aprendizaje más valioso que obtuviste.\n\n5. Proyección: Si tuviéramos que replicar este producto final en el próximo ciclo escolar, ¿qué ajustes metodológicos propondrías para mejorar los resultados obtenidos?";
+        const text = "1. Planteamiento: Durante las actividades del proyecto observamos cómo el tema impacta nuestra comunidad. Con base en este contexto, ¿cuál consideras que es la causa principal de la problemática y cómo la solucionarías?\n\n2. Análisis de caso: Imagina que un compañero de otra escuela te pregunta sobre los ejercicios que realizamos. ¿Qué argumentos utilizarías para convencerlo de su importancia en la vida diaria?\n\n3. Reflexión personal: Describe detalladamente qué estrategias de investigación utilizaste en la fase de desarrollo y cuáles te resultaron más efectivas.\n\n4. Síntesis: De todos los saberes compartidos en las mesas de trabajo, redacta una conclusión de tres líneas que resuma el aprendizaje más valioso que obtuviste.\n\n5. Proyección: Si tuviéramos que replicar este producto final en el próximo ciclo escolar, ¿qué ajustes propondrías para mejorar los resultados obtenidos?";
         if (activeTab === 'Cuestionarios') setTextoCuestionario(text);
         else setTextoExamen(text);
       } 
       else if (activeTab === 'Exámenes escritos' && examFormat === 'multiple') {
-        const text = "1. Analiza el siguiente escenario comunitario: En el aula se presentó una problemática relacionada con el tema central del proyecto, donde las opiniones estaban divididas. Para lograr los propósitos de inclusión y diálogo de la Nueva Escuela Mexicana, ¿cuál es la mejor postura a tomar?\na) Trabajar de forma individual y competitiva para demostrar quién tiene la razón absoluta.\nb) Ignorar el contexto sociocultural de los compañeros y basarse únicamente en el libro de texto.\nc) Fomentar el diálogo respetuoso, escuchar activamente todas las posturas y buscar un consenso.\nd) Pedirle al docente que tome la decisión final sin involucrar a los estudiantes en el proceso reflexivo.\n(Respuesta correcta: c)\n\n2. Durante la fase de \"Acercamiento\" o \"Desarrollo\" de nuestro proyecto, el objetivo pedagógico principal se enfocó en:\na) La memorización mecánica de fechas, datos históricos y fórmulas matemáticas.\nb) La investigación documental y vivencial para proponer soluciones a problemas reales del entorno.\nc) La transcripción literal de textos literarios sin realizar un análisis crítico de fondo.\nd) La aplicación de exámenes estandarizados para clasificar a los alumnos por su rendimiento.\n(Respuesta correcta: b)";
+        const text = "1. Analiza el siguiente escenario comunitario: En una de las actividades prácticas se presentó una problemática donde las opiniones estaban divididas. Para lograr los propósitos de inclusión y diálogo de la Nueva Escuela Mexicana, ¿cuál es la mejor postura a tomar?\na) Trabajar de forma individual y competitiva para demostrar quién tiene la razón absoluta.\nb) Ignorar el contexto sociocultural de los compañeros y basarse únicamente en el libro de texto.\nc) Fomentar el diálogo respetuoso, escuchar activamente todas las posturas y buscar un consenso.\nd) Pedirle al docente que tome la decisión final sin involucrar a los estudiantes en el proceso reflexivo.\n(Respuesta correcta: c)\n\n2. Durante las fases de investigación de nuestro proyecto, el objetivo pedagógico principal de las actividades se enfocó en:\na) La memorización mecánica de fechas, datos históricos y fórmulas matemáticas aisladas.\nb) El análisis crítico y vivencial para proponer soluciones aplicables a nuestro entorno.\nc) La transcripción literal de textos sin realizar una interpretación de fondo.\nd) La aplicación de cuestionarios estandarizados para clasificar a los alumnos.\n(Respuesta correcta: b)";
         setTextoExamen(text);
       }
     } finally {
@@ -320,7 +338,6 @@ export const EvaluationScreen = ({ projectData, plannedItems, actividades, onBac
             <span className="hidden md:inline">Volver a Secuencia</span>
           </button>
           
-          {/* BOTONES DE EXPORTACIÓN Y DRIVE ACTUALIZADOS */}
           <button onClick={handleDownloadLocal} className="flex items-center gap-1.5 px-4 py-2 text-sm font-bold text-slate-700 bg-white border border-slate-300 rounded-lg shadow-sm hover:bg-slate-50 transition-all ml-2">
             <FileDown size={18} />
             <span className="hidden lg:inline">Descargar Word</span>
@@ -381,7 +398,7 @@ export const EvaluationScreen = ({ projectData, plannedItems, actividades, onBac
                     className="flex items-center gap-2 bg-[#4f46e5]/10 text-[#4f46e5] hover:bg-[#4f46e5]/20 px-4 py-2 rounded-xl text-sm font-bold shadow-sm transition-colors shrink-0 disabled:opacity-50"
                   >
                     <Sparkles size={18} className={isGenerating ? "animate-spin" : ""} /> 
-                    {isGenerating ? "Generando Instrumento..." : "Generar con IA"}
+                    {isGenerating ? "Generar con IA" : "Generar con IA"}
                   </button>
                 )}
               </div>
@@ -391,17 +408,19 @@ export const EvaluationScreen = ({ projectData, plannedItems, actividades, onBac
                   <Info size={18} />
                 </div>
                 <div>
-                  <h4 className="text-xs font-bold text-indigo-900 mb-1">Uso Responsable de Inteligencia Artificial</h4>
+                  <h4 className="text-xs font-bold text-indigo-900 mb-1">Evaluación 100% Alineada a tus Actividades</h4>
                   <p className="text-[11px] text-indigo-800/80 leading-relaxed">
-                    Esta herramienta elabora propuestas de <strong>alta profundidad pedagógica vinculadas al contexto de tu escuela</strong>. Para mantener el sistema sostenible, te pedimos hacer un uso consciente y evitar clics innecesarios. El tiempo de respuesta (aprox. 20-30 seg) dependerá de tu velocidad de conexión a internet.
+                    La Inteligencia Artificial ha leído las actividades exactas que generaste en la secuencia didáctica. Esto asegura que los criterios, rúbricas y preguntas evalúen específicamente el producto final y las acciones de tus alumnos, no solo teoría vacía.
                   </p>
                 </div>
               </div>
 
               {herramientasSeleccionadas.length === 0 && (
-                <div className="text-center py-20 text-slate-500">
-                  <PenTool size={48} className="mx-auto mb-4 opacity-20" />
-                  <p>Vuelve a la Configuración Inicial y selecciona al menos un instrumento de evaluación.</p>
+                <div className="text-center py-20 text-slate-500 bg-slate-50 rounded-2xl border-2 border-dashed border-slate-200">
+                  <Settings size={48} className="mx-auto mb-4 text-slate-300" />
+                  <h3 className="text-lg font-bold text-slate-700 mb-2">No has seleccionado instrumentos</h3>
+                  <p className="text-sm max-w-md mx-auto leading-relaxed mb-6">Para generar rúbricas, listas de cotejo o exámenes, debes seleccionarlos en la configuración inicial de tu proyecto.</p>
+                  <p className="text-xs font-bold text-indigo-500 bg-indigo-50 inline-block px-4 py-2 rounded-lg">👉 Haz clic en el botón "Editar Datos Iniciales" en la barra superior de la pantalla.</p>
                 </div>
               )}
 
@@ -511,7 +530,7 @@ export const EvaluationScreen = ({ projectData, plannedItems, actividades, onBac
               {activeTab === 'Rúbricas' && (
                 <div className="space-y-6 animate-in fade-in">
                   <div className="bg-slate-50 p-4 rounded-xl border border-slate-200 mb-6 flex justify-between items-center">
-                    <p className="text-xs text-slate-600 leading-relaxed font-medium">Usa el botón "Generar con IA" arriba para redactar los niveles de desempeño dinámicamente según tu PDA.</p>
+                    <p className="text-xs text-slate-600 leading-relaxed font-medium">Usa el botón "Generar con IA" arriba para redactar los niveles de desempeño dinámicamente según tu PDA y las actividades que diseñaste.</p>
                   </div>
                   <div className="border border-slate-200 rounded-xl overflow-x-auto shadow-sm">
                     <table className="w-full text-left border-collapse min-w-[900px] bg-white">

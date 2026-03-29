@@ -5,14 +5,62 @@ interface SetupScreenProps {
   data: any;
   onChange: (field: string, value: any) => void;
   onComplete: () => void;
+  onOpenSchedule: () => void;
 }
 
-export const SetupScreen = ({ data, onChange, onComplete }: SetupScreenProps) => {
+export const SetupScreen = ({ data, onChange, onComplete, onOpenSchedule }: SetupScreenProps) => {
   const safeData = data || {};
+  
+  // ---> AQUI ESTÁN LAS LÍNEAS QUE EVITAN EL ERROR DEL BANNER DINÁMICO <---
+  const scheduleData = JSON.parse(localStorage.getItem('nem_schedule') || '{}');
+  const hasActiveSchedule = Object.keys(scheduleData).length > 0;
+
+  // --- EL CEREBRO MATEMÁTICO: CÁLCULO AUTOMÁTICO DE SESIONES ---
+  React.useEffect(() => {
+    if (safeData.fechaInicio && safeData.fechaFin && safeData.grado && safeData.grupo && safeData.grupo.length > 0) {
+      try {
+        const savedGroups = JSON.parse(localStorage.getItem('nem_groups') || '[]');
+        const schedule = JSON.parse(localStorage.getItem('nem_schedule') || '{}');
+
+        const targetGroupName = `${safeData.grado}º ${safeData.grupo[0]}`;
+        const targetGroup = savedGroups.find((g: any) => g.name === targetGroupName);
+
+        if (targetGroup) {
+          const modulesPerDay: Record<string, number> = { 'Lunes': 0, 'Martes': 0, 'Miércoles': 0, 'Jueves': 0, 'Viernes': 0 };
+          Object.entries(schedule).forEach(([key, groupId]) => {
+            if (groupId === targetGroup.id) {
+              const day = key.split('-')[0];
+              if (modulesPerDay[day] !== undefined) modulesPerDay[day]++;
+            }
+          });
+
+          const start = new Date(safeData.fechaInicio + 'T00:00:00');
+          const end = new Date(safeData.fechaFin + 'T00:00:00');
+          let totalSessions = 0;
+          const dayNames = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'];
+
+          let current = new Date(start);
+          while (current <= end) {
+            const dayOfWeek = current.getDay();
+            if (dayOfWeek >= 1 && dayOfWeek <= 5) {
+              const dayName = dayNames[dayOfWeek];
+              totalSessions += modulesPerDay[dayName];
+            }
+            current.setDate(current.getDate() + 1);
+          }
+
+          if (String(safeData.sesiones) !== String(totalSessions) && totalSessions > 0) {
+             onChange('sesiones', String(totalSessions));
+          }
+        }
+      } catch (error) {
+        console.error("Error al calcular sesiones:", error);
+      }
+    }
+  }, [safeData.fechaInicio, safeData.fechaFin, safeData.grado, safeData.grupo]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     let value = e.target.value;
-    // Forzar mayúsculas solo si es un campo de texto corto (no el textarea del contexto)
     if (e.target.type === 'text') {
       value = value.toUpperCase();
     }
@@ -48,12 +96,10 @@ export const SetupScreen = ({ data, onChange, onComplete }: SetupScreenProps) =>
   const herramientas = ["Rúbricas", "Listas de cotejo", "Guías de observación", "Escalas estimativas", "Cuestionarios", "Exámenes escritos"];
   const tiposEvaluacion = ["Autoevaluación", "Coevaluación", "Heteroevaluación"];
 
-  // CLASES VISUALES CLARAS Y DE ALTO CONTRASTE
   const panelClass = "bg-white rounded-2xl p-6 shadow-sm border border-slate-200";
   const inputClass = "w-full pl-11 pr-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:bg-white focus:ring-2 focus:ring-[#135bec] outline-none transition-all text-slate-800 font-bold placeholder:text-slate-400 text-sm";
   const labelClass = "block text-[10px] md:text-xs font-bold text-slate-500 uppercase tracking-widest mb-2.5 ml-1";
   
-  // Botones de selección con ALTO CONTRASTE
   const btnUnselected = "bg-white text-slate-500 border border-slate-200 hover:bg-slate-50 hover:border-slate-300 transition-all";
   const btnSelected = "bg-[#135bec] text-white border-[#135bec] shadow-md shadow-blue-500/20 transform scale-[1.02] transition-all";
 
@@ -62,7 +108,6 @@ export const SetupScreen = ({ data, onChange, onComplete }: SetupScreenProps) =>
   return (
     <div className="flex flex-col h-screen bg-[#f8fafc] text-slate-900 font-sans antialiased overflow-hidden selection:bg-[#135bec]/20 selection:text-[#135bec]">
       
-      {/* HEADER ESTANDARIZADO */}
       <header className="h-14 md:h-16 border-b border-slate-200 bg-white sticky top-0 z-50 px-4 md:px-6 flex items-center justify-between shrink-0">
         <div className="flex items-center gap-2 md:gap-4">
           <div className="flex items-center gap-2 text-[#135bec]">
@@ -79,7 +124,6 @@ export const SetupScreen = ({ data, onChange, onComplete }: SetupScreenProps) =>
 
       <div className="flex flex-1 overflow-hidden">
         
-        {/* BARRA LATERAL OSCURA */}
         <aside className="hidden md:flex w-52 lg:w-60 xl:w-72 bg-[#0f172a] text-slate-300 flex-col shrink-0 z-20">
           <div className="p-4 xl:p-6 border-b border-slate-800">
             <h3 className="text-white font-bold text-base xl:text-lg">Paso 1: Datos</h3>
@@ -102,9 +146,46 @@ export const SetupScreen = ({ data, onChange, onComplete }: SetupScreenProps) =>
           </div>
         </aside>
 
-        {/* ÁREA DE TRABAJO */}
         <main className="flex-1 overflow-y-auto bg-slate-50/50 p-4 lg:p-6 xl:p-8 scrollbar-thin">
           <div className="max-w-4xl mx-auto flex flex-col gap-6 lg:gap-8 pb-10">
+            
+            {/* --- BANNER DE HORARIO DINÁMICO --- */}
+            {hasActiveSchedule ? (
+              <div className="bg-gradient-to-r from-emerald-50 to-teal-50 border-2 border-emerald-500/20 rounded-2xl p-4 sm:p-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 shadow-sm relative overflow-hidden animate-fade-in mb-2">
+                <div className="absolute right-0 top-0 w-32 h-32 bg-emerald-500/10 rounded-full blur-2xl -mr-10 -mt-10 pointer-events-none"></div>
+                <div className="flex items-start sm:items-center gap-4 relative z-10">
+                  <div className="bg-emerald-500 text-white p-3 rounded-xl shadow-md shadow-emerald-500/20 shrink-0">
+                    <CheckCircle2 size={24} />
+                  </div>
+                  <div>
+                    <h3 className="text-base font-black text-emerald-900 tracking-tight">Tu horario está guardado</h3>
+                    <p className="text-xs sm:text-sm text-emerald-700 mt-1 font-medium leading-relaxed max-w-xl">
+                      No necesitas volver a llenarlo. La Inteligencia Artificial ya conoce tus módulos semanales para calcular tus sesiones automáticamente.
+                    </p>
+                  </div>
+                </div>
+                <button type="button" onClick={onOpenSchedule} className="w-full sm:w-auto px-5 py-2.5 bg-white border border-emerald-200 text-emerald-700 text-sm font-bold rounded-xl hover:bg-emerald-50 hover:border-emerald-300 transition-all shadow-sm active:scale-95 shrink-0 relative z-10">
+                  Revisar o cambiar
+                </button>
+              </div>
+            ) : (
+              <div className="bg-gradient-to-r from-slate-50 to-slate-100 border-2 border-slate-200 rounded-2xl p-4 sm:p-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 shadow-sm relative overflow-hidden animate-fade-in mb-2">
+                <div className="flex items-start sm:items-center gap-4 relative z-10">
+                  <div className="bg-slate-200 text-slate-500 p-3 rounded-xl shrink-0">
+                    <Calendar className="text-slate-600" size={24} />
+                  </div>
+                  <div>
+                    <h3 className="text-base font-black text-slate-800 tracking-tight">Crear planeación manualmente</h3>
+                    <p className="text-xs sm:text-sm text-slate-500 mt-1 font-medium leading-relaxed max-w-xl">
+                      Ingresa el "Total de Sesiones" tú mismo, o configura tu horario para que la Inteligencia Artificial las calcule por ti.
+                    </p>
+                  </div>
+                </div>
+                <button type="button" onClick={onOpenSchedule} className="w-full sm:w-auto px-5 py-2.5 bg-[#135bec] text-white text-sm font-bold rounded-xl hover:bg-blue-700 transition-all shadow-sm shadow-blue-500/20 active:scale-95 shrink-0 relative z-10">
+                  Configurar Horario
+                </button>
+              </div>
+            )}
             
             <div className={panelClass}>
               <h2 className="text-sm md:text-base font-black text-slate-800 uppercase tracking-wider flex items-center gap-2 pb-4 border-b border-slate-100 mb-5">
@@ -149,14 +230,13 @@ export const SetupScreen = ({ data, onChange, onComplete }: SetupScreenProps) =>
                   </select>
                 </div>
 
-                {/* --- NUEVO SELECTOR DE TRIMESTRE --- */}
                 <div className="md:col-span-2">
                   <label className={labelClass}>Trimestre del Ciclo Escolar</label>
                   <select 
                     name="trimestre" 
                     value={safeData.trimestre || ''} 
                     onChange={handleChange} 
-                    className="w-full px-4 py-3 bg-blue-50/50 border border-blue-100 rounded-xl focus:bg-white focus:ring-2 focus:ring-[#135bec] outline-none text-[#135bec] text-sm font-black uppercase tracking-wider"
+                    className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:bg-white focus:ring-2 focus:ring-[#135bec] outline-none text-slate-800 text-sm font-bold"
                   >
                     <option value="">Seleccione el trimestre de trabajo...</option>
                     <option value="Primer Trimestre">Primer Trimestre</option>
@@ -201,7 +281,6 @@ export const SetupScreen = ({ data, onChange, onComplete }: SetupScreenProps) =>
               </div>
             </div>
 
-            {/* DIAGNÓSTICO Y PROGRAMA ANALÍTICO */}
             <div className={panelClass}>
               <h2 className="text-sm md:text-base font-black text-slate-800 uppercase tracking-wider flex items-center gap-2 pb-4 border-b border-slate-100 mb-5">
                 <Map className="text-[#135bec]" size={20}/> Diagnóstico y Programa Analítico
@@ -238,7 +317,7 @@ export const SetupScreen = ({ data, onChange, onComplete }: SetupScreenProps) =>
                   <label className={labelClass}>Nombre del Proyecto</label>
                   <div className="relative group">
                     <Briefcase className="absolute left-3.5 top-3.5 text-slate-400 group-focus-within:text-[#135bec] transition-colors" size={18} />
-                    <input name="proyecto" type="text" value={safeData.proyecto || ''} onChange={handleChange} placeholder="Ej. MI CUENTO ES MÁGICO" className={inputClass} />
+                    <input name="proyecto" type="text" value={safeData.proyecto || ''} onChange={handleChange} placeholder="Ej. MI CU CUENTO ES MÁGICO" className={inputClass} />
                   </div>
                 </div>
               </div>
@@ -266,8 +345,9 @@ export const SetupScreen = ({ data, onChange, onComplete }: SetupScreenProps) =>
                 </div>
               </div>
 
+              {/* REORDEN: Metodología, Periodo y luego Sesiones */}
               <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-12 gap-5 mt-5">
-                <div className="md:col-span-1 xl:col-span-5">
+                <div className="md:col-span-2 xl:col-span-5">
                   <label className={labelClass}>Metodología Didáctica</label>
                    <select name="estrategia" value={safeData.estrategia || ''} onChange={handleChange} className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:bg-white focus:ring-2 focus:ring-[#135bec] outline-none text-slate-800 text-sm font-bold">
                       <option value="">Seleccione...</option>
@@ -279,21 +359,21 @@ export const SetupScreen = ({ data, onChange, onComplete }: SetupScreenProps) =>
                     </select>
                 </div>
 
-                <div className="md:col-span-1 xl:col-span-3">
-                  <label className={labelClass}>Total Sesiones</label>
-                  <div className="relative group">
-                    <Clock className="absolute left-3.5 top-3.5 text-slate-400 group-focus-within:text-[#135bec] transition-colors" size={18} />
-                    <input type="number" min="1" max="99" name="sesiones" value={safeData.sesiones || ''} onChange={(e) => { if(e.target.value.length > 2) e.target.value = e.target.value.slice(0,2); handleChange(e); }} placeholder="Ej. 10" className={inputClass} />
-                  </div>
-                </div>
-
-                <div className="md:col-span-2 xl:col-span-4">
+                <div className="md:col-span-1 xl:col-span-4">
                   <label className={labelClass}>Periodo de Aplicación</label>
                   <div className="flex items-center gap-1 bg-slate-50 rounded-xl border border-slate-200 p-2.5 focus-within:ring-2 focus-within:ring-[#135bec] focus-within:bg-white transition-all min-h-[46px]">
                     <Calendar className="text-slate-400 shrink-0 mx-1" size={16} />
                     <input type="date" name="fechaInicio" value={safeData.fechaInicio || ''} onChange={handleChange} className="bg-transparent text-[10px] md:text-xs font-bold text-slate-700 outline-none w-full min-w-0" />
                     <span className="text-slate-400 text-[10px] mx-0.5 shrink-0">➜</span>
                     <input type="date" name="fechaFin" value={safeData.fechaFin || ''} onChange={handleChange} className="bg-transparent text-[10px] md:text-xs font-bold text-slate-700 outline-none w-full min-w-0" />
+                  </div>
+                </div>
+
+                <div className="md:col-span-1 xl:col-span-3">
+                  <label className={labelClass}>Total Sesiones</label>
+                  <div className="relative group">
+                    <Clock className="absolute left-3.5 top-3.5 text-slate-400 group-focus-within:text-[#135bec] transition-colors" size={18} />
+                    <input type="number" min="1" max="99" name="sesiones" value={safeData.sesiones || ''} onChange={(e) => { if(e.target.value.length > 2) e.target.value = e.target.value.slice(0,2); handleChange(e); }} placeholder="Ej. 10" className={inputClass} />
                   </div>
                 </div>
               </div>

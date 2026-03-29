@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo UX: Horarios Secundaria</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Evitar que el texto se seleccione accidentalmente al hacer clics rápidos o arrastrar */
+        .no-select { user-select: none; -webkit-user-select: none; }
+        /* Animación suave para la pintura */
+        .cell-transition { transition: all 0.2s ease-in-out; }
+    </style>
+</head>
+<body class="bg-slate-50 min-h-screen p-4 md:p-8 font-sans">
+
+    <div class="max-w-5xl mx-auto bg-white rounded-2xl shadow-xl overflow-hidden">
+        
+        <div class="bg-slate-900 p-6 text-white">
+            <h2 class="text-2xl font-bold mb-2">Demo de UX: Horario 5x7</h2>
+            <p class="text-slate-400 text-sm mb-6">Prueba ambas opciones en computadora y en celular.</p>
+            <div class="flex flex-col sm:flex-row gap-2" id="tab-buttons">
+                <button onclick="showTab(1)" id="btn-1" class="px-4 py-2 rounded-lg font-medium text-left bg-indigo-500 text-white transition-colors">
+                    🖱️ 1. Drag & Drop (Arrastrar)
+                </button>
+                <button onclick="showTab(2)" id="btn-2" class="px-4 py-2 rounded-lg font-medium text-left bg-slate-800 text-slate-300 hover:bg-slate-700 transition-colors">
+                    🎨 2. Modo "Pintor" (Toques/Clics)
+                </button>
+            </div>
+        </div>
+
+        <div class="p-6 md:p-8">
+            
+            <div class="mb-6 bg-slate-50 p-4 rounded-xl border border-slate-200">
+                <h3 class="text-sm font-bold text-slate-500 uppercase tracking-wider mb-3">Tus Grupos (Ciclo Actual)</h3>
+                
+                <div id="palette-1" class="flex flex-wrap gap-3">
+                    <div draggable="true" ondragstart="drag(event, '1º A', 'bg-blue-500')" class="cursor-grab active:cursor-grabbing px-4 py-2 bg-blue-500 text-white font-bold rounded-lg shadow shadow-blue-200 hover:-translate-y-1 transition-transform no-select text-sm">1º A</div>
+                    <div draggable="true" ondragstart="drag(event, '1º B', 'bg-emerald-500')" class="cursor-grab active:cursor-grabbing px-4 py-2 bg-emerald-500 text-white font-bold rounded-lg shadow shadow-emerald-200 hover:-translate-y-1 transition-transform no-select text-sm">1º B</div>
+                    <div draggable="true" ondragstart="drag(event, '1º C', 'bg-purple-500')" class="cursor-grab active:cursor-grabbing px-4 py-2 bg-purple-500 text-white font-bold rounded-lg shadow shadow-purple-200 hover:-translate-y-1 transition-transform no-select text-sm">1º C</div>
+                    <div draggable="true" ondragstart="drag(event, '1º D', 'bg-orange-500')" class="cursor-grab active:cursor-grabbing px-4 py-2 bg-orange-500 text-white font-bold rounded-lg shadow shadow-orange-200 hover:-translate-y-1 transition-transform no-select text-sm">1º D</div>
+                    <button class="px-4 py-2 bg-white border-2 border-dashed border-slate-300 text-slate-500 font-bold rounded-lg hover:border-indigo-400 hover:text-indigo-500 transition-colors text-sm">+ Nuevo</button>
+                </div>
+
+                <div id="palette-2" class="hidden flex-wrap gap-3">
+                    <button onclick="selectBrush('1º A', 'bg-blue-500', 'brush-A')" id="brush-A" class="brush-btn px-4 py-2 bg-blue-500 text-white font-bold rounded-lg shadow shadow-blue-200 hover:opacity-90 transition-all no-select text-sm ring-offset-2">1º A</button>
+                    <button onclick="selectBrush('1º B', 'bg-emerald-500', 'brush-B')" id="brush-B" class="brush-btn px-4 py-2 bg-emerald-500 text-white font-bold rounded-lg shadow shadow-emerald-200 hover:opacity-90 transition-all no-select text-sm ring-offset-2">1º B</button>
+                    <button onclick="selectBrush('1º C', 'bg-purple-500', 'brush-C')" id="brush-C" class="brush-btn px-4 py-2 bg-purple-500 text-white font-bold rounded-lg shadow shadow-purple-200 hover:opacity-90 transition-all no-select text-sm ring-offset-2">1º C</button>
+                    <button onclick="selectBrush('1º D', 'bg-orange-500', 'brush-D')" id="brush-D" class="brush-btn px-4 py-2 bg-orange-500 text-white font-bold rounded-lg shadow shadow-orange-200 hover:opacity-90 transition-all no-select text-sm ring-offset-2">1º D</button>
+                    <button onclick="selectBrush(null, null, null)" class="px-4 py-2 bg-white border border-slate-300 text-slate-600 font-bold rounded-lg hover:bg-slate-100 transition-colors text-sm flex items-center gap-1">🧽 Borrador</button>
+                </div>
+            </div>
+            
+            <div id="instruccion-1" class="mb-4 text-slate-600 font-medium">
+                <span class="bg-indigo-100 text-indigo-700 px-2 py-1 rounded text-xs mr-2">Instrucción</span>
+                Arrastra los grupos de arriba y suéltalos en los cuadros vacíos.
+            </div>
+            <div id="instruccion-2" class="hidden mb-4 text-slate-600 font-medium">
+                <span class="bg-indigo-100 text-indigo-700 px-2 py-1 rounded text-xs mr-2">Instrucción</span>
+                Toca un grupo arriba para seleccionarlo (tu pincel) y luego toca los cuadros vacíos para pintarlos.
+            </div>
+
+            <div class="overflow-x-auto rounded-xl border border-slate-200 shadow-sm">
+                <table class="w-full text-sm text-center border-collapse min-w-[700px]">
+                    <thead class="bg-slate-100 text-slate-600">
+                        <tr>
+                            <th class="p-3 border-b border-r border-slate-200 w-24">Módulo</th>
+                            <th class="p-3 border-b border-r border-slate-200 w-32">Lunes</th>
+                            <th class="p-3 border-b border-r border-slate-200 w-32">Martes</th>
+                            <th class="p-3 border-b border-r border-slate-200 w-32">Miércoles</th>
+                            <th class="p-3 border-b border-r border-slate-200 w-32">Jueves</th>
+                            <th class="p-3 border-b border-slate-200 w-32">Viernes</th>
+                        </tr>
+                    </thead>
+                    <tbody id="grid-body">
+                        </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        // --- VARIABLES GLOBALES ---
+        let currentMode = 1; // 1 = DragDrop, 2 = Painter
+        let activeBrushName = null;
+        let activeBrushColor = null;
+
+        // --- GENERAR LA REJILLA 5x7 ---
+        const tbody = document.getElementById('grid-body');
+        const dias = ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes'];
+        
+        for(let mod = 1; mod <= 7; mod++) {
+            let tr = document.createElement('tr');
+            
+            // Columna del número de módulo
+            let tdMod = document.createElement('td');
+            tdMod.className = "p-3 border-b border-r border-slate-200 font-bold text-slate-500 bg-slate-50";
+            tdMod.innerText = "M" + mod;
+            tr.appendChild(tdMod);
+
+            // Columnas de los días
+            for(let d = 0; d < 5; d++) {
+                let td = document.createElement('td');
+                td.className = "border-b border-r border-slate-200 p-1 relative h-14 cell-transition";
+                
+                // Contenedor interno que recibirá el grupo
+                let innerDiv = document.createElement('div');
+                innerDiv.className = "w-full h-full rounded flex items-center justify-center font-bold text-sm text-slate-400 bg-white border border-dashed border-slate-200 hover:bg-slate-50 cursor-pointer no-select transition-colors";
+                innerDiv.innerText = "+";
+                innerDiv.dataset.filled = "false";
+
+                // Eventos Drag & Drop (Siempre activos, pero solo funcionan si el usuario arrastra)
+                innerDiv.ondragover = (e) => { e.preventDefault(); innerDiv.classList.add('bg-slate-100', 'border-indigo-400'); };
+                innerDiv.ondragleave = (e) => { innerDiv.classList.remove('bg-slate-100', 'border-indigo-400'); };
+                innerDiv.ondrop = (e) => dropItem(e, innerDiv);
+
+                // Evento Painter (Clic)
+                innerDiv.onclick = () => paintCell(innerDiv);
+
+                td.appendChild(innerDiv);
+                tr.appendChild(td);
+            }
+            tbody.appendChild(tr);
+
+            // Agregar un receso después del Módulo 3 (Típico en secundarias)
+            if(mod === 3) {
+                let trReceso = document.createElement('tr');
+                let tdReceso = document.createElement('td');
+                tdReceso.colSpan = 6;
+                tdReceso.className = "bg-slate-200 text-slate-500 font-bold text-xs py-1 tracking-widest text-center border-b border-slate-300";
+                tdReceso.innerText = "R E C E S O";
+                trReceso.appendChild(tdReceso);
+                tbody.appendChild(trReceso);
+            }
+        }
+
+        // --- LÓGICA MODO 1: DRAG & DROP ---
+        function drag(ev, name, color) {
+            if(currentMode !== 1) return;
+            ev.dataTransfer.setData("name", name);
+            ev.dataTransfer.setData("color", color);
+        }
+
+        function dropItem(ev, cell) {
+            if(currentMode !== 1) return;
+            ev.preventDefault();
+            cell.classList.remove('bg-slate-100', 'border-indigo-400');
+            
+            let name = ev.dataTransfer.getData("name");
+            let color = ev.dataTransfer.getData("color");
+            
+            applyStyleToCell(cell, name, color);
+        }
+
+        // --- LÓGICA MODO 2: PINTOR ---
+        function selectBrush(name, color, brushId) {
+            activeBrushName = name;
+            activeBrushColor = color;
+
+            // Quitar el ring (resaltado) de todos los botones
+            document.querySelectorAll('.brush-btn').forEach(btn => btn.classList.remove('ring-4', 'ring-indigo-400', 'scale-110'));
+            
+            // Poner el resaltado al activo
+            if(brushId) {
+                document.getElementById(brushId).classList.add('ring-4', 'ring-indigo-400', 'scale-110');
+            }
+        }
+
+        function paintCell(cell) {
+            if(currentMode !== 2) return;
+            
+            if(activeBrushName === null) {
+                // Modo Borrador
+                cell.className = "w-full h-full rounded flex items-center justify-center font-bold text-sm text-slate-400 bg-white border border-dashed border-slate-200 hover:bg-slate-50 cursor-pointer no-select transition-colors";
+                cell.innerText = "+";
+                cell.dataset.filled = "false";
+            } else {
+                // Modo Pintar
+                applyStyleToCell(cell, activeBrushName, activeBrushColor);
+            }
+        }
+
+        // --- FUNCIÓN COMPARTIDA PARA PINTAR LA CELDA ---
+        function applyStyleToCell(cell, name, color) {
+            // Limpiar clases previas
+            cell.className = "w-full h-full rounded flex items-center justify-center font-bold text-sm text-white no-select transition-colors shadow-sm";
+            cell.classList.add(color); // Agregar el color del grupo (ej. bg-blue-500)
+            cell.innerText = name;
+            cell.dataset.filled = "true";
+        }
+
+        // --- CAMBIAR DE PESTAÑA ---
+        function showTab(tabId) {
+            currentMode = tabId;
+
+            // Cambiar botones de las pestañas
+            let btn1 = document.getElementById('btn-1');
+            let btn2 = document.getElementById('btn-2');
+            
+            if(tabId === 1) {
+                btn1.className = "px-4 py-2 rounded-lg font-medium text-left bg-indigo-500 text-white transition-colors";
+                btn2.className = "px-4 py-2 rounded-lg font-medium text-left bg-slate-800 text-slate-300 hover:bg-slate-700 transition-colors";
+                
+                document.getElementById('palette-1').classList.remove('hidden');
+                document.getElementById('palette-1').classList.add('flex');
+                document.getElementById('palette-2').classList.add('hidden');
+                document.getElementById('palette-2').classList.remove('flex');
+
+                document.getElementById('instruccion-1').classList.remove('hidden');
+                document.getElementById('instruccion-2').classList.add('hidden');
+            } else {
+                btn2.className = "px-4 py-2 rounded-lg font-medium text-left bg-indigo-500 text-white transition-colors";
+                btn1.className = "px-4 py-2 rounded-lg font-medium text-left bg-slate-800 text-slate-300 hover:bg-slate-700 transition-colors";
+                
+                document.getElementById('palette-2').classList.remove('hidden');
+                document.getElementById('palette-2').classList.add('flex');
+                document.getElementById('palette-1').classList.add('hidden');
+                document.getElementById('palette-1').classList.remove('flex');
+
+                document.getElementById('instruccion-2').classList.remove('hidden');
+                document.getElementById('instruccion-1').classList.add('hidden');
+
+                // Seleccionar automáticamente el primer pincel al entrar a este modo
+                selectBrush('1º A', 'bg-blue-500', 'brush-A');
+            }
+        }
+    </script>
+</body>
+</html>

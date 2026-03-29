@@ -9,6 +9,7 @@ import { PlannerCanvas } from './components/planner/PlannerCanvas';
 import { SetupScreen } from './components/planner/SetupScreen'; 
 import { SequenceScreen } from './components/planner/SequenceScreen';
 import { EvaluationScreen } from "./components/planner/EvaluationScreen";
+import ScheduleScreen from './components/planner/ScheduleScreen'; // <-- 1. IMPORTACIÓN DEL HORARIO
 
 // === CONFIGURACIÓN DE SEGURIDAD GOOGLE ===
 const GOOGLE_CLIENT_ID = "77099002011-s8ek3lmkchak77m1dpk5tockb3rh3a5t.apps.googleusercontent.com";
@@ -24,6 +25,8 @@ function App() {
 
   // 2. ESTADOS DE LA APP
   const [currentView, setCurrentView] = useState<'setup' | 'planner' | 'sequence' | 'evaluation'>('setup');
+  const [showSchedule, setShowSchedule] = useState(false); // <-- 2. ESTADO DEL HORARIO
+
   const [projectData, setProjectData] = useState({
     maestro: '', grado: '1', grupo: [] as string[], trimestre: '', estrategia: '', estrategiaEvaluacion: [] as string[], proyecto: '', fechaInicio: '', fechaFin: '', ejes: [] as string[], herramientas: [] as string[]
   });
@@ -35,9 +38,18 @@ function App() {
 
   const [selectedCampoIndex, setSelectedCampoIndex] = useState(0); 
   const [selectedDisciplinaIndex, setSelectedDisciplinaIndex] = useState(0); 
-  const [selectedGrado, setSelectedGrado] = useState(1); 
+  
+  // <-- AJUSTE 1: Inicializamos el grado con el que viene del Setup -->
+  const [selectedGrado, setSelectedGrado] = useState(Number(projectData.grado) || 1); 
 
   const [showMobileSidebar, setShowMobileSidebar] = useState(false);
+
+  // <-- AJUSTE 1.1: Sincronizamos automáticamente si el maestro cambia el grado en el Setup -->
+  useEffect(() => {
+    if (projectData.grado) {
+      setSelectedGrado(Number(projectData.grado));
+    }
+  }, [projectData.grado]);
 
   // Cargar datos guardados
   useEffect(() => {
@@ -63,6 +75,16 @@ function App() {
     sessionStorage.setItem('planeador_items', JSON.stringify(plannedItems));
     sessionStorage.setItem('planeador_recursos', JSON.stringify(recursos));
   }, [projectData, plannedItems, recursos]);
+
+  // <-- 3. EL CEREBRO DE ONBOARDING INTELIGENTE -->
+  useEffect(() => {
+    if (isAuthenticated && currentView === 'setup') {
+      const isScheduleComplete = localStorage.getItem('nem_schedule_setup_complete');
+      if (!isScheduleComplete) {
+        setShowSchedule(true);
+      }
+    }
+  }, [isAuthenticated, currentView]);
 
   const handleDataChange = (field: string, value: any) => setProjectData(prev => ({ ...prev, [field]: value }));
   
@@ -131,7 +153,7 @@ function App() {
           </div>
         </header>
 
-        {/* Hero Section - AHORA CENTRADO PERFECTAMENTE SIN SOBRANTES */}
+        {/* Hero Section */}
         <main className="flex-1 flex flex-col items-center justify-center px-4 sm:px-6 relative z-10 text-center py-4">
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-indigo-50 border border-indigo-100 text-indigo-700 text-[10px] md:text-xs font-bold tracking-wide mb-4 animate-fade-in-up">
             <Sparkles size={14} className="text-indigo-500" />
@@ -157,7 +179,7 @@ function App() {
           </button>
         </main>
 
-        {/* Cards de características - REDUCIDO EL MARGEN INFERIOR */}
+        {/* Cards de características */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-5xl mx-auto w-full px-4 pb-6 relative z-10 shrink-0">
           <div className="bg-white p-5 rounded-2xl shadow-lg shadow-slate-200/50 border border-slate-100 hover:-translate-y-1 transition-transform duration-300">
             <div className="w-10 h-10 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center mb-3">
@@ -182,7 +204,7 @@ function App() {
           </div>
         </div>
 
-        {/* Footer Premium Autoría - MÁS COMPACTO */}
+        {/* Footer Premium Autoría */}
         <footer className="py-4 flex flex-col items-center justify-center gap-0.5 text-center text-slate-500 text-xs font-medium border-t border-slate-200/50 relative z-10 bg-white/50 backdrop-blur-sm shrink-0">
           <p className="tracking-wide">© {new Date().getFullYear()} Copyright derechos reservados</p>
           <p className="font-bold text-slate-700 text-sm">Mtro. Jorge Alfonso López Cruz</p>
@@ -243,8 +265,22 @@ function App() {
   }
 
   // --- PASO 2: MOSTRAR CONTENIDO SOLO SI PASÓ LA LLAVE ---
+  
+  // <-- 4. PANTALLA DE HORARIO (INTERCEPTOR) -->
+  if (showSchedule) {
+    return <ScheduleScreen onBack={() => setShowSchedule(false)} />;
+  }
+
+  // <-- 5. PANTALLA DE SETUP CON EL PUENTE CONECTADO -->
   if (currentView === 'setup') {
-    return <SetupScreen data={projectData} onChange={handleDataChange} onComplete={() => setCurrentView('planner')} />;
+    return (
+      <SetupScreen 
+        data={projectData} 
+        onChange={handleDataChange} 
+        onComplete={() => setCurrentView('planner')} 
+        onOpenSchedule={() => setShowSchedule(true)} 
+      />
+    );
   }
 
   if (currentView === 'sequence') {
@@ -419,12 +455,7 @@ function App() {
                    items={itemsVisibleInCanvas} 
                    onRemoveItem={(id) => setPlannedItems(items => items.filter(i => i.id !== id))} 
                 />
-                {itemsVisibleInCanvas.length === 0 && (
-                  <div className="w-full border-4 border-dashed border-slate-200 rounded-[40px] flex flex-col items-center justify-center p-20 text-center bg-white/50 mt-4">
-                    <PenTool size={48} className="text-slate-300 mb-4" />
-                    <h3 className="text-xl font-bold text-slate-400">Arrastra aquí tus elementos</h3>
-                  </div>
-                )}
+                {/* <-- AJUSTE 2: Eliminado el cuadro duplicado de arrastrar --> */}
               </div>
             </div>
           </div>

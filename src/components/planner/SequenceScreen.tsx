@@ -122,8 +122,16 @@ export const SequenceScreen = ({ projectData, plannedItems, actividades, setActi
       const guiaFase = faseActualObjeto ? (faseActualObjeto.guia || "").replace('{{PDA}}', pdaDestacado) : "";
       const descFase = faseActualObjeto ? faseActualObjeto.desc : "";
 
-      // AQUÍ INYECTAMOS EL CONTEXTO DE LA ESCUELA EN EL CEREBRO DE LA IA
       const contextoEscuela = projectData.contexto ? `\n\n🏫 CONTEXTO SOCIOEDUCATIVO DE LA ESCUELA (PROGRAMA ANALÍTICO):\n"${projectData.contexto}"\n-> OBLIGATORIO: Adapta las actividades, materiales y ejemplos a este contexto socioeducativo de forma explícita y visible en la redacción.` : "";
+
+      // --- MATEMÁTICAS DEL TIEMPO BLINDADAS ---
+      const totalSesiones = Number(projectData.sesiones) || 1;
+      const totalMinutos = totalSesiones * 50; 
+      const numFases = fases.length || 1;
+      const minutosPorFase = Math.round(totalMinutos / numFases);
+      
+      // Control de volumen dinámico para evitar que la IA alucine
+      const limiteActividades = minutosPorFase <= 60 ? "MÁXIMO 1 o 2 actividades" : minutosPorFase <= 120 ? "MÁXIMO 2 o 3 actividades" : "MÁXIMO 3 o 4 actividades";
 
       const prompt = `Eres un experto pedagogo y diseñador curricular de la Nueva Escuela Mexicana (NEM). 
 
@@ -139,19 +147,26 @@ export const SequenceScreen = ({ projectData, plannedItems, actividades, setActi
       - Objetivo oficial de esta fase: ${descFase}
       - Instrucción pedagógica obligatoria para esta fase: ${guiaFase}
 
+      ⏱️ GESTIÓN DEL TIEMPO (REGLA MATEMÁTICA ESTRICTA):
+      - Tienes EXACTAMENTE ${minutosPorFase} MINUTOS en total para abarcar toda esta fase.
+      - Debes generar ${limiteActividades}. ¡NO MÁS! Si el tiempo es corto, sé directo.
+      - LA SUMA MATEMÁTICA de los minutos de tus actividades TIENE QUE DAR EXACTAMENTE ${minutosPorFase}. Haz la cuenta mental antes de escribir. Por ejemplo, si tienes 50 minutos y haces 2 actividades, una debe durar 20 y otra 30.
+
       📚 TEMA DE FONDO:
       - Campo Formativo: ${campoActual}
       - Contenido: ${contenidoDestacado}
       - PDA: ${pdaDestacado}${contextoEscuela}
-      
-      INSTRUCCIÓN OBLIGATORIA: Redacta 2 actividades prácticas, ALTAMENTE DETALLADAS y PROFUNDAS que cumplan con la fase metodológica. Queremos evitar que los maestros sientan que es "muy breve".
 
       Reglas de formato:
       1. ESTRICTAMENTE PROHIBIDO incluir saludos, introducciones o conclusiones.
       2. NO uses asteriscos dobles (**) para negritas ni formato markdown.
-      3. Inicia el título de cada actividad con una viñeta (•) en mayúsculas e incluye un tiempo estimado (Ej. • LECTURA DE LA REALIDAD Y ANÁLISIS DEL ENTORNO - 20 MINUTOS).
-      4. DESARROLLO EXTENSO: Describe paso a paso qué hará el alumno y cómo intervendrá el docente. Específica claramente la dinámica (individual, en equipos de 4, plenaria, lluvia de ideas). Proporciona detalles concretos pedagógicos.
-      5. Al final de tu respuesta, agrega un salto de línea y la palabra EXACTA "RECURSOS:" seguida de una lista de 4 o 5 materiales concretos (separados por comas).`;
+      3. TÍTULOS VISIBLES Y SEPARADOS: Para que el docente identifique rápidamente dónde empieza una actividad, usa EXACTAMENTE este formato para los títulos:
+      
+      🔸 NOMBRE DE LA ACTIVIDAD - XX MINUTOS 🔸
+      --------------------------------------------------
+      
+      4. DESARROLLO EXTENSO Y ACORDE AL TIEMPO: Deja un renglón en blanco después de la línea punteada y describe paso a paso qué hará el alumno y el docente. 
+      5. Al final de tu respuesta, agrega un salto de línea y la palabra EXACTA "RECURSOS:" seguida de una lista de 4 o 5 materiales concretos.`;
 
       const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`, {
         method: 'POST',
@@ -192,7 +207,7 @@ export const SequenceScreen = ({ projectData, plannedItems, actividades, setActi
       const tituloSuperior = faseActualObjeto ? faseActualObjeto.titulo.toUpperCase() : faseTitulo.toUpperCase();
       const descripcionBreve = faseActualObjeto ? faseActualObjeto.desc.toLowerCase() : "las actividades correspondientes";
       
-      const fallbackActivity = `• ACTIVIDAD GUIADA EN PLENARIA - 15 MINUTOS\nEl docente guiará a los alumnos para cumplir con el propósito de esta fase: ${descripcionBreve}. Se establecerá un diálogo inicial mediante preguntas detonadoras para propiciar la participación de los alumnos y organizar el trabajo a realizar en el aula, vinculando el tema central con la realidad de los estudiantes y su contexto escolar.\n\n• TRABAJO PRÁCTICO EN EQUIPOS Y SISTEMATIZACIÓN - 35 MINUTOS\nLos alumnos desarrollarán los productos, investigaciones o reflexiones correspondientes a esta etapa de la metodología trabajando en pequeños grupos de 4 o 5 personas. Registrarán sus hallazgos, acuerdos o avances en la libreta de apuntes o en los formatos correspondientes, contando en todo momento con la mediación, observación y retroalimentación formativa del docente para asegurar la correcta comprensión del PDA.`;
+      const fallbackActivity = `🔸 ACTIVIDAD GUIADA EN PLENARIA - 15 MINUTOS 🔸\n--------------------------------------------------\nEl docente guiará a los alumnos para cumplir con el propósito de esta fase: ${descripcionBreve}. Se establecerá un diálogo inicial mediante preguntas detonadoras para propiciar la participación de los alumnos y organizar el trabajo a realizar en el aula, vinculando el tema central con la realidad de los estudiantes y su contexto escolar.\n\n🔸 TRABAJO PRÁCTICO EN EQUIPOS Y SISTEMATIZACIÓN - 35 MINUTOS 🔸\n--------------------------------------------------\nLos alumnos desarrollarán los productos, investigaciones o reflexiones correspondientes a esta etapa de la metodología trabajando en pequeños grupos de 4 o 5 personas. Registrarán sus hallazgos, acuerdos o avances en la libreta de apuntes o en los formatos correspondientes, contando en todo momento con la mediación, observación y retroalimentación formativa del docente para asegurar la correcta comprensión del PDA.`;
       
       const fallbackRecursos = "Libro de Texto Gratuito (LTG), libreta de apuntes, pintarrón, marcadores, copias impresas o proyector, material de papelería general.";
 
@@ -221,7 +236,7 @@ export const SequenceScreen = ({ projectData, plannedItems, actividades, setActi
   const handlePasteToFase = (faseId: string) => {
     if (proyectoCopiado) {
       const faseActual = fases.find(f => f.id === faseId)?.titulo || "la fase";
-      const textoEnriquecido = `• VINCULACIÓN CON LTG:\n${proyectoCopiado}\n\n• ACTIVIDAD DE APOYO SUGERIDA (${faseActual.toUpperCase()}):\n1. Lectura comunitaria: Todos realizan la lectura guiada.\n2. Diálogo reflexivo: Plenaria para compartir puntos de vista.\n3. Sistematización: Elaboración de organizador gráfico.`;
+      const textoEnriquecido = `🔸 VINCULACIÓN CON LTG 🔸\n--------------------------------------------------\n${proyectoCopiado}\n\n1. Lectura comunitaria: Todos realizan la lectura guiada.\n2. Diálogo reflexivo: Plenaria para compartir puntos de vista.\n3. Sistematización: Elaboración de organizador gráfico.`;
       setActividades(prev => ({
         ...prev,
         [faseId]: prev[faseId] ? prev[faseId] + '\n\n' + textoEnriquecido : textoEnriquecido
