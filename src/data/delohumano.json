@@ -1,0 +1,702 @@
+{
+  "slug": "de-lo-humano-y-lo-comunitario",
+  "nombre": "De lo Humano y lo Comunitario",
+  "disciplinas": [
+    {
+      "slug": "general",
+      "nombre": "General",
+      "contenidos": [
+        {
+          "id": "pri-hum-1",
+          "tema": "La comunidad como el espacio en el que se vive y se encuentra la escuela.",
+          "pdas": [
+            {
+              "grado": 1,
+              "texto": "Ubica algunos referentes del lugar donde vive y se encuentra la escuela. Platica sobre las características geográficas, climáticas, ambientales, socioculturales y lingüísticas de su comunidad y escuela."
+            },
+            {
+              "grado": 2,
+              "texto": "Identifica las ventajas que conlleva: la seguridad, el intercambio, el sentido de pertenencia, la afectividad, el ser parte de una comunidad, barrio, unidad habitacional u otros espacios y grupos sociales. Reconoce diferentes problemáticas sociales y ambientales de su comunidad, y reflexiona sobre algunas acciones para solucionarlas."
+            },
+            {
+              "grado": 3,
+              "texto": "Indaga acerca de ideas, conocimientos, prácticas culturales, formas de organización y acuerdos familiares, escolares y comunitarios, para compartir su importancia en la socialización."
+            },
+            {
+              "grado": 4,
+              "texto": "Reconoce ideas, conocimientos, prácticas culturales y formas de organización, para explicar el significado que tienen en su familia, escuela y comunidad."
+            }
+          ]
+        },
+        {
+          "id": "pri-hum-2",
+          "tema": "Actitudes y prácticas que prevalecen entre los hombres y las mujeres en las familias, la escuela y la comunidad.",
+          "pdas": [
+            {
+              "grado": 1,
+              "texto": "Platica acerca de la organización de las responsabilidades y tareas en su familia. Identifica la importancia de la participación equilibrada entre hombres y mujeres, adultos, niñas y niños en la cotidianeidad familiar."
+            },
+            {
+              "grado": 2,
+              "texto": "Analiza las situaciones acerca de la participación de hombres y mujeres, en las actividades familiares, incluyendo el sostenimiento económico. Reconoce la aportación de mujeres y hombres, en las actividades de la escuela y la comunidad."
+            }
+          ]
+        },
+        {
+          "id": "pri-hum-3",
+          "tema": "Efectos de la pandemia de COVID-19 en las familias, la escuela y la comunidad.",
+          "pdas": [
+            {
+              "grado": 1,
+              "texto": "Comenta y reflexiona con sus compañeras y compañeros, acerca de los cambios que se produjeron durante la pandemia, en las actividades familiares, escolares y comunitarias, como: el uso de los espacios, el tiempo, las formas de comunicación, entre otros."
+            },
+            {
+              "grado": 2,
+              "texto": "Expresa, mediante diferentes recursos, sus experiencias sobre los cambios en la vida y las actividades durante la pandemia en las familias, la escuela y la comunidad. Reflexiona en torno a sus experiencias en cuanto al aprendizaje en línea, cambios en las relaciones con sus pares y nuevas formas de comunicación a través de las tecnologías digitales."
+            }
+          ]
+        },
+        {
+          "id": "pri-hum-4",
+          "tema": "Historia personal y familiar.",
+          "pdas": [
+            {
+              "grado": 1,
+              "texto": "Platica sobre sucesos de su historia personal y familiar y los ordena en antes, después y ahora."
+            },
+            {
+              "grado": 2,
+              "texto": "Escribe acerca de sucesos de su historia personal y familiar y los apoya con dibujos, fotografías o imágenes, ordenados cronológicamente."
+            }
+          ]
+        },
+        {
+          "id": "pri-hum-5",
+          "tema": "Sentido de pertenencia a la familia y la comunidad.",
+          "pdas": [
+            {
+              "grado": 1,
+              "texto": "Identifica aspectos de la historia familiar y de la comunidad compartidos. Reconoce y comparte valores, como: la solidaridad, la participación, la reciprocidad, el respeto, entre otros, así como estilos socioculturales propios de su familia y comunidad."
+            },
+            {
+              "grado": 2,
+              "texto": "Entrevista a familiares o integrantes de su comunidad acerca de los aspectos que se comparten entre todas y todos. Redacta breves textos acerca de lo que les es común a los miembros de la familia y la comunidad. Responde sobre ¿quiénes somos?, ¿de dónde somos? y ¿qué tenemos en común?"
+            }
+          ]
+        },
+        {
+          "id": "pri-hum-6",
+          "tema": "Formas de ser, pensar, actuar y relacionarse.",
+          "pdas": [
+            {
+              "grado": 1,
+              "texto": "Reconoce y descubre sus características y cambios (corporales, gustos, intereses, habilidades, necesidades y capacidades) que le hacen una persona única, con la finalidad de valorar y respetar la diversidad."
+            },
+            {
+              "grado": 2,
+              "texto": "Explora sus posibilidades y las de otras personas para mostrar empatía acerca de las situaciones y condiciones que inciden en el desarrollo personal y colectivo."
+            },
+            {
+              "grado": 3,
+              "texto": "Reconoce características que le hacen a una persona diferente y a la vez única, para favorecer la construcción de su identidad."
+            },
+            {
+              "grado": 4,
+              "texto": "Comparte los cambios que afronta en sus capacidades y las formas de ser, pensar, actuar y relacionarse para valorar la manera en que las demás personas inciden en la construcción de su identidad."
+            },
+            {
+              "grado": 5,
+              "texto": "Reflexiona acerca de las formas de ser, pensar, actuar y relacionarse que tienen las personas y los factores que las originan para propiciar el entendimiento mutuo."
+            },
+            {
+              "grado": 6,
+              "texto": "Valora sus experiencias acerca de las formas de ser, pensar, actuar y relacionarse en determinadas situaciones, para favorecer su comprensión, el ejercicio de la empatía y el logro de metas."
+            }
+          ]
+        },
+        {
+          "id": "pri-hum-7",
+          "tema": "Construcción del proyecto de vida.",
+          "pdas": [
+            {
+              "grado": 1,
+              "texto": "Explica situaciones cotidianas que se presentan en la escuela y la casa, con la intención de proponer acuerdos que generen una mejor convivencia. Identifica las necesidades y logros que ha tenido en diferentes momentos de su historia, para comparar cambios que inciden en el desarrollo de la autonomía y una mayor participación."
+            },
+            {
+              "grado": 2,
+              "texto": "Explora necesidades e intereses al expresar lo que significan individual y colectivamente para definir metas a lograr, que contribuyan a su atención. Reconoce logros al participar en diferentes situaciones familiares y escolares para replantear su actuación en favor de una mayor confianza, seguridad y bienestar."
+            },
+            {
+              "grado": 3,
+              "texto": "Reflexiona acerca de logros cotidianos, académicos y emocionales, así como los aspectos que inciden en estos y los retos que tiene, para valorar su nivel de independencia y replantear sus metas."
+            },
+            {
+              "grado": 4,
+              "texto": "Explora las influencias de su familia, comunidad y cultura en la historia personal, para visualizar oportunidades y dificultades a superar en el planteamiento y logro de metas. Reconoce cambios en sus necesidades, intereses y logros, para ajustar metas y diseñar estrategias que permitan cumplirlas. Reflexiona acerca de los factores culturales, sociales u otros presentes en la conformación de las ideas, preferencias, necesidades y circunstancias, para determinar aspectos que posibilitan o limitan el desarrollo personal y colectivo."
+            },
+            {
+              "grado": 5,
+              "texto": "Replantea las formas de satisfacer las necesidades e intereses, para promover la autodeterminación orientada al cumplimiento de metas. Analiza los intereses individuales y aquellos que comparte, para identificar situaciones en las que se requiere pedir apoyo y en las que se pueden acordar propuestas conjuntas."
+            },
+            {
+              "grado": 6,
+              "texto": "Valora sus logros y retos afrontados en la historia personal para definir aspiraciones y acciones a realizar ante nuevas etapas de la vida. Valora logros y cambios en gustos, necesidades, intereses y habilidades actuales, para reestructurar metas que favorezcan el desarrollo personal y social."
+            }
+          ]
+        },
+        {
+          "id": "pri-hum-8",
+          "tema": "Educación Integral en Sexualidad.",
+          "pdas": [
+            {
+              "grado": 1,
+              "texto": "Reflexiona acerca de las diversas formas de ser y actuar de hombres y mujeres a partir de distintas situaciones cotidianas, para reconocer manifestaciones en favor de una interacción respetuosa y convivencia sana."
+            },
+            {
+              "grado": 2,
+              "texto": "Diferencia manifestaciones y prácticas presentes en distintos ámbitos (escolar, laboral, social, cultural u otros), para reconocer aquellas que inciden en la construcción de la identidad de género."
+            },
+            {
+              "grado": 3,
+              "texto": "Explora formas de vivir y sentir el cuerpo, así como de los afectos, para identificar la diversidad de expresiones que agradan, incomodan y/o ponen en riesgo la integridad de las personas."
+            },
+            {
+              "grado": 4,
+              "texto": "Valora y aprecia las formas de expresar el carácter y los afectos para tomar decisiones orientadas a salvaguardar su integridad."
+            },
+            {
+              "grado": 5,
+              "texto": "Intercambia experiencias acerca de sensaciones de placer o displacer que se presentan en la interacción, para argumentar las causas, prever situaciones de riesgo y realizar prácticas seguras."
+            },
+            {
+              "grado": 6,
+              "texto": "Reflexiona acerca de la importancia de expresar su consentimiento o rechazo ante situaciones que le generan placeres y displaceres para valorar las implicaciones en su bienestar."
+            }
+          ]
+        },
+        {
+          "id": "pri-hum-9",
+          "tema": "Capacidades y habilidades motrices.",
+          "pdas": [
+            {
+              "grado": 1,
+              "texto": "Utiliza patrones básicos de movimiento ante situaciones que implican explorar los diferentes espacios, el tiempo y los objetos, para favorecer el conocimiento de sí."
+            },
+            {
+              "grado": 2,
+              "texto": "Combina diversos patrones básicos de movimiento para actuar con base en las características de cada juego o situación."
+            },
+            {
+              "grado": 3,
+              "texto": "Adapta sus movimientos, de acuerdo con los elementos básicos de los juegos, para responder a las condiciones que se presentan."
+            },
+            {
+              "grado": 4,
+              "texto": "Pone en práctica sus habilidades motrices en situaciones lúdicas, individuales y colectivas, para valorar la diversidad de posibilidades que contribuyen a mejorar su actuación."
+            }
+          ]
+        },
+        {
+          "id": "pri-hum-10",
+          "tema": "Posibilidades cognitivas, expresivas, motrices, creativas y de relación.",
+          "pdas": [
+            {
+              "grado": 1,
+              "texto": "Explora acciones motrices y expresivas en juegos y situaciones cotidianas que implican equilibrio, orientación espacial-temporal y coordinación motriz, para mejorar el conocimiento de sí."
+            },
+            {
+              "grado": 2,
+              "texto": "Experimenta acciones que implican comunicación y expresión por medio del cuerpo, para asignar un carácter personal a sus movimientos y mejorar la interacción."
+            },
+            {
+              "grado": 3,
+              "texto": "Elabora propuestas de códigos de comunicación por medio del cuerpo, para otorgarle una intención a sus movimientos al jugar e interactuar con las demás personas."
+            },
+            {
+              "grado": 4,
+              "texto": "Reconoce sus capacidades y habilidades motrices, al representar con el cuerpo situaciones e historias, a fin de favorecer la construcción de la imagen corporal."
+            }
+          ]
+        },
+        {
+          "id": "pri-hum-11",
+          "tema": "Estilos de vida activos y saludables.",
+          "pdas": [
+            {
+              "grado": 1,
+              "texto": "Participa en diferentes juegos para explorar alternativas que le permitan mantener una vida activa y saludable."
+            },
+            {
+              "grado": 2,
+              "texto": "Reconoce propuestas lúdicas o expresivas que fomentan su disfrute y práctica cotidiana para favorecer una vida activa y saludable."
+            },
+            {
+              "grado": 3,
+              "texto": "Socializa actividades físicas que practica de manera cotidiana, con la intención de valorar su incidencia en el bienestar y cuidado de la salud."
+            },
+            {
+              "grado": 4,
+              "texto": "Organiza juegos y otras actividades físicas, para analizar avances y logros personales o grupales, en favor de asumir una vida saludable."
+            },
+            {
+              "grado": 5,
+              "texto": "Plantea alternativas de actividades físicas que puede practicar dentro y fuera de la escuela, con la intención de desarrollar un estilo de vida activo."
+            },
+            {
+              "grado": 6,
+              "texto": "Evalúa los factores que limitan la práctica constante de actividades físicas, para implementar opciones que permitan superarlos a lo largo de la vida."
+            }
+          ]
+        },
+        {
+          "id": "pri-hum-12",
+          "tema": "Pensamiento lúdico, divergente y creativo.",
+          "pdas": [
+            {
+              "grado": 1,
+              "texto": "Busca distintas soluciones ante una misma situación de juego o cotidiana, con la intención de poner en práctica la creatividad."
+            },
+            {
+              "grado": 2,
+              "texto": "Propone soluciones ante retos y conflictos que se presentan en juegos y actividades, para promover la participación, el respeto y la colaboración."
+            }
+          ]
+        },
+        {
+          "id": "pri-hum-13",
+          "tema": "Interacción motriz.",
+          "pdas": [
+            {
+              "grado": 1,
+              "texto": "Colabora en la definición de normas básicas de convivencia para reconocer su influencia en la interacción presente en juegos y situaciones cotidianas."
+            },
+            {
+              "grado": 2,
+              "texto": "Reflexiona acerca de las normas básicas de convivencia en el juego y las actividades cotidianas, con el propósito de asumir actitudes que fortalezcan la interacción."
+            },
+            {
+              "grado": 3,
+              "texto": "Establece acuerdos ante situaciones de juego y cotidianas, a partir de la interacción, para valorar su aplicación y los resultados alcanzados."
+            },
+            {
+              "grado": 4,
+              "texto": "Experimenta situaciones caracterizadas por la cooperación y oposición, con el fin de reconocer sus implicaciones en la interacción y el logro de metas."
+            },
+            {
+              "grado": 5,
+              "texto": "Promueve ambientes de participación en situaciones de juego, iniciación deportiva y cotidianas, para valorar posibles interacciones en favor de una sana convivencia."
+            },
+            {
+              "grado": 6,
+              "texto": "Organiza e implementa situaciones de juego e iniciación deportiva, para favorecer la convivencia en la escuela y la comunidad."
+            }
+          ]
+        },
+        {
+          "id": "pri-hum-14",
+          "tema": "Acciones individuales que repercuten en la conservación y mejora de la salud.",
+          "pdas": [
+            {
+              "grado": 1,
+              "texto": "Reconoce la importancia de la práctica de hábitos de higiene y limpieza en el cuidado personal, así como de otros seres vivos, con la intención de contribuir a la prevención de problemas de salud. Explica la importancia de incluir alimentos saludables de los distintos grupos para colaborar en la modificación de hábitos de consumo personales y familiares que favorecen la salud. Intercambia experiencias acerca de situaciones de riesgo, para compartir acciones encaminadas a su prevención."
+            },
+            {
+              "grado": 2,
+              "texto": "Reflexiona acerca de situaciones y comportamientos que ponen en riesgo la salud, para promover acciones orientadas a los cuidados personales. Compara alimentos naturales y frescos, procesados y ultraprocesados que se consumen en su familia y la escuela, para valorar aquellos que contribuyen a mantener la salud. Socializa alternativas de solución ante riesgo de accidentes, dependencias y formas de violencia, para valorar aquellas que puede llevar a cabo en su familia y la escuela."
+            },
+            {
+              "grado": 5,
+              "texto": "Construye alternativas saludables y sostenibles asociadas con hábitos de higiene personal y limpieza de los espacios, para promover la toma de conciencia sobre su impacto en el bienestar personal y social. Analiza los hábitos alimentarios presentes en la familia y comunidad, para valorar su impacto en favor de un consumo responsable. Practica diversas estrategias que permiten reaccionar a cambios o afrontar situaciones de riesgo relacionadas con accidentes, adicciones y formas de violencia, para favorecer el bienestar personal y colectivo."
+            },
+            {
+              "grado": 6,
+              "texto": "Promueve alternativas de hábitos de higiene personal y limpieza de los espacios en la comunidad, para impulsar la toma de decisiones informadas que contribuyan a asumir prácticas saludables y sostenibles. Comprende los riesgos del consumo de alimentos procesados y ultraprocesados en la salud y el medio ambiente, para favorecer la adopción de prácticas alimentarias saludables y sostenibles. Diseña alternativas que contribuyen a afrontar cambios o situaciones de riesgo relacionadas con accidentes, adicciones y formas de violencia, para valorar su pertinencia y determinar su viabilidad."
+            }
+          ]
+        },
+        {
+          "id": "pri-hum-15",
+          "tema": "Sentido de comunidad y satisfacción de necesidades humanas.",
+          "pdas": [
+            {
+              "grado": 1,
+              "texto": "Indaga acerca de ideas, conocimientos, prácticas culturales, formas de organización y acuerdos familiares, para compartir su importancia. Compara necesidades de las familias en diferentes contextos y las formas de utilizar el cuerpo u organizarse en su satisfacción, para explicar cambios y mejoras que se han presentado."
+            },
+            {
+              "grado": 2,
+              "texto": "Reconoce ideas, conocimientos, prácticas culturales y formas de organización, para explicar el significado que tienen en su familia y comunidad. Identifica las necesidades de su comunidad y las formas de satisfacerlas a partir del uso del cuerpo o los objetos y la organización de las personas para explorar otras alternativas de atenderlas."
+            },
+            {
+              "grado": 5,
+              "texto": "Argumenta acerca de la pertinencia de ideas, conocimientos y practices culturales de la comunidad, para valorar sus beneficios y áreas de oportunidad en favor del bienestar individual y colectivo. Experimenta formas de organización y representación gráfica, así como medios, recursos y procesos empleados en la satisfacción de necesidades, con el fin de proponer mejoras orientadas a fomentar el desarrollo sostenible."
+            },
+            {
+              "grado": 6,
+              "texto": "Diseña alternativas orientadas a promover, preservar y, en caso necesario, replantear ideas, conocimientos y prácticas culturales, para impulsar una mayor difusión y participación. Diseña de manera consensuada, estrategias de organización ante diferentes situaciones que impliquen cambios que pueden generar resistencia, para la prevención de problemas y satisfacción de necesidades, así como el aprovechamiento responsable y sostenible de recursos."
+            }
+          ]
+        },
+        {
+          "id": "pri-hum-16",
+          "tema": "Situaciones de riesgo social en las familias, escuela y comunidad.",
+          "pdas": [
+            {
+              "grado": 1,
+              "texto": "Reconoce situaciones de riesgos sociales en las familias, la escuela y la comunidad, así como la importancia del autocuidado, la no violencia y la convivencia pacífica."
+            },
+            {
+              "grado": 2,
+              "texto": "Propone prácticas de autocuidado, de no violencia y convivencia pacífica. Identifica personas e instituciones que pueden ayudar en situaciones de riesgo."
+            }
+          ]
+        },
+        {
+          "id": "pri-hum-17",
+          "tema": "Prácticas de prevención y respuesta ante desastres ambientales.",
+          "pdas": [
+            {
+              "grado": 1,
+              "texto": "Participa en las prácticas familiares de prevención y respuesta ante fenómenos naturales que ponen en riesgo su integridad."
+            },
+            {
+              "grado": 2,
+              "texto": "Elabora y redacta acuerdos y normas, para actuar adecuadamente ante situaciones de desastres ambientales en su contexto."
+            }
+          ]
+        },
+        {
+          "id": "pri-hum-18",
+          "tema": "Apoyos mutuos para favorecer los aprendizajes en el aula diversa.",
+          "pdas": [
+            {
+              "grado": 1,
+              "texto": "Identifica y valora la presencia de diferentes lenguas y lenguajes en el aula y ofrece apoyos a sus pares, si es necesario."
+            },
+            {
+              "grado": 2,
+              "texto": "Formula opciones de apoyo a sus pares, ante condiciones personales diferentes: lenguas, lenguajes, movilidad, entre otras."
+            }
+          ]
+        },
+        {
+          "id": "pri-hum-19",
+          "tema": "Aproximación a las tecnologías de la información y la comunicación.",
+          "pdas": [
+            {
+              "grado": 1,
+              "texto": "Reconoce las tecnologías que se utilizan en su entorno y los beneficios que proporcionan en la comunicación y el aprendizaje."
+            },
+            {
+              "grado": 2,
+              "texto": "Utiliza las tecnologías de la información y la comunicación para investigar temas de su interés. Comparte y organiza la información investigada con sus compañeras y compañeros."
+            }
+          ]
+        },
+        {
+          "id": "pri-hum-20",
+          "tema": "Los afectos y su influencia en el bienestar.",
+          "pdas": [
+            {
+              "grado": 1,
+              "texto": "Conoce las emociones básicas, su función y reacciones fisiológicas, para interactuar con sus pares. Reconoce emociones básicas en él o ella y en las demás personas, con el fin de identificar situaciones donde se necesite pedir u ofrecer ayuda."
+            },
+            {
+              "grado": 2,
+              "texto": "Considera las reacciones emocionales para la toma de decisiones de forma asertiva ante situaciones de la vida diaria, con el fin de lograr bienestar individual y colectivo. Reflexiona sobre experiencias personales en las que las emociones le ayudaron en la resolución de situaciones cotidianas."
+            },
+            {
+              "grado": 3,
+              "texto": "Reconoce los factores presentes en el contexto que influyen en la expresión de las emociones para favorecer reacciones asertivas. Analiza situaciones previas y resultados obtenidos para adecuar su reacción emocional a favor del bienestar personal y social."
+            },
+            {
+              "grado": 4,
+              "texto": "Utiliza conocimientos previos sobre las diferentes expresiones emocionales para aprovechar su función en situaciones cotidianas. Considera las reacciones emocionales ante situaciones comunes e identifica las más adecuadas para lograr sus metas y el bien común."
+            },
+            {
+              "grado": 5,
+              "texto": "Distingue los factores que influyen en el estado de ánimo y la vida cotidiana, para mejorar la convivencia y el autocuidado. Explora las reacciones emocionales ante diversas situaciones y contextos para mejorar la convivencia."
+            },
+            {
+              "grado": 6,
+              "texto": "Reflexiona sobre hábitos que afectan positiva o negativamente en el estado de ánimo para lograr el bienestar personal y social. Crea estrategias que ayudan a la expresión adecuada de las emociones, y que favorecen la interacción y el bienestar personal y social."
+            }
+          ]
+        },
+        {
+          "id": "pri-hum-21",
+          "tema": "Las familias como espacio de protección, cuidado, afecto y sustento para el desarrollo personal.",
+          "pdas": [
+            {
+              "grado": 3,
+              "texto": "Identifica formas de convivencia y socialización en las familias, para distinguir formas de participación y colaboración. Identifica los valores que posee y que han sido heredados de su familia, para fomentar cuidados afectivos."
+            },
+            {
+              "grado": 4,
+              "texto": "Reflexiona sobre el valor de la familia y de la aportación de sus integrantes, para favorecer su desarrollo personal y afectivo. Describe los valores que distinguen a su familia, para entenderlos como elementos de desarrollo social y personal."
+            }
+          ]
+        },
+        {
+          "id": "pri-hum-22",
+          "tema": "Entendimiento mutuo en la escuela.",
+          "pdas": [
+            {
+              "grado": 3,
+              "texto": "Participa en distintas situaciones para acordar reglas en su familia, escuela y comunidad. Reflexiona sobre el seguimiento de reglas para expresar las semejanzas y diferencias. Expresa la importancia del entendimiento, para la convivencia pacífica."
+            },
+            {
+              "grado": 4,
+              "texto": "Comparte ideas y experiencias sobre diferentes temas, para aprender la importancia de escuchar. Conoce distintos puntos de vista, para favorecer el entendimiento y la negociación con las demás personas."
+            }
+          ]
+        },
+        {
+          "id": "pri-hum-23",
+          "tema": "La escuela como espacio de convivencia, colaboración y aprendizaje.",
+          "pdas": [
+            {
+              "grado": 3,
+              "texto": "Participa en la organización del aula y en la generación de normas, para el uso y disfrute de los materiales de apoyo y otros recursos existentes en la escuela, como el patio, el jardín y las canchas deportivas, entre otros. Platica con docentes y compañeras o compañeros sobre la importancia de reconocer situaciones interpersonales, sociales y ambientales problemáticas en su contexto, y sobre la posibilidad de contribuir para el logro de un mayor bienestar personal y colectivo."
+            },
+            {
+              "grado": 4,
+              "texto": "Participa en la toma de decisiones sobre el funcionamiento de la escuela, y la relación escuela-comunidad, para favorecer la colaboración. Propone alternativas que favorezcan la colaboración entre las personas que integran la escuela y su comunidad para enriquecer sus experiencias, saberes y conocimientos."
+            }
+          ]
+        },
+        {
+          "id": "pri-hum-24",
+          "tema": "Equidad de género en las familias, la escuela y la comunidad.",
+          "pdas": [
+            {
+              "grado": 3,
+              "texto": "Analiza prácticas equitativas que favorecen la convivencia en diversos contextos, como la distribución de las tareas y responsabilidades cotidianas para identificar y proponer mejores formas de relación entre hombres y mujeres."
+            },
+            {
+              "grado": 4,
+              "texto": "Reflexiona acerca de los estilos de relación y distribución de responsabilidades, para tomar decisiones respecto de aquellos que inciden positivamente en el bienestar de todas y todos."
+            }
+          ]
+        },
+        {
+          "id": "pri-hum-25",
+          "tema": "Efectos en la vida de las personas, derivados de cambios sociales, culturales y en la salud.",
+          "pdas": [
+            {
+              "grado": 3,
+              "texto": "Reflexiona sobre hechos y sucesos que han afectado a su familia, para proponer posibles alternativas que permitan afrontarlos."
+            },
+            {
+              "grado": 4,
+              "texto": "Dialoga acerca de situaciones que conoce o ha vivido en su familia o comunidad, para comprender causas y efectos en la vida de las personas."
+            }
+          ]
+        },
+        {
+          "id": "pri-hum-26",
+          "tema": "Reconocimiento de las necesidades y características propias y de las demás personas.",
+          "pdas": [
+            {
+              "grado": 3,
+              "texto": "Valora las características cognitivas, motrices, afectivas y sociales, así como las necesidades de sus compañeras y compañeros para expresar lo que les une como grupo. Expresa con que personas se identifica, para reconocer la identidad del grupo. Expresa lo que puede hacer para tener la oportunidad de reconocer a otras personas."
+            },
+            {
+              "grado": 4,
+              "texto": "Aprecia lo que las personas le aportan en la atención de sus necesidades e intereses para reconocer la importancia del enriquecimiento mutuo. Invita a otras personas a participar en una representación dramatizada, sobre la importancia del reconocimiento de todas y todos."
+            }
+          ]
+        },
+        {
+          "id": "pri-hum-27",
+          "tema": "Sentido de pertenencia, identidad personal y social.",
+          "pdas": [
+            {
+              "grado": 3,
+              "texto": "Identifica eventos importantes de la historia de la comunidad: fundación, logros, personas o lugares destacados, entre otros, que son motivos de orgullo compartido, para fortalecer la identidad individual y colectiva. Observa y describe prácticas socioculturales de su entorno; actividades productivas, comerciales, profesionales, de servicios, entre otras, para identificar concepciones, valores y proyectos compartidos por las personas que integran las familias y la comunidad."
+            },
+            {
+              "grado": 4,
+              "texto": "Reconstruye la historia de su familia, escuela y comunidad, a partir de narraciones y/o documentos en los que respondan a cuestionamientos como ¿quiénes somos?, y ¿de dónde vinieron nuestros antepasados?, para descubrir los diversos aportes socioculturales y lingüísticos que pueden ser parte de su identidad. Consulta, por diversos medios físicos y electrónicos, información para entender la articulación de su comunidad local con la región, alcaldía, estado, según se trate de contextos rurales o urbanos."
+            }
+          ]
+        },
+        {
+          "id": "pri-hum-28",
+          "tema": "Pensamiento lúdico, estratégico y creativo.",
+          "pdas": [
+            {
+              "grado": 3,
+              "texto": "Toma decisiones estratégicas a partir de las características de las situaciones de juego y cotidianas, con el fin de solucionarlas asertivamente."
+            },
+            {
+              "grado": 4,
+              "texto": "Diseña estrategias para atender situaciones o resolver problemas y conflictos que se presentan en el juego y en actividades cotidianas."
+            },
+            {
+              "grado": 5,
+              "texto": "Planifica e implementa estrategias ante situaciones de juego y cotidianas, para contar con opciones que incrementen la efectividad de su actuación."
+            },
+            {
+              "grado": 6,
+              "texto": "Emplea el pensamiento estratégico y divergente ante situaciones de juego o cotidianas, para valorar la actuación, individual y colectiva, y adaptarla de acuerdo con el contexto."
+            }
+          ]
+        },
+        {
+          "id": "pri-hum-29",
+          "tema": "Hábitos saludables, para promover el bienestar en los seres vivos.",
+          "pdas": [
+            {
+              "grado": 3,
+              "texto": "Distingue alimentos saludables y no saludables para preparar alimentos y promover la alimentación saludable. Reconoce la importancia de la hidratación en el desarrollo del cuerpo de los seres vivos, para promover hábitos y actitudes saludables y de bienestar en la escuela y la comunidad."
+            },
+            {
+              "grado": 4,
+              "texto": "Analiza las características de una alimentación saludable, para diseñar estrategias que mejoren sus hábitos alimentarios en el contexto escolar. Realiza prácticas de hidratación saludable para promover prácticas de alimentación, vinculadas con la salud en su escuela y comunidad."
+            }
+          ]
+        },
+        {
+          "id": "pri-hum-30",
+          "tema": "Higiene para una vida saludable.",
+          "pdas": [
+            {
+              "grado": 3,
+              "texto": "Reflexiona acerca de distintos hábitos y costumbres de higiene que se realizan en la vida cotidiana en su comunidad, para mejorar prácticas de higiene con sus compañeras y compañeros de clase."
+            },
+            {
+              "grado": 4,
+              "texto": "Comparte experiencias para mejorar la higiene en su escuela y su comunidad, y organiza campañas de higiene en la escuela y la comunidad."
+            }
+          ]
+        },
+        {
+          "id": "pri-hum-31",
+          "tema": "Situaciones de riesgo social en la comunidad y región donde vive.",
+          "pdas": [
+            {
+              "grado": 3,
+              "texto": "Distingue situaciones de riesgo social en la región, y propone algunas medidas para el autocuidado. Analiza situaciones de riesgo social en la comunidad y el contexto donde vive, como la violencia doméstica y el vandalismo, y analiza estrategias de prevención."
+            },
+            {
+              "grado": 4,
+              "texto": "Analiza situaciones de riesgo social en la comunidad y región donde vive. Distingue situaciones de riesgo social en la región, y propone algunas medidas para el autocuidado. Reconoce que la violencia doméstica y el vandalismo son situaciones que ponen en riesgo la sana convivencia, y analiza estrategias de prevención al respecto. Organiza campañas en su grupo y escuela, para prevenir problemas sociales, como la violencia escolar, el vandalismo, las adicciones, entre otros. Investiga problemas sociales en su contexto y país, para analizar sus causas y efectos."
+            }
+          ]
+        },
+        {
+          "id": "pri-hum-32",
+          "tema": "Las familias como espacio para el desarrollo del sentido de pertenencia y autonomía, para una sana convivencia.",
+          "pdas": [
+            {
+              "grado": 5,
+              "texto": "Participa en distintas formas de convivencia en la familia, para fortalecer su sentido de pertenencia y afecto. Reflexiona acerca de los valores heredados de la familia, para el desarrollo de una sana convivencia en la escuela y la comunidad."
+            },
+            {
+              "grado": 6,
+              "texto": "Diseña e interactúa en distintos escenarios de convivencia, para fortalecer su autonomía y su participación en la familia. Promueve los valores familiares, para la resolución de conflictos y el desarrollo personal."
+            }
+          ]
+        },
+        {
+          "id": "pri-hum-33",
+          "tema": "Alternativas ante conflictos y problemas de la vida en la comunidad.",
+          "pdas": [
+            {
+              "grado": 5,
+              "texto": "Reflexiona sobre los conflictos que tiene en la escuela y la familia, para valorar las posibles alternativas de solución. Valora la pertinencia del diálogo, para solucionar los conflictos interpersonales."
+            },
+            {
+              "grado": 6,
+              "texto": "Reflexiona y comparte los problemas y conflictos que se presentan en su comunidad, para proponer alternativas de solución viables. Valora propuestas de alternativas que plantea para valorar su viabilidad en su comunidad."
+            }
+          ]
+        },
+        {
+          "id": "pri-hum-34",
+          "tema": "La escuela como ventana hacia el futuro.",
+          "pdas": [
+            {
+              "grado": 5,
+              "texto": "Intercambia experiencias de estudio, para visualizar las opciones que tiene en su futuro. Reflexiona sobre sus preferencias, para imaginar sus proyectos de vida."
+            },
+            {
+              "grado": 6,
+              "texto": "Indaga sobre experiencias de estudio y comunidades de práctica, para ampliar sus horizontes de formación. Se informa acerca de la oferta educativa en su región, para identificar sus posibilidades de ingreso al nivel de educación media."
+            }
+          ]
+        },
+        {
+          "id": "pri-hum-35",
+          "tema": "La comunidad, como espacio para el aprendizaje y el bienestar común.",
+          "pdas": [
+            {
+              "grado": 5,
+              "texto": "Argumenta la pertinencia y vigencia de las ideas, conocimientos y prácticas culturales de su comunidad, para valorar sus beneficios en el bienestar común. Experimenta diferentes tipos de organización, medios, recursos y procesos, para contribuir en el desarrollo sustentable de su comunidad."
+            },
+            {
+              "grado": 6,
+              "texto": "Profundiza acerca de ideas, conocimientos y prácticas culturales, para proponer alternativas orientadas a promover, preservar y difundir para el bien común. Diseña, bajo los principios de respeto, y tolerancia, estrategias de organización ante diferentes situaciones, para la prevención de conflictos, la satisfacción de necesidades comunes y el desarrollo sustentable de su comunidad."
+            }
+          ]
+        },
+        {
+          "id": "pri-hum-36",
+          "tema": "Equidad de género.",
+          "pdas": [
+            {
+              "grado": 5,
+              "texto": "Reflexiona sobre situaciones asociadas con la diversidad de identidades y género, para proponer acciones en contra de la discriminación."
+            },
+            {
+              "grado": 6,
+              "texto": "Analiza situaciones de discriminación asociadas con la identidad o género en la escuela, la comunidad y otros ámbitos, para reconocer formas de violencia y participar en acciones de prevención."
+            }
+          ]
+        },
+        {
+          "id": "pri-hum-37",
+          "tema": "Capacidades, habilidades y destrezas motrices.",
+          "pdas": [
+            {
+              "grado": 5,
+              "texto": "Reconoce posibilidades y límites al participar en situaciones de juego e iniciación deportiva, individuales y colectivas, para valorar su desempeño y determinar posibles mejoras."
+            },
+            {
+              "grado": 6,
+              "texto": "Aplica sus capacidades, habilidades y destrezas motrices al organizar y participar en situaciones de juego e iniciación deportiva, para favorecer su disponibilidad corporal."
+            }
+          ]
+        },
+        {
+          "id": "pri-hum-38",
+          "tema": "Potencialidades cognitivas, expresivas, motrices, creativas y de relación.",
+          "pdas": [
+            {
+              "grado": 5,
+              "texto": "Integra sus capacidades y habilidades en situaciones lúdicas y expresivas (individuales y colectivas), para lograr mayor seguridad y confianza."
+            },
+            {
+              "grado": 6,
+              "texto": "Diseña propuestas de actividades lúdicas y expresivas a partir de sus intereses, capacidades y habilidades, para fortalecer su imagen corporal."
+            }
+          ]
+        },
+        {
+          "id": "pri-hum-39",
+          "tema": "Toma de decisiones y creatividad, ante problemas de la vida.",
+          "pdas": [
+            {
+              "grado": 5,
+              "texto": "Describe los problemas que se presentan en su vida, para reflexionar sobre posibles soluciones. Reflexiona sobre las posibles alternativas de solución ante problemas para analizar la toma de decisiones. Valora si en la toma de decisiones interviene causa-efecto para establecer causalidades del problema o se sustenta en el juicio crítico."
+            },
+            {
+              "grado": 6,
+              "texto": "Describe los problemas de vida que ha enfrentado para reflexionar sobre su resolución con base en el juicio crítico. Valora su capacidad creadora para la solución de problemas en la vida y en su comunidad con base en el juicio crítico. Evalúa la asertividad para expresar sus emociones sin perjudicar a otra persona. Dramatiza una propuesta de juicio crítico en la de toma de decisiones para discernir la solución de los problemas de la vida."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

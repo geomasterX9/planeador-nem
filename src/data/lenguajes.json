@@ -1,0 +1,1062 @@
+{
+    "slug": "lenguajes",
+    "nombre": "Lenguajes",
+    "disciplinas": [
+        {
+            "slug": "general",
+            "nombre": "General",
+            "contenidos": [
+                {
+                    "id": "pri-len-1",
+                    "tema": "Escritura de nombres en la lengua materna.",
+                    "pdas": [
+                        {
+                            "grado": 1,
+                            "texto": "Escribe su nombre y lo compara con los nombres de sus compañeros, lo usa para indicar la autoría de sus trabajos, marcar sus útiles escolares, registrar su asistencia, entre otros. Identifica nombres más largos o cortos que el suyo, nombres que empiezan o terminan con la misma letra que el propio, sus iniciales, el diminutivo de su nombre, etcétera."
+                        },
+                        {
+                            "grado": 2,
+                            "texto": "Escribe su nombre y apellidos y de sus de familiares, profesoras y profesores, pares y otras personas de su entorno para indicar autoría, pertenencia e identidad. Compara características de c, s, z, b, v, h, g, j, i, y, ll, k, q, r, rr, w, x, etcétera."
+                        }
+                    ]
+                },
+                {
+                    "id": "pri-len-2",
+                    "tema": "Lectura compartida en voz alta.",
+                    "pdas": [
+                        {
+                            "grado": 1,
+                            "texto": "Reconoce que se lee y escribe de izquierda a derecha y de arriba a abajo. Sigue la lectura en voz alta que hace la o el maestro (u otras personas alfabetizadas) de recados, cartas, cuentos, notas informativas, poemas, canciones, anuncios publicitarios, instructivos, etcétera. Establece correspondencias entre oralidad y escritura. Hace comentarios y preguntas sobre textos que escucha y acerca de palabras o ideas que no entiende. Verifica o confirma información acerca del contenido de textos, mediante la relectura de fragmentos o textos completos."
+                        },
+                        {
+                            "grado": 2,
+                            "texto": "Lee en voz alta letreros, carteles, recados, mensajes y otros textos de su elección. Relee o pide que le relean en voz alta algún fragmento o pasaje para comprender mejor el significado de lo leído. Comenta con otras personas el contenido de textos que ha escuchado: actitudes de los protagonistas de una historia; datos o situaciones interesantes; alternativas para resolver un problema o atender una necesidad; experiencias personales; reportes sobre noticias, etcétera. Lee en voz alta, para otros y para sí, diversos textos, como cuentos, poemas, canciones, notas informativas, cartas, anuncios publicitarios, etcétera."
+                        }
+                    ]
+                },
+                {
+                    "id": "pri-len-3",
+                    "tema": "Narración de actividades y eventos relevantes que tengan lugar en la familia, la escuela o el resto de la comunidad.",
+                    "pdas": [
+                        {
+                            "grado": 1,
+                            "texto": "Relata historias relacionadas con actividades y eventos que tienen lugar en su entorno inmediato, cuidando el orden lógico de los hechos y el volumen de voz. Identifica la secuencia de acciones y a los protagonistas y otros personajes involucrados en una historia. Reconoce que, para que una narración se entienda, debe cuidarse tanto la coherencia como la claridad de lo que se expresa. Responde preguntas que le hacen sobre su narración. Recrea y comparte una historia personal con viñetas conformadas de dibujo y texto, cuidando el orden lógico de los hechos."
+                        },
+                        {
+                            "grado": 2,
+                            "texto": "Narra actividades y eventos que han tenido lugar en la escuela, empleando una organización temporal y causal. Escucha narraciones, comenta y pregunta sobre aquello que le interesa, no comprende o le causa extrañeza. Regula, al narrar, las formas de expresarse, cuidando la claridad, secuencia de ideas y precisión. Reconoce y respeta diferentes formas de interactuar, adecuadas a cada situación comunicativa, como la participación por turnos, la escucha activa, etcétera. Recrea y comparte un evento de la escuela con viñetas constituidas por dibujo y texto, cuidando el orden temporal y causal."
+                        }
+                    ]
+                },
+                {
+                    "id": "pri-len-4",
+                    "tema": "Escritura colectiva por medio del dictado.",
+                    "pdas": [
+                        {
+                            "grado": 1,
+                            "texto": "Reconoce espacios, alineación y direccionalidad, izquierda-derecha y arriba-abajo, entre palabras y enunciados. Escribe, aunque no de manera convencional, ideas que quiere comunicar y las verbaliza para colaborar en la escritura colectiva de diferentes tipos de texto por medio del dictado al docente. Identifica palabras que se repiten en distintos textos o en diferentes partes de un mismo texto y descubre que se escriben de la misma forma. Descubre el valor sonoro convencional de las letras y lo utiliza como criterio para organizar su escritura. Establece correspondencias entre la oralidad y la escritura."
+                        },
+                        {
+                            "grado": 2,
+                            "texto": "Produce diferentes textos de manera colectiva, mediante el dictado, tomando en cuenta el propósito comunicativo, las y los destinatarios y los tipos de texto. Elabora colectivamente cuentos, versos rimados y otros textos con secuencia lógica, descripción de personajes y lugares. Reconoce distintas formas de organización en los diferentes tipos de texto. Identifica otros signos que acompañan a las letras en la escritura (interrogación, exclamación, puntos, comas, vírgula, etcétera). Revisa y corrige el texto que dicta o le dictan, a fin de verificar que se entiende lo que se quiere comunicar; identifica palabras que se repiten y da sugerencias para sustituirlas."
+                        }
+                    ]
+                },
+                {
+                    "id": "pri-len-5",
+                    "tema": "Descripción de objetos, lugares y seres vivos.",
+                    "pdas": [
+                        {
+                            "grado": 1,
+                            "texto": "Describe de manera oral y/o escrita, en su lengua materna, objetos, lugares y seres vivos reales o ficticios. Representa objetos, lugares y seres vivos de forma plástica, sonora, corporal, teatral y/o por medio de otros lenguajes artísticos."
+                        },
+                        {
+                            "grado": 2,
+                            "texto": "Describe de forma oral y escrita, en su lengua materna, objetos, lugares y seres vivos de su entorno natural y social. Representa objetos, lugares y seres vivos de forma plástica, sonora, corporal, teatral y/o por medio de otros lenguajes artísticos."
+                        }
+                    ]
+                },
+                {
+                    "id": "pri-len-6",
+                    "tema": "Uso de convenciones de la escritura presentes en la cotidianeidad.",
+                    "pdas": [
+                        {
+                            "grado": 1,
+                            "texto": "Distingue letras de números, u otros signos o marcas gráficas que identifica y traza en textos de uso cotidiano. Reconoce espacios, alineación y direccionalidad (izquierda-derecha y arriba-abajo) entre palabras y entre enunciados. Comprende que cada letra tiene varias posibilidades de escritura: mayúsculas, minúsculas o variaciones de estilo. Asocia los sonidos vocálicos con sus letras correspondientes, así como los sonidos consonánticos más significativos para ellos, o más usuales en su lengua. Identifica de manera inicial otros signos que acompañan las letras en la escritura. Conoce formas de organización de textos en otras lenguas: originarias, árabe, chino, hebreo, etcétera."
+                        },
+                        {
+                            "grado": 2,
+                            "texto": "Identifica letras en textos escritos en español y en lengua(s) indígena(s). Diferencia convenciones de la escritura en español y en alguna(s) lengua(s) indígena(s). Reconoce letras que pueden relacionarse con sonidos diferentes, así como sonidos equivalentes que pueden relacionarse con letras distintas y asocia los sonidos vocálicos y consonánticos con sus letras correspondientes. Escribe nombres propios iniciando con una mayúscula, empleando espacios entre palabras y comienza a hacer uso de signos de puntuación en su escritura, reflexionando sobre la existencia de las convenciones de los lenguajes."
+                        }
+                    ]
+                },
+                {
+                    "id": "pri-len-7",
+                    "tema": "Uso del dibujo y/o la escritura para recordar actividades y acuerdos escolares.",
+                    "pdas": [
+                        {
+                            "grado": 1,
+                            "texto": "Escribe y/o dibuja para realizar tareas en casa, recordar mensajes, llevar materiales a clase, registrar acuerdos, etcétera."
+                        },
+                        {
+                            "grado": 2,
+                            "texto": "Registra por escrito instrucciones breves para realizar actividades en casa, listas de materiales o datos, asentar normas, etcétera."
+                        }
+                    ]
+                },
+                {
+                    "id": "pri-len-8",
+                    "tema": "Registro y/o resumen de información consultada en fuentes orales, escritas, audiovisuales, táctiles o sonoras, para estudiar y/o exponer.",
+                    "pdas": [
+                        {
+                            "grado": 1,
+                            "texto": "Registra sobre un tema de su interés, por medio de la escritura, esquema, dibujo, fotografía y video, a partir de la escucha, lectura, observación u otra manera de interactuar con alguna fuente de información. Comparte o expone la información registrada."
+                        },
+                        {
+                            "grado": 2,
+                            "texto": "Registra información sobre un tema, a partir de la indagación en familia y el resto de la comunidad. Expone con congruencia, de manera oral o, en su caso, lengua de señas, su registro del tema. Registra y organiza información a través de la escritura, videograbación, esquematización, modelación, sobre temas de su interés, a partir de indagación en libros, revistas, periódicos, audiovisuales y con personas de la comunidad. Expone información registrada y organizada, de manera oral o en lengua de señas, con apoyo de imágenes, sonidos, actuación u otros recursos."
+                        }
+                    ]
+                },
+                {
+                    "id": "pri-len-9",
+                    "tema": "Empleo de textos con instrucciones para participar en juegos, usar o elaborar objetos, preparar alimentos u otros propósitos.",
+                    "pdas": [
+                        {
+                            "grado": 1,
+                            "texto": "Sigue instrucciones, orales o escritas, para preparar un alimento sencillo y saludable (receta), utilizar o construir un objeto y/o participar en un juego o alguna otra actividad. Explica a sus compañeras y compañeros las instrucciones que siguió y revisa el proceso, así como el resultado."
+                        },
+                        {
+                            "grado": 2,
+                            "texto": "Realiza actividades a partir de la lectura de instructivos. Explica a sus compañeras y compañeros el proceso a seguir para el uso o construcción de objetos y para llevar a cabo otra actividad. Escribe, con el apoyo opcional de imágenes, instrucciones para uso o construcción de objetos, realizar actividades o algún otro propósito."
+                        }
+                    ]
+                },
+                {
+                    "id": "pri-len-10",
+                    "tema": "Producción e interpretación de avisos, carteles, anuncios publicitarios y letreros en la vida cotidiana.",
+                    "pdas": [
+                        {
+                            "grado": 1,
+                            "texto": "Identifica las características y funciones de letreros, carteles, avisos y otros textos públicos que se hallan en su contexto escolar y, en general, comunitario. Propone ideas para la elaboración colectiva de letreros, carteles y/o avisos que contribuyan a lograr propósitos individuales y colectivos."
+                        },
+                        {
+                            "grado": 2,
+                            "texto": "Reconoce características y funciones de anuncios publicitarios, que se encuentran en su contexto escolar y, en general, comunitario. Elabora en forma individual y colectiva avisos publicitarios, escribe textos breves con formato de letreros, carteles y avisos, a partir de un propósito comunicativo establecido."
+                        }
+                    ]
+                },
+                {
+                    "id": "pri-len-11",
+                    "tema": "Elaboración y difusión de notas informativas en la escuela y el resto de la comunidad.",
+                    "pdas": [
+                        {
+                            "grado": 1,
+                            "texto": "Identifica las características de una nota informativa y sus funciones. Reflexiona sobre la importancia de la veracidad en las notas informativas. Colabora en la escritura colectiva de notas informativas breves, respetando sus principales características y funciones. Comenta en forma cotidiana notas informativas leídas o escuchadas."
+                        },
+                        {
+                            "grado": 2,
+                            "texto": "Indaga sobre hechos relevantes para su comunidad y elabora notas informativas escritas sobre estos, con o sin ilustraciones. Difunde notas informativas en portadores de texto impresos o electrónicos, como periódico mural, boletín comunitario, blogs, portales de internet."
+                        }
+                    ]
+                },
+                {
+                    "id": "pri-len-12",
+                    "tema": "Producción de textos dirigidos a autoridades y personas de la comunidad, en relación con necesidades, intereses o actividades escolares.",
+                    "pdas": [
+                        {
+                            "grado": 1,
+                            "texto": "Identifica necesidades de la escuela y de la localidad a partir de preguntas y observaciones que involucran a las compañeras y los compañeros, familiares, las vecinas y los vecinos, las y los docentes, autoridades y otras personas. Identifica a personas de la comunidad que pueden contribuir a la solución de necesidades previstas. Elabora, en colectivo, dibujos y textos que expliquen las necesidades identificadas y mediante los cuales soliciten la intervención de personas que podrían contribuir para satisfacerlas."
+                        },
+                        {
+                            "grado": 2,
+                            "texto": "Indaga sobre necesidades, intereses y actividades de la escuela, así como sobre las formas en que personas de la comunidad podrían participar a favor de éstos. Redacta textos, de manera individual o colectiva, dirigidos a alguna persona o institución de la comunidad, a fin de solicitar su intervención para satisfacer alguna necesidad, interés o invitarle a participar en actividades escolares. Da seguimiento a la solicitud realizada, con apoyo de la o el docente y familiares."
+                        }
+                    ]
+                },
+                {
+                    "id": "pri-len-13",
+                    "tema": "Lectura, escritura y otros tipos de interacción mediante lenguajes que ocurren en el contexto familiar.",
+                    "pdas": [
+                        {
+                            "grado": 1,
+                            "texto": "Explora portadores de texto, como libros, revistas, documentos digitales, entre otros, que se encuentran en su ambiente familiar, si alguien los usa, con qué propósitos y en qué lengua están."
+                        },
+                        {
+                            "grado": 2,
+                            "texto": "Realiza actividades de escritura con su familia y registra con quién escribe, qué escribe, para qué escribe, en qué lengua y con qué soporte (cuaderno, computadora, celular, entre otros)."
+                        }
+                    ]
+                },
+                {
+                    "id": "pri-len-14",
+                    "tema": "Comunicación a distancia con familiares u otras personas.",
+                    "pdas": [
+                        {
+                            "grado": 1,
+                            "texto": "Participa con ideas en la elaboración de un texto para alguien que vive en otro lugar, a través del dictado a la o el docente o de la escritura autónoma. Comprende los elementos y procedimientos necesarios para enviar un mensaje a personas que viven lejos, ya sea por medios físicos o electrónicos."
+                        },
+                        {
+                            "grado": 2,
+                            "texto": "Conoce diversas formas de comunicación a distancia, explica cómo funcionan y utiliza al menos una, de acuerdo con las posibilidades de su contexto."
+                        }
+                    ]
+                },
+                {
+                    "id": "pri-len-15",
+                    "tema": "Conversaciones o entrevistas con personas de la comunidad y otros lugares.",
+                    "pdas": [
+                        {
+                            "grado": 1,
+                            "texto": "Formula preguntas acordes al tema que abordará una persona invitada y escucha de manera atenta la información. Recupera con sus palabras la información que escuchó sobre el tema que abordó una persona invitada."
+                        },
+                        {
+                            "grado": 2,
+                            "texto": "Formula y ajusta sus preguntas en función de la información que requiere. Recupera la información que escuchó, para relacionarla con otra información, en textos escritos o en otros medios y contextos."
+                        }
+                    ]
+                },
+                {
+                    "id": "pri-len-16",
+                    "tema": "Reconocimiento de la diversidad lingüística y cultural en la familia, la escuela y el resto de la comunidad.",
+                    "pdas": [
+                        {
+                            "grado": 1,
+                            "texto": "Identifica distintas maneras de emplear la lengua materna en su familia, escuela y el resto de la comunidad. Reflexiona sobre las diferencias al emplear la lengua materna en función de la edad y el lugar de procedencia de los hablantes. Comprende y aprecia la diversidad lingüística y cultural de su comunidad por medio del reconocimiento de expresiones en su lengua materna empleadas en la familia y la escuela."
+                        },
+                        {
+                            "grado": 2,
+                            "texto": "Indaga sobre su lengua materna y otras lenguas, ya sean indígenas o extranjeras, que se hablan en su región. Comprende y aprecia la diversidad lingüística y cultural de su comunidad por medio de la escucha y la lectura de textos diversos, como poemas, canciones, mitos y leyendas. Analiza y valora la importancia del uso y aprendizaje de su lengua materna."
+                        }
+                    ]
+                },
+                {
+                    "id": "pri-len-17",
+                    "tema": "Exploración de testimonios escritos, fotográficos y audiovisuales del pasado familiar y comunitario.",
+                    "pdas": [
+                        {
+                            "grado": 1,
+                            "texto": "Expresa lo que sabe de su familia o de alguna persona cercana, a través de fotografías, eventos, objetos, comidas, entre otros elementos que permitan reconocer sus identidades individual y colectiva en relación con el reconocimiento del pasado. Reconoce diversos sucesos familiares y comunitarios que ocurrieron antes de que naciera y reflexiona sobre su relación con el presente."
+                        },
+                        {
+                            "grado": 2,
+                            "texto": "Expresa ideas y emociones del pasado familiar y comunitario a través de fotografías, eventos, objetos, comidas, entre otros elementos que permitan reconocer sus identidades individual y colectiva en relación con el reconocimiento del pasado. Produce textos y dibujos sobre sucesos familiares y comunitarios que ocurrieron antes de que naciera y su relación con el presente."
+                        }
+                    ]
+                },
+                {
+                    "id": "pri-len-18",
+                    "tema": "Reflexión sobre los medios de comunicación.",
+                    "pdas": [
+                        {
+                            "grado": 1,
+                            "texto": "Describe y opina sobre lo que ve o escucha cotidianamente en medios de comunicación, como radio y televisión. Reflexiona sobre lo que ve, escucha y siente al interactuar con distintos medios de comunicación."
+                        },
+                        {
+                            "grado": 2,
+                            "texto": "Comenta y cuestiona los contenidos de programas que ve o escucha en los medios de comunicación, para comenzar a construir un criterio propio."
+                        }
+                    ]
+                },
+                {
+                    "id": "pri-len-19",
+                    "tema": "Uso de elementos de los lenguajes artísticos en la vida cotidiana.",
+                    "pdas": [
+                        {
+                            "grado": 1,
+                            "texto": "Reconoce que los movimientos, imágenes y sonidos constituyen lenguajes que permiten la comunicación. Experimenta con formas, colores, sonidos, texturas, movimientos o gestos para expresar sensaciones, emociones, sentimientos e ideas que surgen en el entorno. Imita sonidos o imágenes del entorno con su cuerpo o con objetos a su disposición."
+                        },
+                        {
+                            "grado": 2,
+                            "texto": "Representa situaciones cotidianas relacionadas con el entorno natural y social, por medio de movimientos, sonidos e imágenes para comunicar sensaciones, emociones, sentimientos e ideas. Crea secuencias con formas, colores, sonidos, texturas, movimientos o gestos para crear una historia que tenga lugar en su vida cotidiana. Experimenta lúdicamente mediante sonidos, movimientos y gestos distintas acciones que se llevan a cabo en la vida cotidiana, para imaginar otras formas de realizarlas."
+                        }
+                    ]
+                },
+                {
+                    "id": "pri-len-20",
+                    "tema": "Uso de los lenguajes artísticos para expresar rasgos de las identidades personal y colectiva.",
+                    "pdas": [
+                        {
+                            "grado": 1,
+                            "texto": "Representa lo que le significa su nombre; es decir, el sentido que le da, por medio de formas, colores, texturas, sonidos, movimientos y/o gestos. Recrea elementos de la naturaleza que le despiertan asombro mediante formas, colores, sonidos, movimientos y gestos. Crea una producción artística colectiva, como un mural, video, exposición de dibujos o fotografías, en la que se compartan y expresen gustos e intereses personales y colectivos."
+                        },
+                        {
+                            "grado": 2,
+                            "texto": "Reconoce y representa aspectos característicos de su identidad personal a través del uso de formas, colores, texturas, sonidos, movimientos y/o gestos. Reconoce aspectos que conforman la identidad colectiva con sus pares y representa rasgos identitarios que comparten mediante formas, colores, texturas, sonidos, movimientos y/o gestos. Representa por medio de formas, figuras, colores, texturas, sonidos, movimientos y/o gestos los elementos de la naturaleza que le despiertan distintas emociones, como curiosidad, temor, gusto y asombro."
+                        }
+                    ]
+                },
+                {
+                    "id": "pri-len-21",
+                    "tema": "Intervención del entorno familiar y escolar para imaginar y realizar propuestas de mejora.",
+                    "pdas": [
+                        {
+                            "grado": 1,
+                            "texto": "Explora, desde la perspectiva de género, las cualidades del entorno familiar y escolar y las representa mediante el uso intencional de formas, colores, texturas, sonidos, movimientos y gestos. Experimenta creativamente con cambios en la disposición de objetos en el entorno escolar y lo interviene de manera temporal con imágenes, cantos, movimientos, producciones escritas y sonidos para resignificar la percepción del espacio."
+                        },
+                        {
+                            "grado": 2,
+                            "texto": "Reconoce sensaciones, emociones, sentimientos e ideas que le produce el entorno familiar y escolar para expresarlas mediante el uso intencional del cuerpo. Imagina posibilidades de cambio y mejora, desde la perspectiva de género, en el entorno familiar y escolar, y las representa usando distintos formatos visuales, sonoros y corporales en una producción artística. Interviene colectivamente el entorno escolar mediante cantos, producciones escritas, movimientos, bailes, objetos y figuras, partiendo de la toma de acuerdos, para identificar y plantear propuestas de solución a un problema."
+                        }
+                    ]
+                },
+                {
+                    "id": "pri-len-22",
+                    "tema": "Apreciación de canciones, rondas infantiles, arrullos y cuentos.",
+                    "pdas": [
+                        {
+                            "grado": 1,
+                            "texto": "Escucha y canta diversas canciones, rondas infantiles y arrullos, elige las que son de su agrado y explica las razones de su elección. Sigue la letra impresa de las canciones, rondas infantiles y arrullos conocidos, mientras la o el docente u otra persona los canta, e identifica la relación entre algunas palabras y frases que sigue en la letra impresa y las que escucha. Sigue el ritmo y melodía de canciones, rondas infantiles y arrullos al cantarlas con la o el docente, y reflexiona sobre las características sonoras convencionales de las letras, palabras y frases que incluyen."
+                        },
+                        {
+                            "grado": 2,
+                            "texto": "Explora los elementos paratextuales de los libros (como portada, contraportada, título, ilustraciones, formato) que contienen los cuentos que escuchará y/o leerá, y anticipa su contenido. Escucha y/o lee cuentos de libros explorados, y, al finalizar, verifica las anticipaciones realizadas. Emplea palabras cuya escritura conoce como pistas para la lectura de títulos y nombres de personajes y lugares donde se desarrollan las historias. Identifica las historias y personajes principales de los cuentos escuchados y/o leídos, y representa algunos por medio de títeres, esculturas, dibujos u objetos cotidianos."
+                        }
+                    ]
+                },
+                {
+                    "id": "pri-len-23",
+                    "tema": "Experimentación con elementos sonoros en composiciones literarias.",
+                    "pdas": [
+                        {
+                            "grado": 1,
+                            "texto": "Escucha y lee poemas, trabalenguas y adivinanzas, para disfrutarlos y conocer algunos recursos lingüísticos, como la rima, la onomatopeya y el calambur. Reconoce la función y características de la rima (sonoridad, ritmo, musicalidad), así como la semejanza gráfica entre las palabras que riman. Produce rimas sencillas a partir de situaciones cotidianas."
+                        },
+                        {
+                            "grado": 2,
+                            "texto": "Interactúa con distintos poemas, trabalenguas y adivinanzas, para reconocer sus elementos sonoros. Identifica rimas, onomatopeyas, calambures y otros elementos sonoros en diferentes composiciones literarias. Participa lúdicamente en el disfrute y creación de juegos de palabras con cualidades sonoras, en las que se empleen recursos lingüísticos, como la rima, la onomatopeya y el calambur. Crea una secuencia sonora en la que explore variaciones de intensidad, duración, tono y timbre, para representar las sensaciones, emociones, sentimientos e ideas que le provocan las composiciones literarias."
+                        }
+                    ]
+                },
+                {
+                    "id": "pri-len-24",
+                    "tema": "Interacción con manifestaciones culturales y artísticas.",
+                    "pdas": [
+                        {
+                            "grado": 1,
+                            "texto": "Interactúa con manifestaciones culturales y artísticas presentes en la comunidad, para reflexionar y dialogar sobre las emociones y sentimientos que le producen. Reconoce que los seres humanos expresan sensaciones, emociones, sentimientos e ideas por medio de los lenguajes empleados en las manifestaciones culturales y artísticas. Identifica que las manifestaciones culturales y artísticas evidencian distintas formas de ser, estar y nombrar el mundo, haciendo uso de los elementos de los lenguajes artísticos; por ejemplo, formas, sonidos, colores, movimientos o gestos."
+                        },
+                        {
+                            "grado": 2,
+                            "texto": "Explora manifestaciones culturales y artísticas y las relaciona con experiencias e ideas propias, para reconocerse como miembro de una comunidad. Interactúa con manifestaciones culturales y artísticas de su comunidad, para identificar rasgos de su identidad colectiva. Analiza elementos de los lenguajes presentes en manifestaciones culturales y artísticas de su comunidad, y les da un uso estético al representar rasgos de sus identidades personal y colectiva."
+                        }
+                    ]
+                },
+                {
+                    "id": "pri-len-25",
+                    "tema": "Recreación de historias mediante el uso artístico de las palabras, del cuerpo, del espacio y del tiempo.",
+                    "pdas": [
+                        {
+                            "grado": 1,
+                            "texto": "Interpreta historias sencillas. Reconoce características principales de diferentes historias (nudo, personajes, tiempo y espacio), para imaginar otros finales. Crea cómics a partir de una experiencia personal o de una lectura. Emplea el cuerpo en una secuencia de movimientos para contar una historia sencilla o representar una narración de su interés. Juega a hacer improvisaciones teatrales modificando el espacio y tiempo por medio de la ficción para crear historias propias."
+                        },
+                        {
+                            "grado": 2,
+                            "texto": "Lee algunas historietas de contenido sencillo y comenta sus impresiones. Reconoce recursos gráficos de los cómics (viñetas, globos, planos) e identifica la función de las onomatopeyas, al emplearlos en la elaboración de cómics que cuentan historias. Comprende la función comunicativa de las onomatopeyas en la lectura y escritura de cómics que publica en el periódico mural o comunitario. Representa una historia inventada en colectivo, utilizando objetos cotidianos como personajes, a los cuales les crea voz y vestuario."
+                        }
+                    ]
+                },
+                {
+                    "id": "pri-len-26",
+                    "tema": "Representación de distintas formas de ser y estar en el mundo a partir de la ficción.",
+                    "pdas": [
+                        {
+                            "grado": 1,
+                            "texto": "Lee de forma individual y colectiva textos que contengan seres imaginarios, para representarlos empleando elementos de los lenguajes artísticos. Crea personajes ficticios, empleando formas, colores, texturas, movimientos, gestos y sonidos, a partir de una narración, poema, canción, pintura, escultura, película, historieta u obra de teatro."
+                        },
+                        {
+                            "grado": 2,
+                            "texto": "Construye personajes combinando distintas características de las personas y seres vivos de su entorno. Investiga sobre distintas formas de hablar, pensar, comer, moverse, vestirse y relacionarse de las personas de diferentes comunidades, para otorgarle características a un personaje creado por él. Reconoce que el vestuario, el maquillaje y las máscaras, entre otros recursos, se usan en manifestaciones culturales y artísticas para enriquecer la caracterización de un personaje."
+                        }
+                    ]
+                },
+                {
+                    "id": "pri-len-27",
+                    "tema": "Narración de sucesos del pasado y del presente.",
+                    "pdas": [
+                        {
+                            "grado": 3,
+                            "texto": "Identifica y comprende la función y las características principales de la narración. Reconoce y usa las estructuras narrativas: lineal, circular, in media res y otras, de acuerdo con su propia cultura y gusto para narrar. Identifica y establece relaciones causa-efecto en una narración. Usa el punto y el punto y seguido para separar oraciones en un párrafo."
+                        },
+                        {
+                            "grado": 4,
+                            "texto": "Reconoce y usa diversos estilos, recursos y estrategias narrativas. Establece relaciones causales y temporales entre acontecimientos. Reflexiona sobre los tiempos presente, pretérito y copretérito, para narrar sucesos. Infiere el significado de las palabras, a partir de la información contextual de un texto."
+                        }
+                    ]
+                },
+                {
+                    "id": "pri-len-28",
+                    "tema": "Descripción de personas, lugares, hechos y procesos.",
+                    "pdas": [
+                        {
+                            "grado": 3,
+                            "texto": "Comprende, a partir de la lectura de textos descriptivos, que hay formas detalladas para describir a las personas y los lugares, señalando características que van más allá de su apariencia. Reflexiona sobre el uso de palabras y frases para describir personas, lugares y hechos: adjetivos, adverbios y frases adverbiales. Planea, escribe, revisa y corrige textos en los que describe hechos en orden cronológico. Reflexiona sobre el uso de la coma al enumerar cosas o elementos y la emplea. Usa mayúsculas al inicio de las oraciones y de los nombres propios."
+                        },
+                        {
+                            "grado": 4,
+                            "texto": "Planea, escribe, revisa y corrige textos donde describe, de manera lógica, procesos con los que tiene cierta familiaridad. Reflexiona sobre el uso de palabras y frases adjetivas y adverbiales para describir procesos. Utiliza algunos conectores secuenciales, como en primer lugar, posteriormente, finalmente; y temporales, como al mismo tiempo, simultáneamente, más tarde, antes, cuando describe un proceso, a fin de dar claridad al texto. Revisa y corrige las descripciones que realiza, para transmitir ideas de forma clara, evitando repeticiones innecesarias. Reconoce el uso del punto y coma y los dos puntos, y los emplea al enumerar diferentes elementos o aspectos."
+                        }
+                    ]
+                },
+                {
+                    "id": "pri-len-29",
+                    "tema": "Diálogo para la toma de acuerdos y el intercambio de puntos de vista.",
+                    "pdas": [
+                        {
+                            "grado": 3,
+                            "texto": "Reconoce y usa pautas que norman los intercambios orales, como respetar el turno para hacer uso de la palabra, prestar atención, adecuar el volumen de voz, emplear fórmulas de cortesía, mantener el interés, plantear preguntas. Escucha las ideas de otras y otros, y expresa las propias con respeto. Reconoce que expresar sus ideas con claridad y acompañadas de las razones que las sustentan, son aspectos que ayudan a que otras personas las comprendan. Participa activamente en diálogos para tomar acuerdos, dando razones de sus preferencias o puntos de vista."
+                        },
+                        {
+                            "grado": 4,
+                            "texto": "Indica de manera respetuosa cuando no ha comprendido los puntos de vista o ideas de otros. Utiliza información de varias fuentes orales y escritas, para explicar y argumentar sus propias ideas y puntos de vista. Recupera de forma explícita experiencias y conocimientos, para tomar decisiones o asumir una postura. Intercambia información, practica la escucha activa, empatía y/o negociación y toma acuerdos."
+                        }
+                    ]
+                },
+                {
+                    "id": "pri-len-30",
+                    "tema": "Comprensión y producción de textos expositivos en los que se planteen: problema-solución, comparación-contraste, causa-consecuencia y enumeración.",
+                    "pdas": [
+                        {
+                            "grado": 3,
+                            "texto": "Recurre a diversos soportes que contienen textos expositivos, para ampliar sus conocimientos sobre algún tema, así como a diccionarios para consultar definiciones. Comprende textos expositivos que plantean un problema y la solución al mismo. Reconoce semejanzas y diferencias entre textos de comparación y de contraste. Reconoce antecedentes y consecuentes en el cuerpo de un texto expositivo, del tipo causa-consecuencia. Se apoya en la enumeración para identificar los principales elementos del tema que trata. Participa en la planeación y escritura de algún texto expositivo, así como en su revisión y corrección, haciendo sugerencias de mejora. Reflexiona sobre palabras y frases que impliquen comparación: algunos, otros, en cambio."
+                        },
+                        {
+                            "grado": 4,
+                            "texto": "Identifica los efectos de una situación o fenómeno planteados en la información que presenta un texto expositivo. Planea, escribe, revisa y corrige sus propios textos expositivos del tipo: problema-solución, comparación-contraste, causa-consecuencia y enumeración. Es capaz de seleccionar fuentes y obtener información para proponer soluciones a problemas de su entorno. Utiliza nexos, adverbios y frases adverbiales de secuencia como luego, más adelante, después, antes, más temprano, así como nexos para establecer comparaciones: en cambio, por un lado, por otro lado, a diferencia de, al igual que."
+                        }
+                    ]
+                },
+                {
+                    "id": "pri-len-31",
+                    "tema": "Búsqueda y manejo reflexivo de información.",
+                    "pdas": [
+                        {
+                            "grado": 3,
+                            "texto": "Formula preguntas para realizar la búsqueda de información y las responde luego de localizar la información correspondiente. Emplea los signos de interrogación al elaborar preguntas. Usa variadas fuentes de consulta, entre ellas medios de comunicación y personas, recupera información pertinente, en función del propósito de búsqueda: resolver dudas, profundizar en un tema, escribir un texto, preparar una exposición, generar contenido en las redes sociales, etcétera. Reflexiona sobre el orden alfabético en diccionarios e índices de otras obras de consulta y lo emplea para localizar información. Comprende el sentido general de un texto informativo."
+                        },
+                        {
+                            "grado": 4,
+                            "texto": "Elabora preguntas para localizar la información que requiere y reflexiona sobre el uso de acentos gráficos en palabras que se usan para preguntar: qué, cómo, cuándo, dónde, por qué, para qué. Emplea elementos de los textos que organizan el contenido: títulos, subtítulos, viñetas, tipografía, palabras clave, para localizar información. Hace anticipaciones sobre el contenido de un libro, a partir de la información de la portada y contraportada. Diversifica el uso de fuentes de consulta en función del propósito y el tema, y reconoce la organización de materiales informativos y sus elementos. Parafrasea y/o ejemplifica planteamientos que expone un texto informativo. Consulta diccionarios y glosarios para resolver dudas relacionadas con el uso de ciertos términos."
+                        }
+                    ]
+                },
+                {
+                    "id": "pri-len-32",
+                    "tema": "Comprensión y producción de textos discontinuos para organizar actividades y ordenar información.",
+                    "pdas": [
+                        {
+                            "grado": 3,
+                            "texto": "Identifica características y funciones de los textos discontinuos, en particular de esquemas de partes de seres vivos y objetos, así como de la programación y/o calendarización de actividades. Reflexiona sobre la utilidad de los formatos para organizar actividades e información. Usa mayúsculas al comienzo de nombres propios y oraciones."
+                        },
+                        {
+                            "grado": 4,
+                            "texto": "Identifica características y funciones de los textos discontinuos, en particular de líneas del tiempo, tablas de doble entrada y gráficas. Reflexiona sobre el uso de textos discontinuos, para resumir y ordenar información. Produce textos discontinuos para organizar información que expone a otras personas. Emplea signos de puntuación como el punto y la coma."
+                        }
+                    ]
+                },
+                {
+                    "id": "pri-len-33",
+                    "tema": "Comprensión y producción de resúmenes.",
+                    "pdas": [
+                        {
+                            "grado": 3,
+                            "texto": "Reflexiona sobre las funciones y características del resumen, como un tipo de texto conciso, cuyo objetivo principal es exponer de forma clara, precisa y breve las ideas más importantes de la fuente consultada y no como un producto de una tarea mecánica, alejada de la comprensión de las ideas expuestas. Determina cuál considera que es la información más relevante del texto por resumir, en función de sus propósitos, y la registra con sus propias palabras. Establece diferencias entre paráfrasis y síntesis. Emplea el punto y aparte para organizar un texto por párrafos."
+                        },
+                        {
+                            "grado": 4,
+                            "texto": "Explora y analiza el contenido de los textos por resumir. Relaciona el contenido del texto por resumir y los recursos complementarios: recuadros, tablas, gráficas e imágenes. Registra, con sus propias palabras, la información más relevante del texto por resumir, en función de los propósitos predeterminados; por ejemplo: escribir un texto informativo o presentar una exposición. Usa signos de interrogación y exclamación para distinguir una pregunta de la expresión de una emoción. Revisa y corrige errores de concordancia de género y número."
+                        }
+                    ]
+                },
+                {
+                    "id": "pri-len-34",
+                    "tema": "Comprensión y producción de textos instructivos para realizar actividades escolares y participar en diversos juegos.",
+                    "pdas": [
+                        {
+                            "grado": 3,
+                            "texto": "Identifica y reflexiona sobre la función de los textos instructivos y sus características genéricas: organización de los datos; uso de numerales para ordenar cronológicamente los pasos de un procedimiento; brevedad y secuencia de la información; y precisión en las indicaciones. Comprende la utilidad de los recursos gráficos empleados en textos instructivos: diagramas de procesos, ilustraciones, cuadros y símbolos. Identifica y reflexiona respecto del vocabulario empleado en los instructivos: verbos en infinitivo o en imperativo para redactar instrucciones y términos secuenciales, como primero, después, antes de, enseguida, finalmente. Emplea signos de puntuación, como la coma, el punto y seguido, el punto y aparte, dos puntos."
+                        },
+                        {
+                            "grado": 4,
+                            "texto": "Analiza las características de diversos textos instructivos, como reglamentos, recetas médicas y de cocina, indicaciones para participar en un juego de mesa o de patio, e interpreta la información que presentan. Emplea verbos en infinitivo o imperativo, así como términos secuenciales, para escribir instrucciones. Describe el order secuencial de un procedimiento. Reflexiona sobre la ortografía de palabras homónimas. Emplea signos de puntuación como el punto, la coma y los dos puntos."
+                        }
+                    ]
+                },
+                {
+                    "id": "pri-len-35",
+                    "tema": "Exposición sobre temas diversos.",
+                    "pdas": [
+                        {
+                            "grado": 3,
+                            "texto": "Reconoce características de la oralidad: recursos expresivos (estilo) y paralingüísticos o no lingüísticos, como movimiento corporal y gestos. Expone sobre diversos temas considerando: Como presentador o presentadora: -Planear su exposición, lo cual incluye la elaboración de materiales de apoyo. -Realizar apuntes para usar como guía. -Usar pronombres y nexos. -Valorar el interés del auditorio. Como audiencia: -Escuchar o atender lo que se comunica, siguiendo el hilo de lo que se dice. -Tomar nota de lo que se quiere recordar."
+                        },
+                        {
+                            "grado": 4,
+                            "texto": "Expone sobre diversos temas, considerando: Como presentador o presentadora: -Planear su exposición, lo cual incluye la elaboración de materiales de apoyo. -Realizar apuntes para usar como guía. -Reflexionar sobre el uso de sinónimos y antónimos. -Mantener el interés del auditorio, ajustando el volumen de voz y usando elementos paralingüísticos. -Responder dudas y atender inquietudes. Como audiencia: -Escuchar atenta y comprensivamente, tomando notas. -Plantear preguntas o comentar sobre lo expuesto."
+                        }
+                    ]
+                },
+                {
+                    "id": "pri-len-36",
+                    "tema": "Comunicación a distancia con personas y propósitos diversos.",
+                    "pdas": [
+                        {
+                            "grado": 3,
+                            "texto": "Lee y comenta cartas reales y/o literarias. Identifica características y funciones de las cartas y otros textos epistolares enviados o recibidos por vía postal o electrónica. Intercambia mensajes epistolares, por vía postal y/o electrónica, con otras personas a partir de propósitos determinados, como saludar, invitar, felicitar, dar recados, informar, entre otros. Reflexiona, al comunicarse a distancia, sobre la necesidad de proteger sus datos personales y propone medidas para salvaguardar su integridad física y moral."
+                        },
+                        {
+                            "grado": 4,
+                            "texto": "Lee y analiza cartas reales y/o literarias. Usa convenciones de cartas y otros textos epistolares, como lugar, fecha, destinatario, dirección, en el intercambio postal y/o electrónico de mensajes. Mantiene comunicación a distancia con interlocutores y propósitos diversos, usando invitaciones, felicitaciones, recados, tarjetas postales y documentos adjuntos. Reflexiona sobre la necesidad de proteger sus datos personales y acuerda medidas y acciones para salvaguardar su integridad física y moral."
+                        }
+                    ]
+                },
+                {
+                    "id": "pri-len-37",
+                    "tema": "Análisis e intercambio de comentarios sobre empaques de productos y anuncios publicitarios.",
+                    "pdas": [
+                        {
+                            "grado": 3,
+                            "texto": "Reconoce y reflexiona sobre información que contienen los empaques y otros recursos publicitarios de productos diversos. Comprende de manera particular la relevancia de leer advertencias en el etiquetado de los productos por consumir y/o adquirir. Identifica mensajes, recursos gráficos y audiovisuales utilizados en diversos anuncios publicitarios. Analiza y comenta mensajes publicitarios para identificar beneficios y perjuicios derivados del consumo de los productos publicitados."
+                        },
+                        {
+                            "grado": 4,
+                            "texto": "Reflexiona acerca de las ventajas del consumo responsable y de la toma de decisiones con base en la información que se señala en los productos. Comprende advertencias e instrucciones incluidas en empaques y etiquetas de productos, así como la finalidad de sus anuncios publicitarios. Identifica emisor, receptor y propósito de anuncios publicitarios difundidos en diferentes medios y reflexiona sobre su veracidad. Reflexiona y comenta sobre la función persuasiva del lenguaje publicitario y el desarrollo del pensamiento crítico ante la publicidad."
+                        }
+                    ]
+                },
+                {
+                    "id": "pri-len-38",
+                    "tema": "Indagación, reelaboración y difusión de notas informativas con opiniones sobre hechos que afectan a la escuela y/o a la comunidad.",
+                    "pdas": [
+                        {
+                            "grado": 3,
+                            "texto": "Interactúa con medios de comunicación y comenta hechos noticiosos o noticias de su interés. Identifica qué, quién, cómo, cuándo, dónde y por qué en una nota informativa o reporte de noticia. Distingue entre notas informativas sobre noticias y opiniones acerca de las mismas. Discute y comparte noticias y opiniones sobre éstas a través de medios a su alcance, como periódico mural o boletín escolar."
+                        },
+                        {
+                            "grado": 4,
+                            "texto": "Conoce hechos noticiosos o noticias por medio de noticieros de radio y/o televisión. Compara cómo se presenta una misma noticia en distintos medios de comunicación e identifica diferencias y semejanzas en su tratamiento. Comenta y comparte sus impresiones sobre diferencias y semejanzas identificadas en el tratamiento de una noticia."
+                        }
+                    ]
+                },
+                {
+                    "id": "pri-len-39",
+                    "tema": "Uso de textos formales para atender diversos asuntos personales o del bienestar común.",
+                    "pdas": [
+                        {
+                            "grado": 3,
+                            "texto": "Explora y reconoce características de documentos personales, como acta de nacimiento, credenciales, cartilla de vacunación y comprobantes de estudio. Reflexiona sobre las funciones que tienen los documentos personales. Reconoce situaciones en las que los documentos personales son necesarios y/o útiles. Comprende la utilidad y el significado de las siglas de las instituciones que expiden los documentos, así como el valor de los sellos y firmas de autorización."
+                        },
+                        {
+                            "grado": 4,
+                            "texto": "Identifica formularios que se emplean en la gestión de determinados trámites personales. Comprende el contenido de documentos de uso en trámites personales. Reflexiona sobre las características gráficas y de diseño de dichos documentos: tipografía, logotipos, recuadros, subrayados. Reconoce la relación entre los documentos personales, su identidad y el ejercicio de sus derechos."
+                        }
+                    ]
+                },
+                {
+                    "id": "pri-len-40",
+                    "tema": "Entrevistas con personas de la comunidad para conocer diversos temas.",
+                    "pdas": [
+                        {
+                            "grado": 3,
+                            "texto": "Reconoce las características de la entrevista y sus propósitos. Observa, lee y comenta entrevistas. Comprende la utilidad de elaborar cuestionarios para obtener la información que desea, y reconoce la diferencia entre plantear preguntas cerradas y abiertas. Entrevista a personas de la comunidad, o externas, con conocimiento sobre el tema y con propósitos y preguntas definidos previamente. Respeta turnos para hablar y escuchar, presta atención a la persona entrevistada, adecua tono y volumen de voz, plantea preguntas elaboradas con antelación. Usa signos de interrogación y puntuación para escribir las preguntas y respuestas."
+                        },
+                        {
+                            "grado": 4,
+                            "texto": "Participa en entrevistas a distintos personajes de la comunidad acerca de condiciones problemáticas que padecen y posibilidades de solución. Elabora preguntas pertinentes que recaben la información deseada y evita plantear redundantes. Planifica entrevistas: define propósito(s), identifica persona(s) por entrevistar, plantea pregunta(s), duración, lugar, fecha. Usa pautas que norman intercambios orales: respetar turno para hacer uso de la palabra, prestar atención, adecuar tono y volumen de voz, emplear fórmulas de cortesía, plantear preguntas, exponer opiniones."
+                        }
+                    ]
+                },
+                {
+                    "id": "pri-len-41",
+                    "tema": "Indagación sobre la diversidad lingüística en su comunidad y el resto del país.",
+                    "pdas": [
+                        {
+                            "grado": 3,
+                            "texto": "Reconoce nombres de lugares, objetos y otras palabras cotidianas que tienen raíces en lenguas indígenas. Emplea, en forma oral y escrita, expresiones lingüísticas identificadas. Identifica expresiones variantes de su lengua materna en comunidades diferentes. Conoce lenguas diferentes a la suya, que se hablan en su localidad y en otras regiones del país."
+                        },
+                        {
+                            "grado": 4,
+                            "texto": "Observa y reproduce expresiones, orales y escritas, con raíces en lenguas originarias, que son usuales en su comunidad y en otras. Identifica lenguas que se hablan en su municipio y en su entidad, y en qué contextos y ocasiones. Reflexiona acerca de la relevancia que tiene para la vida social hablar y escribir según el contexto y los interlocutores e interlocutoras. Identifica variantes de su lengua materna que se usan en comunidades diferentes."
+                        }
+                    ]
+                },
+                {
+                    "id": "pri-len-42",
+                    "tema": "Uso de croquis y mapas para describir trayectos o localizar lugares.",
+                    "pdas": [
+                        {
+                            "grado": 3,
+                            "texto": "Observa croquis e identifica sus características y función. Identifica convenciones gráficas usadas en croquis. Reconoce y usa palabras para dar indicaciones sobre lugares o trayectos, como esquina, derecha, izquierda, al lado, paralelo. Elabora croquis para representar trayectos. Describe trayectos a partir de la información contenida en croquis."
+                        },
+                        {
+                            "grado": 4,
+                            "texto": "Observa mapas e identifica sus características y función. Identifica convenciones gráficas usadas en mapas. Comprende y usa vocabulario adecuado para dar indicaciones a fin de localizar lugares en un mapa. Elabora mapas para representar lugares."
+                        }
+                    ]
+                },
+                {
+                    "id": "pri-len-43",
+                    "tema": "Reconocimiento y reflexión sobre el uso de elementos de los lenguajes artísticos, en manifestaciones culturales y artísticas de la comunidad y del resto del mundo.",
+                    "pdas": [
+                        {
+                            "grado": 3,
+                            "texto": "Realiza recreaciones orales o escritas, acompañadas de una representación gráfica, como dibujos, cómics, historietas, secuencias de dibujos que realizan movimientos ('folioscopio' o flip books), a partir de la observación de videos o de la asistencia a lugares en donde se lleven a cabo manifestaciones culturales y artísticas. Compara movimientos, sonidos, formas, colores, gestos y objetos de manifestaciones culturales y artísticas de su comunidad con los de otros lugares. Expresa sus gustos e intereses hacia las manifestaciones culturales y artísticas, y realiza descripciones orales o escritas, para agruparlas de acuerdo con sus similitudes en un collage de dibujos, fotografías o recortes."
+                        },
+                        {
+                            "grado": 4,
+                            "texto": "Distingue movimientos, vestuarios, aromas, gestos, sonidos u objetos, en las manifestaciones culturales y artísticas de su comunidad y otros lugares del mundo, para reflexionar sobre su sentido y significado. Interactúa con manifestaciones culturales y artísticas de su comunidad y las compara con las de otros lugares, compartiendo sus conclusiones, mediante fotografías o dibujos comentados, o bien, mediante un escrito. Aprecia la diversidad cultural y lingüística en su país y el mundo mediante la reflexión sobre algunas manifestaciones culturales y artísticas de su interés para conocer su contexto."
+                        }
+                    ]
+                },
+                {
+                    "id": "pri-len-44",
+                    "tema": "Creación de propuestas con intención artística para mejorar la escuela y el resto de la comunidad.",
+                    "pdas": [
+                        {
+                            "grado": 3,
+                            "texto": "Identifica aspectos por mejorar de la escuela o del resto de la comunidad a partir de gustos e intereses propios, para generar ideas sobre distintas posibilidades de transformación y las representa mediante descripciones, dibujos, bocetos o maquetas. Dialoga sobre las transformaciones que han tenido distintos espacios escolares y del resto de la comunidad a partir de cambios impulsados a través de los lenguajes artísticos, como murales, esculturas, teatro callejero, recitales o bailes al aire libre. Explora y emplea movimientos, sonidos, formas, colores, texturas, gestos, objetos y palabras, para representar situaciones del espacio escolar o de la localidad. Crea producciones con distintos lenguajes, oral, escrito, musical, visual, teatral, dancístico, en las que destaque aspectos valiosos de la escuela o la comunidad."
+                        },
+                        {
+                            "grado": 4,
+                            "texto": "Crea producciones con distintos lenguajes, oral, escrito, musical, visual, teatral, dancístico, que representen vínculos respetuosos con la diversidad para su participación en la mejora comunitaria. Elabora una propuesta con intención artística, en colectivo, mediante movimientos, sonidos, formas, colores, gestos y objetos, para ofrecer propuestas de solución a situaciones o problemas identificados, ya sea en la escuela o en el resto de la comunidad. Construye propuestas artísticas de manera colectiva, a partir del uso de formas, colores, texturas, sonidos, movimientos y gestos, que permitan generar una mejora para el bien común. Opina de manera oral y escrita sobre propuestas realizadas por sus pares, así como de los elementos y recursos de los lenguajes que emplearon, y de qué manera consideran que éstas mejoran los espacios escolares y comunitarios. Experimenta con una variedad de formas, colores, texturas, sonidos, movimientos, gestos y objetos, para crear una propuesta artística colectiva que mejore el espacio que habita."
+                        }
+                    ]
+                },
+                {
+                    "id": "pri-len-45",
+                    "tema": "Lectura y creación de poemas, canciones y juegos de palabras para su disfrute.",
+                    "pdas": [
+                        {
+                            "grado": 3,
+                            "texto": "Lee y escucha poemas, canciones y juegos de palabras, de acuerdo con sus gustos e intereses, para propiciar su disfrute. Reconoce la rima y la aliteración como elementos rítmicos de poemas, canciones y juegos de palabras. Explora y combina sonidos y palabras para jugar con su acomodo y entonación, y modifica las palabras o la letra de una canción, siguiendo el ritmo original. Reconoce el contenido de distintos poemas y canciones y lo relaciona con experiencias personales o colectivas, para otorgarles un sentido propio. Realiza inferencias de sentido y significado, a partir de la lectura y socialización de trabalenguas, chistes, adivinanzas, refranes y acertijos."
+                        },
+                        {
+                            "grado": 4,
+                            "texto": "Reconoce algunas características del contexto de creación de un poema, canción o juego de palabras, para realizar interpretaciones de su significado. Establece relaciones entre el texto y las experiencias de vida, a partir de lo que le sugiere su lectura (figuras de significación). Identifica y reflexiona sobre los elementos rítmicos y melódicos de los textos poéticos: ritmos y duraciones, repetición de frases, palabras, sílabas, etcétera, en los poemas, canciones y juegos de palabras. Revisa de manera lúdica las variaciones que se dan en la lectura en voz alta, en cuanto a los tonos, pausas y acentos posibles. Asimismo, interpreta los diferentes tonos, pausas y acentos que realiza cada persona al leer en voz alta. Experimenta con la creación de poemas en verso y prosa, canciones o juegos de palabras, a partir del establecimiento de un tema que le sea significativo."
+                        }
+                    ]
+                },
+                {
+                    "id": "pri-len-46",
+                    "tema": "Experimentación con elementos visuales y sonoros en producciones colectivas artísticas.",
+                    "pdas": [
+                        {
+                            "grado": 3,
+                            "texto": "Combina secuencias de sonidos rápidos, lentos, agudos, graves, fuertes, débiles, con pausas y acentos, producidos con objetos del entorno, el cuerpo y/o la voz, para transmitir una idea colectiva. Realiza una composición visual colectiva con objetos a su alcance para representar distintas ideas y formas mediante esculturas efímeras, performances o instalaciones. Elabora un libro de artista o libro objeto, previa selección de textos, en el que experimenta con materiales diversos, como cartón, reciclados, telas, origami; y con el uso de diferentes elementos de los lenguajes artísticos, como puntos, líneas, texturas, formas, colores e imágenes y los comparte con sus pares."
+                        },
+                        {
+                            "grado": 4,
+                            "texto": "Crea un cortometraje colectivo, utilizando objetos cotidianos en animaciones con secuencias fotográficas y lo sonoriza para compartir ideas y experiencias. Recrea una experiencia colectiva mediante la intervención o transformación de un objeto significativo, con el uso de colores, telas, materiales reciclados y elementos de la naturaleza, entre otros. Elabora una producción artística colectiva que le permita imaginar formas de incidir constructivamente en su entorno natural y social, utilizando elementos y recursos de los lenguajes artísticos."
+                        }
+                    ]
+                },
+                {
+                    "id": "pri-len-47",
+                    "tema": "Reflexión y uso de los lenguajes artísticos, para recrear experiencias estéticas que tienen lugar en la vida cotidiana.",
+                    "pdas": [
+                        {
+                            "grado": 3,
+                            "texto": "Utiliza elementos de los lenguajes artísticos para representar experiencias significativas de su vida cotidiana; por ejemplo, un paseo familiar, puesta de sol, comida deliciosa. Identifica y recrea mediante el uso de formas, colores, texturas y sonidos, sensaciones, emociones, sentimientos e ideas que surgen de distintas experiencias significativas que tienen lugar en la vida cotidiana."
+                        },
+                        {
+                            "grado": 4,
+                            "texto": "Utiliza formas, colores, texturas, sonidos y movimientos para recrear, mediante diferentes producciones artísticas, obras de arte que le han causado interés e impacto. Reconoce las formas, líneas, colores y texturas de su entorno natural y social, y lo recrea mediante distintas producciones artísticas individuales y colectivas para reflexionar sobre la presencia de los lenguajes artísticos en la vida cotidiana."
+                        }
+                    ]
+                },
+                {
+                    "id": "pri-len-48",
+                    "tema": "Representación de hechos y experiencias significativas mediante el empleo de recursos textuales, visuales, corporales y sonoros.",
+                    "pdas": [
+                        {
+                            "grado": 3,
+                            "texto": "Representa lúdicamente una experiencia significativa con el uso de movimientos, formas, gestos, sonidos, colores y objetos para construir nuevos significados. Reelabora acciones cotidianas al jugar con movimientos rápidos o lentos, fuertes o débiles, con pausas o acentos, imaginando distintos espacios donde se llevan a cabo para descubrir nuevas maneras de realizarlas. Contrasta lúdicamente el lenguaje figurado y el literal, por medio de preguntas retóricas, comparaciones y metáforas. Describe un hecho significativo mediante la estructura narrativa de su elección, estableciendo para cada parte una secuencia de movimientos, con acompañamiento musical, lo cual complementa con desplazamientos, pausas, acentos y velocidades corporales."
+                        },
+                        {
+                            "grado": 4,
+                            "texto": "Selecciona los recursos textuales que le permiten recrear un hecho significativo, de acuerdo con el énfasis que busca comunicar. Reflexiona sobre una experiencia significativa que ha transformado su manera de ser o vivir, y la recrea por medio de una historia, que representa con objetos animados y sonidos corporales. Realiza un cortometraje con imágenes de su entorno, o elabora un folioscopio (flip book), para narrar un acontecimiento significativo de la comunidad."
+                        }
+                    ]
+                },
+                {
+                    "id": "pri-len-49",
+                    "tema": "Identificación del uso de la fantasía y la realidad en diferentes manifestaciones culturales y artísticas.",
+                    "pdas": [
+                        {
+                            "grado": 3,
+                            "texto": "Distingue la fantasía de la realidad en manifestaciones culturales y artísticas de su comunidad, y de otros lugares del mundo. Aprecia el uso intencional de formas, colores, sonidos, texturas, movimientos, gestos u objetos, que expresan la realidad y la fantasía en manifestaciones culturales y artísticas. Comenta impresiones y sensaciones, a partir de la identificación del uso intencional de formas, colores, sonidos, texturas, movimientos o gestos, en las manifestaciones culturales y artísticas de su interés."
+                        },
+                        {
+                            "grado": 4,
+                            "texto": "Analiza la representación de distintas formas de ser y estar en el mundo, incluyendo al género, en manifestaciones culturales y artísticas que sean de su interés. Crea un personaje, empleando elementos de los lenguajes artísticos, que retome aspectos reales y fantásticos de una manifestación cultural o artística, para expresar sus gustos e intereses. Escribe comentarios críticos sobre manifestaciones culturales y artísticas, y los comparte por medio de una publicación física y/o electrónica elaborada con sus compañeras y compañeros."
+                        }
+                    ]
+                },
+                {
+                    "id": "pri-len-50",
+                    "tema": "Lectura dramatizada y representación teatral.",
+                    "pdas": [
+                        {
+                            "grado": 3,
+                            "texto": "Reconoce características de los textos dramáticos, como diálogos, acotaciones, listado de personajes, espacio y temporalidad, al realizar una lectura comprensiva de los mismos. Transforma objetos y recursos a su alcance de manera creativa, para utilizarlos en la representación de personajes, al realizar una lectura dramatizada. Improvisa con el uso del cuerpo y la voz algunas situaciones significativas, identificadas en distintas narraciones. Participa en juegos de roles en los que representa diferentes personajes, en espacios y tiempos definidos. Explora posibilidades expresivas del cuerpo, el espacio y el tiempo, en la construcción de historias narrativas. Identifica la estructura externa del texto dramático, conformada por diálogos, listado de personajes y acotaciones. Conoce otros tipos de textos en los que se puede realizar una lectura dramatizada: historieta, cómic, manga, que contienen onomatopeyas, símbolos, viñetas, etcétera."
+                        },
+                        {
+                            "grado": 4,
+                            "texto": "Explora en colectivo el movimiento, el gesto, la forma, el color y el sonido, para recrear fragmentos de una lectura de su interés, por medio del teatro de títeres, sombras o papel. Realiza, en colectivo, una lectura dramatizada o teatro de atril de un texto dramático, jugando con combinaciones de secuencias de sonidos rápidos, lentos, agudos, graves, fuertes, débiles, con pausa y con acentos variados."
+                        }
+                    ]
+                },
+                {
+                    "id": "pri-len-51",
+                    "tema": "Comprensión y producción de cuentos para su disfrute.",
+                    "pdas": [
+                        {
+                            "grado": 3,
+                            "texto": "Escucha y lee cuentos de distintos orígenes y autores. Reconoce relaciones causa-efecto entre las partes de los cuentos. Desarrolla una historia con una secuencia causal de hechos derivados de un conflicto inicial que se soluciona al final. Planea, escribe, revisa, corrige y comparte cuentos sobre temas de su interés. Reconoce semejanzas y diferencias entre los cuentos y los eventos de la vida cotidiana, para darles un sentido y significado propios."
+                        },
+                        {
+                            "grado": 4,
+                            "texto": "Selecciona, lee y escucha cuentos de distintos orígenes y autores. Reflexiona sobre el uso de los tiempos pretérito y copretérito para narrar sucesos pasados, y sobre el empleo del presente en diálogos directos. Planea, escribe, revisa, corrige y comparte cuentos sobre diversos temas. Escribe un cuento de manera colectiva y elabora los personajes con objetos cotidianos y realiza una presentación frente a un público."
+                        }
+                    ]
+                },
+                {
+                    "id": "pri-len-52",
+                    "tema": "Narración de sucesos autobiográficos.",
+                    "pdas": [
+                        {
+                            "grado": 5,
+                            "texto": "Lee textos autobiográficos y reflexiona sobre las razones por las que suelen estar narrados en primera persona del singular. Determina los sucesos autobiográficos que desea narrar y los organiza lógicamente, resaltando los aspectos más significativos. Escribe la narración de los hechos autobiográficos, haciendo uso de comas, puntos y seguido, puntos y aparte y dos puntos, para dar claridad y orden a las ideas. Describe personas, lugares y hechos a través del uso de reiteraciones, frases adjetivas, símiles e imágenes, y mantiene la referencia a los mismos en toda la narración por medio de pronombres y sinónimos. Hace y recibe sugerencias sobre aspectos de mejora, y comparte con la comunidad educativa las versiones finales."
+                        },
+                        {
+                            "grado": 6,
+                            "texto": "Lee textos autobiográficos e identifica las relaciones temporales de secuencia, simultaneidad y duración. Analiza distintos sucesos de su vida para elegir los más significativos y organizarlos de manera coherente en una narración. Determina al destinatario y la forma en que desea narrar sucesos autobiográficos significativos, para causar efectos particulares. Usa reflexivamente adverbios, frases adverbiales y nexos temporales, para indicar secuencia, simultaneidad y duración en los sucesos narrados. Colabora en la edición de un libro de textos autobiográficos, y sugiere formas de reproducirlo para que cada alumna y alumno tenga el suyo."
+                        }
+                    ]
+                },
+                {
+                    "id": "pri-len-53",
+                    "tema": "Comprensión y producción de textos explicativos.",
+                    "pdas": [
+                        {
+                            "grado": 5,
+                            "texto": "Lee distintos tipos de textos explicativos y reflexiona sobre sus características y funciones. Expone las diferencias entre una descripción y una explicación, y entre un texto descriptivo y uno explicativo. Recupera información de distintas fuentes, como artículos de divulgación, libros de texto, reportes de investigación, para producir un texto explicativo sobre temas diversos y con propósitos particulares. Establece relaciones causales y emplea expresiones como en consecuencia, por lo tanto, debido a, a causa de, porque, por consiguiente. Distingue sus propias palabras de la paráfrasis y citas textuales, y registra la información bibliográfica de las fuentes consultadas: autor, título, editorial, lugar y fecha de publicación, páginas consultadas, etcétera. Utiliza palabras nuevas y/o técnicas en el texto explicativo que produce para compartir."
+                        },
+                        {
+                            "grado": 6,
+                            "texto": "Localiza y lee textos explicativos de temas variados. Expresa con sus palabras las ideas que comprende de los textos que lee y elabora resúmenes que le permitan reconstruir las ideas principales y los elementos de los textos explicativos. Reconoce y emplea relaciones de causa-consecuencia. Emplea palabras como primero, finalmente, luego, después, posteriormente, durante, para organizar las oraciones."
+                        }
+                    ]
+                },
+                {
+                    "id": "pri-len-54",
+                    "tema": "Participación en debates sobre temas de interés común.",
+                    "pdas": [
+                        {
+                            "grado": 5,
+                            "texto": "Reconoce que hay temas donde las opiniones se dividen, y es necesario sustentar las propias. Conoce la función y organización de un debate. Investiga y toma notas de las ideas centrales y otros datos significativos con relación al tema del debate, con la intención de construir sus argumentos. Identifica la función de los nexos de subordinación en textos argumentativos. Hace su presentación, opina sobre lo que dicen otros y otras participantes y reconoce que es posible cambiar de opinión, a partir de las opiniones argumentadas de las demás personas."
+                        },
+                        {
+                            "grado": 6,
+                            "texto": "Prepara su participación en un debate y formula los argumentos por presentar, cuidando que la exposición del tema por discutir resulte coherente y suficiente, los argumentos claros, pertinentes y fundamentados, y se expliciten las referencias bibliográficas y citas textuales que dan soporte a la información que se comparte. Identifica la función de los conectivos causales, temporales y lógicos en textos argumentativos. Escucha y opina de manera crítica durante su desempeño como participante, moderador, moderadora o público en un debate."
+                        }
+                    ]
+                },
+                {
+                    "id": "pri-len-55",
+                    "tema": "Comprensión y producción de textos argumentativos.",
+                    "pdas": [
+                        {
+                            "grado": 5,
+                            "texto": "Lee textos sobre temas polémicos, y distingue las opiniones de los datos y hechos concretos. Compara distintas formas de construir y expresar argumentos, siempre en un marco de respeto. Expresa sus opiniones oralmente, basado en argumentos, sobre textos que incluyen temas polémicos."
+                        },
+                        {
+                            "grado": 6,
+                            "texto": "Lee textos sobre temas polémicos, e identifica los argumentos que sustentan cada postura. Registra los principales argumentos y las conclusiones de las autoras y los autores de los textos leídos. Reflexiona sobre la relación entre los argumentos principales y las conclusiones. Escribe un texto, a partir de las ideas que registró, en el que expresa sus propias opiniones sobre los temas tratados, y en el que emplea nexos que anteceden los argumentos, como porque, ya que, si bien, en consecuencia."
+                        }
+                    ]
+                },
+                {
+                    "id": "pri-len-56",
+                    "tema": "Comprensión y producción de textos informativos, para ampliar sus conocimientos sobre temas de interés tanto colectivo como individual.",
+                    "pdas": [
+                        {
+                            "grado": 5,
+                            "texto": "Selecciona y lee textos informativos sobre temas de su interés. Formula preguntas para guiar la búsqueda de información específica, para lo cual usa los signos de interrogación. Reconoce el tema central de los textos leídos. Escribe textos informativos, empleando signos de puntuación: coma, dos puntos, punto y seguido, y punto y aparte, para organizar las ideas dentro de los párrafos."
+                        },
+                        {
+                            "grado": 6,
+                            "texto": "Lee textos informativos y reflexiona sobre su organización. Identifica información específica sobre asuntos de su interés, y comprende el tema central. Reconoce vínculos entre el contenido de textos informativos, respecto del contraste, la complementariedad y la causa-consecuencia del tema abordado. Escribe textos informativos en los que registra, de manera convencional, los datos de las fuentes consultadas: autor, título, editorial, fecha y lugar de publicación, páginas consultadas, etcétera."
+                        }
+                    ]
+                },
+                {
+                    "id": "pri-len-57",
+                    "tema": "Comprensión y producción de textos discontinuos, para organizar y presentar información.",
+                    "pdas": [
+                        {
+                            "grado": 5,
+                            "texto": "Reconoce, mediante el análisis, las características y funciones de los textos discontinuos, en particular de tablas de doble entrada, líneas del tiempo y cuadros cronológicos. Reflexiona sobre la utilidad de los textos discontinuos para organizar y presentar información. Selecciona información para organizarla y presentarla por medio de textos discontinuos. Produce textos discontinuos, considerando al destinatario y tomando en cuenta aspectos gráficos como el tamaño de la letra empleada, a fin de garantizar su legibilidad."
+                        },
+                        {
+                            "grado": 6,
+                            "texto": "Reconoce, mediante el análisis, las características y funciones de los textos discontinuos, en particular de gráficas, cuadros sinópticos y mapas conceptuales. Reflexiona sobre las posibilidades de los textos discontinuos para organizar la información que expone a otras personas. Sintetiza información, sin perder el significado original, para organizarla y presentarla por medio de textos discontinuos. Produce textos discontinuos, considerando al destinatario y empleando elementos gráficos útiles para organizar y presentar información, como tipografía, viñetas, espacios de la página, interlineado, signos de puntuación, mayúsculas y minúsculas."
+                        }
+                    ]
+                },
+                {
+                    "id": "pri-len-58",
+                    "tema": "Elaboración e intercambio de reseñas de diversos textos y/o audiovisuales.",
+                    "pdas": [
+                        {
+                            "grado": 5,
+                            "texto": "Reconoce las características y función de las reseñas. Describe un texto leído y construye una opinión acerca del mismo, explicando su parecer. Usa expresiones como creo que, en mi opinión, pienso que, de acuerdo con, desde mi punto de vista, considero que, para organizar y compartir su opinión. Registra datos de identificación del texto: título, autor, editorial y lugar y fecha de publicación, número de páginas. Revisa y corrige reiteraciones innecesarias en la escritura de la reseña: errores de concordancia y de ortografía en general."
+                        },
+                        {
+                            "grado": 6,
+                            "texto": "Explica la utilidad de las reseñas y comenta sus características. Describe el material audiovisual consultado y registra los datos de identificación de este: título, tema, director, protagonistas, institución o empresa productora, fecha de realización, etcétera. Elabora una opinión sustentada acerca de un material reseñado. Usa conectores como porque, ya que, puesto que, por, debido a, etcétera, con los que apoya la argumentación de sus opiniones. Revisa y corrige reiteraciones innecesarias, y errores de concordancia y ortografía en general."
+                        }
+                    ]
+                },
+                {
+                    "id": "pri-len-59",
+                    "tema": "Comparación y producción de documentos que regulan la convivencia.",
+                    "pdas": [
+                        {
+                            "grado": 5,
+                            "texto": "Analiza varios reglamentos escolares, e identifica características como brevedad o concisión y uso de verbos y numerales. Comprende y explica la función de los reglamentos. Participa en la elaboración del reglamento del aula. Revisa y corrige errores de concordancia y ortografía en el texto."
+                        },
+                        {
+                            "grado": 6,
+                            "texto": "Reconoce la función e importancia de cumplir las pautas o normas establecidas en reglamentos para regular la convivencia. Reflexiona y comprende la concisión de las reglas, el empleo de verbos (modo y tiempo) y el uso de numerales. Escribe las reglas para lograr una convivencia respetuosa, incluyente, equitativa e igualitaria en la escuela, tomando en consideración sus experiencias a lo largo de la primaria. Utiliza oraciones breves y decide si debe emplear subtítulos, viñetas o incisos. Revisa y corrige errores en cuanto al contenido, concordancia y ortografía en el texto, hasta que logra la versión final del reglamento escolar."
+                        }
+                    ]
+                },
+                {
+                    "id": "pri-len-60",
+                    "tema": "Exposición sobre temas relacionados con el cuidado de la salud.",
+                    "pdas": [
+                        {
+                            "grado": 5,
+                            "texto": "Como presentador o presentadora: Recupera e integra información de diversas fuentes, gráficas, orales y/o escritas, para preparar su presentación. Escribe palabras clave y/o notas breves para usarlas como guía y exponer de manera lógica y secuenciada, empleando un léxico formal. Elabora cuadros sinópticos, esquemas, tablas de doble entrada u otros recursos gráficos, como material de apoyo para la exposición. Conserva la atención de las espectadoras y los espectadores, resuelve dudas y hace comentarios acerca de lo que le plantean. Como audiencia: Mantiene la atención en lo que presenta la expositora o el expositor, toma notas sobre lo que le parece más relevante, le causa duda o quiere comentar, y pide y hace uso de la palabra para plantear preguntas, hacer comentarios o compartir su opinión."
+                        },
+                        {
+                            "grado": 6,
+                            "texto": "Como presentador o presentadora: Elabora un guion para presentar de manera ordenada la información que investigó en diversas fuentes, gráficas, orales y/o escritas, y usó para construir su exposición. Prepara diversos materiales de apoyo para enriquecer su presentación. Usa un léxico formal y mantiene o recupera la atención de la audiencia haciendo inflexiones de voz, ademanes, gestos, preguntas. Aclara las dudas que le plantean y, en general, atiende los comentarios u opiniones que le comparten acerca de lo expuesto. Como audiencia: Comprende lo que escucha, apunta lo que le interesa, pregunta y comenta sobre lo expuesto, y argumenta sus opiniones y divergencias."
+                        }
+                    ]
+                },
+                {
+                    "id": "pri-len-61",
+                    "tema": "Producción y envío de cartas personales.",
+                    "pdas": [
+                        {
+                            "grado": 5,
+                            "texto": "Lee distintas cartas personales reales y literarias. Reflexiona sobre las características y funciones de las cartas personales enviadas por correo postal y electrónico. Expresa sentimientos, ideas y experiencias por medio de cartas, pensando en destinatarias y destinatarios específicos. Reconoce palabras y expresiones que señalan tiempo y espacio en las cartas personales: allá, aquí, ahí, acá, hace tiempo. Envía las cartas que escribe a través del correo postal y/o electrónico."
+                        },
+                        {
+                            "grado": 6,
+                            "texto": "Lee distintas cartas personales reales y literarias y analiza sus características. Discute sobre las similitudes y diferencias, así como sobre las ventajas y desventajas del correo postal y el electrónico. Reconoce la structure de la información de las direcciones postales y electrónicas de destinatarias, destinatarios y remitentes. Expresa sentimientos, ideas y experiencias por medio de cartas, en función de las destinatarias y los destinatarios y empleando adverbios de tiempo y lugar: ayer, hoy, mañana, anoche, ahora, después, luego, nunca, jamás, aquí, allá, allí, arriba, abajo. Envía las cartas que escribe a través del correo postal y/o electrónico."
+                        }
+                    ]
+                },
+                {
+                    "id": "pri-len-62",
+                    "tema": "Interpretación y producción de anuncios publicitarios de productos o servicios ofrecidos en la comunidad.",
+                    "pdas": [
+                        {
+                            "grado": 5,
+                            "texto": "Analiza anuncios publicitarios impresos y electrónicos, e identifica sus características y funciones. Reflexiona sobre los recursos empleados para persuadir a los consumidores, como las imágenes que utilizan y, en particular, las características del lenguaje escrito; por ejemplo, uso de adjetivos, rimas, juegos de palabras, metáforas y comparaciones, así como la brevedad. Identifica los productos y servicios ofrecidos en su comunidad que desea publicitar. Elabora anuncios publicitarios en los que emplea distintas estrategias textuales para persuadir a su público objetivo, cuidando la distribución gráfica; por ejemplo, el tamaño y colocación de texto e imagen, así como la claridad. Difunde con las personas de la comunidad los anuncios publicitarios elaborados."
+                        },
+                        {
+                            "grado": 6,
+                            "texto": "Recopila y analiza anuncios publicitarios elaborados con distintos fines; por ejemplo, comerciales, políticos y sociales. Reflexiona sobre las características y funciones de las frases publicitarias empleadas en anuncios publicados en medios impresos y electrónicos, y analiza el uso de estereotipos, frases sugestivas, juegos de palabras y demás recursos lingüísticos y gráficos. Adopta una postura crítica ante los mensajes publicitarios y discute sobre ella con sus compañeras y compañeros. Elabora anuncios publicitarios sobre los productos y servicios ofrecidos en su comunidad, en los que considera la disposición gráfica y el uso de adjetivos, frases adjetivas, adverbios y figuras retóricas como analogías, metáforas, comparaciones, rimas, hipérboles y demás juegos de palabras. Difunde con las personas de la comunidad los anuncios publicitarios elaborados, así como su postura crítica ante los mensajes publicitarios analizados."
+                        }
+                    ]
+                },
+                {
+                    "id": "pri-len-63",
+                    "tema": "Seguimiento crítico de noticias en diferentes medios de comunicación escrita.",
+                    "pdas": [
+                        {
+                            "grado": 5,
+                            "texto": "Expresa interés por una noticia particular y busca notas informativas relacionadas en distintos medios de comunicación escrita: periódicos, revistas, portales de internet. Da seguimiento a las noticias de su interés en diferentes medios de comunicación escrita. Analiza los elementos que componen las notas informativas sobre noticias de su interés en los diferentes medios de comunicación escrita: títulos, balazos, entradillas, tipografías, usos de espacios, puntuación, elementos gráficos, formas de referirse a las personas o lugares involucrados. Compara las diferencias y similitudes en las distintas formas de presentar las noticias de su interés. Comparte sus reflexiones sobre los hechos noticiosos de su interés y sobre la experiencia de darles seguimiento en diferentes medios de comunicación escrita."
+                        },
+                        {
+                            "grado": 6,
+                            "texto": "Consulta distintos medios de comunicación escrita y selecciona noticias de su interés, justificando las razones de su elección. Da seguimiento a las noticias de su interés en distintos medios de comunicación escrita e identifica las fuentes de las que proviene la información: testimonios, agencias de noticias, otros diarios y revistas. Identifica relaciones de contraste, complementariedad, causa-consecuencia y temporalidad entre las diferentes notas informativas sobre el mismo hecho noticioso. Reflexiona sobre las diferentes formas de expresar y abordar el mismo hecho noticioso en diferentes medios de comunicación escrita: extensión, manera de presentarlo, opiniones de las autoras y los autores, tipo de información que se revela. Escribe y comparte sus conclusiones sobre el hecho noticioso y sus reflexiones sobre las razones por las que pueden presentarse de diferente manera en cada medio de comunicación escrita."
+                        }
+                    ]
+                },
+                {
+                    "id": "pri-len-64",
+                    "tema": "Comprensión y producción de textos para gestionar servicios públicos.",
+                    "pdas": [
+                        {
+                            "grado": 5,
+                            "texto": "Explora distintos formularios para gestionar servicios públicos: los que brinda la escuela, la biblioteca o, en general, la comunidad. Reflexiona tanto sobre la utilidad de esta clase de documentos como sobre sus características y funciones. Llena diferentes formularios e identifica el tipo de información que incluyen y solicitan. Reconoce la utilidad de los formularios para gestionar servicios públicos."
+                        },
+                        {
+                            "grado": 6,
+                            "texto": "Dialoga con sus pares sobre los servicios públicos que podrían gestionar para mejorar su entorno natural y social, define con sus compañeras y compañeros cuál gestionarán y averiguan a qué persona o institución deben dirigirse. Reflexiona sobre las características de las cartas formales. Escribe con sus compañeras y compañeros una carta formal, en la que explican, por un lado, el servicio público que solicitan, y, por otro, las razones. Emplea mayúsculas al inicio de los párrafos y de los nombres propios, así como punto y seguido, punto y aparte, dos puntos y coma para ordenar las oraciones y los párrafos. Envía, con apoyo del profesor o profesora, la carta formal y le da seguimiento a la solicitud."
+                        }
+                    ]
+                },
+                {
+                    "id": "pri-len-65",
+                    "tema": "Elaboración de un tríptico informativo sobre la prevención de algún problema colectivo.",
+                    "pdas": [
+                        {
+                            "grado": 5,
+                            "texto": "Recopila y analiza distintos trípticos informativos para conocer sus características y funciones. Determina, por medio del diálogo con sus compañeras y compañeros, algún problema colectivo que pueda prevenirse, relacionado con la salud, la violencia, el bienestar. Investiga en varias fuentes sobre el problema colectivo que quieren prevenir y, en común acuerdo con sus pares, integra la información más relevante en un texto breve que incluya nexos que ayuden a que las ideas se presenten de manera ordenada y coherente. Organiza la información textual y gráfica en un tríptico en el que se defina el problema que quieren prevenir y las razones para hacerlo, así como las medidas de prevención y las personas, fuentes o instituciones a las cuales es posible recurrir para profundizar en el asunto o buscar ayuda. Presenta y difunde el tríptico con la comunidad escolar."
+                        },
+                        {
+                            "grado": 6,
+                            "texto": "Indaga y reflexiona sobre las características y funciones de los trípticos informativos. Investiga en diferentes fuentes impresas y electrónicas, y por medio de entrevistas con personas de la comunidad, sobre algún problema colectivo que pueda prevenirse y sobre las maneras de lograrlo. Comparte con sus compañeras y compañeros la información investigada y dialoga para que, entre todos y todas, reflexionen sobre la relevancia de la prevención y elijan el problema colectivo sobre el que harán un tríptico informativo. Investiga con mayor profundidad sobre el problema colectivo que hayan elegido e integran la información en un texto breve que incluirán en un tríptico que contenga portada, imágenes, gráficas, tablas, cuadros, fuentes de consulta, datos de personas o instituciones de apoyo, etcétera. Presenta y difunde el tríptico con la comunidad."
+                        }
+                    ]
+                },
+                {
+                    "id": "pri-len-66",
+                    "tema": "Reconocimiento de la diversidad lingüística de México.",
+                    "pdas": [
+                        {
+                            "grado": 5,
+                            "texto": "Investiga en fuentes impresas y/o electrónicas sobre la diversidad lingüística en México y sobre la influencia de las lenguas originarias en el español en México. Averigua por medio de entrevistas con personas adultas mayores y la consulta de diccionarios, algunas palabras usuales en el español mexicano que provienen de lenguas originarias. Registra las palabras sobre las que averiguó, comprende su significado y, de ser posible, indaga en su historia. Comparte el resultado de su investigación. Reflexiona sobre la diversidad lingüística en México y valora su riqueza."
+                        },
+                        {
+                            "grado": 6,
+                            "texto": "Identifica qué lenguas se hablan en su familia, localidad y/o región. Investiga sobre las lenguas que se hablan en su familia, localidad y/o región, por medio entrevistas y fuentes impresas y electrónicas. Escribe un texto sobre los resultados de su investigación, empleando comillas para diferenciar las palabras de otras y otros de las suyas, e incluyendo las referencias de las fuentes consultadas. Comparte el resultado de su investigación. Reflexiona sobre las diferentes formas de valorar las lenguas en diversos contextos y sobre las posibles razones por las que esto ocurre."
+                        }
+                    ]
+                },
+                {
+                    "id": "pri-len-67",
+                    "tema": "Interpretación y valoración de manifestaciones culturales y artísticas de México y del mundo.",
+                    "pdas": [
+                        {
+                            "grado": 5,
+                            "texto": "Explora manifestaciones culturales y artísticas de diversos orígenes, e identifica sus elementos, para recrearlos mediante textos y otras producciones artísticas, que amplíen sus concepciones de ser y estar en el mundo. Relaciona el uso de textos, imágenes, colores, objetos, sonidos, silencios, aromas y movimientos, presentes en manifestaciones culturales y artísticas, con los que infiere su significado, a partir de intereses, perspectivas y creencias propias. Construye significados en lo individual y colectivo, a partir de la observación y comprensión de sonidos, gestos, formas, colores, texturas, objetos, aromas, movimientos, así como del contexto de creación de manifestaciones culturales y artísticas."
+                        },
+                        {
+                            "grado": 6,
+                            "texto": "Reconoce ideales y temáticas sociales que se imprimieron en ciertas manifestaciones culturales y artísticas, en un tiempo y espacio determinados. Analiza las partes y elementos que conforman una manifestación cultural o artística, y reconoce la multiplicidad de significados, puntos de vista y concepciones del mundo en ella. Reconoce símbolos presentes en manifestaciones culturales y artísticas, a partir del análisis e interpretación de formas, colores, texturas, sonidos, objetos, aromas, movimientos y gestos, que contienen."
+                        }
+                    ]
+                },
+                {
+                    "id": "pri-len-68",
+                    "tema": "Apropiación e intervención artística en el espacio comunitario.",
+                    "pdas": [
+                        {
+                            "grado": 5,
+                            "texto": "Plantea propuestas creativas de atención y/o solución, al identificar y socializar necesidades, intereses y problemas de la comunidad. Representa problemas detectadas en su comunidad, por medio de historietas, maquetas, improvisaciones teatrales, una secuencia dancística o una canción popular donde modifique su letra para compartir su perspectiva con otras personas. Planea e interviene un espacio de la escuela o la comunidad, utilizando objetos y materiales a su alcance, así como su cuerpo, sonidos y gestos."
+                        },
+                        {
+                            "grado": 6,
+                            "texto": "Reflexiona en colectivo acerca de las maneras en que un espacio puede ser mejorado, y lo lleva a cabo mediante la planeación de expresiones artísticas, tales como performance, videoarte, instalación, escultura, o teatro comunitario. Representa en colectivo problemas de la comunidad para visibilizarlas mediante propuestas artísticas ante los demás. Crea producciones artísticas con distintos lenguajes: oral, escrito, alternativo, musical, visual, teatral o dancístico, para transformar de manera efímera, o incluso permanentemente, un espacio público de la comunidad, a favor del bienestar social."
+                        }
+                    ]
+                },
+                {
+                    "id": "pri-len-69",
+                    "tema": "Análisis de cuentos y poemas para su disfrute y comprensión.",
+                    "pdas": [
+                        {
+                            "grado": 5,
+                            "texto": "Lee y selecciona cuentos y poemas mexicanos a partir de sus intereses y gustos, y comparte los motivos de su elección. Analiza cuentos y poemas, y expresa oralmente sus interpretaciones de estos. Distingue las características tanto de cuentos como de poemas. Organiza y participa en un recital literario en el que lee en voz alta cuentos y poemas para la comunidad escolar. Crea poemas y cuentos en colectivo a partir de historias propias, familiares o populares."
+                        },
+                        {
+                            "grado": 6,
+                            "texto": "Selecciona y lee cuentos y poemas del mundo a partir de sus intereses y gustos. Intercambia con sus pares los cuentos y poemas que más le gustaron, y discute sobre su significado. Reconoce las características tanto de cuentos como de poemas. Elabora una antología con los cuentos y poemas seleccionados, así como con cuentos de producción propia, que incluya título, portada, portadilla, índice, ilustraciones, comentarios sobre la interpretación de cada texto y nombres de las y los participantes. Comparte la antología con la comunidad educativa y deja un ejemplar en la biblioteca escolar."
+                        }
+                    ]
+                },
+                {
+                    "id": "pri-len-70",
+                    "tema": "Combinación de elementos visuales, sonoros y corporales, en composiciones artísticas colectivas, para expresar rasgos de sus identidades personal y colectiva.",
+                    "pdas": [
+                        {
+                            "grado": 5,
+                            "texto": "Relaciona movimientos corporales con sonidos producidos con objetos del entorno, el cuerpo y/o la voz, en secuencias colectivas que narran una historia propia que les es significativa. Explora sonidos graves, agudos, rápidos, lentos, fuertes, débiles, largos, cortos, con pausas y acentos, para relacionarlos con la voz y características de un personaje, que crea a partir de objetos cotidianos y de sus rasgos de identidad personal. Recrea colectivamente una misma escena o paisaje de su entorno natural o social, con movimientos, gestos y objetos, para explorar distintas maneras de expresar, en colectivo, una misma experiencia con distintos elementos."
+                        },
+                        {
+                            "grado": 6,
+                            "texto": "Combina formas, colores, texturas, sonidos, movimientos y gestos para representar personajes, lugares y situaciones y los guarda en video o los presenta en vivo al montar una exposición en la que se invite a familiares y el resto de la comunidad escolar, para su apreciación y disfrute. Recrea lugares y experiencias significativas, a partir de una composición visual colectiva que sonoriza con objetos a su alcance, mientras la narra en un audiovisual. Combina secuencias de formas, colores, texturas, sonidos, movimientos corporales y sonidos, y posteriormente con objetos en una secuencia animada (stop motion) o una historieta. Construye propuestas artísticas de manera grupal, a partir del uso de formas, colores, texturas, sonidos, movimientos y gestos, que representen su identidad colectiva."
+                        }
+                    ]
+                },
+                {
+                    "id": "pri-len-71",
+                    "tema": "Expresión, mediante el uso de los lenguajes artísticos, de experiencias estéticas que tienen lugar en la naturaleza.",
+                    "pdas": [
+                        {
+                            "grado": 5,
+                            "texto": "Comparte sensaciones, emociones, sentimientos e ideas, a partir del asombro generado por la interacción con la naturaleza y representa su experiencia en una producción artística. Reconoce formas, colores, texturas, sonidos y movimientos algunos componentes de la naturaleza y los recrea por medio de los lenguajes artísticos."
+                        },
+                        {
+                            "grado": 6,
+                            "texto": "Utiliza formas, colores, texturas, sonidos y movimientos, para expresar las emociones que surgen de una experiencia significativa en el entorno natural y las representa en colectivo mediante un mural o performance. Aprecia la disposición de formas, colores, texturas, sonidos y movimientos en el entorno natural y usa elementos de los lenguajes artísticos para representar una experiencia significativa de sus vínculos con la naturaleza."
+                        }
+                    ]
+                },
+                {
+                    "id": "pri-len-72",
+                    "tema": "Creación y representación de narrativas a partir de acontecimientos relevantes de la comunidad, empleando recursos literarios, visuales, corporales y sonoros.",
+                    "pdas": [
+                        {
+                            "grado": 5,
+                            "texto": "Combina secuencias de movimientos, gestos, formas, sonidos, colores y objetos, a partir de cuentos que lee o escucha. Desarrolla relatos escritos o crea narrativas corporales a partir del significado de su nombre y la historia familiar de cómo y por qué eligieron ese nombre. Narra y representa teatral o dancísticamente historias o situaciones cotidianas de su comunidad que sean trágicas, cómicas, románticas, etcétera."
+                        },
+                        {
+                            "grado": 6,
+                            "texto": "Representa un acontecimiento de la comunidad, experimentando con movimientos suaves, fuertes, rápidos, lentos, fluidos o pausados en distintas trayectorias, desplazamientos y con acompañamiento musical. Explora, en colectivo, movimientos, gestos, formas, colores, sonidos y silencios, y acuerda una estructura creativa para crear un acontecimiento improvisado (flashmoob) en su escuela o en la comunidad, donde se invite a todas las personas a participar en el momento en que se está llevando a cabo."
+                        }
+                    ]
+                },
+                {
+                    "id": "pri-len-73",
+                    "tema": "Combinación de la realidad y la ficción en elementos simbólicos de las manifestaciones culturales y artísticas, que dan identidad y sentido de pertenencia.",
+                    "pdas": [
+                        {
+                            "grado": 5,
+                            "texto": "Aprecia movimientos, gestos y formas que crean los objetos y los cuerpos en una manifestación cultural o artística, para reflexionar sobre aquello que simbolizan. Aprecia colores, sonidos y silencios en una manifestación cultural o artística de su interés, y los contrasta con el significado que representan. Combina intencionalmente secuencias de formas, colores, texturas, sonidos, silencios, movimientos, gestos y objetos, para recrear un fragmento de una manifestación cultural o artística con elementos simbólicos propios."
+                        },
+                        {
+                            "grado": 6,
+                            "texto": "Explora diversos elementos simbólicos que se encuentran en el entorno, a través del uso del color y las formas. Infiere la intención del autor o autora al utilizar los siguientes elementos: movimiento, gesto, forma, sonido y/o color en una manifestación cultural y artística, y compara sus ideas con las de sus pares. Reinterpreta una manifestación cultural o artística con un lenguaje artístico distinto al que se utilizó en su creación, para crear nuevas formas de simbolización. Aprecia y recrea una danza ritual colectiva, con elementos simbólicos propios de cada participante."
+                        }
+                    ]
+                },
+                {
+                    "id": "pri-len-74",
+                    "tema": "Análisis y representación de guiones teatrales.",
+                    "pdas": [
+                        {
+                            "grado": 5,
+                            "texto": "Lee y analiza guiones teatrales de su elección, para reflexionar en colectivo sobre sus argumentos o tramas, las características de los personajes, así como los temas y conflictos que abordan. Realiza lecturas en voz alta de guiones teatrales y los representa en colectivo, mediante el empleo del cuerpo, procurando respetar los elementos que le permiten ser escenificados, tales como la presencia de acción, el conflicto, los diálogos, los personajes, las acotaciones y la tipografía empleada para distinguirlos. Crea personajes y escenografías para la historia de una obra de teatro infantil y la sonoriza para representarla ante la comunidad."
+                        },
+                        {
+                            "grado": 6,
+                            "texto": "Formula comentarios críticos respecto de un guion teatral de su elección, para expresar sus gustos, intereses e ideas, así como para desarrollar la argumentación. Realiza una representación teatral en colectivo, jugando con combinaciones de secuencias de sonidos y movimientos rápidos, lentos, agudos, graves, fuertes, débiles, pausas y con acentos variados. Emplea diversos elementos de los lenguajes artísticos, para crear escenografía, vestuario y maquillaje en la escenificación de una obra de teatro infantil o una situación improvisada a la que se invite a familiares y otros miembros de la comunidad como espectadores y espectadoras."
+                        }
+                    ]
+                },
+                {
+                    "id": "pri-len-75",
+                    "tema": "Lectura y análisis de mitos y leyendas, para su disfrute y valoración.",
+                    "pdas": [
+                        {
+                            "grado": 5,
+                            "texto": "Lee mitos y leyendas de México e identifica las características y funciones de cada tipo de texto. Investiga sobre el origen de los mitos y leyendas leídos. Identifica elementos de realidad y fantasía tanto en mitos como en leyendas. Indaga, con las personas adultas mayores de su comunidad, para conocer los mitos y leyendas que forman parte de la cultura de su región. Escenifica un mito o leyenda de su interés frente a público. Reflexiona sobre la riqueza cultural que encierran los mitos y las leyendas."
+                        },
+                        {
+                            "grado": 6,
+                            "texto": "Lee mitos y leyendas de México y del mundo, y reconoce las características y funciones de cada tipo de texto. Analiza mitos y leyendas de México y del mundo, y discute sobre su significado. Distingue las diferencias y similitudes entre los mitos y leyendas. Recupera mitos y leyendas con las personas de su comunidad y de libros, y las compila. Elabora un compendio de mitos y leyendas para compartir, que incluye título, portada, portadilla, introducción e índice. Representa un mito o leyenda de su interés mediante una escultura, cómic, performance, entre otros."
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

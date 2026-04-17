@@ -1,0 +1,1856 @@
+{
+  "niveles": {
+    "preescolar": {
+      "nombre": "Preescolar",
+      "grados": [1, 2, 3],
+      "campos": [
+        {
+          "slug": "lenguajes",
+          "nombre": "Lenguajes",
+          "disciplinas": [
+            {
+              "slug": "general",
+              "nombre": "General",
+              "contenidos": [
+                {
+                  "id": "pre-len-1",
+                  "tema": "Narración de historias mediante diversos lenguajes, en un ambiente donde las niñas y los niños participen y se apropien de la cultura, a través de diferentes textos.",
+                  "pdas": [
+                    { "grado": 1, "texto": "Evoca y narra fragmentos de diferentes textos literarios –leyendas, cuentos, fábulas, historias–, y relatos de la comunidad, que escucha en voz de otras personas que las narran o leen. Comparte las emociones que le provocan." },
+                    { "grado": 2, "texto": "Lee con apoyo y narra con una secuencia lógica, diferentes textos literarios como leyendas, cuentos, fábulas, historias, y relatos de la comunidad, en las que aprecia otras formas de vida, de pensamiento y de comportamiento. Narra con secuencia lógica, historias que conoce o inventa, y las acompaña con recursos de los lenguajes artísticos." },
+                    { "grado": 3, "texto": "Narra historias que inventa considerando los momentos de inicio, desarrollo y final, de manera individual o colectiva. Describe detalles de personajes y lugares, los comparte con sus pares para evocarlos y enriquecerlos, e incorpora nuevos elementos a partir de los rasgos de su cultura y de otras regiones." }
+                  ]
+                },
+                {
+                  "id": "pre-len-2",
+                  "tema": "Recursos y juegos del lenguaje que fortalecen la diversidad de formas de expresión oral, y que rescatan la o las lenguas de la comunidad y de otros lugares.",
+                  "pdas": [
+                    { "grado": 1, "texto": "Combina recursos de los lenguajes, tales como movimientos corporales, gestos, velocidades, ritmos, entre otros, al decir rimas, poemas, canciones, retahílas, trabalenguas, adivinanzas y otros juegos del lenguaje." },
+                    { "grado": 2, "texto": "Utiliza distintos recursos de los lenguajes, tales como sonido, ritmo, música, velocidad y movimientos corporales, gestos o señas, para acompañar y modificar adivinanzas, canciones, trabalenguas, retahílas, coplas, entre otros, y con ello crea otras formas de expresión." },
+                    { "grado": 3, "texto": "Experimenta con los recursos de los lenguajes para crear, en lo individual y lo colectivo, juegos del lenguaje como adivinanzas, trabalenguas, canciones, rimas, coplas u otros. Combina e inventa nuevas palabras y las integra a su expresión." }
+                  ]
+                },
+                {
+                  "id": "pre-len-3",
+                  "tema": "Producciones gráficas dirigidas a diversas destinatarias y diversos destinatarios, para establecer vínculos sociales y acercarse a la cultura escrita.",
+                  "pdas": [
+                    { "grado": 1, "texto": "Reconoce que las producciones gráficas, son una forma de establecer comunicación o vínculos con otras personas. Elabora producciones gráficas (mensajes, avisos, recados, entre otros) con marcas propias, dibujos o por medio del dictado, para informar algo a diferentes personas." },
+                    { "grado": 2, "texto": "Produce textos o mensajes de interés, con formas gráficas personales, copiando textos o dictando a alguien, con distintos propósitos y destinatarios. Distingue semejanzas y diferencias con los nombres de sus pares, por los sonidos, marcas gráficas o letras." },
+                    { "grado": 3, "texto": "Planifica producciones gráficas, tales como avisos, recomendaciones de libros, recados, letreros, entre otros de forma individual o en pequeñas comunidades. Reconoce las letras de su nombre en textos impresos y digitales. Usa grafías para representar su nombre y otras palabras conocidas con diversos propósitos." }
+                  ]
+                },
+                {
+                  "id": "pre-len-4",
+                  "tema": "Reconocimiento y aprecio de la diversidad lingüística, al identificar las formas en que se comunican las distintas personas de la comunidad.",
+                  "pdas": [
+                    { "grado": 1, "texto": "Reconoce que hay personas que se comunican en lenguas distintas a la propia." },
+                    { "grado": 2, "texto": "Se familiariza con lenguas distintas a la suya que escucha en su comunidad e incorpora a su comunicación, expresiones de origen indígena, extranjero o de las lenguas de señas." },
+                    { "grado": 3, "texto": "Identifica y utiliza algunas palabras, frases o señas de la diversidad lingüística." }
+                  ]
+                },
+                {
+                  "id": "pre-len-5",
+                  "tema": "Representación gráfica de ideas y descubrimientos, al explorar los diversos textos que hay en su comunidad y otros lugares.",
+                  "pdas": [
+                    { "grado": 1, "texto": "Explora y descubre diversos textos de su hogar y escuela, como cuentos, carteles, letreros o mensajes e interpreta qué dicen a partir de las imágenes y marcas gráficas, e identifica para qué sirven." },
+                    { "grado": 2, "texto": "Interpreta, a partir de experiencias y referentes culturales, el contenido de diversos textos que le interesan, y sabe para qué son." },
+                    { "grado": 3, "texto": "Interpreta y elabora algunas señalizaciones, símbolos y letreros a partir de entender sus características, elementos gráficos y contexto. Utiliza distintos textos (carteles, avisos, periódico mural, revistas, hojas, cuadernos) para representar gráficamente ideas que descubre del entorno de manera vivencial y al consultar libros, revistas y otras fuentes impresas y digitales." }
+                  ]
+                },
+                {
+                  "id": "pre-len-6",
+                  "tema": "Expresión de emociones y experiencias, en igualdad de oportunidades, apoyándose de recursos gráficos personales y de los lenguajes artísticos.",
+                  "pdas": [
+                    { "grado": 1, "texto": "Representa emociones y experiencias de manera gráfica, haciendo uso de dibujos o recursos de los lenguajes artísticos." },
+                    { "grado": 2, "texto": "Intercambia experiencias y vivencias con sus pares y otras personas, acerca de las diferentes formas de actuar, expresar, nombrar y controlar las emociones." },
+                    { "grado": 3, "texto": "Experimenta con los diversos elementos de los lenguajes artísticos y descubre sus posibilidades de creación y expresión." }
+                  ]
+                },
+                {
+                  "id": "pre-len-7",
+                  "tema": "Comunicación oral de necesidades, emociones, gustos, ideas y saberes a través de los diversos lenguajes, desde una perspectiva comunitaria.",
+                  "pdas": [
+                    { "grado": 1, "texto": "Comprende, al interactuar con las demás personas, que existen diversas formas de comunicarse." },
+                    { "grado": 2, "texto": "Emplea palabras, gestos, señas, imágenes, sonidos o movimientos corporales que aprende en su comunidad, para expresar necesidades, ideas, emociones y gustos que reflejan su forma de interpretar y actuar en el mundo." },
+                    { "grado": 3, "texto": "De manera oral, expresa ideas completas sobre necesidades, vivencias, emociones, gustos, preferencias y saberes a distintas personas, combinando los lenguajes." }
+                  ]
+                },
+                {
+                  "id": "pre-len-8",
+                  "tema": "Producción de expresiones creativas con los distintos elementos de los lenguajes artísticos.",
+                  "pdas": [
+                    { "grado": 1, "texto": "Produce expresiones creativas para representar el mundo cercano, experiencias de su vida personal, familiar, la naturaleza que le rodea o creaciones de su imaginación, recurriendo a los distintos recursos de las artes." },
+                    { "grado": 2, "texto": "Combina elementos de los lenguajes artísticos, tales como formas, colores, texturas, tamaños, líneas, sonidos, música, voces, entre otros, en producciones creativas, para representar el mundo cercano, experiencias personales, situaciones imaginarias o algún cuento." },
+                    { "grado": 3, "texto": "Enriquece sus producciones creativas de expression gráfica o corporal, al incluir o retomar elementos, tales como líneas, combinación de colores, formas, imágenes, gestos, posturas, sonidos, entre otros, de las manifestaciones artísticas y culturales." }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "slug": "saberes-y-pensamiento-cientifico",
+          "nombre": "Saberes y pensamiento científico",
+          "disciplinas": [
+            {
+              "slug": "general",
+              "nombre": "General",
+              "contenidos": [
+                {
+                  "id": "pre-sab-1",
+                  "tema": "Saberes familiares y comunitarios que resuelven situaciones y necesidades en el hogar y la comunidad.",
+                  "pdas": [
+                    { "grado": 1, "texto": "Se familiariza con historias, mitos y leyendas de la tradición oral de la comunidad que explican fenómenos de la naturaleza." },
+                    { "grado": 2, "texto": "Selecciona saberes familiares y comunitarios útiles, para resolver situaciones diversas, los compara con los de sus pares y cuida su integridad y la de los demás." },
+                    { "grado": 3, "texto": "Explica en su lengua materna y con sus palabras, fenómenos naturales a partir de leyendas e historias de la comunidad, y con ayuda, los contrasta con otras fuentes de consulta. Comparte algunos saberes familiares con sus pares y descubre similitudes con los de otras familias." }
+                  ]
+                },
+                {
+                  "id": "pre-sab-2",
+                  "tema": "Los seres vivos: elementos, procesos y fenómenos naturales que ofrecen oportunidades para entender y explicar hechos cotidianos, desde distintas perspectivas.",
+                  "pdas": [
+                    { "grado": 1, "texto": "Comparte sus descubrimientos, ideas y opiniones sobre los seres vivos, y escucha las de sus pares." },
+                    { "grado": 2, "texto": "Hace preguntas sobre la naturaleza y, en colaboración con sus pares, pone a prueba ideas para encontrar respuestas que tengan sentido." },
+                    { "grado": 3, "texto": "Planifica de manera colaborativa indagaciones para ampliar sus conocimientos sobre la naturaleza, el planeta y el universo: hace preguntas, explora su entorno, expone sus ideas, busca información, compara lo que sabe, registra datos y explica sus hallazgos. Indaga acerca de cómo funciona su cuerpo, sus cambios físicos, y explica lo que entiende. Explica con sus palabras cómo suceden y por qué se producen los fenómenos naturales de su entorno o de otros lugares." }
+                  ]
+                },
+                {
+                  "id": "pre-sab-3",
+                  "tema": "Exploración de la diversidad natural que existe en la comunidad y en otros lugares.",
+                  "pdas": [
+                    { "grado": 1, "texto": "Usa sus sentidos para percibir en su entorno cercano, plantas que le llaman la atención y describe características tales como: olor, color, forma, textura o tamaño, si tienen hojas, flores o frutos. Socializa lo que sabe sobre su entorno natural y hace nuevos descubrimientos con sus pares. Indaga sobre los cuidados que necesitan las plantas y animales de su comunidad." },
+                    { "grado": 2, "texto": "Distingue algunas características del entorno natural: plantas, animales, cuerpos de agua, clima, entre otras." },
+                    { "grado": 3, "texto": "Establece con sus pares, formas de organizar a los seres vivos y elementos de la naturaleza para establecer semejanzas y diferencias a la vez que aprecia su diversidad." }
+                  ]
+                },
+                {
+                  "id": "pre-sab-4",
+                  "tema": "Las magnitudes de longitud, peso, capacidad y tiempo en situaciones cotidianas del hogar y del entorno sociocultural.",
+                  "pdas": [
+                    { "grado": 1, "texto": "Ordena actividades cotidianas y juegos que lleva a cabo en su casa y escuela, para identificar el paso del tiempo (desde que se levanta hasta que llega a la escuela o secuencias en los juegos). Compara \"a ojo\" y de manera perceptiva, la longitud de dos objetos y dice cual es más largo o corto." },
+                    { "grado": 2, "texto": "Utiliza palabras relacionadas con el paso del tiempo que aprende en su contexto social, tales como: antes, después, primero, al final, temprano, en la mañana, en la tarde, en la noche, entre otras." },
+                    { "grado": 3, "texto": "Hace uso de instrumentos que miden el paso del tiempo, tales como calendarios, relojes de arena, solares, digitales y análogos. Trasvasa arena o líquidos entre recipientes de distintos tamaños y formas para medir su capacidad." }
+                  ]
+                },
+                {
+                  "id": "pre-sab-5",
+                  "tema": "Los saberes numéricos como herramienta para resolver situaciones del entorno, en diversos contextos socioculturales.",
+                  "pdas": [
+                    { "grado": 1, "texto": "Reconoce números en su contexto sociocultural e interpreta su significado (saber la dirección de su casa, su peso o talla, hacer compras, entre otros). Dice en orden los números que conoce y gradualmente amplía su rango de conteo. Cuenta objetos y elementos de su entorno." },
+                    { "grado": 2, "texto": "Usa números con distintos propósitos y en distintas situaciones. Cuenta objetos y elementos de su entorno en su lengua materna con diversos propósitos. Se familiariza con el uso de monedas y de billetes en diversas situaciones e intuye su valor. Resuelve de manera colaborativa situaciones sencillas que involucran números y que implican juntar, agregar, separar o quitar elementos." },
+                    { "grado": 3, "texto": "Representa cantidades, con dibujos, símbolos personales y numerales e interpreta los registros de sus pares. Reconoce el valor de monedas y billetes al usarlos en situaciones reales de juego y estima para qué le alcanza. Propone, de manera colaborativa, formas de resolver situaciones cotidianas e imaginarias que involucran acciones de agregar, juntar, quitar, separar, comparar e igualar cantidades. Ordena elementos de una serie y usa números ordinales." }
+                  ]
+                },
+                {
+                  "id": "pre-sab-6",
+                  "tema": "Objetos y artefactos tecnológicos que mejoran y facilitan la vida familiar y de la comunidad.",
+                  "pdas": [
+                    { "grado": 1, "texto": "Usa en su vida diaria juguetes y artefactos tecnológicos que se encuentran en su hogar o escuela, observa cómo se usan: carritos, muñecos, tijeras, mecedoras, utensilios de cocina, entre otros. Reconoce en su entorno sociocultural, diferentes usos que las personas le dan a los juguetes, objetos y artefactos tecnológicos, y comparte sus descubrimientos con sus pares para crear nuevas formas de usarlos." },
+                    { "grado": 2, "texto": "Indaga acerca del funcionamiento de juguetes, objetos y artefactos tecnológicos de distintos contextos y reconoce su beneficio." },
+                    { "grado": 3, "texto": "Reconoce que las personas utilizan diferentes objetos o artefactos tecnológicos para desarrollar su oficio o profesión, en beneficio propio y de la comunidad." }
+                  ]
+                },
+                {
+                  "id": "pre-sab-7",
+                  "tema": "Características de objetos y comportamiento de los materiales del entorno sociocultural.",
+                  "pdas": [
+                    { "grado": 1, "texto": "Percibe y describe cómo cambian los objetos y materiales de la naturaleza y de su entorno al manipularlos o modificar sus condiciones. Describe las características de los objetos y materiales de su entorno. Reconoce en los objetos y elementos, algunas características de consistencia, forma, tamaño, color, textura o maleabilidad." },
+                    { "grado": 2, "texto": "Explora las características de los materiales, para identificar su comportamiento al combinar los recursos artísticos en actividades tales como modelar, construir, dibujar, colorear o pintar." },
+                    { "grado": 3, "texto": "Experimenta con distintos objetos para reconocer sus características y propiedades al manipularlos, combinarlos o transformarlos." }
+                  ]
+                },
+                {
+                  "id": "pre-sab-8",
+                  "tema": "El dominio del espacio y reconocimiento de formas en el entorno desde diversos puntos de observación y mediante desplazamientos o recorridos.",
+                  "pdas": [
+                    { "grado": 1, "texto": "Reconoce a partir de puntos de referencias personales de interioridad y proximidad, a las personas, objetos y elementos de su comunidad. Crea formas y composiciones geométricas con materiales de arte y construcción. Visualiza y describe con su propio lenguaje y en su lengua materna algunas características de forma en objetos cotidianos y las asocia con cuerpos geométricos." },
+                    { "grado": 2, "texto": "Establece relaciones de orientación y direccionalidad al interactuar y desplazarse en su entorno (hacia, desde, atrás, arriba, da vuelta)." },
+                    { "grado": 3, "texto": "Representa y reproduce objetos, animales y plantas con el tangram, bloques de construcción, modelado, doblado de papel o con dibujos. Imagina y anticipa los cambios que ocurrirán al manipular, apilar, rasgar y transformar objetos, haciendo composiciones geométricas. Crea patrones de repetición y crecimiento para hacer secuencias." }
+                  ]
+                },
+                {
+                  "id": "pre-sab-9",
+                  "tema": "Clasificación y experimentación con objetos y elementos del entorno que reflejan la diversidad de la comunidad o región.",
+                  "pdas": [
+                    { "grado": 1, "texto": "Mezcla o combina elementos de su entorno e identifica reacciones diversas, siguiendo normas de seguridad. Experimenta, de manera colaborativa, con elementos y objetos del entorno y reconoce si hay cambios o transformaciones en ellos. Explora las características de elementos y objetos de su entorno y establece con sus pares, semejanzas y diferencias. Compara y organiza elementos del entorno, de acuerdo con uno o dos criterios definidos." },
+                    { "grado": 2, "texto": "Dialoga con sus pares para definir criterios de clasificación de objetos y elementos del entorno natural y sociocultural, que respondan a distintos propósitos." },
+                    { "grado": 3, "texto": "Recolecta objetos y elementos de su entorno para observarlos, hacer preguntas y explorar sus características y comportamiento." }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "slug": "etica-naturaleza-y-sociedades",
+          "nombre": "Ética, naturaleza y sociedades",
+          "disciplinas": [
+            {
+              "slug": "general",
+              "nombre": "General",
+              "contenidos": [
+                {
+                  "id": "pre-eti-1",
+                  "tema": "La diversidad de personas y familias en la comunidad, y su convivencia, en un ambiente de equidad, libertad, inclusión y respeto a los derechos humanos.",
+                  "pdas": [
+                    { "grado": 1, "texto": "Comparte con sus pares información personal acerca de sus gustos, familia, emociones, identidad, entre otros. Se da cuenta de que las familias son diversas y distintas entre sí, y que esto favorece la convivencia en un entorno de inclusión y respeto." },
+                    { "grado": 2, "texto": "Expresa algunas de sus costumbres y rutinas familiares, y las compara con las de sus pares, encontrando similitudes." },
+                    { "grado": 3, "texto": "Conversa con sus pares acerca de lo que significa pertenecer a una familia, los cuidados que reciben, las reglas que deben seguir, algunas de sus costumbres, y reconoce que se conforman de diferente manera. Reconoce que es diferente a las y los demás y que esas diferencias enriquecen la convivencia." }
+                  ]
+                },
+                {
+                  "id": "pre-eti-2",
+                  "tema": "Interacción, cuidado, conservación y regeneración de la naturaleza, que favorece la construcción de una conciencia socioambiental.",
+                  "pdas": [
+                    { "grado": 1, "texto": "Convive con su entorno natural, con plantas y animales; expresa lo que percibe y disfruta acerca de ellos. Interactúa con respeto y empatía en la naturaleza, e identifica algunos elementos y cuidados que necesitan los seres vivos." },
+                    { "grado": 2, "texto": "Promueve actitudes y acciones de cuidado hacia la naturaleza e involucra a las personas de su familia y escuela para colaborar en ellas. Aprecia la diversidad de características de los seres vivos y no vivos que hay en la naturaleza y sugiere formas de cuidarlos y preservarlos." },
+                    { "grado": 3, "texto": "Manifiesta interés por cuidar a la naturaleza y encuentra formas creativas de resolver problemas socioambientales de su comunidad. Se relaciona con la naturaleza y considera la importancia de sus elementos para la vida (aire, sol, agua y suelo)." }
+                  ]
+                },
+                {
+                  "id": "pre-eti-3",
+                  "tema": "Cambios que ocurren en los lugares, entornos, objetos, costumbres y formas de vida de las distintas familias y comunidades con el paso del tiempo.",
+                  "pdas": [
+                    { "grado": 1, "texto": "Comprende que, con el paso del tiempo, se modifican los paisajes, los objetos, las costumbres y las formas de vida de la comunidad, por lo que se debe actuar con responsabilidad para el bienestar individual y colectivo. Evoca, con apoyo de sus familiares, acontecimientos y sucesos personales relevantes de su historia de vida y los comparte con sus pares." },
+                    { "grado": 2, "texto": "Identifica, con ayuda, y a través de narraciones, cartas, fotografías, objetos, ropa y otros elementos, acontecimientos y sucesos importantes ocurridos en su familia a lo largo del tiempo." }
+                  ]
+                },
+                {
+                  "id": "pre-eti-4",
+                  "tema": "Labores y servicios que contribuyen al bien común de las distintas familias y comunidades.",
+                  "pdas": [
+                    { "grado": 1, "texto": "Observa y conoce las labores y actividades que desarrollan los integrantes de su familia e identifica que tienen un impacto en la comunidad. Identifica que las personas realizan actividades diversas y ofrecen distintos servicios que contribuyen a lograr metas comunes." },
+                    { "grado": 3, "texto": "Aprecia las labores y servicios que existen en la comunidad y valora el impacto que tienen para el bienestar común." }
+                  ]
+                },
+                {
+                  "id": "pre-eti-5",
+                  "tema": "Los derechos de niñas y niños como base para el bienestar integral y el establecimiento de acuerdos que favorecen la convivencia pacífica.",
+                  "pdas": [
+                    { "grado": 1, "texto": "Se familiariza con algunos de sus derechos, como vivir en una familia, derecho a la protección, a la salud, a jugar, a tener un nombre, una vivienda y acudir a la escuela, los cuales se manifiestan en situaciones cotidianas de su vida." },
+                    { "grado": 2, "texto": "Expresa lo que entiende acerca de los derechos de niñas y niños, dice cómo los vive y disfruta en situaciones cotidianas, y escucha cómo lo hacen sus pares. Identifica algunas situaciones en las que sus derechos y los de otras niñas y otros niños, no son respetados." },
+                    { "grado": 3, "texto": "Explica con sus palabras y mediante otros lenguajes, lo que entiende de cada uno de los derechos de niñas y niños, y escucha las opiniones de sus pares." }
+                  ]
+                },
+                {
+                  "id": "pre-eti-6",
+                  "tema": "Transformación responsable del entorno al satisfacer necesidades básicas de alimentación, vestido y vivienda.",
+                  "pdas": [
+                    { "grado": 1, "texto": "Distingue acciones que son benéficas para su entorno, tales como sembrar y cuidar el crecimiento de las plantas, cuidar a los animales, respetar las reservas naturales, entre otras. Asocia los alimentos que consume, con los animales o plantas de los que provienen y evita el desperdicio." },
+                    { "grado": 2, "texto": "Observa que las personas transforman la naturaleza al interactuar con ella para satisfacer sus necesidades. Reconoce que todas las personas tienen necesidades básicas, como la alimentación, el vestido y la vivienda, y que estas se satisfacen con recursos de la naturaleza." },
+                    { "grado": 3, "texto": "Propone acciones para cuidar y preservar su entorno natural, como evitar el consumo de desechables y empaques no necesarios, el reciclado y reúso de materiales, el ahorro de agua y de energía eléctrica, entre otras." }
+                  ]
+                },
+                {
+                  "id": "pre-eti-7",
+                  "tema": "Construcción de la identidad y pertenencia a una comunidad y país a partir del conocimiento de su historia, sus celebraciones, conmemoraciones tradicionales y obras del patrimonio artístico y cultural.",
+                  "pdas": [
+                    { "grado": 1, "texto": "Se interesa en elementos característicos de su comunidad, como la música, la danza, el baile o los objetos tradicionales." },
+                    { "grado": 2, "texto": "Conoce y disfruta lugares de relevancia natural, cultural e histórica de su comunidad y país, como monumentos, zonas arqueológicas, áreas naturales protegidas, museos o casas de cultura." },
+                    { "grado": 3, "texto": "Aprecia la riqueza de la historia de su comunidad a través de relatos, historias, leyendas, mitos, conmemoraciones, celebraciones tradicionales, obras culturales y artísticas." }
+                  ]
+                },
+                {
+                  "id": "pre-eti-8",
+                  "tema": "La cultura de paz como una forma de relacionarse con otras personas para promover la inclusión y el respeto a la diversidad.",
+                  "pdas": [
+                    { "grado": 1, "texto": "Establecer acuerdos de convivencia en su salón y escuela para desenvolverse en un ambiente seguro y respetuoso." },
+                    { "grado": 3, "texto": "Propone y lleva a cabo formas de convivencia libres de violencia en la casa, escuela y comunidad." }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "slug": "de-lo-humano-y-lo-comunitario",
+          "nombre": "De lo humano y lo comunitario",
+          "disciplinas": [
+            {
+              "slug": "general",
+              "nombre": "General",
+              "contenidos": [
+                {
+                  "id": "pre-hum-1",
+                  "tema": "Construcción de la identidad personal a partir de su pertenencia a un territorio, su origen étnico, cultural y lingüístico, y la interacción con personas cercanas.",
+                  "pdas": [
+                    { "grado": 1, "texto": "Descubre gustos, preferencias, posibilidades motrices y afectivas, en juegos y actividades que contribuyan al conocimiento de sí, en un ambiente que considere la diversidad. Distingue semejanzas y diferencias con las demás personas, a partir de distintos rasgos de identidad como su nombre, características físicas, formas de vestir, hablar, alimentarse, entre otros." },
+                    { "grado": 2, "texto": "Describe cómo es físicamente, identifica sus rasgos familiares y se acepta como es." },
+                    { "grado": 3, "texto": "Identifica que la lengua que habla, las costumbres familiares y el lugar donde vive contribuyen a la formación de su identidad y pertenencia a una comunidad en la que participa y colabora. Aprecia las características y cualidades propias, así como las de sus pares y de otras personas. Expresa y representa con recursos de los distintos lenguajes, la imagen que tiene de sí y de las y los demás." }
+                  ]
+                },
+                {
+                  "id": "pre-hum-2",
+                  "tema": "Posibilidades de movimiento en diferentes espacios, para favorecer las habilidades motrices.",
+                  "pdas": [
+                    { "grado": 1, "texto": "Imita y descubre movimientos y posturas, involucrando distintos segmentos corporales que favorecen el control y la lateralidad. Explora las posibilidades de movimiento de su cuerpo, en juegos y actividades, de acuerdo con las características y condiciones personales." },
+                    { "grado": 2, "texto": "Adapta sus movimientos y fortalece su lateralidad al desplazarse en espacios de la escuela, casa y comunidad en distintas direcciones y con velocidades variadas; descubre nuevas formas de moverse." },
+                    { "grado": 3, "texto": "Coordina movimientos con control y equilibrio al resolver situaciones cotidianas, participar en juegos tradicionales y representaciones individuales o colectivas en igualdad de oportunidades y sin distinción de género." }
+                  ]
+                },
+                {
+                  "id": "pre-hum-3",
+                  "tema": "Las emociones en la interacción con diversas personas y situaciones.",
+                  "pdas": [
+                    { "grado": 1, "texto": "Identifica emociones como alegría, tristeza, sorpresa, miedo o enojo, al participar en juegos de representación." },
+                    { "grado": 2, "texto": "Percibe cambios corporales, y con ayuda, nombra las emociones que experimenta, como: alegría, tristeza, sorpresa, miedo o enojo, y reconoce las situaciones que las provocan. Muestra respeto y empatía hacia la expresión de emociones de las personas, comprende cuando alguien necesita ayuda y la ofrece." },
+                    { "grado": 3, "texto": "Establece vínculos afectivos y empatía con sus pares y otras personas, a partir de la convivencia cotidiana." }
+                  ]
+                },
+                {
+                  "id": "pre-hum-4",
+                  "tema": "Medidas de prevención de accidentes y situaciones de riesgo de acuerdo con el contexto, para el cuidado de la integridad personal y colectiva.",
+                  "pdas": [
+                    { "grado": 1, "texto": "Identifica acciones, situaciones y comportamientos en los que puede lastimarse o lastimar a las demás personas." },
+                    { "grado": 2, "texto": "Reconoce las situaciones de riesgo provocadas por fenómenos naturales o por la acción humana, y sabe qué hacer y cómo reaccionar para salvaguardar su integridad. Expresa qué comportamientos, objetos, materiales y lugares pueden provocar accidentes y poner en riesgo la seguridad y el bienestar personal y colectivo." },
+                    { "grado": 3, "texto": "Propone y lleva a cabo, acciones de seguridad y formas de colaboración en situaciones de riesgo, accidentes o desastres, tomando en cuenta el bienestar de las personas y otros seres vivos de la comunidad. Comparte con sus pares ideas acerca de cómo cuidar su integridad y la de las demás personas y, con ayuda, las pone en práctica." }
+                  ]
+                },
+                {
+                  "id": "pre-hum-5",
+                  "tema": "Interacción con personas de diversos contextos, que contribuyan al establecimiento de relaciones positivas y a una convivencia basada en la aceptación de la diversidad.",
+                  "pdas": [
+                    { "grado": 1, "texto": "Interactúa con diferentes compañeras y compañeros, para establecer relaciones de amistad, igualdad, empatía y colaboración. Propone y lleva a cabo formas de convivencia libres de violencia en la casa, escuela y comunidad." },
+                    { "grado": 2, "texto": "Asume actitudes prosociales como compartir, ayudar y colaborar, al participar y mejorar las relaciones de convivencia con las demás personas." },
+                    { "grado": 3, "texto": "Se relaciona con respeto y colabora de manera asertiva para el logro de propósitos comunes en juegos y actividades." }
+                  ]
+                },
+                {
+                  "id": "pre-hum-6",
+                  "tema": "Cuidado de la salud personal y colectiva, al llevar a cabo acciones de higiene, limpieza, y actividad física, desde los saberes prácticos de la comunidad y la información científica.",
+                  "pdas": [
+                    { "grado": 1, "texto": "Realiza acciones de higiene personal y limpieza, antes, durante y después de realizar sus actividades cotidianas." },
+                    { "grado": 2, "texto": "Promueve acciones sobre el cuidado de la salud visual, auditiva, bucal, alimentaria y física, en la casa, escuela y comunidad." },
+                    { "grado": 3, "texto": "Propone acciones que contribuyen a mantener su salud y bienestar, relacionadas con higiene personal, limpieza y actividad física, considerando los saberes prácticos de la comunidad y las aportaciones científicas." }
+                  ]
+                },
+                {
+                  "id": "pre-hum-7",
+                  "tema": "Precisión y coordinación en los movimientos al usar objetos, herramientas y materiales, de acuerdo con sus condiciones, capacidades y características.",
+                  "pdas": [
+                    { "grado": 1, "texto": "Explora y manipula objetos, herramientas y materiales, de distintas formas, texturas y tamaños." },
+                    { "grado": 2, "texto": "Controla sus movimientos al usar objetos, herramientas y materiales en juegos y actividades de experimentación, creación personal y resolución de problemas, atendiendo las normas de seguridad." },
+                    { "grado": 3, "texto": "Construye y modela objetos, con control y precisión de sus movimientos; selecciona objetos, herramientas y materiales apropiados para resolver situaciones diversas. Participa en juegos y actividades que involucran la coordinación de movimientos. Utiliza los sentidos en acciones como lanzar, amasar, patear, entre otras." }
+                  ]
+                },
+                {
+                  "id": "pre-hum-8",
+                  "tema": "Consumo de alimentos y bebidas que benefician la salud, de acuerdo con los contextos socioculturales.",
+                  "pdas": [
+                    { "grado": 1, "texto": "Reconoce, en las costumbres familiares, la preparación y consumo de alimentos y bebidas, e identifica los que son saludables y los que ponen en riesgo su salud." },
+                    { "grado": 2, "texto": "Distingue alimentos y bebidas que son saludables, así como los que ponen en riesgo la salud, y reconoce que existen opciones alimentarias sanas que contribuyen a una mejor calidad de vida para todas las personas." }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "primaria": {
+      "nombre": "Primaria",
+      "grados": [1, 2, 3, 4, 5, 6],
+      "campos": [
+        {
+          "slug": "lenguajes",
+          "nombre": "Lenguajes",
+          "disciplinas": [
+            {
+              "slug": "general",
+              "nombre": "General",
+              "contenidos": [
+                {
+                  "id": "pri-len-1",
+                  "tema": "Escritura de nombres en la lengua materna.",
+                  "pdas": [
+                    { "grado": 1, "texto": "Escribe su nombre y lo compara con los nombres de sus compañeros, lo usa para indicar la autoría de sus trabajos, marcar sus útiles escolares, registrar su asistencia, entre otros. Identifica nombres más largos o cortos que el suyo, nombres que empiezan o terminan con la misma letra que el propio, sus iniciales, el diminutivo de su nombre, etcétera." },
+                    { "grado": 2, "texto": "Escribe su nombre y apellidos y de sus de familiares, profesoras y profesores, pares y otras personas de su entorno para indicar autoría, pertenencia e identidad. Compara características de c, s, z, b, v, h, g, j, i, y, ll, k, q, r, rr, w, x, etcétera." }
+                  ]
+                },
+                {
+                  "id": "pri-len-2",
+                  "tema": "Lectura compartida en voz alta.",
+                  "pdas": [
+                    { "grado": 1, "texto": "Reconoce que se lee y escribe de izquierda a derecha y de arriba a abajo. Sigue la lectura en voz alta que hace la o el maestro (u otras personas alfabetizadas) de recados, cartas, cuentos, notas informativas, poemas, canciones, anuncios publicitarios, instructivos, etcétera. Establece correspondencias entre oralidad y escritura. Hace comentarios y preguntas sobre textos que escucha y acerca de palabras o ideas que no entiende. Verifica o confirma información acerca del contenido de textos, mediante la relectura de fragmentos o textos completos." },
+                    { "grado": 2, "texto": "Lee en voz alta letreros, carteles, recados, mensajes y otros textos de su elección. Relee o pide que le relean en voz alta algún fragmento o pasaje para comprender mejor el significado de lo leído. Comenta con otras personas el contenido de textos que ha escuchado: actitudes de los protagonistas de una historia; datos o situaciones interesantes; alternativas para resolver un problema o atender una necesidad; experiencias personales; reportes sobre noticias, etcétera. Lee en voz alta, para otros y para sí, diversos textos, como cuentos, poemas, canciones, notas informativas, cartas, anuncios publicitarios, etcétera." }
+                  ]
+                },
+                {
+                  "id": "pri-len-3",
+                  "tema": "Narración de sucesos del pasado y del presente.",
+                  "pdas": [
+                    { "grado": 3, "texto": "Identifica y comprende la función y las características principales de la narración. Reconoce y usa las estructuras narrativas: lineal, circular, in media res y otras, de acuerdo con su propia cultura y gusto para narrar. Identifica y establece relaciones causa-efecto en una narración. Usa el punto y el punto y seguido para separar oraciones en un párrafo." },
+                    { "grado": 4, "texto": "Reconoce y usa diversos estilos, recursos y estrategias narrativas. Establece relaciones causales y temporales entre acontecimientos. Reflexiona sobre los tiempos presente, pretérito y copretérito, para narrar sucesos. Infiere el significado de las palabras, a partir de la información contextual de un texto." }
+                  ]
+                },
+                {
+                  "id": "pri-len-4",
+                  "tema": "Narración de sucesos autobiográficos.",
+                  "pdas": [
+                    { "grado": 5, "texto": "Lee textos autobiográficos y reflexiona sobre las razones por las que suelen estar narrados en primera persona del singular. Determina los sucesos autobiográficos que desea narrar y los organiza lógicamente, resaltando los aspectos más significativos. Escribe la narración de los hechos autobiográficos, haciendo uso de comas, puntos y seguido, puntos y aparte y dos puntos, para dar claridad y orden a las ideas. Describe personas, lugares y hechos a través del uso de reiteraciones, frases adjetivas, símiles e imágenes, y mantiene la referencia a los mismos en toda la narración por medio de pronombres y sinónimos. Hace y recibe sugerencias sobre aspectos de mejora, y comparte con la comunidad educativa las versiones finales." },
+                    { "grado": 6, "texto": "Lee textos autobiográficos e identifica las relaciones temporales de secuencia, simultaneidad y duración. Analiza distintos sucesos de su vida para elegir los más significativos y organizarlos de manera coherente en una narración. Determina al destinatario y la forma en que desea narrar sucesos autobiográficos significativos, para causar efectos particulares. Usa reflexivamente adverbios, frases adverbiales y nexos temporales, para indicar secuencia, simultaneidad y duración en los sucesos narrados. Colabora en la edición de un libro de textos autobiográficos, y sugiere formas de reproducirlo para que cada alumna y alumno tenga el suyo." }
+                  ]
+                },
+                {
+                  "id": "pri-len-5",
+                  "tema": "Descripción de personas, lugares, hechos y procesos.",
+                  "pdas": [
+                    { "grado": 3, "texto": "Comprende, a partir de la lectura de textos descriptivos, que hay formas detalladas para describir a las personas y los lugares, señalando características que van más allá de su apariencia. Reflexiona sobre el uso de palabras y frases para describir personas, lugares y hechos: adjetivos, adverbios y frases adverbiales. Planea, escribe, revisa y corrige textos en los que describe hechos en orden cronológico. Reflexiona sobre el uso de la coma al enumerar cosas o elementos y la emplea. Usa mayúsculas al inicio de las oraciones y de los nombres propios." },
+                    { "grado": 4, "texto": "Planea, escribe, revisa y corrige textos donde describe, de manera lógica, procesos con los que tiene cierta familiaridad. Reflexiona sobre el uso de palabras y frases adjetivas y adverbiales para describir procesos. Utiliza algunos conectores secuenciales y temporales, cuando describe un proceso, a fin de dar claridad al texto. Revisa y corrige las descripciones que realiza, para transmitir ideas de forma clara, evitando repeticiones innecesarias. Reconoce el uso del punto y coma y los dos puntos, y los emplea al enumerar diferentes elementos o aspectos." }
+                  ]
+                },
+                {
+                  "id": "pri-len-6",
+                  "tema": "Comprensión y producción de textos explicativos.",
+                  "pdas": [
+                    { "grado": 5, "texto": "Lee distintos tipos de textos explicativos y reflexiona sobre sus características y funciones. Expone las diferencias entre una descripción y una explicación, y entre un texto descriptivo y uno explicativo. Recupera información de distintas fuentes, como artículos de divulgación, libros de texto, reportes de investigación, para producir un texto explicativo sobre temas diversos y con propósitos particulares. Establece relaciones causales y emplea expresiones como en consecuencia, por lo tanto, debido a, a causa de, porque, por consiguiente. Distingue sus propias palabras de la paráfrasis y citas textuales, y registra la información bibliográfica de las fuentes consultadas. Utiliza palabras nuevas y/o técnicas en el texto explicativo que produce para compartir." },
+                    { "grado": 6, "texto": "Localiza y lee textos explicativos de temas variados. Expresa con sus palabras las ideas que comprende de los textos que lee y elabora resúmenes que le permitan reconstruir las ideas principales y los elementos de los textos explicativos. Reconoce y emplea relaciones de causa-consecuencia. Emplea palabras como primero, finalmente, luego, después, posteriormente, durante, para organizar las oraciones." }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "slug": "saberes",
+          "nombre": "Saberes y Pensamiento Científico",
+          "disciplinas": [
+            {
+              "slug": "general",
+              "nombre": "General",
+              "contenidos": [
+                {
+                  "id": "pri-sab-1",
+                  "tema": "Estudio de los números.",
+                  "pdas": [
+                    { "grado": 1, "texto": "Expresa oralmente la sucesión numérica en su lengua materna y en español, primero hasta 20, luego hasta 40, posteriormente hasta 60 y finalmente hasta 120 elementos, o hasta donde sea posible en su lengua materna, de manera ascendente y descendente a partir de un número dado. A través de situaciones cotidianas, cuenta, ordena, representa de diferentes formas, interpreta, lee y escribe la cantidad de elementos de una colección, primero de hasta 5, después hasta de 10 y paulatinamente de hasta 100 elementos. Identifica regularidades en la sucesión numérica hasta 100." },
+                    { "grado": 2, "texto": "Expresa oralmente la sucesión numérica hasta 1000, en español y hasta donde sea posible en su lengua materna, de manera ascendente y descendente a partir de un número dado. A través de situaciones cotidianas cuenta, ordena, representa de diferentes formas, interpreta, lee y escribe la cantidad de elementos de colecciones con menos de 1000 elementos; identifica regularidades en los números que representan unidades, decenas y centenas. Utiliza los símbolos “<”, “>” o “=” para comparar u ordenar dos números." },
+                    { "grado": 3, "texto": "Expresa oralmente la sucesión numérica hasta cuatro cifras, en español y hasta donde sea posible, en su lengua materna, de manera ascendente y descendente a partir de un número natural dado. Identifica y usa los números ordinales, en español y en su lengua materna para ordenar objetos o para indicar el lugar que ocupan dentro de una colección de hasta diez elementos. A través de situaciones cotidianas cuenta, representa de diferentes formas, interpreta, ordena, lee y escribe números naturales de hasta cuatro cifras; identifica regularidades en los números que representan decenas, centenas y millares. Representa, con apoyo de material concreto y modelos gráficos, fracciones: medios, cuartos, octavos, dieciseisavos, para expresar el resultado de mediciones y repartos en situaciones vinculadas a su contexto. Identifica la unidad de referencia en representaciones de medios, cuartos, octavos, dieciseisavos que expresan el resultado de mediciones y repartos. Propone expresiones aditivas equivalentes de medios, cuartos, octavos o dieciseisavos; también compara fracciones utilizando los signos >, < o =. Conoce y usa las fracciones 1/10 y 1/100 con el apoyo del metro graduado." },
+                    { "grado": 4, "texto": "Expresa oralmente la sucesión numérica hasta cinco cifras, en español y hasta donde sea posible, en su lengua materna, de manera ascendente y descendente a partir de un número natural dado. Identifica y usa los números ordinales, en español y en su lengua materna para ordenar objetos, o para indicar el lugar que ocupan dentro de una colección de hasta veinte elementos. A través de situaciones cotidianas y de diversos contextos, cuenta, representa de diferentes formas, interpreta, ordena, lee y escribe números naturales de hasta cinco cifras; identifica regularidades en los números. A partir de situaciones vinculadas a diferentes contextos, representa, interpreta, lee, escribe y ordena números decimales hasta centésimos en notación decimal y con letras apoyándose en modelos gráficos; comprende la equivalencia entre décimos, centésimos y la unidad. Representa, con el apoyo de material concreto y modelos gráficos, fracciones: tercios, quintos, sextos, novenos y décimos, para expresar el resultado de mediciones y repartos en diversos contextos. Propone expresiones aditivas equivalentes de tercios, quintos, sextos, novenos y décimos; también compara fracciones utilizando los signos >, < o =. Identifica y representa la unidad de referencia, a partir de una fracción dada de esta en la resolución de situaciones problemáticas." },
+                    { "grado": 5, "texto": "Expresa oralmente la sucesión numérica hasta seis cifras, en español y hasta donde sea posible, en su lengua materna, de manera ascendente y descendente a partir de un número natural dado. A través de situaciones vinculadas a diferentes contextos ordena, lee, escribe e identifica regularidades en números naturales de hasta nueve cifras. Lee, escribe y ordena números decimales hasta diezmilésimos en notación decimal y letra, y los interpreta en diferentes contextos. Resuelve situaciones problemáticas que implican comparar y ordenar fracciones a partir de construir fracciones equivalentes al multiplicar o dividir al numerador y al denominador por un mismo número. Reconoce, interpreta y utiliza las fracciones 1/2, 1/4, 3/4, 1/5 y 1/8 expresados en notación decimal y viceversa en diferentes contextos." },
+                    { "grado": 6, "texto": "Expresa oralmente la sucesión numérica hasta billones, en español y hasta donde sea posible, en su lengua materna, de manera ascendente y descendente a partir de un número natural dado. Ordena, lee y escribe números naturales de más de nueve cifras e interpreta números decimales en diferentes contextos. Identifica semejanzas y diferencias entre el sistema de numeración decimal y otros sistemas como el maya y el romano." }
+                  ]
+                },
+                {
+                  "id": "pri-sab-2",
+                  "tema": "Cuerpos geométricos y sus características.",
+                  "pdas": [
+                    { "grado": 1, "texto": "Observa y manipula objetos de su entorno para identificar y describir líneas rectas o curvas, caras planas o curvas; los representa mediante diversos procedimientos." },
+                    { "grado": 2, "texto": "Clasifica objetos de su entorno o cuerpos geométricos de acuerdo con distintos criterios (caras planas o curvas, caras iguales); los construye usando cajas, bloques o cubos." },
+                    { "grado": 3, "texto": "Identifica las figuras geométricas que componen diversos objetos (edificios, casas, cajas, muebles, y cuerpos geométricos); construye prismas rectos a partir de reconocer la configuración de cuadrados y rectángulos que lo componen." },
+                    { "grado": 4, "texto": "Reconoce y describe las características de distintos prismas rectos (números de vértices y aristas, número y formas de caras); reconoce los desarrollos planos que permiten construirlos, en particular el cubo." },
+                    { "grado": 5, "texto": "Reconoce y describe semejanzas y diferencias entre un prisma y una pirámide; propone desarrollos planos para construir prismas rectos cuadrangulares o rectangulares." },
+                    { "grado": 6, "texto": "Explora y reconoce las características del cilindro y cono; anticipa y comprueba desarrollos planos que permiten construirlos." }
+                  ]
+                },
+                {
+                  "id": "pri-sab-3",
+                  "tema": "Figuras geométricas y sus características.",
+                  "pdas": [
+                    { "grado": 1, "texto": "Representa animales, plantas u objetos utilizando el tangram y otras figuras geométricas, para reconocer y describir oralmente y por escrito sus nombres y propiedades (forma y número de lados y vértices), utilizando paulatinamente un lenguaje formal para referirse a ellas." },
+                    { "grado": 2, "texto": "Construye composiciones geométricas cada vez más complejas, por el tipo de figuras o por el número de “piezas”, con el uso del tangram y geoplano. Clasifica y describe polígonos por el número de lados en triángulos, cuadriláteros, pentágonos, hexágonos y octágonos, utilizando paulatinamente un lenguaje formal para referirse a sus propiedades (número de vértices y lados); los construye sobre retículas de cuadrados o puntos." },
+                    { "grado": 3, "texto": "A partir de retículas de triángulos, cuadrados o puntos, construye, analiza y clasifica figuras geométricas a partir de sus lados y su simetría, en particular a los triángulos; explica los criterios utilizados para la clasificación." },
+                    { "grado": 4, "texto": "Con el apoyo de instrumentos geométricos, construye, analiza y clasifica cuadriláteros a partir de sus lados, ángulos y diagonales; explica los criterios utilizados para la clasificación." },
+                    { "grado": 5, "texto": "Con el apoyo de instrumentos geométricos, construye círculos a partir de distintos datos (longitud del diámetro o del radio, a partir de dos puntos); distingue la diferencia entre circunferencia y círculo e identifica el diámetro y el radio." },
+                    { "grado": 6, "texto": "Identifica y comprueba en diferentes objetos y dibujos con forma circular, la relación que existe entre la circunferencia y el diámetro (valor aproximado de π). Utiliza instrumentos geométricos para trazar polígonos regulares." }
+                  ]
+                },
+                {
+                  "id": "pri-sab-4",
+                  "tema": "Organización e interpretación de datos.",
+                  "pdas": [
+                    { "grado": 1, "texto": "Elabora registros de datos mediante distintos recursos como pictogramas o tablas para responder preguntas de su interés." },
+                    { "grado": 2, "texto": "Recolecta, organiza, representa e interpreta datos en tablas o pictogramas para responder preguntas de su interés." },
+                    { "grado": 3, "texto": "Recolecta, organiza, representa e interpreta datos en tablas de frecuencias o pictogramas para responder preguntas de su interés." },
+                    { "grado": 4, "texto": "Interpreta tablas de frecuencias y gráficas de barras, y reconoce la moda de un conjunto de datos para responder preguntas." },
+                    { "grado": 5, "texto": "Construye tablas y gráficas de barras, e interpreta información cuantitativa y cualitativa contenida en ellas; interpreta la moda para responder preguntas vinculadas a diferentes contextos." },
+                    { "grado": 6, "texto": "Interpreta información cuantitativa y cualitativa contenida en tablas, gráficas de barras y circulares para responder preguntas vinculadas a diferentes contextos; construye gráficas de barras. Genera y organiza datos, determina la moda, la media aritmética y el rango para responder preguntas vinculadas a diferentes contextos." }
+                  ]
+                },
+                {
+                  "id": "pri-sab-5",
+                  "tema": "Suma y resta, su relación como operaciones inversas.",
+                  "pdas": [
+                    { "grado": 3, "texto": "Resuelve situaciones problemáticas vinculadas a su contexto que implican sumas de números naturales de hasta tres cifras utilizando el algoritmo convencional. Resuelve situaciones problemáticas vinculadas a su contexto que implican restas de números naturales de hasta tres cifras utilizando agrupamientos y el algoritmo convencional. Utiliza, explica y comprueba sus estrategias para calcular mentalmente sumas o restas de números naturales de hasta tres cifras. Resuelve problemas de suma o resta vinculados a su contexto, que impliquen el uso de fracciones (medios, cuartos, octavos, dieciseisavos), con el apoyo de material concreto o representaciones gráficas." },
+                    { "grado": 4, "texto": "Resuelve situaciones problemáticas vinculadas a su contexto que implican sumas o restas de números naturales de hasta cuatro cifras utilizando los algoritmos convencionales. Resuelve situaciones problemáticas vinculadas a su contexto que implican sumas o restas de dos números decimales hasta centésimos, con apoyo de material concreto y representaciones gráficas. Resuelve situaciones problemáticas que implican sumas o restas de fracciones con diferente denominador (tercios, quintos, sextos, novenos y décimos) vinculados a su contexto, mediante diversos procedimientos, en particular, la equivalencia." },
+                    { "grado": 5, "texto": "Propone y resuelve situaciones problemáticas que implican sumas y restas con números decimales utilizando el algoritmo convencional y fracciones con diferentes denominadores. Utiliza, explica y comprueba sus estrategias para calcular mentalmente sumas y restas de dos números múltiplos de 100 y dos fracciones cuyos denominadores son múltiplos." },
+                    { "grado": 6, "texto": "A partir de situaciones problemáticas vinculadas a diferentes contextos, suma y resta números decimales y fracciones con diferentes denominadores. Utiliza, explica y comprueba sus estrategias para calcular mentalmente sumas y restas de dos números decimales hasta centésimos." }
+                  ]
+                },
+                {
+                  "id": "pri-sab-6",
+                  "tema": "Multiplicación y división, su relación como operaciones inversas.",
+                  "pdas": [
+                    { "grado": 3, "texto": "Resuelve multiplicaciones cuyo producto es un número natural de tres cifras, mediante diversos procedimientos (suma de multiplicaciones parciales, multiplicaciones por 10, 20, 30, entre otros). Resuelve situaciones problemáticas vinculadas a su contexto que implican divisiones (reparto y agrupamiento), mediante diversos procedimientos, en particular con la multiplicación; representa la división como: a ÷ b = c. Construye y usa un repertorio multiplicativo de factores de una cifra, para resolver multiplicaciones y divisiones. Utiliza, explica y comprueba sus estrategias para calcular mentalmente productos de números naturales de una cifra." },
+                    { "grado": 4, "texto": "Resuelve situaciones problemáticas vinculadas a su contexto que implican multiplicaciones de números naturales de hasta tres por dos cifras, a partir de diversas descomposiciones aditivas y el algoritmo convencional. Resuelve situaciones problemáticas vinculadas a su contexto que impliquen el uso de un algoritmo para dividir números naturales de hasta tres cifras entre un número de una o dos cifras; reconoce al cociente y al residuo como resultado de una división. Utiliza, explica y comprueba sus estrategias para calcular mentalmente el doble o el triple de un número natural de dos cifras y la mitad de un número natural par de dos cifras." },
+                    { "grado": 5, "texto": "Resuelve situaciones problemáticas vinculadas a diferentes contextos que implican multiplicar números fraccionarios y números decimales, con un número natural como multiplicador. Resuelve situaciones problemáticas vinculadas a diferentes contextos que implican dividir números naturales y el cociente resulte un número decimal." },
+                    { "grado": 6, "texto": "Resuelve situaciones problemáticas vinculadas a diferentes contextos que implican dividir números decimales entre naturales. Resuelve situaciones problemáticas vinculadas a diferentes contextos que implican dividir números fraccionarios entre números naturales." }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "slug": "etica",
+          "nombre": "Ética, Naturaleza y Sociedades",
+          "disciplinas": [
+            {
+              "slug": "general",
+              "nombre": "General",
+              "contenidos": [
+                {
+                  "id": "pri-eti-1",
+                  "tema": "Diversos contextos sociales, naturales y territoriales: cambios y continuidades.",
+                  "pdas": [
+                    { "grado": 1, "texto": "Identifica que es parte de un barrio, colonia, vecindad, comunidad, pueblo o localidad, y describe las características y diversidad de su entorno, en términos naturales, sociales y territoriales. Ubica algunos sitios de interés del lugar donde vive y/o donde se encuentra la escuela con referencias básicas y los representa en dibujos y croquis." },
+                    { "grado": 2, "texto": "Comprende que, tanto de forma individual como colectiva, es parte de un contexto social, natural y territorial que se distingue de otros contextos. Describe algunos cambios y continuidades de su entorno, y se ubica espacialmente a través de croquis y mapas." }
+                  ]
+                },
+                {
+                  "id": "pri-eti-2",
+                  "tema": "Respeto, cuidado y empatía hacia la naturaleza, como parte de un todo interdependiente.",
+                  "pdas": [
+                    { "grado": 1, "texto": "Describe y reconoce la existencia de otros seres vivos (animales, plantas, hongos y microorganismos), y componentes de la naturaleza (ríos, mares, lagos, distintos suelos, montañas, valles y aire, entre otros) presentes en el lugar donde vive. Analiza las formas de interactuar y explora las relaciones de cuidado y afectividad, con otros seres vivos y componentes de la naturaleza, los sentimientos que provocan, la importancia de promover el respeto y la empatía hacia todos los seres vivos y a la naturaleza. Comprende cómo las acciones de los seres humanos pueden preservar, modificar o dañar los distintos componentes sociales y naturales del entorno." },
+                    { "grado": 2, "texto": "Se reconoce a sí mismo o a sí misma como parte del lugar donde vive y en relación con otros seres vivos (animales, plantas, hongos y microorganismos) y componentes de la naturaleza (cuerpos de agua, suelos, aire, desiertos, bosques, arrecifes e islas, entre otros); y dialoga acerca de los sentimientos que le provoca esa relación. Dialoga acerca de las responsabilidades hacia la naturaleza y muestra respeto, cuidado y empatía hacia sus componentes, proponiendo acciones a favor de la naturaleza, en general, y de los seres vivos, en particular en la medida de sus posibilidades." }
+                  ]
+                },
+                {
+                  "id": "pri-eti-3",
+                  "tema": "Representaciones cartográficas de la localidad y/o comunidad; su ubicación dentro de la entidad y del país, con relación al conocimiento, función y cuidados de los ecosistemas como sustento de la vida.",
+                  "pdas": [
+                    { "grado": 3, "texto": "Elabora representaciones cartográficas de la localidad o pueblo donde vive, considerando los puntos cardinales dentro de la entidad. Indaga sobre los ecosistemas locales y sus características, y los concibe como espacios vivos y complejos de la naturaleza. Comprende las relaciones e interdependencias de sus componentes, como sustento de la vida en la Tierra y de los seres vivos que la habitamos. Reflexiona situaciones de riesgo o amenazas a la preservación de los ecosistemas, y sus posibles causas locales. Conoce cómo se puede contribuir a preservar los ecosistemas, así como sobre la importancia del respeto, responsabilidad y colaboración en su cuidado y aprovechamiento sustentable, a través del tiempo, con equidad y justicia social." },
+                    { "grado": 4, "texto": "Elabora representaciones cartográficas de la entidad y el territorio nacional, considerando los puntos cardinales. Indaga sobre los cambios en los componentes del ecosistema (suelo, agua, aire y seres vivos, entre otros), por causas físicas o sociales. Comprende que las personas de distintas culturas interactúan de diferente manera con los ecosistemas, distinguiendo las formas de trabajo en que las mujeres y las personas de los pueblos originarios, afrodescendientes y otras culturas de su entidad o país, conviven de manera más armónica con los ecosistemas, protegiéndolos y preservándolos. Valora la importancia del respeto y colaboración en su cuidado y aprovechamiento sustentable, con equidad y justicia social. Propone acciones para contribuir en la preservación de los ecosistemas, de manera personal y comunitaria, desde el trabajo y en la convivencia cotidiana de la comunidad, el barrio, el pueblo o la ciudad." }
+                  ]
+                },
+                {
+                  "id": "pri-eti-4",
+                  "tema": "Valoración de la biodiversidad en el territorio donde se ubica la localidad, entidad, México y el mundo, valores y acciones sustentables.",
+                  "pdas": [
+                    { "grado": 5, "texto": "Comprende la biodiversidad, su función como elemento vital en la Tierra y en el equilibrio de la biosfera, así como la importancia para la vida humana y de las demás especies. Compara e interpreta representaciones cartográficas de la biodiversidad de México, su entidad y localidad, reconociendo su distribución y los elementos que la hacen posible. Indaga cómo y por qué está desapareciendo la biodiversidad, incluyendo los cambios del clima global y sus riesgos para la vida. Propone y realiza acciones que ayuden a proteger la biodiversidad, de acuerdo con sus posibilidades, desde una perspectiva crítica." },
+                    { "grado": 6, "texto": "Comprende la biodiversidad en la Tierra, su sistema de relaciones e interdependencia global. Interpreta representaciones cartográficas de la riqueza en biodiversidad de continentes, aguas oceánicas y continentales. Explica los procesos ecosistémicos de la biodiversidad, en relación con la circulación de energía, mediante las interacciones entre los seres humanos, otros seres vivos, el agua, el aire y el suelo, así como sus beneficios ambientales. Comprende relaciones sociales económicas, culturales y políticas en diversas interacciones mediadas por intereses, así como formas de concebir la naturaleza, que favorecen relaciones armónicas o desfavorecen su integridad. Analiza críticamente formas de cuidar, respetar y proteger la biodiversidad sustentablemente." }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "slug": "humano",
+          "nombre": "De lo Humano y lo Comunitario",
+          "disciplinas": [
+            {
+              "slug": "general",
+              "nombre": "General",
+              "contenidos": [
+                {
+                  "id": "pri-hum-1",
+                  "tema": "La comunidad como el espacio en el que se vive y se encuentra la escuela.",
+                  "pdas": [
+                    { "grado": 1, "texto": "Ubica algunos referentes del lugar donde vive y se encuentra la escuela. Platica sobre las características geográficas, climáticas, ambientales, socioculturales y lingüísticas de su comunidad y escuela." },
+                    { "grado": 2, "texto": "Identifica las ventajas que conlleva: la seguridad, el intercambio, el sentido de pertenencia, la afectividad, el ser parte de una comunidad, barrio, unidad habitacional u otros espacios y grupos sociales. Reconoce diferentes problemáticas sociales y ambientales de su comunidad, y reflexiona sobre algunas acciones para solucionarlas." },
+                    { "grado": 3, "texto": "Indaga acerca de ideas, conocimientos, prácticas culturales, formas de organización y acuerdos familiares, escolares y comunitarios, para compartir su importancia en la socialización." },
+                    { "grado": 4, "texto": "Reconoce ideas, conocimientos, prácticas culturales y formas de organización, para explicar el significado que tienen en su familia, escuela y comunidad." }
+                  ]
+                },
+                {
+                  "id": "pri-hum-2",
+                  "tema": "Educación Integral en Sexualidad.",
+                  "pdas": [
+                    { "grado": 1, "texto": "Reflexiona acerca de las diversas formas de ser y actuar de hombres y mujeres a partir de distintas situaciones cotidianas, para reconocer manifestaciones en favor de una interacción respetuosa y convivencia sana." },
+                    { "grado": 2, "texto": "Diferencia manifestaciones y prácticas presentes en distintos ámbitos (escolar, laboral, social, cultural u otros), para reconocer aquellas que inciden en la construcción de la identidad de género." },
+                    { "grado": 3, "texto": "Explora formas de vivir y sentir el cuerpo, así como de los afectos, para identificar la diversidad de expresiones que agradan, incomodan y/o ponen en riesgo la integridad de las personas." },
+                    { "grado": 4, "texto": "Valora y aprecia las formas de expresar el carácter y los afectos para tomar decisiones orientadas a salvaguardar su integridad." },
+                    { "grado": 5, "texto": "Intercambia experiencias acerca de sensaciones de placer o displacer que se presentan en la interacción, para argumentar las causas, prever situaciones de riesgo y realizar prácticas seguras." },
+                    { "grado": 6, "texto": "Reflexiona acerca de la importancia de expresar su consentimiento o rechazo ante situaciones que le generan placeres y displaceres para valorar las implicaciones en su bienestar." }
+                  ]
+                },
+                {
+                  "id": "pri-hum-3",
+                  "tema": "Estilos de vida activos y saludables.",
+                  "pdas": [
+                    { "grado": 1, "texto": "Participa en diferentes juegos para explorar alternativas que le permitan mantener una vida activa y saludable." },
+                    { "grado": 2, "texto": "Reconoce propuestas lúdicas o expresivas que fomentan su disfrute y práctica cotidiana para favorecer una vida activa y saludable." },
+                    { "grado": 3, "texto": "Socializa actividades físicas que practica de manera cotidiana, con la intención de valorar su incidencia en el bienestar y cuidado de la salud." },
+                    { "grado": 4, "texto": "Organiza juegos y otras actividades físicas, para analizar avances y logros personales o grupales, en favor de asumir una vida saludable." },
+                    { "grado": 5, "texto": "Plantea alternativas de actividades físicas que puede practicar dentro y fuera de la escuela, con la intención de desarrollar un estilo de vida activo." },
+                    { "grado": 6, "texto": "Evalúa los factores que limitan la práctica constante de actividades físicas, para implementar opciones que permitan superarlos a lo largo de la vida." }
+                  ]
+                },
+                {
+                  "id": "pri-hum-4",
+                  "tema": "Interacción motriz.",
+                  "pdas": [
+                    { "grado": 1, "texto": "Colabora en la definición de normas básicas de convivencia para reconocer su influencia en la interacción presente en juegos y situaciones cotidianas." },
+                    { "grado": 2, "texto": "Reflexiona acerca de las normas básicas de convivencia en el juego y las actividades cotidianas, con el propósito de asumir actitudes que fortalezcan la interacción." },
+                    { "grado": 3, "texto": "Establece acuerdos ante situaciones de juego y cotidianas, a partir de la interacción, para valorar su aplicación y los resultados alcanzados." },
+                    { "grado": 4, "texto": "Experimenta situaciones caracterizadas por la cooperación y oposición, con el fin de reconocer sus implicaciones en la interacción y el logro de metas." },
+                    { "grado": 5, "texto": "Promueve ambientes de participación en situaciones de juego, iniciación deportiva y cotidianas, para valorar posibles interacciones en favor de una sana convivencia." },
+                    { "grado": 6, "texto": "Organiza e implementa situaciones de juego e iniciación deportiva, para favorecer la convivencia en la escuela y la comunidad." }
+                  ]
+                },
+                {
+                  "id": "pri-hum-5",
+                  "tema": "Acciones individuales que repercuten en la conservación y mejora de la salud.",
+                  "pdas": [
+                    { "grado": 1, "texto": "Reconoce la importancia de la práctica de hábitos de higiene y limpieza en el cuidado personal, así como de otros seres vivos, con la intención de contribuir a la prevención de problemas de salud. Explica la importancia de incluir alimentos saludables de los distintos grupos para colaborar en la modificación de hábitos de consumo personales y familiares que favorecen la salud." },
+                    { "grado": 2, "texto": "Intercambia experiencias acerca de situaciones de riesgo, para compartir acciones encaminadas a su prevención. Reflexiona acerca de situaciones y comportamientos que ponen en riesgo la salud, para promover acciones orientadas a los cuidados personales. Compara alimentos naturales y frescos, procesados y ultraprocesados que se consumen en su familia y la escuela, para valorar aquellos que contribuyen a mantener la salud. Socializa alternativas de solución ante riesgo de accidentes, dependencias y formas de violencia, para valorar aquellas que puede llevar a cabo en su familia y la escuela." },
+                    { "grado": 3, "texto": "Construye alternativas saludables y sostenibles asociadas con hábitos de higiene personal y limpieza de los espacios, para promover la toma de conciencia sobre su impacto en el bienestar personal y social. Analiza los hábitos alimentarios presentes en la familia y comunidad, para valorar su impacto en favor de un consumo responsable." },
+                    { "grado": 4, "texto": "Practica diversas estrategias que permiten reaccionar a cambios o afrontar situaciones de riesgo relacionadas con accidentes, adicciones y formas de violencia, para favorecer el bienestar personal y colectivo. Promueve alternativas de hábitos de higiene personal y limpieza de los espacios en la comunidad, para impulsar la toma de decisiones informadas que contribuyan a asumir prácticas saludables y sostenibles. Comprende los riesgos del consumo de alimentos procesados y ultraprocesados en la salud y el medio ambiente, para favorecer la adopción de prácticas alimentarias saludables y sostenibles." },
+                    { "grado": 5, "texto": "Diseña alternativas que contribuyen a afrontar cambios o situaciones de riesgo relacionadas con accidentes, adicciones y formas de violencia, para valorar su pertinencia y determinar su viabilidad." },
+                    { "grado": 6, "texto": "Promueve alternativas de hábitos de higiene personal y limpieza de los espacios en la comunidad, para impulsar la toma de decisiones informadas que contribuyan a asumir prácticas saludables y sostenibles. Comprende los riesgos del consumo de alimentos procesados y ultraprocesados en la salud y el medio ambiente, para favorecer la adopción de prácticas alimentarias saludables y sostenibles." }
+                  ]
+                },
+                {
+                  "id": "pri-hum-6",
+                  "tema": "Sentido de comunidad y satisfacción de necesidades humanas.",
+                  "pdas": [
+                    { "grado": 1, "texto": "Indaga acerca de ideas, conocimientos, prácticas culturales, formas de organización y acuerdos familiares, para compartir su importancia." },
+                    { "grado": 2, "texto": "Compara necesidades de las familias en diferentes contextos y las formas de utilizar el cuerpo u organizarse en su satisfacción, para explicar cambios y mejoras que se han presentado. Reconoce ideas, conocimientos, prácticas culturales y formas de organización, para explicar el significado que tienen en su familia y comunidad. Identifica las necesidades de su comunidad y las formas de satisfacerlas a partir del uso del cuerpo o los objetos y la organización de las personas para explorar otras alternativas de atenderlas." },
+                    { "grado": 5, "texto": "Argumenta acerca de la pertinencia de ideas, conocimientos y practices culturales de la comunidad, para valorar sus beneficios y áreas de oportunidad en favor del bienestar individual y colectivo. Experimenta formas de organización y representación gráfica, así como medios, recursos y procesos empleados en la satisfacción de necesidades, con el fin de proponer mejoras orientadas a fomentar el desarrollo sostenible." },
+                    { "grado": 6, "texto": "Diseña alternativas orientadas a promover, preservar y, en caso necesario, replantear ideas, conocimientos y prácticas culturales, para impulsar una mayor difusión y participación. Diseña de manera consensuada, estrategias de organización ante diferentes situaciones que impliquen cambios que pueden generar resistencia, para la prevención de problemas y satisfacción de necesidades, así como el aprovechamiento responsable y sostenible de recursos." }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "secundaria": {
+      "nombre": "Secundaria",
+      "grados": [1, 2, 3],
+      "campos": [
+        {
+          "slug": "lenguajes",
+          "nombre": "Lenguajes",
+          "disciplinas": [
+            {
+              "slug": "espanol",
+              "nombre": "Español",
+              "contenidos": [
+                {
+                  "id": "esp-1",
+                  "tema": "La diversidad de lenguas y su uso en la comunicación familiar, escolar y comunitaria.",
+                  "pdas": [
+                    { "grado": 1, "texto": "Reconoce la riqueza lingüística de México y el mundo, a partir de obras literarias procedentes de distintas culturas." },
+                    { "grado": 2, "texto": "Comprende las ideas centrales y secundarias de textos relacionados con la diversidad étnica, cultural y lingüística, que favorecen una sociedad intercultural." },
+                    { "grado": 3, "texto": "Analiza y reconoce algunas variantes lingüísticas de la lengua española, para valorarla como riqueza cultural." }
+                  ]
+                },
+                {
+                  "id": "esp-2",
+                  "tema": "La diversidad étnica, cultural y lingüística de México a favor de una sociedad intercultural.",
+                  "pdas": [
+                    { "grado": 1, "texto": "Comprende las ideas centrales y secundarias de textos relacionados con la diversidad étnica, cultural y lingüística, que favorecen una sociedad intercultural." },
+                    { "grado": 2, "texto": "Analiza textos sobre las sociedades multiculturales y manifiesta su función para lograr una sociedad intercultural." },
+                    { "grado": 3, "texto": "Practica la comunicación asertiva y el diálogo intercultural en interacción con otras personas." }
+                  ]
+                },
+                {
+                  "id": "esp-3",
+                  "tema": "Las lenguas como manifestación de la identity y del sentido de pertenencia.",
+                  "pdas": [
+                    { "grado": 1, "texto": "Describe en un texto cómo el lenguaje oral manifiesta las identidades personal y colectiva, para reconocer lo común y lo diferente." },
+                    { "grado": 2, "texto": "Comprende y redacta textos narrativos sobre la construcción de la identidad y el sentido de pertenencia, a partir del análisis de variantes del español." },
+                    { "grado": 3, "texto": "Elabora textos argumentativos acerca de la interculturalidad crítica, para reconocer el valor de las lenguas, a fin de promoverlas y fortalecerlas." }
+                  ]
+                },
+                {
+                  "id": "esp-4",
+                  "tema": "El dinamismo de las lenguas y su relevancia como patrimonio cultural.",
+                  "pdas": [
+                    { "grado": 1, "texto": "Identifica y expresa la relevancia de valorar las lenguas como legado de la comunidad." },
+                    { "grado": 2, "texto": "Reconoce cambios temporales y geográficos del español en la comunidad, país o mundo hispano." },
+                    { "grado": 3, "texto": "Analiza en textos literarios neologismos, juegos de lenguajes, caló, jerga, préstamos lingüísticos, extranjerismos como parte del dinamismo de la lengua española." }
+                  ]
+                },
+                {
+                  "id": "esp-5",
+                  "tema": "La función creativa del español en la expresión de necesidades e intereses comunitarios.",
+                  "pdas": [
+                    { "grado": 1, "texto": "Identifica una situación problemática de la comunidad, haciendo uso del pensamiento crítico, para plantear diversas formas creativas de resolverla, por ejemplo, con un cuento." },
+                    { "grado": 2, "texto": "Expresa, mediante un ensayo, una postura crítica sobre necesidades, intereses y problemas de la comunidad, e investiga acciones colectivas a favor de la inclusión." },
+                    { "grado": 3, "texto": "Crea textos literarios de distintos géneros, para ofrecer una propuesta de solución a problemas de la comunidad." }
+                  ]
+                },
+                {
+                  "id": "esp-6",
+                  "tema": "Los elementos y los recursos estéticos de la lengua española en la literatura oral y escrita.",
+                  "pdas": [
+                    { "grado": 1, "texto": "Reconoce los recursos estéticos en textos literarios líricos, orales y escritos, y disfruta de poemas, canciones, juegos de palabras, entre otros." },
+                    { "grado": 2, "texto": "Analiza las características y recursos estéticos de los textos narrativos, e interpreta y disfruta de cuentos, novelas, crónicas, leyendas, mitos, entre otros." },
+                    { "grado": 3, "texto": "Usa creativa e intencionalmente las características y los recursos estéticos de textos dramáticos, para escenificar situaciones vinculadas con la comunidad." }
+                  ]
+                },
+                {
+                  "id": "esp-7",
+                  "tema": "Textos literarios escritos en español o traducidos.",
+                  "pdas": [
+                    { "grado": 1, "texto": "Reconoce el valor estético de diversos textos literarios tradicionales y contemporáneos, para elaborar comentarios y promover su lectura." },
+                    { "grado": 2, "texto": "Analiza diversos textos literarios de su libre elección para expresar un juicio estético y lo comparte en la comunidad." },
+                    { "grado": 3, "texto": "Elabora un ensayo acerca del tratamiento de un tema de su elección, con base en algún género literario de su preferencia, para argumentar un juicio estético sobre éste." }
+                  ]
+                },
+                {
+                  "id": "esp-8",
+                  "tema": "Creaciones literarias tradicionales y contemporáneas.",
+                  "pdas": [
+                    { "grado": 1, "texto": "Recupera y clasifica creaciones literarias de la comunidad o de un lugar de interés, como mitos, leyendas, fábulas, epopeyas, cantares de gesta, refranes, coplas, canciones, corridos, juegos de palabras, entre otras, para promover de manera creativa su lectura." },
+                    { "grado": 2, "texto": "Valora textos literarios tradicionales y contemporáneos, como mitos, leyendas, fábulas, epopeyas, cantares de gesta, refranes, coplas, canciones, corridos, juegos de palabras, entre otros, y adapta uno de ellos a otros lenguajes." },
+                    { "grado": 3, "texto": "Crea textos narrativos, poéticos, dramáticos, guiones para audiovisuales, entre otros, a partir del uso de recursos literarios, para exponer una situación real o ficticia." }
+                  ]
+                },
+                {
+                  "id": "esp-9",
+                  "tema": "Recursos literarios en lengua española para expresar sensaciones, emociones, sentimientos e ideas vinculados con las familias, la escuela y la comunidad.",
+                  "pdas": [
+                    { "grado": 1, "texto": "Identifica recursos literarios en lengua española y los emplea en la elaboración de cartas personales y biografías, para expresar sensaciones, emociones, sentimientos e ideas que experimenta en su entorno." },
+                    { "grado": 2, "texto": "Analiza recursos literarios en lengua española, para expresar sensaciones, emociones, sentimientos e ideas al elaborar una autobiografía con respecto a los vínculos consigo mismo y con el entorno." },
+                    { "grado": 3, "texto": "Recupera recursos literarios de la lengua española para crear un texto libre que describa los vínculos con el entorno familiar, escolar o comunitario." }
+                  ]
+                },
+                {
+                  "id": "esp-10",
+                  "tema": "Los géneros periodísticos y sus recursos para comunicar sucesos significativos familiares, escolares, comunitarios y sociales.",
+                  "pdas": [
+                    { "grado": 1, "texto": "Identifica sucesos significativos familiares, escolares, comunitarios y sociales que forman parte de la memoria colectiva y los comunica haciendo uso de las características de los géneros periodísticos informativos." },
+                    { "grado": 2, "texto": "Investiga un evento familiar, escolar o comunitario significativo de la memoria colectiva, para comunicarlo utilizando las características de los géneros periodísticos de opinión." },
+                    { "grado": 3, "texto": "Analiza los sucesos más significativos de la comunidad y los comunica empleando las características de los géneros periodísticos de interpretación, para preservar la memoria colectiva." }
+                  ]
+                },
+                {
+                  "id": "esp-11",
+                  "tema": "Comunicación asertiva y dialógica para erradicar expresiones de violencia.",
+                  "pdas": [
+                    { "grado": 1, "texto": "Realiza, de manera colectiva, una propuesta oral o por escrito, para promover acciones que posibiliten erradicar la violencia en las familias y la escuela." },
+                    { "grado": 2, "texto": "Participa en un debate acerca de algunas expresiones de violencia —como la de género— presentes en las familias y la escuela, para argumentar una postura de rechazo." },
+                    { "grado": 3, "texto": "Diseña y difunde en la escuela y la comunidad propuestas escritas en español o en otras lenguas para rechazar y erradicar cualquier manifestación de violencia." }
+                  ]
+                },
+                {
+                  "id": "esp-12",
+                  "tema": "Mensajes para promover una vida saludable, expresados en medios comunitarios o masivos de comunicación.",
+                  "pdas": [
+                    { "grado": 1, "texto": "Identifica las características y recursos de mensajes que promueven una vida saludable a través de los diferentes medios comunitarios o masivos de comunicación impresos o audiovisuales." },
+                    { "grado": 2, "texto": "Elabora un mensaje impreso empleando imágenes, textos, colores y otros recursos gráficos para favorecer una vida saludable y lo comparte en la comunidad." },
+                    { "grado": 3, "texto": "Construye narrativas acerca de una vida saludable, haciendo uso del lenguaje audiovisual y las transmite por medios comunitarios o masivos de comunicación." }
+                  ]
+                },
+                {
+                  "id": "esp-13",
+                  "tema": "Textos de divulgación científica.",
+                  "pdas": [
+                    { "grado": 1, "texto": "Identifica las características del texto de divulgación científica y elabora uno." },
+                    { "grado": 2, "texto": "Analiza las características del texto de divulgación científica, para elaborar y dar a conocer diversos textos científicos orales o escritos, que traten sobre un tema de interés personal o colectivo." },
+                    { "grado": 3, "texto": "Elabora una propuesta de divulgación científica, para fomentar el conocimiento de las ciencias." }
+                  ]
+                },
+                {
+                  "id": "esp-14",
+                  "tema": "Manifestaciones culturales y artísticas que favorecen una sociedad incluyente.",
+                  "pdas": [
+                    { "grado": 1, "texto": "Reconoce manifestaciones culturales y artísticas creadas o ejecutadas por personas con alguna discapacidad, para distinguir sus valores estéticos y creativos y las comparte en forma oral o escrita con la comunidad." },
+                    { "grado": 2, "texto": "Elabora un texto oral o escrito acerca de las manifestaciones culturales y artísticas, que promuevan una sociedad incluyente." },
+                    { "grado": 3, "texto": "Crea un texto literario que aborde el tema de la inclusión para después difundirlo en la comunidad escolar." }
+                  ]
+                }
+              ]
+            },
+            {
+              "slug": "ingles",
+              "nombre": "Inglés",
+              "contenidos": [
+                {
+                  "id": "ing-1",
+                  "tema": "La diversidad lingüística y sus formas de expresión en México y el mundo.",
+                  "pdas": [
+                    { "grado": 1, "texto": "Hace uso del alfabeto, los números y las expresiones básicas en inglés, para nombrar y recuperar datos factuales y características básicas de lenguas reconocidas en México y el mundo." },
+                    { "grado": 2, "texto": "Comprende textos narrativos y biográficos en inglés sobre la vida cotidiana, formas de interacción y comportamiento de hablantes de diversas lenguas de México y el mundo en el pasado, y lo expresa en organizadores gráficos, infografías u otras formas de presentación escrita y oral." },
+                    { "grado": 3, "texto": "Utiliza diversos tipos de texto y medios de comunicación, para expresar y difundir en inglés, prácticas culturales y lingüísticas diversas de sociedades en México y el mundo." }
+                  ]
+                },
+                {
+                  "id": "ing-2",
+                  "tema": "La identidad y cultura de pueblos de habla inglesa.",
+                  "pdas": [
+                    { "grado": 1, "texto": "Recupera información para llevar a cabo presentaciones en inglés, orales y escritas, que describan rasgos étnicos, culturales e identitarios de hablantes de lengua inglesa." },
+                    { "grado": 2, "texto": "Elabora esquemas, mapas conceptuales y pósteres, con diversas descripciones orales y escritas en inglés, para evidenciar rasgos identitarios de pueblos de habla inglesa." },
+                    { "grado": 3, "texto": "Construye una propuesta de comunicación en inglés oral y escrita, donde contraste, valore y promueva rasgos de una sociedad intercultural." }
+                  ]
+                },
+                {
+                  "id": "ing-3",
+                  "tema": "Las manifestaciones culturales, lingüísticas y artísticas en inglés, a favor de la interculturalidad.",
+                  "pdas": [
+                    { "grado": 1, "texto": "Elabora un cómic o manga en inglés sobre situaciones donde se rescata la importancia de la interculturalidad." },
+                    { "grado": 2, "texto": "Interpreta juegos de roles en inglés, sobre situaciones que favorezcan la comunicación asertiva." },
+                    { "grado": 3, "texto": "Crea poemas cortos a partir del uso de recursos estéticos del inglés en producciones orales y escritas, para difundirse en la comunidad escolar." }
+                  ]
+                },
+                {
+                  "id": "ing-4",
+                  "tema": "Uso de diversos textos en inglés que promueven la preservación y conservación de las lenguas.",
+                  "pdas": [
+                    { "grado": 1, "texto": "Recupera textos informativos y científicos en inglés, que signifiquen y valoren la conservación y preservación de las lenguas originarias." },
+                    { "grado": 2, "texto": "Indaga y construye propuestas en inglés para conservar y preservar las lenguas, como legado y sentido de pertenencia." },
+                    { "grado": 3, "texto": "Participa en un debate en inglés, sobre los cambios lingüísticos y culturales de las lenguas." }
+                  ]
+                },
+                {
+                  "id": "ing-5",
+                  "tema": "El uso del inglés para expresar necesidades, intereses y problemas de la comunidad.",
+                  "pdas": [
+                    { "grado": 1, "texto": "Investiga en textos en inglés soluciones implementadas sobre problemas de una comunidad, e informa de manera oral o escrita sus hallazgos." },
+                    { "grado": 2, "texto": "Elabora escritos argumentativos en inglés sobre acciones colectivas, que posibiliten la solución de problemas de una comunidad." },
+                    { "grado": 3, "texto": "Organiza una campaña en inglés sobre soluciones a problemas de la comunidad." }
+                  ]
+                },
+                {
+                  "id": "ing-6",
+                  "tema": "Elementos y recursos estéticos del inglés.",
+                  "pdas": [
+                    { "grado": 1, "texto": "Recupera de distintos tipos de textos literarios en inglés, expresiones, elementos y recursos estéticos y elabora un glosario." },
+                    { "grado": 2, "texto": "Identifica y explica el uso de expresiones, elementos y recursos estéticos en manifestaciones culturales y artísticas de países de habla inglesa." },
+                    { "grado": 3, "texto": "Emplea algunas figuras retóricas, elementos y recursos estéticos, para construir un texto literario corto, oral y escrito, para difundirlo en la comunidad escolar." }
+                  ]
+                },
+                {
+                  "id": "ing-7",
+                  "tema": "Manifestaciones artísticas y culturales del inglés.",
+                  "pdas": [
+                    { "grado": 1, "texto": "Realiza una lectura crítica y emite su opinión en inglés sobre diversas manifestaciones culturales y artísticas de pueblos de habla inglesa." },
+                    { "grado": 2, "texto": "Selecciona alguna manifestación cultural o artística de pueblos de habla inglesa para registrarla en inglés y explicarla." },
+                    { "grado": 3, "texto": "Crea un texto literario en inglés que aborde rasgos de la cultura de los pueblos de habla inglesa y lo difunde." }
+                  ]
+                },
+                {
+                  "id": "ing-8",
+                  "tema": "Creaciones literarias tradicionales y contemporáneas en inglés.",
+                  "pdas": [
+                    { "grado": 1, "texto": "Selecciona textos literarios en inglés que aborden temas de la comunidad o de algún lugar de interés, los resume y difunde por distintos medios." },
+                    { "grado": 2, "texto": "Investiga en textos literarios en inglés sobre pueblos indígenas y/o afrodescendientes de México o el mundo." },
+                    { "grado": 3, "texto": "Crea textos breves en inglés, para exponer una situación o tema de interés con recursos narrativos, poéticos, visuales, escénicos o musicales." }
+                  ]
+                },
+                {
+                  "id": "ing-9",
+                  "tema": "El inglés para expresar sensaciones, emociones, sentimientos e ideas vinculados con las familias, la escuela y la comunidad.",
+                  "pdas": [
+                    { "grado": 1, "texto": "Lleva a cabo juegos del lenguaje en inglés para expresar sensaciones, emociones, sentimientos e ideas sobre las familias y la escuela." },
+                    { "grado": 2, "texto": "Realiza entrevistas en inglés para recuperar opiniones acerca de emociones, sentimientos e ideas sobre la escuela y la comunidad." },
+                    { "grado": 3, "texto": "Investiga y recupera manifestaciones culturales y artísticas de su comunidad, para difundirlas en inglés." }
+                  ]
+                },
+                {
+                  "id": "ing-10",
+                  "tema": "Relatos en inglés para expresar sucesos significativos familiares, escolares, comunitarios y sociales.",
+                  "pdas": [
+                    { "grado": 1, "texto": "Entrevista a familiares o integrantes de la comunidad acerca de un suceso significativo y lo redacta en inglés." },
+                    { "grado": 2, "texto": "Investiga un acontecimiento familiar, escolar o comunitario significativo, recuperado de la memoria colectiva, para redactar una reflexión en inglés." },
+                    { "grado": 3, "texto": "Recupera un acontecimiento histórico comunitario y elabora un texto escrito en inglés, para expresar su postura." }
+                  ]
+                },
+                {
+                  "id": "ing-11",
+                  "tema": "Comunicación asertiva y dialógica en inglés, para erradicar expresiones de violencia.",
+                  "pdas": [
+                    { "grado": 1, "texto": "Recupera de distintos textos en inglés, expresiones de violencia presentes en las familias y las escuelas." },
+                    { "grado": 2, "texto": "Participa en un panel en inglés, sobre la importancia de la comunicación asertiva y dialógica, para consensuar propuestas de acción." },
+                    { "grado": 3, "texto": "Diseña y difunde en inglés propuestas orales o escritas, para rechazar y erradicar la violencia en la comunidad." }
+                  ]
+                },
+                {
+                  "id": "ing-12",
+                  "tema": "Mensajes en inglés en medios de comunicación masiva, que promuevan una vida saludable.",
+                  "pdas": [
+                    { "grado": 1, "texto": "Recupera en inglés mensajes que promuevan una vida saludable y los difunde de manera oral o escrita." },
+                    { "grado": 2, "texto": "Investiga en diversas fuentes en inglés sobre una vida saludable, para construir un texto informativo y difundirlo a través de medios de comunicación." },
+                    { "grado": 3, "texto": "Cuenta historias en inglés, sobre ejemplos de vida saludable, para difundirlas mediante el uso de medios de comunicación." }
+                  ]
+                },
+                {
+                  "id": "ing-13",
+                  "tema": "El uso del inglés en la construcción de mensajes a favor de la inclusión.",
+                  "pdas": [
+                    { "grado": 1, "texto": "Investiga en diversas fuentes en inglés las características de los mensajes que presentan información a favor de la interacción, sensibilización y empatía con la diversidad." },
+                    { "grado": 2, "texto": "Analiza las características y recursos empleados en la comunicación asertiva en inglés, y sugiere su uso para favorecer una sociedad incluyente." },
+                    { "grado": 3, "texto": "Construye un proyecto en inglés para valorar la diversidad y fomentar la inclusión social en su entorno." }
+                  ]
+                },
+                {
+                  "id": "ing-14",
+                  "tema": "El uso del inglés en las manifestaciones culturales y artísticas que favorecen la construcción de una sociedad incluyente.",
+                  "pdas": [
+                    { "grado": 1, "texto": "Elabora un texto oral o escrito en inglés sobre el uso de la lengua, en diversas manifestaciones culturales y artísticas." },
+                    { "grado": 2, "texto": "Produce textos en inglés que promuevan y valoren las diversas manifestaciones culturales y artísticas, dirigidos a la sociedad incluyente." },
+                    { "grado": 3, "texto": "Crea en inglés alguna manifestación artística que aborde cómo los sistemas alternativos y aumentativos favorecen sociedades incluyentes." }
+                  ]
+                }
+              ]
+            },
+            {
+              "slug": "artes",
+              "nombre": "Artes",
+              "contenidos": [
+                {
+                  "id": "art-1",
+                  "tema": "Diversidad de lenguajes artísticos en la riqueza pluricultural de México y del mundo.",
+                  "pdas": [
+                    { "grado": 1, "texto": "Reconoce en manifestaciones artísticas de México y del mundo el uso del cuerpo, del espacio y del tiempo, para valorarlas como parte de la riqueza pluricultural." },
+                    { "grado": 2, "texto": "Explora la creación de secuencias y patrones al identificar el uso de formas, colores, movimientos, sonidos, entre otros elementos de las artes, en manifestaciones artísticas de México y del mundo." },
+                    { "grado": 3, "texto": "Experimenta con características de algunos estilos de los lenguajes artísticos, para representar la riqueza pluricultural de México y del mundo." }
+                  ]
+                },
+                {
+                  "id": "art-2",
+                  "tema": "Manifestaciones culturales y artísticas que favorecen una sociedad incluyente.",
+                  "pdas": [
+                    { "grado": 1, "texto": "Reconoce y valora prácticas culturales y artísticas como alternativas para promover una sociedad incluyente." },
+                    { "grado": 2, "texto": "Elabora un texto argumentativo sobre la importancia de las manifestaciones culturales y artísticas para construir una sociedad incluyente." },
+                    { "grado": 3, "texto": "Crea un proyecto artístico multidisciplinario para promover una sociedad incluyente a nivel escolar o comunitario." }
+                  ]
+                },
+                {
+                  "id": "art-3",
+                  "tema": "Identidad y sentido de pertenencia en manifestaciones artísticas.",
+                  "pdas": [
+                    { "grado": 1, "texto": "Aprecia la intención expresiva en diversas manifestaciones artísticas, para la construcción crítica de las identidades personal y colectiva." },
+                    { "grado": 2, "texto": "Reflexiona sobre la manera en que las artes contribuyen en la construcción de la identidad personal y colectiva, a partir del análisis de obras de su interés." },
+                    { "grado": 3, "texto": "Crea propuestas artísticas en las que se aborden temas de identidad y sentido de pertenencia para su difusión." }
+                  ]
+                },
+                {
+                  "id": "art-4",
+                  "tema": "Patrimonio cultural de la comunidad en manifestaciones artísticas que fomentan la identidad y el sentido de pertenencia.",
+                  "pdas": [
+                    { "grado": 1, "texto": "Interpreta manifestaciones artísticas del patrimonio cultural de la comunidad y de México, para fomentar la identidad personal y colectiva." },
+                    { "grado": 2, "texto": "Expresa mediante lenguajes artísticos su interpretation del patrimonio cultural de la comunidad y reflexiona sobre su preservación." },
+                    { "grado": 3, "texto": "Reinterpreta el patrimonio cultural de la comunidad en un proyecto artístico colegiado, para fortalecer su sentido de pertenencia." }
+                  ]
+                },
+                {
+                  "id": "art-5",
+                  "tema": "Los lenguajes artísticos en la expresión de problemas de la comunidad.",
+                  "pdas": [
+                    { "grado": 1, "texto": "Usa intencionalmente formas, colores, movimientos y sonidos, para expresar problemas de su comunidad, por medio de los lenguajes artísticos." },
+                    { "grado": 2, "texto": "Investiga y desarrolla propuestas artísticas para reflexionar y dialogar acerca de un problema de la comunidad." },
+                    { "grado": 3, "texto": "Experimenta con técnicas de los lenguajes artísticos, para expresar de forma crítica problemas de la comunidad y sus posibles soluciones." }
+                  ]
+                },
+                {
+                  "id": "art-6",
+                  "tema": "Elementos de las artes y recursos estéticos apreciados en el entorno natural y social, así como en diversas manifestaciones artísticas.",
+                  "pdas": [
+                    { "grado": 1, "texto": "Identifica el uso intencional del cuerpo, del espacio y del tiempo en manifestaciones artísticas, para apreciar e interpretar sus sentidos y significados." },
+                    { "grado": 2, "texto": "Analiza el uso intencional de elementos de las artes en manifestaciones artísticas, para emplearlos en una creación personal." },
+                    { "grado": 3, "texto": "Usa intencionalmente los elementos de las artes en creaciones artísticas colectivas, para intervenir su entorno." }
+                  ]
+                },
+                {
+                  "id": "art-7",
+                  "tema": "Valor estético de la naturaleza, de la vida cotidiana y de diferentes manifestaciones culturales y artísticas.",
+                  "pdas": [
+                    { "grado": 1, "texto": "Disfruta de manifestaciones culturales y artísticas de la comunidad y de otros lugares, para reconocer sus gustos e intereses estéticos." },
+                    { "grado": 2, "texto": "Emite juicios de valor estético de manifestaciones culturales y artísticas de la comunidad y de otros lugares a partir de sus gustos e intereses." },
+                    { "grado": 3, "texto": "Argumenta sus juicios estéticos acerca de manifestaciones culturales y artísticas de su comunidad y del mundo, con base en sus conocimientos." }
+                  ]
+                },
+                {
+                  "id": "art-8",
+                  "tema": "Creaciones artísticas que tienen su origen en textos literarios.",
+                  "pdas": [
+                    { "grado": 1, "texto": "Explora con formas, colores, movimientos, sonidos, entre otros elementos de las artes, para reinterpretar textos literarios de la comunidad u otros lugares." },
+                    { "grado": 2, "texto": "Adapta textos literarios a disciplinas artísticas, para crear obras y escenificarlas o exhibirlas en la comunidad escolar." },
+                    { "grado": 3, "texto": "Construye una narrativa en un formato artístico que retome los elementos de un texto literario para su difusión social." }
+                  ]
+                },
+                {
+                  "id": "art-9",
+                  "tema": "Expresión artística de sensaciones, emociones, sentimientos e ideas, a partir de experiencias familiares, escolares o comunitarias.",
+                  "pdas": [
+                    { "grado": 1, "texto": "Recrea lúdicamente sensaciones, emociones, sentimientos e ideas mediante el uso del cuerpo, del espacio y del tiempo, para fortalecer los vínculos vinculados con su entorno." },
+                    { "grado": 2, "texto": "Explora con técnicas y herramientas de las disciplinas artísticas para crear obras en las que represente experiencias vinculadas con su entorno." },
+                    { "grado": 3, "texto": "Crea producciones artísticas para expresar sensaciones, emociones, sentimientos e ideas vinculados con su entorno, y las difunde mediante un colectivo artístico." }
+                  ]
+                },
+                {
+                  "id": "art-10",
+                  "tema": "Memoria colectiva representada por medios artísticos, para registrar experiencias comunitarias.",
+                  "pdas": [
+                    { "grado": 1, "texto": "Recupera de la memoria colectiva acontecimientos significativos de las familias, escuela o comunidad, para representarlos de manera creativa." },
+                    { "grado": 2, "texto": "Reinterpreta, mediante características de los géneros artísticos, un acontecimiento familiar, escolar o comunitario significativo." },
+                    { "grado": 3, "texto": "Manifiesta, en producciones artísticas vinculadas con la comunidad escolar, un sentido de pertenencia y valora el impacto del arte en la memoria colectiva." }
+                  ]
+                },
+                {
+                  "id": "art-11",
+                  "tema": "Procesos creativos que ponen en práctica la comunicación dialógica, para erradicar expresiones de violencia.",
+                  "pdas": [
+                    { "grado": 1, "texto": "Participa en procesos creativos que fortalecen la comunicación dialógica y la empatía, para favorecer interacciones pacíficas y un clima escolar de respeto." },
+                    { "grado": 2, "texto": "Desarrolla proyectos artísticos orientados a erradicar la violencia, haciendo uso de los elementos de las artes y las técnicas creativas." },
+                    { "grado": 3, "texto": "Presenta al público una propuesta artística que integre distintos lenguajes, centrada en erradicar la violencia, y promueva una cultura de paz." }
+                  ]
+                },
+                {
+                  "id": "art-12",
+                  "tema": "Vida saludable expresada a través de mensajes construidos con elementos de las artes.",
+                  "pdas": [
+                    { "grado": 1, "texto": "Emplea elementos de las artes para difundir por distintos medios mensajes a favor de una vida saludable." },
+                    { "grado": 2, "texto": "Crea mensajes que promuevan una vida saludable, utilizando los lenguajes de las artes y los difunde en la escuela o comunidad." },
+                    { "grado": 3, "texto": "Desarrolla una campaña a favor de la vida saludable que incorpore producciones artísticas para presentarse en diferentes espacios de la comunidad." }
+                  ]
+                },
+                {
+                  "id": "art-13",
+                  "tema": "Sistemas alternativos y aumentativos en el arte para abordar el uso y cuidado del agua.",
+                  "pdas": [
+                    { "grado": 1, "texto": "Identifica algunas características sensoriales de la lengua de señas mexicana, el código Braille, los tableros de comunicación y otros sistemas en manifestaciones artísticas, para conocer cómo el arte favorece el cuidado del agua." },
+                    { "grado": 2, "texto": "Experimenta con sistemas alternativos y aumentativos de comunicación, empleando los lenguajes de las artes, para crear propuestas centradas en el uso racional y solidario del agua." },
+                    { "grado": 3, "texto": "Diseña un proyecto artístico sustentable que incorpore sistemas alternativos y aumentativos, para concientizar sobre la problemática del agua." }
+                  ]
+                },
+                {
+                  "id": "art-14",
+                  "tema": "Manifestaciones artísticas que emplean sistemas alternativos y aumentativos de comunicación.",
+                  "pdas": [
+                    { "grado": 1, "texto": "Reconoce los sistemas alternativos y aumentativos de comunicación en manifestaciones artísticas de su entorno, para fomentar la empatía e inclusión social." },
+                    { "grado": 2, "texto": "Crea de manera colaborativa una producción artística, utilizando sistemas alternativos y aumentativos para la comunicación incluyente." },
+                    { "grado": 3, "texto": "Presenta una creación artística que explore los sistemas alternativos y aumentativos para favorecer una sociedad incluyente y equitativa." }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "slug": "saberes",
+          "nombre": "Saberes y Pensamiento Científico",
+          "disciplinas": [
+            {
+              "slug": "matematicas",
+              "nombre": "Matemáticas",
+              "contenidos": [
+                {
+                  "id": "mat-1",
+                  "tema": "Expresión de fracciones como decimales y de decimales como fracciones.",
+                  "pdas": [
+                    { "grado": 1, "texto": "Usa diversas estrategias al convertir números fraccionarios a decimales y viceversa." }
+                  ]
+                },
+                {
+                  "id": "mat-2",
+                  "tema": "Extensión de los números a positivos y negativos y su orden.",
+                  "pdas": [
+                    { "grado": 1, "texto": "Reconoce la necesidad de los números negativos a partir de usar cantidades que tienen al cero como referencia." },
+                    { "grado": 1, "texto": "Compara y ordena números con signo (enteros, fracciones y decimales) en la recta numérica y analiza en qué casos se cumple la propiedad de densidad." }
+                  ]
+                },
+                {
+                  "id": "mat-3",
+                  "tema": "Extensión del significado de las operaciones y sus relaciones inversas.",
+                  "pdas": [
+                    { "grado": 1, "texto": "Reconoce el significado de las cuatro operaciones básicas y sus relaciones inversas al resolver problemas que impliquen el uso de números con signo." },
+                    { "grado": 2, "texto": "Usa criterios de divisibilidad y números primos al resolver problemas que implican calcular el máximo común divisor y mínimo común múltiplo." },
+                    { "grado": 3, "texto": "Calcula potencias con exponente entero y la raíz cuadrada. Usa la notación científica." }
+                  ]
+                },
+                {
+                  "id": "mat-4",
+                  "tema": "Regularidades y Patrones.",
+                  "pdas": [
+                    { "grado": 1, "texto": "Representa algebraicamente una sucesión con progresión aritmética de figuras y números." },
+                    { "grado": 2, "texto": "Representa algebraicamente una sucesión con progresión cuadrática de figuras y números." },
+                    { "grado": 3, "texto": "Representa algebraicamente sucesiones con progresión cuadrática de figuras y números." }
+                  ]
+                },
+                {
+                  "id": "mat-5",
+                  "tema": "Introducción al álgebra.",
+                  "pdas": [
+                    { "grado": 1, "texto": "Interpreta y plantea diversas situaciones del lenguaje común al lenguaje algebraico y viceversa." },
+                    { "grado": 2, "texto": "Representa algebraicamente áreas y volúmenes de cuerpos geométricos y calcula el valor de una variable en función de las otras." },
+                    { "grado": 3, "texto": "Representa algebraicamente áreas y volúmenes de cuerpos geométricos y calcula el valor de una variable en función de las otras." }
+                  ]
+                },
+                {
+                  "id": "mat-6",
+                  "tema": "Ecuaciones lineales y cuadráticas.",
+                  "pdas": [
+                    { "grado": 1, "texto": "Resuelve ecuaciones de la forma Ax=B, Ax+B=C, Ax+B=Cx+D con el uso de las propiedades de la igualdad." },
+                    { "grado": 2, "texto": "Modela y soluciona sistemas de dos ecuaciones lineales con dos incógnitas por algún método para dar respuesta a un problema." },
+                    { "grado": 3, "texto": "Resuelve ecuaciones de la forma Ax2+Bx+C=0 por factorización y fórmula general." }
+                  ]
+                },
+                {
+                  "id": "mat-7",
+                  "tema": "Funciones.",
+                  "pdas": [
+                    { "grado": 1, "texto": "Relaciona e interpreta relaciones proporcional y no proporcional a partir de su representación tabular, gráfica y con diagramas." },
+                    { "grado": 2, "texto": "Relaciona e interpreta la proporcionalidad inversa de dos magnitudes o cantidades." },
+                    { "grado": 3, "texto": "Relaciona e interpreta la variación de dos cantidades a partir de su representación tabular, gráfica y algebraica." }
+                  ]
+                },
+                {
+                  "id": "mat-8",
+                  "tema": "Construcción y propiedades de las figuras planas y cuerpos.",
+                  "pdas": [
+                    { "grado": 1, "texto": "Utiliza la regla y el compás para trazar: punto medio, mediatriz de un segmento, segmentos y ángulos congruentes, bisectriz de un ángulo, rectas perpendiculares y rectas paralelas." },
+                    { "grado": 2, "texto": "Construye con regla y compás polígonos regulares con distinta información." },
+                    { "grado": 3, "texto": "Aplica las propiedades de los segmentos que se forman al trazar líneas que se intersecan o son paralelas en distintas figuras." }
+                  ]
+                },
+                {
+                  "id": "mat-9",
+                  "tema": "Circunferencia, círculo y esfera.",
+                  "pdas": [
+                    { "grado": 1, "texto": "Identifica y traza las rectas notables en la circunferencia y las relaciones entre ellas." },
+                    { "grado": 2, "texto": "Explora las intersecciones entre círculos y figuras al calcular perímetros y áreas." },
+                    { "grado": 3, "texto": "Indaga la generación de esferas a partir de figuras planas." }
+                  ]
+                },
+                {
+                  "id": "mat-10",
+                  "tema": "Medición y cálculo en diferentes contextos.",
+                  "pdas": [
+                    { "grado": 1, "texto": "Obtiene y aplica fórmulas o usa otras estrategias para calcular el perímetro y el área de polígonos regulares e irregulares y del círculo." },
+                    { "grado": 2, "texto": "Resuelve problemas que implican conversiones en múltiplos y submúltiplos del metro, litro, kilogramo y de unidades del sistema inglés (yarda, pulgada, galón, onza y libra)." },
+                    { "grado": 3, "texto": "Formula, justifica y usa el teorema de Pitágoras al resolver problemas." }
+                  ]
+                },
+                {
+                  "id": "mat-11",
+                  "tema": "Obtención y representación de información.",
+                  "pdas": [
+                    { "grado": 1, "texto": "Usa tablas, gráficas de barras y circulares para el análisis de información." },
+                    { "grado": 2, "texto": "Recolecta, registra, lee y comunica información mediante histogramas, gráficas poligonales y de línea." },
+                    { "grado": 3, "texto": "Lee, interpreta y comunica información de cualquier tipo de gráficas." }
+                  ]
+                },
+                {
+                  "id": "mat-12",
+                  "tema": "Interpretación de la información a través de medidas de tendencia central y de dispersión.",
+                  "pdas": [
+                    { "grado": 1, "texto": "Determina e interpreta la frecuencia absoluta, la frecuencia relativa, la media, la mediana y la moda en un conjunto de datos." },
+                    { "grado": 2, "texto": "Usa e interpreta las medidas de tendencia central (moda, media aritmética y mediana) y el rango de un conjunto de datos, y justifica con base en ellas sus decisiones." },
+                    { "grado": 3, "texto": "Determina y compara las medidas de tendencia central y de dispersión (desviación media) de dos conjuntos de datos para tomar decisiones." }
+                  ]
+                },
+                {
+                  "id": "mat-13",
+                  "tema": "Azar y probabilidad.",
+                  "pdas": [
+                    { "grado": 1, "texto": "Compara cualitativamente dos o más eventos a partir de sus resultados posibles, usa relaciones como: “es más probable que…”, “es menos probable que…”." },
+                    { "grado": 2, "texto": "Realiza experimentos aleatorios y registra los resultados en una tabla de frecuencia como un acercamiento a la probabilidad frecuencial." },
+                    { "grado": 3, "texto": "Resuelve problemas donde se analicen las características de eventos mutuamente excluyentes e independientes. Utiliza la regla de la suma y producto." }
+                  ]
+                }
+              ]
+            },
+            {
+              "slug": "biologia",
+              "nombre": "Biología",
+              "contenidos": [
+                {
+                  "id": "bio-1",
+                  "tema": "Funcionamiento del cuerpo humano coordinado por los sistemas nervioso y endocrino.",
+                  "pdas": [
+                    { "grado": 1, "texto": "Explica la participación de los sistemas nervioso y endocrino en la coordinación de las funciones del cuerpo humano, reconoce el papel general de las hormonas y sus efectos en la maduración sexual y en la reproducción." }
+                  ]
+                },
+                {
+                  "id": "bio-2",
+                  "tema": "Salud sexual y reproductiva: prevención de infecciones de transmisión sexual y del embarazo en adolescentes.",
+                  "pdas": [
+                    { "grado": 1, "texto": "Compara las maneras en que la cultura influye en el concepto de sexualidad; reconoce que todas las culturas tienen maneras distintas de comprender el género, la sexualidad y la reproducción; y reflexiona acerca de que el inicio de la actividad sexual debe ser de manera consensuada." }
+                  ]
+                },
+                {
+                  "id": "bio-3",
+                  "tema": "Prevención de enfermedades relacionadas con la alimentación y el consumo de alimentos ultraprocesados.",
+                  "pdas": [
+                    { "grado": 1, "texto": "Identifica causas de la obesidad y la diabetes relacionadas con la dieta y el sedentarismo a fin de formular su proyecto de vida saludable, incluye factores protectores y propone acciones para reducir factores de riesgo, incluyendo su entorno familiar y comunitario." }
+                  ]
+                },
+                {
+                  "id": "bio-4",
+                  "tema": "La diversidad de saberes e intercambio de conocimientos acerca de los seres vivos y las relaciones con el medio ambiente.",
+                  "pdas": [
+                    { "grado": 1, "texto": "Reconoce la importancia de los conocimientos, prácticas e innovaciones de los pueblos originarios acerca de los seres vivos, intercambia vivencias y experiencias asociadas al aprovechamiento y la protección como el uso de la herbolaria, la milpa o la conservación de los bosques." }
+                  ]
+                },
+                {
+                  "id": "bio-5",
+                  "tema": "Los procesos vitales de los seres vivos: nutrición, relación con el medio y reproducción.",
+                  "pdas": [
+                    { "grado": 1, "texto": "Compara las características comunes de los seres vivos, identifica que todos tienen estructuras especializadas asociadas a la nutrición, la relación con el medio y la reproducción y los distingue como rasgos adaptativos que favorecen la sobrevivencia de las especies." }
+                  ]
+                },
+                {
+                  "id": "bio-6",
+                  "tema": "La biodiversidad como expresión del cambio de los seres vivos en el tiempo.",
+                  "pdas": [
+                    { "grado": 1, "texto": "Analiza información acerca del estado de la biodiversidad local a partir de fuentes directas, orales, escritas, audiovisuales o internet, expone razones sobre su importancia cultural, biológica, estética y ética, propone acciones para su cuidado." }
+                  ]
+                },
+                {
+                  "id": "bio-7",
+                  "tema": "El calentamiento global como una consecuencia de la alteración de los ciclos biogeoquímicos en los ecosistemas.",
+                  "pdas": [
+                    { "grado": 1, "texto": "Representa la transferencia de materia y energía entre los organismos de un ecosistema mediante redes y pirámides tróficas; elabora explicaciones, inferencias y predicciones consistentes con los modelos generados acerca de la pérdida o incremento de organismos en los eslabones." }
+                  ]
+                },
+                {
+                  "id": "bio-8",
+                  "tema": "Importancia del microscopio para el conocimiento de la unidad y la diversidad de los seres vivos.",
+                  "pdas": [
+                    { "grado": 1, "texto": "Compara cómo han cambiado las primeras observaciones microscópicas respecto de las actuales, valora el avance en el conocimiento de las bacterias, las células y los virus." }
+                  ]
+                },
+                {
+                  "id": "bio-9",
+                  "tema": "Las vacunas: su relevancia en el control de algunas enfermedades infecciosas.",
+                  "pdas": [
+                    { "grado": 1, "texto": "Valora la importancia y la necesidad de proteger la salud a partir del uso de las vacunas para el control de algunas enfermedades infecciosas; evalúa sus riesgos y beneficios sociales y económicos; reconoce la interacción de los conocimientos científicos y tecnológicos." }
+                  ]
+                }
+              ]
+            },
+            {
+              "slug": "fisica",
+              "nombre": "Física",
+              "contenidos": [
+                {
+                  "id": "fis-1",
+                  "tema": "El pensamiento científico, una forma de plantear y solucionar problemas y su incidencia en la transformación de la sociedad.",
+                  "pdas": [
+                    { "grado": 2, "texto": "Describe problemas comunes de la vida cotidiana explicando cómo se procede para buscarles solución, conoce y caracteriza el pensamiento científico para plantearse y resolver problemas en la escuela y su cotidianeidad." }
+                  ]
+                },
+                {
+                  "id": "fis-2",
+                  "tema": "Unidades y medidas utilizados en Física.",
+                  "pdas": [
+                    { "grado": 2, "texto": "Identifica las unidades de medición que se ocupan en su entorno escolar, familiar y en su comunidad. Conoce los instrumentos de medición y realiza conversiones con los múltiplos y submúltiplos al resolver problemas." }
+                  ]
+                },
+                {
+                  "id": "fis-3",
+                  "tema": "Estructura, propiedades y características de la materia.",
+                  "pdas": [
+                    { "grado": 2, "texto": "Indaga sobre los saberes y practices del uso de materiales y sus propiedades y características para construcción, vestimenta, artefactos de uso común." }
+                  ]
+                },
+                {
+                  "id": "fis-4",
+                  "tema": "Estados de agregación de la materia.",
+                  "pdas": [
+                    { "grado": 2, "texto": "Experimenta e interpreta los modelos atómicos y de partículas al proponer hipótesis que expliquen los tres estados de la materia, sus propiedades físicas como la temperatura de fusión, ebullición, densidad, entre otros." }
+                  ]
+                },
+                {
+                  "id": "fis-5",
+                  "tema": "Interacciones en fenómenos macroscópicos relacionados con la fuerza y el movimiento.",
+                  "pdas": [
+                    { "grado": 2, "texto": "Experimenta e interpreta las interacciones de la fuerza y el movimiento, relacionados con las Leyes de Newton para explicar actividades cotidianas." }
+                  ]
+                },
+                {
+                  "id": "fis-6",
+                  "tema": "Principios de Pascal y de Arquímedes.",
+                  "pdas": [
+                    { "grado": 2, "texto": "Experimenta e interpreta las interacciones de la fuerza y el movimiento relacionados con los principios de Pascal y de Arquímedes, para explicar actividades cotidianas." }
+                  ]
+                },
+                {
+                  "id": "fis-7",
+                  "tema": "Saberes y prácticas para el aprovechamiento de energías y la sustentabilidad.",
+                  "pdas": [
+                    { "grado": 2, "texto": "Analiza las características de la energía mecánica (cinética y potencial) y describe casos donde se conserva." }
+                  ]
+                },
+                {
+                  "id": "fis-8",
+                  "tema": "Interacciones de la electricidad y el magnetismo.",
+                  "pdas": [
+                    { "grado": 2, "texto": "Experimenta e interpreta algunas manifestaciones y aplicaciones de la electricidad, e identifica los cuidados que requiere su uso al revisar los protocolos de seguridad." }
+                  ]
+                },
+                {
+                  "id": "fis-9",
+                  "tema": "Composición del Universo y Sistema Solar.",
+                  "pdas": [
+                    { "grado": 2, "texto": "Indaga cómo se lleva a cabo la exploración de los cuerpos celestes, por medio de la detección y procesamiento de las ondas electromagnéticas que emiten." }
+                  ]
+                },
+                {
+                  "id": "fis-10",
+                  "tema": "Fenómenos, procesos y factores asociados al cambio climático.",
+                  "pdas": [
+                    { "grado": 2, "texto": "Formula hipótesis que relacionan la actividad humana con el aumento de temperatura en la Tierra y la emisión de gases de efecto invernadero; diferencia entre calor, radiación y temperatura al explicar los procesos que lo originan." }
+                  ]
+                }
+              ]
+            },
+            {
+              "slug": "quimica",
+              "nombre": "Química",
+              "contenidos": [
+                {
+                  "id": "qui-1",
+                  "tema": "Los hitos que contribuyeron al avance del conocimiento científico y tecnológico en el ámbito nacional e internacional.",
+                  "pdas": [
+                    { "grado": 3, "texto": "Reconoce los aportes de saberes de diferentes pueblos y culturas en la satisfacción de necesidades humanas en diversos ámbitos (medicina, construcción, artesanías, textiles y alimentos)." }
+                  ]
+                },
+                {
+                  "id": "qui-2",
+                  "tema": "Las propiedades extensivas e intensivas, como una forma de identificar sustancias y materiales de uso común.",
+                  "pdas": [
+                    { "grado": 3, "texto": "Formula hipótesis para diferenciar propiedades extensivas e intensivas, mediante actividades experimentales y, con base en el análisis de resultados, elabora conclusiones." }
+                  ]
+                },
+                {
+                  "id": "qui-3",
+                  "tema": "Composición de las mezclas y su clasificación en homogéneas y heterogéneas, así como métodos de separación.",
+                  "pdas": [
+                    { "grado": 3, "texto": "Describe los componentes de una mezcla (soluto – disolvente; fase dispersa y fase dispersante) mediante actividades experimentales y las clasifica en homogéneas y heterogéneas en materiales de uso cotidiano." }
+                  ]
+                },
+                {
+                  "id": "qui-4",
+                  "tema": "Importancia de la concentración de sustancias en mezclas de productos de uso cotidiano.",
+                  "pdas": [
+                    { "grado": 3, "texto": "Analiza la concentración de sustancias de una mezcla expresadas en porcentaje en masa y porcentaje en volumen en productos de higiene personal, alimentos, limpieza, entre otros, para la toma de decisiones orientadas al cuidado de la salud y al consumo responsable." }
+                  ]
+                },
+                {
+                  "id": "qui-5",
+                  "tema": "Presencia de contaminantes y su concentración, relacionada con la degradación y contaminación ambiental.",
+                  "pdas": [
+                    { "grado": 3, "texto": "Indaga situaciones problemáticas relacionadas con la degradación y contaminación en la comunidad, vinculadas con el uso de productos y procesos químicos." }
+                  ]
+                },
+                {
+                  "id": "qui-6",
+                  "tema": "Mezclas, compuestos y elementos representados con el modelo corpuscular de la materia.",
+                  "pdas": [
+                    { "grado": 3, "texto": "Explica semejanzas y diferencias de mezclas, compuestos y elementos, a partir de actividades experimentales y los clasifica en materiales de uso cotidiano." }
+                  ]
+                },
+                {
+                  "id": "qui-7",
+                  "tema": "La Tabla periódica: criterios de clasificación de los elementos químicos y sus propiedades.",
+                  "pdas": [
+                    { "grado": 3, "texto": "Reconoce la presencia y predominancia de algunos elementos químicos que conforman a los seres vivos, la Tierra y el Universo, así como su ubicación en la Tabla periódica." }
+                  ]
+                },
+                {
+                  "id": "qui-8",
+                  "tema": "Los compuestos iónicos y moleculares: propiedades y estructura.",
+                  "pdas": [
+                    { "grado": 3, "texto": "Experimenta y diferencia los compuestos iónicos y moleculares, a partir de las propiedades identificadas en actividades experimentales; elabora conclusiones, inferencias y predicciones." }
+                  ]
+                },
+                {
+                  "id": "qui-9",
+                  "tema": "Los alimentos como fuente de energía química: carbohidratos, proteínas y lípidos.",
+                  "pdas": [
+                    { "grado": 3, "texto": "Reconoce los saberes de pueblos y culturas acerca de la diversidad de los alimentos y su importancia en el diseño de menús, orientados a una dieta saludable, acorde al contexto." }
+                  ]
+                },
+                {
+                  "id": "qui-10",
+                  "tema": "Las reacciones químicas: manifestaciones, propiedades e interpretación de las ecuaciones químicas.",
+                  "pdas": [
+                    { "grado": 3, "texto": "Reconoce distintas reacciones químicas en su entorno y en actividades experimentales, a partir de sus manifestaciones y el cambio de propiedades de reactivos a productos." }
+                  ]
+                },
+                {
+                  "id": "qui-11",
+                  "tema": "Propiedades de los ácidos y las bases, reacciones de neutralización y modelo de Arrhenius.",
+                  "pdas": [
+                    { "grado": 3, "texto": "Distingue las propiedades de ácidos y bases en su entorno, a partir de indicadores e interpreta la escala de acidez y basicidad." }
+                  ]
+                },
+                {
+                  "id": "qui-12",
+                  "tema": "Las reacciones de óxido-reducción (redox): identificación del número de oxidación y de agentes oxidantes y reductores.",
+                  "pdas": [
+                    { "grado": 3, "texto": "Identifica reacciones de redox en su entorno y comprende su importancia en diferentes ámbitos." }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "slug": "etica",
+          "nombre": "Ética, Naturaleza y Sociedades",
+          "disciplinas": [
+            {
+              "slug": "geografia",
+              "nombre": "Geografía",
+              "contenidos": [
+                {
+                  "id": "geo-1",
+                  "tema": "El espacio geográfico como un producto social.",
+                  "pdas": [
+                    { "grado": 1, "texto": "Reconoce que el patrimonio biocultural es resultado de la relación entre las formas de organización económico-social, la cultura y la biodiversidad a través del tiempo." },
+                    { "grado": 1, "texto": "Comprende que el espacio geográfico se conforma de interrelaciones sociedad-naturaleza." }
+                  ]
+                },
+                {
+                  "id": "geo-2",
+                  "tema": "La relación de las placas tectónicas con el relieve, la sismicidad y el vulcanismo.",
+                  "pdas": [
+                    { "grado": 1, "texto": "Argumenta la relación entre las placas tectónicas con las regiones sísmicas y volcánicas en México y el mundo, para fortalecer la cultura de la prevención." }
+                  ]
+                },
+                {
+                  "id": "geo-3",
+                  "tema": "La distribución y dinámica de las aguas continentales y oceánicas en la Tierra.",
+                  "pdas": [
+                    { "grado": 1, "texto": "Analiza la distribución de las aguas continentales en México y el Mundo: principales ríos, lagos, aguas subterráneas, llanuras inundables y humedales." },
+                    { "grado": 1, "texto": "Reconoce la importancia de las cuencas hidrográficas como un sistema para el desarrollo económico en México, así como para la conservación del agua y tierra." }
+                  ]
+                },
+                {
+                  "id": "geo-4",
+                  "tema": "Los procesos naturales y sus implicaciones en la relación sociedad-naturaleza.",
+                  "pdas": [
+                    { "grado": 1, "texto": "Comprende la influence de los procesos naturales en la conformación de la biodiversidad de México y el mundo." }
+                  ]
+                },
+                {
+                  "id": "geo-5",
+                  "tema": "Los riesgos de desastre, su relación con los procesos naturales y la vulnerabilidad de la población en lugares específicos.",
+                  "pdas": [
+                    { "grado": 1, "texto": "Identifica que los desastres pueden ser originados por procesos naturales o por las actividades humanas." },
+                    { "grado": 1, "texto": "Relaciona los efectos ambientales, sociales y económicos de los desastres recientes en México y el mundo." }
+                  ]
+                },
+                {
+                  "id": "geo-6",
+                  "tema": "Crecimiento, distribución, composición y migración de la población.",
+                  "pdas": [
+                    { "grado": 1, "texto": "Analiza las implicaciones sociales, ambientales y económicas del crecimiento, distribución y composición de la población en diferentes países, con base en información estadística y cartográfica." },
+                    { "grado": 1, "texto": "Emplea las nociones de concentración y dispersión de la población para explicar los rasgos y problemas del espacio urbano y el rural." }
+                  ]
+                },
+                {
+                  "id": "geo-7",
+                  "tema": "Las desigualdades socioeconómicas en México y el mundo, y sus efectos en la calidad de vida de las personas.",
+                  "pdas": [
+                    { "grado": 1, "texto": "Comprende qué son las desigualdades socioeconómicas e identifica sus causas y consecuencias." },
+                    { "grado": 1, "texto": "Argumenta las desigualdades socioeconómicas en México y el mundo, mediante la interpretación del Índice de Desarrollo Humano (IDH)." }
+                  ]
+                },
+                {
+                  "id": "geo-8",
+                  "tema": "Los conflictos territoriales actuales en México y el mundo, y sus implicaciones ambientales y sociales.",
+                  "pdas": [
+                    { "grado": 1, "texto": "Debate acerca de la multicausalidad de los conflictos territoriales en México y el mundo, y sus consecuencias ambientales y sociales." }
+                  ]
+                },
+                {
+                  "id": "geo-9",
+                  "tema": "El reto del cambio climático.",
+                  "pdas": [
+                    { "grado": 1, "texto": "Reconoce las relaciones e interacciones entre los elementos y los factores del clima como base para comprender el cambio climático." },
+                    { "grado": 1, "texto": "Indaga y analiza sobre las causas y las consecuencias del cambio climático en México y el mundo." }
+                  ]
+                },
+                {
+                  "id": "geo-10",
+                  "tema": "Las prácticas de producción, distribución y consumo sustentables.",
+                  "pdas": [
+                    { "grado": 1, "texto": "Comprende qué es la sustentabilidad e identifica prácticas de producción, distribución y consumo sustentables." }
+                  ]
+                }
+              ]
+            },
+            {
+              "slug": "historia",
+              "nombre": "Historia",
+              "contenidos": [
+                {
+                  "id": "his-1",
+                  "tema": "Los albores de la humanidad: los pueblos antiguos del mundo y su devenir.",
+                  "pdas": [
+                    { "grado": 1, "texto": "Busca, localiza y estudia con sus pares fuentes que dan cuenta de mitos fundacionales de pueblos antiguos." },
+                    { "grado": 2, "texto": "Genera hipótesis e interpretaciones propias sobre el esplendor de la Cultura Romana mediante el análisis de los conceptos: trabajo esclavo, ocupación militar de territorios y organización política." },
+                    { "grado": 3, "texto": "Recupera las explicaciones de Charles Darwin acerca del origen y evolución de la biodiversidad y particulariza en el caso ser humano." }
+                  ]
+                },
+                {
+                  "id": "his-2",
+                  "tema": "La conformación de las metrópolis y los sistemas de dominación.",
+                  "pdas": [
+                    { "grado": 1, "texto": "Formula preguntas, recopila información y comparte sus hallazgos en torno a los pueblos originarios de México: ¿cuántos pueblos son? ¿dónde están? ¿de dónde llegaron? ¿cómo vivían antes? ¿Cómo viven ahora?." },
+                    { "grado": 2, "texto": "Indaga acerca del desarrollo del comercio y su impacto en la geografía y la navegación en Europa y Asia en el Siglo XV." },
+                    { "grado": 3, "texto": "Indaga sobre las campañas militares que Hernán Cortés llevó a cabo para someter a la población indígena y el establecimiento del Virreinato de la Nueva España." }
+                  ]
+                },
+                {
+                  "id": "his-3",
+                  "tema": "Las gestas de resistencia y los movimientos independentistas.",
+                  "pdas": [
+                    { "grado": 1, "texto": "Indaga sobre rebeliones y levantamientos de pueblos indígenas y afromexicanos en la historia de nuestro país y se acerca a comprender sus causas." },
+                    { "grado": 2, "texto": "Comprende la confluencia de procesos y hechos históricos en la Guerra de Independencia de la Nueva España." },
+                    { "grado": 3, "texto": "Elabora una cronología de las luchas de independencia de los países de Latinoamérica, incorporando datos, fechas, nombres y lugares." }
+                  ]
+                },
+                {
+                  "id": "his-4",
+                  "tema": "Las revoluciones modernas y sus tendencias.",
+                  "pdas": [
+                    { "grado": 1, "texto": "Analiza la Declaración de los Derechos del Hombre y del Ciudadano y genera hipótesis acerca de la ausencia explícita de las mujeres en el texto." },
+                    { "grado": 2, "texto": "Analiza y comprende la causalidad de la Revolución Industrial y la Revolución Francesa." },
+                    { "grado": 3, "texto": "Analiza las características de las dictaduras en América Latina (Argentina, Chile, Uruguay, etc.) y su relación con la Guerra Fría." }
+                  ]
+                },
+                {
+                  "id": "his-5",
+                  "tema": "Las tensiones en el siglo XX.",
+                  "pdas": [
+                    { "grado": 1, "texto": "Analiza y comprende las causas y consecuencias de la Primera y Segunda Guerras Mundiales." },
+                    { "grado": 2, "texto": "Indaga sobre los eventos de la Revolución Rusa y el surgimiento de la Unión Soviética." },
+                    { "grado": 3, "texto": "Analiza las causas, el desarrollo y el desenlace de la Guerra Fría, considerando el papel de los bloques capitalista y socialista." }
+                  ]
+                },
+                {
+                  "id": "his-6",
+                  "tema": "La construcción histórica de las ideas sobre las juventudes e infancias.",
+                  "pdas": [
+                    { "grado": 1, "texto": "Identifica las ideas y representaciones de las personas de acuerdo con su edad en diversos momentos históricos." },
+                    { "grado": 2, "texto": "Comprende los cambios y permanencias en las características y tareas que las sociedades asignan a las personas, de acuerdo con su edad." },
+                    { "grado": 3, "texto": "Construye una postura propia acerca de la importancia de la defensa de los derechos de las juventudes e infancias." }
+                  ]
+                },
+                {
+                  "id": "his-7",
+                  "tema": "Las mujeres y sus historias.",
+                  "pdas": [
+                    { "grado": 1, "texto": "Revisa fuentes históricas para identificar la participación de las mujeres en la sociedad en diversos momentos históricos." },
+                    { "grado": 2, "texto": "Argumenta las causas de los principales cambios históricos que ha tenido la participación social de las mujeres." },
+                    { "grado": 3, "texto": "Analiza los testimonios producidos por las mujeres en distintos momentos históricos." }
+                  ]
+                },
+                {
+                  "id": "his-8",
+                  "tema": "Las luchas de las mujeres por sus derechos.",
+                  "pdas": [
+                    { "grado": 1, "texto": "Identifica los orígenes históricos de movimientos de mujeres y comprende las causas de sus luchas en distintos momentos." },
+                    { "grado": 2, "texto": "Analiza las causas de los movimientos feministas y de mujeres en México y el mundo y reconoce su importancia." },
+                    { "grado": 3, "texto": "Comprende el impacto histórico de las luchas de las mujeres en la consecución de la igualdad de derechos." }
+                  ]
+                },
+                {
+                  "id": "his-9",
+                  "tema": "Discriminación, racismo, sexismo y prejuicios como construcciones históricas.",
+                  "pdas": [
+                    { "grado": 1, "texto": "Identifica las causas históricas del racismo y la xenofobia y las relaciona críticamente con sus consecuencias." },
+                    { "grado": 2, "texto": "Comprende las causas y las consecuencias históricas del racismo y propone acciones en su vida cotidiana y en la de su comunidad escolar para combatirlo." },
+                    { "grado": 3, "texto": "Analiza la relevancia histórica del racismo en la justificación de actos que atentaron contra la vida de personas o grupos." }
+                  ]
+                }
+              ]
+            },
+            {
+              "slug": "fce",
+              "nombre": "Formación Cívica y Ética",
+              "contenidos": [
+                {
+                  "id": "fce-1",
+                  "tema": "Grupos sociales y culturales en la conformación de las identidades juveniles.",
+                  "pdas": [
+                    { "grado": 1, "texto": "Valora la diversidad de grupos e identidades juveniles en la escuela y en la comunidad y fortalece el respeto a formas de ser, pensar y expresarse en el marco de los derechos humanos." },
+                    { "grado": 2, "texto": "Argumenta sobre el derecho a pertenecer a una cultura, grupo social, económico, ideológico, sexual o de género, para exigir el respeto a las identidades juveniles." },
+                    { "grado": 3, "texto": "Promueve espacios de participación juvenil, presenciales o virtuales, para construir comunidades que promuevan la colaboración, el respeto y ejercicio de los derechos de NNA." }
+                  ]
+                },
+                {
+                  "id": "fce-2",
+                  "tema": "Los derechos humanos en México y en el mundo como valores compartidos por las sociedades actuales.",
+                  "pdas": [
+                    { "grado": 1, "texto": "Asume una postura crítica acerca de la vigencia de los derechos humanos como valores compartidos por distintas sociedades del mundo." },
+                    { "grado": 2, "texto": "Propone acciones orientadas a fortalecer la igualdad, el bienestar colectivo y el respeto a la dignidad humana en poblaciones históricamente marginadas." },
+                    { "grado": 3, "texto": "Debate acerca de la importancia de defender y exigir el respeto a los derechos humanos, como un reto de las sociedades actuales para vivir con dignidad." }
+                  ]
+                },
+                {
+                  "id": "fce-3",
+                  "tema": "Movimientos sociales y políticos por los derechos humanos en el mundo y en México.",
+                  "pdas": [
+                    { "grado": 1, "texto": "Asume una postura ética acerca de los movimientos sociales y políticos que originaron los derechos humanos en el mundo y su influencia en México." },
+                    { "grado": 2, "texto": "Explica la trascendencia de los movimientos sociales y políticos en México y América Latina, para garantizar el ejercicio de derechos económicos, políticos y sociales de las personas." },
+                    { "grado": 3, "texto": "Asume una postura ética sobre los movimientos sociales y políticos en la actualidad y participa en acciones para promover y defender los derechos humanos." }
+                  ]
+                },
+                {
+                  "id": "fce-4",
+                  "tema": "Consecuencias de la desigualdad en la calidad de vida de las personas y comunidades.",
+                  "pdas": [
+                    { "grado": 1, "texto": "Analiza las causas que dan origen a las diferencias en la calidad de vida de la población en México y el mundo y las compara con su derecho a la igualdad sustantiva." },
+                    { "grado": 2, "texto": "Explica las consecuencias de la desigualdad socioeconómica en la calidad de vida de la población y propone acciones que garanticen el derecho a una vida digna y justa." },
+                    { "grado": 3, "texto": "Actúa éticamente para reducir las desigualdades, fomentando el respeto y la solidaridad en los pueblos más vulnerables de su comunidad, México y América Latina." }
+                  ]
+                },
+                {
+                  "id": "fce-5",
+                  "tema": "El conflicto en la convivencia humana desde la cultura de paz.",
+                  "pdas": [
+                    { "grado": 1, "texto": "Analiza distintos tipos de conflictos en sus espacios de convivencia, su estructura y formas de solucionarlos desde la cultura de paz como una oportunidad de crecimiento." },
+                    { "grado": 2, "texto": "Propone distintas formas de resolver conflictos sociales y políticos ocurridos en México y América Latina, para generar estrategias de mediación desde la cultura de paz." },
+                    { "grado": 3, "texto": "Valora la resolución pacífica de conflictos sociales y políticos en México y el mundo y gestiona estrategias de participación y transformación social." }
+                  ]
+                },
+                {
+                  "id": "fce-6",
+                  "tema": "Principios y valores de la cultura democrática.",
+                  "pdas": [
+                    { "grado": 1, "texto": "Aprecia en los principios y valores de la democracia una forma de vida y de gobierno, para tomar decisiones que fortalezcan la convivencia en los espacios donde participa." },
+                    { "grado": 2, "texto": "Propone acciones para fortalecer en su entorno los rasgos, valores y principios de la democracia como una forma de vida y de gobierno." },
+                    { "grado": 3, "texto": "Participa de forma activa, responsable e informada en la promoción, defensa y reivindicación de los principios y valores de la democracia." }
+                  ]
+                },
+                {
+                  "id": "fce-7",
+                  "tema": "Instituciones, organizaciones y mechanisms de representación democrática.",
+                  "pdas": [
+                    { "grado": 1, "texto": "Aprecia la función de las instituciones y organizaciones sociales y políticas en la defensa de los derechos humanos y en la solución pacífica de conflictos sociales y políticos." },
+                    { "grado": 2, "texto": "Destaca la importancia de la participación ciudadana, organizaciones sociales y partidos políticos en México, para evaluar los alcances y límites del gobierno democrático." },
+                    { "grado": 3, "texto": "Evalúa los mecanismos de participación en el gobierno democrático, a fin de propiciar una ciudadanía informada y crítica." }
+                  ]
+                },
+                {
+                  "id": "fce-8",
+                  "tema": "Defensa del derecho al acceso a la protección de datos personales, a la información, la transparencia y la rendición de cuentas.",
+                  "pdas": [
+                    { "grado": 1, "texto": "Destaca la importancia de que las y los servidores públicos y representantes populares desempeñen sus funciones con apego a la ley, garantizando la justicia, la equidad y la legalidad." },
+                    { "grado": 2, "texto": "Aprecia la participación ciudadana para exigir a las autoridades que cumplan sus funciones con apego a la ley, la transparencia, la rendición de cuentas y la justicia." },
+                    { "grado": 3, "texto": "Analiza el actuar de partidos políticos, organizaciones, gobiernos y servidoras y servidores públicos, mediante el acceso a la información, transparencia y rendición de cuentas." }
+                  ]
+                },
+                {
+                  "id": "fce-9",
+                  "tema": "El derecho a la salud y la prevención en el consumo de drogas.",
+                  "pdas": [
+                    { "grado": 1, "texto": "Reconoce que el consumo de drogas afecta el derecho a la dignidad y a la salud, las leyes e instituciones encargadas de su prevención y establece acciones de protección y autocuidado." },
+                    { "grado": 2, "texto": "Promueve valores y habilidades para desarrollar la autoestima, la autorregulación, el autocuidado y la asertividad para prevenir el consumo de drogas." },
+                    { "grado": 3, "texto": "Toma decisiones autónomas, responsables y comprometidas para prevenir el consumo de drogas y denuncia situaciones que atentan contra la salud." }
+                  ]
+                },
+                {
+                  "id": "fce-10",
+                  "tema": "Medidas de protección y mecanismos de denuncia en el rechazo a la violencia de género, sexual y la trata de personas.",
+                  "pdas": [
+                    { "grado": 1, "texto": "Analiza situaciones de violencia escolar, de género, sexual y la trata de personas, con base en la perspectiva de género y el enfoque de derechos humanos." },
+                    { "grado": 2, "texto": "Compara los tipos y modalidades de violencia de género, sexual y la trata de personas y reconoce las medidas de protección y los mecanismos de denuncia." },
+                    { "grado": 3, "texto": "Propone acciones de denuncia y erradicación de la violencia de género, sexual y la trata de personas en los diferentes ámbitos y garantiza la protección de los derechos humanos." }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "slug": "humano",
+          "nombre": "De lo Humano y lo Comunitario",
+          "disciplinas": [
+            {
+              "slug": "fisica_edu",
+              "nombre": "Educación Física",
+              "contenidos": [
+                {
+                  "id": "edf-1",
+                  "tema": "Capacidades, habilidades y destrezas motrices.",
+                  "pdas": [
+                    { "grado": 1, "texto": "Explora las capacidades, habilidades y destrezas motrices, para enriquecer y ampliar el potencial propio y de las demás personas." },
+                    { "grado": 2, "texto": "Integra sus capacidades, habilidades y destrezas motrices, para poner a prueba el potencial individual y de conjunto." },
+                    { "grado": 3, "texto": "Valora las capacidades, habilidades y destrezas propias y de las demás personas, para mostrar mayor disponibilidad corporal y autonomía motriz." }
+                  ]
+                },
+                {
+                  "id": "edf-2",
+                  "tema": "Potencialidades cognitivas, expresivas, motrices, creativas y de relación.",
+                  "pdas": [
+                    { "grado": 1, "texto": "Pone en práctica los elementos de la condición física en actividades motrices y recreativas, para reconocerlas como alternativas que fomentan el bienestar." },
+                    { "grado": 2, "texto": "Analiza el incremento de su condición física, al participar en actividades recreativas, de iniciación deportiva y deporte educativo." },
+                    { "grado": 3, "texto": "Diseña, organiza y participa en actividades recreativas, de iniciación deportiva y deporte educativo, con la intención de fomentar el bienestar personal y social." }
+                  ]
+                },
+                {
+                  "id": "edf-3",
+                  "tema": "Estilos de vida activos y saludables.",
+                  "pdas": [
+                    { "grado": 1, "texto": "Implementa acciones que le permiten mantenerse físicamente activo en diferentes momentos del día, para favorecer la práctica de estilos de vida saludables." },
+                    { "grado": 2, "texto": "Reflexiona acerca de los factores que afectan la práctica sistemática de la actividad física, para proponer acciones que contribuyan a modificarlos." },
+                    { "grado": 3, "texto": "Diseña alternativas que fomenten la práctica de estilos de vida activos y saludables, a partir del análisis de comportamientos que ponen en riesgo la salud." }
+                  ]
+                },
+                {
+                  "id": "edf-4",
+                  "tema": "Pensamiento lúdico, estratégico y creativo.",
+                  "pdas": [
+                    { "grado": 1, "texto": "Toma decisiones individuales y colectivas en situaciones de juego (defensivas u ofensivas), con el propósito de valorar su efectividad." },
+                    { "grado": 2, "texto": "Valora las estrategias de juego que utiliza ante distintas condiciones que se presentan, para reestructurarlas e incrementar su efectividad." },
+                    { "grado": 3, "texto": "Emplea el pensamiento estratégico, para favorecer la colaboración y creatividad en la resolución de situaciones que impliquen el diseño de estrategias." }
+                  ]
+                },
+                {
+                  "id": "edf-5",
+                  "tema": "Interacción motriz.",
+                  "pdas": [
+                    { "grado": 1, "texto": "Pone a prueba la interacción motriz en situaciones de juego, iniciación deportiva y deporte educativo, con el fin de alcanzar metas comunes." },
+                    { "grado": 2, "texto": "Toma decisiones a favor de la participación colectiva en situaciones de iniciación deportiva y deporte educativo, para promover ambientes de aprendizaje." },
+                    { "grado": 3, "texto": "Promueve relaciones asertivas con las demás personas en situaciones de juego, iniciación deportiva y deporte educativo." }
+                  ]
+                }
+              ]
+            },
+            {
+              "slug": "tecnologia",
+              "nombre": "Tecnología",
+              "contenidos": [
+                {
+                  "id": "tec-1",
+                  "tema": "Herramientas, máquinas e instrumentos como extensión corporal.",
+                  "pdas": [
+                    { "grado": 1, "texto": "Explora las posibilidades corporales y la delegación de funciones en herramientas, máquinas, instrumentos y formas de organización." },
+                    { "grado": 2, "texto": "Analiza las herramientas, máquinas, instrumentos y formas de organización como una extensión de las posibilidades corporales." },
+                    { "grado": 3, "texto": "Amplía sus posibilidades corporales por medio del conocimiento y habilidades en el manejo de herramientas, máquinas, instrumentos y formas de organización." }
+                  ]
+                },
+                {
+                  "id": "tec-2",
+                  "tema": "Materiales, procesos técnicos y comunidad.",
+                  "pdas": [
+                    { "grado": 1, "texto": "Distingue el origen, transformación y características tecnológicas de los materiales que comparten técnicas similares, para utilizarlos desde una perspectiva local." },
+                    { "grado": 2, "texto": "Explora el uso y transformación de los materiales, de acuerdo con sus características en los procesos técnicos de distintas comunidades." },
+                    { "grado": 3, "texto": "Implementa alternativas a situaciones que, por el origen, transformación, uso o desecho de los materiales, ponen en riesgo el entorno de la comunidad." }
+                  ]
+                },
+                {
+                  "id": "tec-3",
+                  "tema": "Usos e implicaciones de la energía en los procesos técnicos.",
+                  "pdas": [
+                    { "grado": 1, "texto": "Comprende la función de la energía en los sistemas técnicos y sus implicaciones en el desarrollo tecnológico." },
+                    { "grado": 2, "texto": "Explora las principales fuentes de energía en los procesos técnicos para su uso óptimo, así como las alternativas de prevención de riesgos personales." },
+                    { "grado": 3, "texto": "Analiza diversas fuentes de energía en los procesos técnicos para considerar posibles alternativas sustentables en funcionamiento." }
+                  ]
+                },
+                {
+                  "id": "tec-4",
+                  "tema": "Factores que inciden en los procesos técnicos.",
+                  "pdas": [
+                    { "grado": 1, "texto": "Comprende la satisfacción de necesidades como la base de la creación e innovación técnica para reflexionar acerca de la influencia de intereses, prejuicios y valores." },
+                    { "grado": 2, "texto": "Analiza factores sociales, económicos, culturales y naturales a tomar en cuenta en la definición de criterios para el desarrollo de soluciones técnicas." },
+                    { "grado": 3, "texto": "Implementa técnicas, procesos o formas de organización en la comunidad, para favorecer la equidad, igualdad, inclusión y la sustentabilidad." }
+                  ]
+                },
+                {
+                  "id": "tec-5",
+                  "tema": "Procesos técnicos.",
+                  "pdas": [
+                    { "grado": 1, "texto": "Describe los elementos que interactúan en los sistemas técnicos para comprender su vínculo con la sociedad, la cultura y la naturaleza." },
+                    { "grado": 2, "texto": "Analiza los diferentes sistemas técnicos: artesanales, industriales y automatizados para reconocer sus características y vínculos con la ciencia." },
+                    { "grado": 3, "texto": "Propone e implementa posibles emprendimientos artesanales o fabriles para atender una problemática local." }
+                  ]
+                },
+                {
+                  "id": "tec-6",
+                  "tema": "Comunicación y representación técnica.",
+                  "pdas": [
+                    { "grado": 1, "texto": "Explora la importancia del lenguaje técnico y el consenso en su uso desde diferentes contextos, para proponer formas de representación y comunicar sus ideas." },
+                    { "grado": 2, "texto": "Elabora representaciones gráficas de sus ideas con respecto a la operación, funcionamiento y diseño de las producciones técnicas." },
+                    { "grado": 3, "texto": "Difunde por diversos medios el funcionamiento y operación de sus proyectos, para dar a conocer sus alcances a distintas personas." }
+                  ]
+                },
+                {
+                  "id": "tec-7",
+                  "tema": "Pensamiento estratégico y creativo en la resolución de problemas.",
+                  "pdas": [
+                    { "grado": 1, "texto": "Analiza necesidades del entorno cercano para plantear un problema, investigar alternativas de solución y seleccionar la que mejor se adapte a los criterios." },
+                    { "grado": 2, "texto": "Planifica y organiza las acciones, medios técnicos e insumos, para el desarrollo de alternativas de solución a diversos problemas identificados." },
+                    { "grado": 3, "texto": "Implementa, da seguimiento y evalúa las propuestas conforme a los criterios y condiciones establecidas en un plan para satisfacer necesidades o intereses." }
+                  ]
+                },
+                {
+                  "id": "tec-8",
+                  "tema": "Evaluación de sistemas tecnológicos.",
+                  "pdas": [
+                    { "grado": 1, "texto": "Comprende la importancia de la evaluación de los procesos como parte de la innovación y mejora continua, para el logro de la eficiencia, eficacia y equidad." },
+                    { "grado": 2, "texto": "Analiza las implicaciones de los procesos, productos o servicios en la naturaleza y la sociedad, para desarrollar sistemas técnicos sustentables." },
+                    { "grado": 3, "texto": "Participa en la evaluación interna y externa de sistemas tecnológicos para mejorar su eficiencia, eficacia, equidad y sustentabilidad en la comunidad." }
+                  ]
+                }
+              ]
+            },
+            {
+              "slug": "tutoria",
+              "nombre": "Tutoría / Ed. Socioemocional",
+              "contenidos": [
+                {
+                  "id": "tut-1",
+                  "tema": "Formas de ser, pensar, actuar y relacionarse.",
+                  "pdas": [
+                    { "grado": 1, "texto": "Reconoce ideas, gustos, necesidades, posibilidades, intereses, deseos y experiencias, para favorecer el autoconocimiento y descubrimiento de nuevas potencialidades." },
+                    { "grado": 2, "texto": "Analiza las formas de ser, pensar, actuar e interactuar, para comprender las diversas maneras de vivenciar situaciones cotidianas y lograr el bienestar." },
+                    { "grado": 3, "texto": "Promueve el entendimiento mutuo y toma de decisiones, considerando formas de ser, pensar, actuar y relacionarse ante diferentes situaciones." }
+                  ]
+                },
+                {
+                  "id": "tut-2",
+                  "tema": "Los sentimientos y su influencia en la toma de decisiones.",
+                  "pdas": [
+                    { "grado": 1, "texto": "Distingue entre emociones, estados de ánimo y sentimientos como elementos que contribuyen a la construcción de relaciones afectivas inclusivas y equitativas." },
+                    { "grado": 2, "texto": "Reflexiona sobre cómo los sentimientos se construyen a partir de ideas y experiencias, para la toma de decisiones asertivas." },
+                    { "grado": 3, "texto": "Gestiona los afectos para tomar decisiones asertivas y construir relaciones de convivencia inclusivas y equitativas." }
+                  ]
+                },
+                {
+                  "id": "tut-3",
+                  "tema": "Prevención de situaciones de riesgo.",
+                  "pdas": [
+                    { "grado": 1, "texto": "Incorpora prácticas que inciden en la prevención de situaciones de riesgo ante accidentes, adicciones, violencias y fenómenos naturales." },
+                    { "grado": 2, "texto": "Participa en la construcción de alternativas personales, familiares y comunitarias, que favorezcan la prevención de situaciones de riesgo." },
+                    { "grado": 3, "texto": "Reflexiona sobre las condiciones del contexto familiar y comunitario que representan situaciones de riesgo a la salud, a la seguridad y al medio ambiente." }
+                  ]
+                },
+                {
+                  "id": "tut-4",
+                  "tema": "Educación Integral en Sexualidad.",
+                  "pdas": [
+                    { "grado": 1, "texto": "Identifica las dimensiones de la sexualidad: biológica, psicológica, social, cultural y ética, en distintos momentos de su vida." },
+                    { "grado": 2, "texto": "Valora la identidad y la diversidad de formas de expression de género para comprender la manera en que favorece la interacción y el bienestar." },
+                    { "grado": 3, "texto": "Promueve estrategias en favor de una educación integral en sexualidad para incorporarlas permanentemente en su proyecto de vida." }
+                  ]
+                },
+                {
+                  "id": "tut-5",
+                  "tema": "Nuevos intereses, habilidades y necesidades.",
+                  "pdas": [
+                    { "grado": 1, "texto": "Examina la influencia de los cambios biológicos, psicológicos, sociales, culturales y económicos en la conformación de nuevos intereses y necesidades." },
+                    { "grado": 2, "texto": "Revalora sus intereses, habilidades y necesidades, como una oportunidad de autoconocimiento y para potenciar el logro de metas." },
+                    { "grado": 3, "texto": "Integra los cambios en la construcción de su identidad y en el diseño de un proyecto de vida que promueva el bienestar personal y colectivo." }
+                  ]
+                },
+                {
+                  "id": "tut-6",
+                  "tema": "Construcción del proyecto de vida.",
+                  "pdas": [
+                    { "grado": 1, "texto": "Reconoce cambios presentes a lo largo de la vida y en la adolescencia para definir metas personales y en colectivo." },
+                    { "grado": 2, "texto": "Analiza intereses y necesidades, así como los logros y metas alcanzadas, para ajustar su proyecto de vida." },
+                    { "grado": 3, "texto": "Visualiza un proyecto de vida para determinar posibles retos a superar, estrategias de apoyo mutuo y acciones a realizar en favor del bienestar personal y colectivo." }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

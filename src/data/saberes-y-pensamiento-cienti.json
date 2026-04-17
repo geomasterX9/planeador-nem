@@ -1,0 +1,718 @@
+{
+    "slug": "saberes-y-pensamiento-cientifico",
+    "nombre": "Saberes y Pensamiento Científico",
+    "disciplinas": [
+        {
+            "slug": "general",
+            "nombre": "General",
+            "contenidos": [
+                {
+                    "id": "pri-sab-1",
+                    "tema": "Cuerpo humano: estructura externa, acciones para su cuidado y sus cambios como parte del crecimiento.",
+                    "pdas": [
+                        {
+                            "grado": 1,
+                            "texto": "Compara y representa las partes externas del cuerpo humano, explica su funcionamiento; propone y practica acciones para cuidarlo y argumenta la frecuencia con que es recomendable llevarlas a cabo y por qué. Describe sus características físicas y las de sus pares para favorecer el autoconocimiento y reconocer que todos los cuerpos son especiales, únicos e irrepetibles y merecen ser respetados. Identifica, representa cronológicamente y comunica cómo es ahora y cómo era antes con base en características físicas, gustos, intereses, o actividades que realiza, e infiere algunos cambios que tendrá en el futuro al compararse con personas mayores y reconoce que son parte del crecimiento."
+                        },
+                        {
+                            "grado": 2,
+                            "texto": "Reconoce y describe los órganos de los sentidos y su función; explica y representa acciones que los ponen en riesgo, así como aquellas que previenen accidentes y que favorecen su cuidado. Identifica los órganos sexuales externos como una característica natural de las personas, utiliza los nombres correctos para referirse a ellos (vulva, pene y testículos), y reconoce la importancia de practicar hábitos de higiene. Reconoce que los órganos sexuales son partes privadas que no deben ser tocadas por otras personas, para propiciar el autoconocimiento, el autocuidado y el respeto."
+                        }
+                    ]
+                },
+                {
+                    "id": "pri-sab-2",
+                    "tema": "Beneficios del consumo de alimentos saludables, de agua simple potable, y de la práctica de actividad física.",
+                    "pdas": [
+                        {
+                            "grado": 1,
+                            "texto": "Indaga, registra y compara el tipo, la frecuencia y la cantidad de bebidas y alimentos que consume de manera personal en casa y la escuela. Explica y representa los beneficios de consumir alimentos saludables (frutas, verduras, cereales, leguminosas y de origen animal), y agua simple potable, al compararlos con alimentos con alto contenido de azúcar, grasa y sal, y bebidas azucaradas; toma decisiones a favor de una alimentación saludable. Describe los alimentos y bebidas saludables que consume en casa, escuela y comunidad, y que junto con la práctica de actividad física le ayudan a crecer y evitar enfermedades."
+                        },
+                        {
+                            "grado": 2,
+                            "texto": "Reconoce y representa el tipo y la cantidad de alimentos que consume en comparación con el consumo de los adultos y con la actividad física que realizan. Reconoce la importancia de una alimentación saludable, que responda a las necesidades y características de la edad y la actividad física de cada persona. Reconoce y clasifica los alimentos y bebidas, que consume en la escuela y en su casa, en naturales, procesados y ultraprocesados; e infiere sus implicaciones en la salud. Describe los alimentos y bebidas saludables que se producen localmente (frutas, verduras, carnes, lácteos, fermentados, entre otros) y se consumen en ciertos momentos del año, de acuerdo con su contexto y las prácticas socioculturales."
+                        }
+                    ]
+                },
+                {
+                    "id": "pri-sab-3",
+                    "tema": "Características del entorno natural y sociocultural.",
+                    "pdas": [
+                        {
+                            "grado": 1,
+                            "texto": "Distingue, describe y registra, en su lengua materna, las características del entorno natural: plantas, animales, cuerpos de agua, si hace frío o calor, frecuencia de lluvias y sequías, entre otras. Observa, compara y registra características de plantas y animales, como color, estructura y cubierta corporal, si son domésticos o silvestres; tienen flores, frutos o tienen espinas, raíces u hojas, entre otras, para clasificarlos a partir de criterios propios o consensuados. Identifica y describe algunas prácticas socioculturales que forman parte de su entorno, relacionadas con el tipo de vivienda, vestido, juego, formas de hablar, medir, celebraciones y cuidado de la naturaleza, entre otras. Representa en dibujos o croquis los componentes del entorno natural y sociocultural a partir de algunas referencias espaciales (enfrente, detrás, derecha, izquierda, cerca, lejos, entre otras) y el punto de referencia de la persona observadora."
+                        },
+                        {
+                            "grado": 2,
+                            "texto": "Compara y describe las características naturales de diferentes lugares de México como desiertos, selvas, arrecifes de coral, manglares, entre otros; a partir de identificar cómo son, si hace frío o calor, la frecuencia con que llueve, cómo son las plantas y los animales que viven en los lugares, o de qué se alimentan. Observa, con apoyo de lupas y lentes de aumento, plantas y animales para comparar y representar sus características: forma y número de patas, lugar donde habitan, cómo se desplazan, qué comen o qué necesitan para vivir, textura y forma de las hojas, tallos, si son árboles, arbustos o yerbas; describe algunas interacciones de plantas y animales con otros componentes naturales (agua, suelo, aire, Sol). Reconoce y describe cómo las personas aprovechan los componentes naturales para satisfacer sus necesidades de vestido, alimentación y vivienda."
+                        }
+                    ]
+                },
+                {
+                    "id": "pri-sab-4",
+                    "tema": "Impacto de las actividades humanas en el entorno natural, así como acciones y prácticas socioculturales para su cuidado.",
+                    "pdas": [
+                        {
+                            "grado": 1,
+                            "texto": "Identifica actividades personales, familiares y de la comunidad que impactan en la naturaleza y en la salud de las personas, las registra y clasifica como positivas o negativas. Propone y participa en acciones y prácticas socioculturales de su comunidad que favorecen el cuidado del entorno natural; expresa la importancia de establecer relaciones más armónicas con la naturaleza."
+                        },
+                        {
+                            "grado": 2,
+                            "texto": "Describe y representa el efecto que tienen las actividades humanas en plantas, animales, agua, suelo y aire; reflexiona en torno a la manera en cómo se aprovechan y toma decisiones que tengan un menor impacto en el entorno natural y la salud. Identifica, describe y participa en acciones y prácticas socioculturales para disminuir el impacto en plantas, animales, agua, suelo y aire y cuidar el entorno natural."
+                        }
+                    ]
+                },
+                {
+                    "id": "pri-sab-5",
+                    "tema": "Objetos del entorno: características, propiedades, estados físicos y usos en la vida cotidiana.",
+                    "pdas": [
+                        {
+                            "grado": 1,
+                            "texto": "Observa, manipula y compara diversos objetos a partir de características como color, tamaño, olor, textura, material de qué están hechos (madera, vidrio, metal, plástico), entre otras, para clasificarlos con base en criterios propios o consensuados. Explora y experimenta con diversos materiales para explicar sus propiedades: flexible (se puede doblar o no); ligero o pesado; elástico (regresa o no a su forma original después de haber sido estirado) y resistente (difícil o fácil de romper); los clasifica de acuerdo con ellas y argumenta sus conclusiones. Establece relaciones entre las propiedades de los materiales con el uso que se les da al elaborar ciertos objetos, como el plástico con el cual se hacen bolsas, envases, sillas, cubiertos, juguetes, plumas, entre otros; diseña y construye un objeto o juguete con base en las propiedades físicas de los materiales."
+                        },
+                        {
+                            "grado": 2,
+                            "texto": "Experimenta y compara la temperatura de diversos objetos con el uso de sus sentidos y del termómetro para proponer una escala en la que ubique los objetos de los más fríos a los más calientes; reconoce que este instrumento permite realizar mediciones de temperatura más precisas. Identifica los materiales con que están hechos algunos objetos que hay en casa y que le protegen de las quemaduras o que permiten manipular objetos calientes; reconoce la importancia de prevenir quemaduras y propone acciones para evitarlas. Identifica los estados físicos del agua a partir de experimentar con la variación de la temperatura y establecer relaciones causa-efecto; reconoce las características de sólidos y líquidos, (si tienen o no una forma definida) y extrapola dichas características a otros materiales."
+                        }
+                    ]
+                },
+                {
+                    "id": "pri-sab-6",
+                    "tema": "Efectos de la aplicación de fuerzas: movimiento y deformación.",
+                    "pdas": [
+                        {
+                            "grado": 1,
+                            "texto": "Observa de manera directa o en diversos medios, la trayectoria (recta, curva o circular) y rapidez (rápido o lento) de diferentes animales al desplazarse, como: mariposas, zopilotes, colibríes, hormigas, delfines, serpientes, entre otros, y registra sus conclusiones. Experimenta con objetos al empujarlos y jalarlos para describir cómo se mueven, modifican su estado de reposo, se detiene, o cambian de sentido o rapidez; registra sus observaciones y conclusiones. Caracteriza el movimiento con base en términos comunes, como “más lento que, más rápido que” y la descripción de diferentes trayectorias: recta, curva o circular."
+                        },
+                        {
+                            "grado": 2,
+                            "texto": "Experimenta con objetos de diversos materiales para identificar cómo se deforman al empujarlos, jalarlos, ejercer una presión sobre ellos o hacerlos chocar. Reconoce la deformación de objetos como resultado de la aplicación de una fuerza y su relación con las propiedades de los materiales con los que están hechos."
+                        }
+                    ]
+                },
+                {
+                    "id": "pri-sab-7",
+                    "tema": "Características del sonido y la luz.",
+                    "pdas": [
+                        {
+                            "grado": 1,
+                            "texto": "Indaga y describe los sonidos producidos en su entorno; experimenta con diversos objetos o instrumentos musicales, para identificar la fuente sonora y cómo se produce el sonido (golpear, rasgar o soplar). Distingue, clasifica y registra en tablas, algunas características del sonido a partir de percibir distintos sonidos, como intensidad o volumen (qué tan fuerte o débil es), tono (agudo o grave) y duración (largo o corto). Establece relaciones entre la intensidad del sonido, la generación de problemas auditivos y la contaminación auditiva; propone y difunde medidas para el cuidado de la salud. Indaga cómo fabricar un juguete o instrumento musical que produzca sonido, construye uno y explica su funcionamiento y las características del sonido que produce."
+                        },
+                        {
+                            "grado": 2,
+                            "texto": "Explora su entorno para distinguir y registrar fuentes naturales y artificiales de luz y su aprovechamiento en actividades cotidianas; indaga beneficios y riesgos de su uso, propone y difunde medidas para el cuidado de la salud. Experimenta y describe características perceptibles de la luz, a partir de la interacción con diferentes fuentes luminosas y materiales (vidrio, madera, metal, papel o plástico) con los que están elaborados objetos transparentes, opacos o brillantes. Experimenta con fuentes de luz y objetos de diferentes materiales para generar sombras e identificar las condiciones necesarias para su formación."
+                        }
+                    ]
+                },
+                {
+                    "id": "pri-sab-8",
+                    "tema": "Cambios y regularidades de fenómenos naturales y actividades de las personas.",
+                    "pdas": [
+                        {
+                            "grado": 1,
+                            "texto": "Reconoce la sucesión del día y la noche a partir de describir cronológicamente las actividades personales, familiares y comunitarias que se realizan, teniendo como referencia la presencia del Sol y la Luna, así como algunas de sus características perceptibles como forma, cambio de posición, y emisión de luz y calor. Describe y registra de manera cronológica cambios y regularidades del entorno natural durante el día, la noche y a lo largo de una semana, utilizando términos, como ayer, hoy, mañana, los nombres y orden de los días de la semana y las relaciones temporales “antes de” y “después de”."
+                        },
+                        {
+                            "grado": 2,
+                            "texto": "Indaga con personas de la comunidad u otros medios de información algunos fenómenos naturales que ocurren durante los meses y el año, y registra sus hallazgos, para establecer regularidades. Observa los cambios en la forma de la Luna a lo largo de un mes, los registra con dibujos teniendo como guía una hoja del calendario que corresponda al mes en que realiza la observación, sin pretender que reconozca los nombres de las fases lunares."
+                        }
+                    ]
+                },
+                {
+                    "id": "pri-sab-9",
+                    "tema": "Estudio de los números.",
+                    "pdas": [
+                        {
+                            "grado": 1,
+                            "texto": "Expresa oralmente la sucesión numérica en su lengua materna y en español, primero hasta 20, luego hasta 40, posteriormente hasta 60 y finalmente hasta 120 elementos, o hasta donde sea posible en su lengua materna, de manera ascendente y descendente a partir de un número dado. A través de situaciones cotidianas, cuenta, ordena, representa de diferentes formas, interpreta, lee y escribe la cantidad de elementos de una colección, primero de hasta 5, después hasta de 10 y paulatinamente de hasta 100 elementos. Identifica regularidades en la sucesión numérica hasta 100."
+                        },
+                        {
+                            "grado": 2,
+                            "texto": "Expresa oralmente la sucesión numérica hasta 1000, en español y hasta donde sea posible en su lengua materna, de manera ascendente y descendente a partir de un número dado. A través de situaciones cotidianas cuenta, ordena, representa de diferentes formas, interpreta, lee y escribe la cantidad de elementos de colecciones con menos de 1000 elementos; identifica regularidades en los números que representan unidades, decenas y centenas. Utiliza los símbolos “<”, “>” o “=” para comparar u ordenar dos números."
+                        },
+                        {
+                            "grado": 3,
+                            "texto": "Expresa oralmente la sucesión numérica hasta cuatro cifras, en español y hasta donde sea posible, en su lengua materna, de manera ascendente y descendente a partir de un número natural dado. Identifica y usa los números ordinales, en español y en su lengua materna para ordenar objetos o para indicar el lugar que ocupan dentro de una colección de hasta diez elementos. A través de situaciones cotidianas cuenta, representa de diferentes formas, interpreta, ordena, lee y escribe números naturales de hasta cuatro cifras; identifica regularidades en los números que representan decenas, centenas y millares. Representa, con apoyo de material concreto y modelos gráficos, fracciones: medios, cuartos, octavos, dieciseisavos, para expresar el resultado de mediciones y repartos en situaciones vinculadas a su contexto. Identifica la unidad de referencia en representaciones de medios, cuartos, octavos, dieciseisavos que expresan el resultado de mediciones y repartos. Propone expresiones aditivas equivalentes de medios, cuartos, octavos o dieciseisavos; también compara fracciones (con igual numerador o igual denominador) utilizando los signos > (mayor que), < (menor que) o = (igual). Conoce y usa las fracciones 1/10 y 1/100 con el apoyo del metro graduado."
+                        },
+                        {
+                            "grado": 4,
+                            "texto": "Expresa oralmente la sucesión numérica hasta cinco cifras, en español y hasta donde sea posible, en su lengua materna, de manera ascendente y descendente a partir de un número natural dado. Identifica y usa los números ordinales, en español y en su lengua materna para ordenar objetos, o para indicar el lugar que ocupan dentro de una colección de hasta veinte elementos. A través de situaciones cotidianas y de diversos contextos, cuenta, representa de diferentes formas, interpreta, ordena, lee y escribe números naturales de hasta cinco cifras; identifica regularidades en los números. A partir de situaciones vinculadas a diferentes contextos, representa, interpreta, lee, escribe y ordena números decimales hasta centésimos en notación decimal y con letras apoyándose en modelos gráficos; comprende la equivalencia entre décimos, centésimos y la unidad. Representa, con el apoyo de material concreto y modelos gráficos, fracciones: tercios, quintos, sextos, novenos y décimos, para expresar el resultado de mediciones y repartos en diversos contextos. Propone expresiones aditivas equivalentes de tercios, quintos, sextos, novenos y décimos; también compara fracciones (con igual numerador o igual denominador) utilizando los signos > (mayor que), < (menor que) o = (igual). Identifica y representa la unidad de referencia, a partir de una fracción dada de esta en la resolución de situaciones problemáticas."
+                        },
+                        {
+                            "grado": 5,
+                            "texto": "Expresa oralmente la sucesión numérica hasta seis cifras, en español y hasta donde sea posible, en su lengua materna, de manera ascendente y descendente a partir de un número natural dado. A través de situaciones vinculadas a diferentes contextos ordena, lee, escribe e identifica regularidades en números naturales de hasta nueve cifras. Lee, escribe y ordena números decimales hasta diezmilésimos en notación decimal y letra, y los interpreta en diferentes contextos. Resuelve situaciones problemáticas que implican comparar y ordenar fracciones a partir de construir fracciones equivalentes al multiplicar o dividir al numerador y al denominador por un mismo número. Reconoce, interpreta y utiliza las fracciones 1/2, 1/4, 3/4, 1/5 y 1/8 expresados en notación decimal y viceversa en diferentes contextos."
+                        },
+                        {
+                            "grado": 6,
+                            "texto": "Expresa oralmente la sucesión numérica hasta billones, en español y hasta donde sea posible, en su lengua materna, de manera ascendente y descendente a partir de un número natural dado. Ordena, lee y escribe números naturales de más de nueve cifras e interpreta números decimales en diferentes contextos. Identifica semejanzas y diferencias entre el sistema de numeración decimal y otros sistemas como el maya y el romano."
+                        }
+                    ]
+                },
+                {
+                    "id": "pri-sab-10",
+                    "tema": "Suma y resta, su relación como operaciones inversas.",
+                    "pdas": [
+                        {
+                            "grado": 1,
+                            "texto": "Reconoce, a partir de la resolución de situaciones que implican agregar, quitar, juntar, comparar y completar, que la suma es el total de dos o más cantidades y la resta, como la pérdida de elementos en una colección. Resuelve problemas vinculados a su contexto que implican sumas o restas (sin hacer uso del algoritmo convencional) con cantidades de hasta dos dígitos; representa de diversas formas (material concreto, representaciones gráficas) sumas y restas, incluyendo los signos “+”, “−”, “=” y numerales. Utiliza, explica y comprueba sus estrategias para calcular mentalmente sumas o restas con números naturales de una cifra."
+                        },
+                        {
+                            "grado": 2,
+                            "texto": "Representa con diferentes expresiones aditivas (suma y resta) cantidades menores a 1000. Resuelve problemas que implican avanzar (suma) y retroceder (resta) en la recta numérica. Resuelve situaciones problemáticas vinculadas a su contexto que implican sumas utilizando agrupamientos y el algoritmo convencional con números de hasta dos cifras. Utiliza, explica y comprueba sus estrategias para calcular mentalmente sumas o restas con números naturales de hasta dos cifras."
+                        },
+                        {
+                            "grado": 3,
+                            "texto": "Resuelve situaciones problemáticas vinculadas a su contexto que implican sumas de números naturales de hasta tres cifras utilizando el algoritmo convencional. Resuelve situaciones problemáticas vinculadas a su contexto que implican restas de números naturales de hasta tres cifras utilizando agrupamientos y el algoritmo convencional. Utiliza, explica y comprueba sus estrategias para calcular mentalmente sumas o restas de números naturales de hasta tres cifras. Resuelve problemas de suma o resta vinculados a su contexto, que impliquen el uso de fracciones (medios, cuartos, octavos, dieciseisavos), con el apoyo de material concreto o representaciones gráficas."
+                        },
+                        {
+                            "grado": 4,
+                            "texto": "Resuelve situaciones problemáticas vinculadas a su contexto que implican sumas o restas de números naturales de hasta cuatro cifras utilizando los algoritmos convencionales. Resuelve situaciones problemáticas vinculadas a su contexto que implican sumas o restas de dos números decimales hasta centésimos, con apoyo de material concreto y representaciones gráficas. Resuelve situaciones problemáticas que implican sumas o restas de fracciones con diferente denominador (tercios, quintos, sextos, novenos y décimos) vinculados a su contexto, mediante diversos procedimientos, en particular, la equivalencia."
+                        },
+                        {
+                            "grado": 5,
+                            "texto": "Propone y resuelve situaciones problemáticas que implican sumas y restas con números decimales utilizando el algoritmo convencional y fracciones con diferentes denominadores. Utiliza, explica y comprueba sus estrategias para calcular mentalmente sumas y restas de dos números múltiplos de 100 y dos fracciones cuyos denominadores son múltiplos."
+                        },
+                        {
+                            "grado": 6,
+                            "texto": "A partir de situaciones problemáticas vinculadas a diferentes contextos, suma y resta números decimales y fracciones con diferentes denominadores. Utiliza, explica y comprueba sus estrategias para calcular mentalmente sumas y restas de dos números decimales hasta centésimos."
+                        }
+                    ]
+                },
+                {
+                    "id": "pri-sab-11",
+                    "tema": "Multiplicación y división, su relación como operaciones inversas.",
+                    "pdas": [
+                        {
+                            "grado": 2,
+                            "texto": "Resuelve problemas vinculados a su contexto que requieren multiplicar con apoyo de material concreto, sumas iteradas o arreglos rectangulares, que involucran números menores o iguales a 10; reconoce a la multiplicación como la operation que resuelve problemas en los que siempre se suma la misma cantidad y utiliza el signo “×” (por) para representarla. Distingue y explica diferencias entre problemas que se resuelven con sumas de sumandos diferentes y problemas que se resuelven con sumas de sumandos iguales. Utiliza y explica diversas estrategias para calcular mentalmente multiplicaciones de números naturales menores que 10. Resuelve, mediante diversos procedimientos, problemas que implican repartos con divisores menores que 10 y dividendo de dos cifras."
+                        },
+                        {
+                            "grado": 3,
+                            "texto": "Resuelve multiplicaciones cuyo producto es un número natural de tres cifras, mediante diversos procedimientos (suma de multiplicaciones parciales, multiplicaciones por 10, 20, 30, entre otros). Resuelve situaciones problemáticas vinculadas a su contexto que implican divisiones (reparto y agrupamiento), mediante diversos procedimientos, en particular con la multiplicación; representa la división como: a ÷ b = c. Construye y usa un repertorio multiplicativo de factores de una cifra, para resolver multiplicaciones y divisiones (cuántas veces está contenido el divisor en el dividendo). Utiliza, explica y comprueba sus estrategias para calcular mentalmente productos de números naturales de una cifra."
+                        },
+                        {
+                            "grado": 4,
+                            "texto": "Resuelve situaciones problemáticas vinculadas a su contexto que implican multiplicaciones de números naturales de hasta tres por dos cifras, a partir de diversas descomposiciones aditivas y el algoritmo convencional. Resuelve situaciones problemáticas vinculadas a su contexto que impliquen el uso de un algoritmo para dividir números naturales de hasta tres cifras entre un número de una o dos cifras; reconoce al cociente y al residuo como resultado de una división. Utiliza, explica y comprueba sus estrategias para calcular mentalmente el doble o el triple de un número natural de dos cifras y la mitad de un número natural par de dos cifras."
+                        },
+                        {
+                            "grado": 5,
+                            "texto": "Resuelve situaciones problemáticas vinculadas a diferentes contextos que implican multiplicar números fraccionarios y números decimales, con un número natural como multiplicador. Resuelve situaciones problemáticas vinculadas a diferentes contextos que implican dividir números naturales y el cociente resulte un número decimal."
+                        },
+                        {
+                            "grado": 6,
+                            "texto": "Resuelve situaciones problemáticas vinculadas a diferentes contextos que implican dividir números decimales entre naturales. Resuelve situaciones problemáticas vinculadas a diferentes contextos que implican dividir números fraccionarios entre números naturales."
+                        }
+                    ]
+                },
+                {
+                    "id": "pri-sab-12",
+                    "tema": "Cuerpos geométricos y sus características.",
+                    "pdas": [
+                        {
+                            "grado": 1,
+                            "texto": "Observa y manipula objetos de su entorno para identificar y describir líneas rectas o curvas, caras planas o curvas; los representa mediante diversos procedimientos."
+                        },
+                        {
+                            "grado": 2,
+                            "texto": "Clasifica objetos de su entorno o cuerpos geométricos de acuerdo con distintos criterios (caras planas o curvas, caras iguales); los construye usando cajas, bloques o cubos."
+                        },
+                        {
+                            "grado": 3,
+                            "texto": "Identifica las figuras geométricas que componen diversos objetos (edificios, casas, cajas, muebles, y cuerpos geométricos); construye prismas rectos a partir de reconocer la configuración de cuadrados y rectángulos que lo componen."
+                        },
+                        {
+                            "grado": 4,
+                            "texto": "Reconoce y describe las características de distintos prismas rectos (números de vértices y aristas, número y formas de caras); reconoce los desarrollos planos que permiten construirlos, en particular el cubo."
+                        },
+                        {
+                            "grado": 5,
+                            "texto": "Reconoce y describe semejanzas y diferencias entre un prisma y una pirámide; propone desarrollos planos para construir prismas rectos cuadrangulares o rectangulares."
+                        },
+                        {
+                            "grado": 6,
+                            "texto": "Explora y reconoce las características del cilindro y cono; anticipa y comprueba desarrollos planos que permiten construirlos."
+                        }
+                    ]
+                },
+                {
+                    "id": "pri-sab-13",
+                    "tema": "Figuras geométricas y sus características.",
+                    "pdas": [
+                        {
+                            "grado": 1,
+                            "texto": "Representa animales, plantas u objetos utilizando el tangram y otras figuras geométricas, para reconocer y describir oralmente y por escrito sus nombres y propiedades (forma y número de lados y vértices), utilizando paulatinamente un lenguaje formal para referirse a ellas."
+                        },
+                        {
+                            "grado": 2,
+                            "texto": "Construye composiciones geométricas cada vez más complejas, por el tipo de figuras o por el número de “piezas”, con el uso del tangram y geoplano. Clasifica y describe polígonos por el número de lados en triángulos, cuadriláteros, pentágonos, hexágonos y octágonos, utilizando paulatinamente un lenguaje formal para referirse a sus propiedades (número de vértices y lados); los construye sobre retículas de cuadrados o puntos."
+                        },
+                        {
+                            "grado": 3,
+                            "texto": "A partir de retículas de triángulos, cuadrados o puntos, construye, analiza y clasifica figuras geométricas a partir de sus lados y su simetría, en particular a los triángulos; explica los criterios utilizados para la clasificación."
+                        },
+                        {
+                            "grado": 4,
+                            "texto": "Con el apoyo de instrumentos geométricos, construye, analiza y clasifica cuadriláteros a partir de sus lados, ángulos y diagonales; explica los criterios utilizados para la clasificación."
+                        },
+                        {
+                            "grado": 5,
+                            "texto": "Con el apoyo de instrumentos geométricos, construye círculos a partir de distintos datos (longitud del diámetro o del radio, a partir de dos puntos); distingue la diferencia entre circunferencia y círculo e identifica el diámetro y el radio."
+                        },
+                        {
+                            "grado": 6,
+                            "texto": "Identifica y comprueba en diferentes objetos y dibujos con forma circular, la relación que existe entre la circunferencia y el diámetro (valor aproximado de π). Utiliza instrumentos geométricos para trazar polígonos regulares."
+                        }
+                    ]
+                },
+                {
+                    "id": "pri-sab-14",
+                    "tema": "Medición de longitud, masa y capacidad.",
+                    "pdas": [
+                        {
+                            "grado": 1,
+                            "texto": "Compara la longitud de objetos de manera directa e indirecta con apoyo de un intermediario (objetos o partes de su cuerpo); determina cuál es el mayor, el menor o si son iguales y expresa el resultado de la comparación en su lengua materna y en español, con dibujos y numerales. Sopesa objetos para estimar cuál tiene mayor o menor masa; comprueba su estimación con el apoyo de una balanza."
+                        },
+                        {
+                            "grado": 2,
+                            "texto": "Estima, mide, compara, ordena y registra longitudes, usando unidades arbitrarias (objetos o instrumentos de medida) de su comunidad y las representa en rectas numéricas. Compara capacidades y masas, usando unidades de medida de la comunidad, o unidades arbitrarias; representa los resultados con dibujos y numerales."
+                        },
+                        {
+                            "grado": 3,
+                            "texto": "Resuelve situaciones problemáticas vinculadas a su contexto que impliquen, medición, estimación y comparación, de longitudes, masas y capacidades, con el uso del metro, kilogramo, litro, medios y cuartos de estas unidades; en el caso de la longitud, el decímetro y centímetro."
+                        },
+                        {
+                            "grado": 5,
+                            "texto": "Resuelve situaciones problemáticas vinculadas a diferentes contextos que requieren calcular longitudes, masas o capacidades utilizando unidades convencionales, además del kilómetro y la tonelada."
+                        }
+                    ]
+                },
+                {
+                    "id": "pri-sab-15",
+                    "tema": "Medición del tiempo.",
+                    "pdas": [
+                        {
+                            "grado": 1,
+                            "texto": "Utiliza términos como antes, después, hoy, ayer, mañana, etc., en su lengua materna y en español, para describir y registrar cronológicamente actividades en un periodo determinado (día, semana, mes) con el apoyo de calendarios; reconoce que la semana está integrada por siete días que ocurren cíclicamente."
+                        },
+                        {
+                            "grado": 2,
+                            "texto": "Describe y registra cronológicamente en tablas, pictogramas o calendarios, hechos y fenómenos naturales y sociales en periodos (día, semana, mes y año), utilizando los términos de su comunidad (actividad recurrente durante todo el ciclo escolar); reconoce que el año está integrado por doce meses que ocurren cíclicamente."
+                        },
+                        {
+                            "grado": 3,
+                            "texto": "Lee relojes de manecillas y digitales; compara y ordena la duración de diferentes actividades cotidianas o acontecimientos de la comunidad, usando la hora, media hora, cuarto de hora y los minutos."
+                        },
+                        {
+                            "grado": 4,
+                            "texto": "Resuelve situaciones problemáticas que implican el uso de equivalencias entre diferentes escalas de tiempo: día, hora, minuto y segundo; reconoce al segundo como unidad básica de tiempo. Comprende y utiliza expresiones que indican temporalidad como quincena, bimestre, semestre, novenario, lustro, quinquenio, siglo, milenio, decenio, sexenio."
+                        }
+                    ]
+                },
+                {
+                    "id": "pri-sab-16",
+                    "tema": "Organización e interpretación de datos.",
+                    "pdas": [
+                        {
+                            "grado": 1,
+                            "texto": "Elabora registros de datos mediante distintos recursos como pictogramas o tablas para responder preguntas de su interés."
+                        },
+                        {
+                            "grado": 2,
+                            "texto": "Recolecta, organiza, representa e interpreta datos en tablas o pictogramas para responder preguntas de su interés."
+                        },
+                        {
+                            "grado": 3,
+                            "texto": "Recolecta, organiza, representa e interpreta datos en tablas de frecuencias o pictogramas para responder preguntas de su interés."
+                        },
+                        {
+                            "grado": 4,
+                            "texto": "Interpreta tablas de frecuencias y gráficas de barras, y reconoce la moda de un conjunto de datos para responder preguntas."
+                        },
+                        {
+                            "grado": 5,
+                            "texto": "Construye tablas y gráficas de barras, e interpreta información cuantitativa y cualitativa contenida en ellas; interpreta la moda para responder preguntas vinculadas a diferentes contextos."
+                        },
+                        {
+                            "grado": 6,
+                            "texto": "Interpreta información cuantitativa y cualitativa contenida en tablas, gráficas de barras y circulares para responder preguntas vinculadas a diferentes contextos; construye gráficas de barras. Genera y organiza datos, determina la moda, la media aritmética y el rango para responder preguntas vinculadas a diferentes contextos."
+                        }
+                    ]
+                },
+                {
+                    "id": "pri-sab-17",
+                    "tema": "Estructura y funcionamiento del cuerpo humano: sistemas locomotor y digestivo, así como prácticas para su cuidado, desde su contexto sociocultural.",
+                    "pdas": [
+                        {
+                            "grado": 3,
+                            "texto": "Identifica y describe que el sistema locomotor está conformado por el sistema óseo (huesos y columna vertebral), y el sistema muscular (músculos y articulaciones), y que sus funciones se relacionan con el soporte, protección y movimiento del cuerpo. Explica y representa el funcionamiento del sistema locomotor, con modelos que muestran la acción coordinada de los sistemas óseo, muscular y nervioso, en el movimiento del cuerpo. Describe acciones y prácticas socioculturales para el cuidado del sistema locomotor y la prevención de accidentes y lesiones, reconoce la importancia de la postura correcta, de acudir a los servicios de salud y evitar la automedicación."
+                        },
+                        {
+                            "grado": 4,
+                            "texto": "Identifica y describe la estructura y funciones del sistema digestivo, así como su relación con el sistema circulatorio, a partir de representar la ruta de los alimentos durante la ingestión, digestión, absorción y transporte de nutrimentos, y los órganos que participan en estos procesos. Describe la participación de la saliva y los jugos gástricos en la transformación de los alimentos, a partir de experimentar con agua, vinagre, jugo de limón y diversos alimentos. Reconoce prácticas socioculturales como la herbolaria, para la atención de malestares e infecciones del sistema digestivo, y practica acciones para su cuidado."
+                        }
+                    ]
+                },
+                {
+                    "id": "pri-sab-18",
+                    "tema": "Estructura y funcionamiento del cuerpo humano: sistema sexual; cambios en la pubertad e implicaciones socioculturales.",
+                    "pdas": [
+                        {
+                            "grado": 3,
+                            "texto": "Describe semejanzas y diferencias entre los órganos sexuales de las personas, sus nombres correctos y en su lengua materna, e identifica que estos determinan el sexo biológico; propone o practica acciones y hábitos de higiene para su cuidado como parte de la salud sexual. Comprende que los cuerpos cambian a lo largo del tiempo, al reconocer la variabilidad en tamaño, forma, funciones y características; explica que todas las culturas tienen maneras diferentes de ver los cuerpos y que todos merecen respeto, incluido el de las personas con discapacidad, como parte del derecho a una vida libre de violencia."
+                        },
+                        {
+                            "grado": 4,
+                            "texto": "Indaga, describe y representa mediante modelos, los caracteres sexuales primarios y secundarios, al comparar los cuerpos de niñas y niños con los de adolescentes; establece relaciones entre los cambios que se presentan durante la pubertad y la adolescencia, con el desarrollo biológico del ser humano. Comprende la importancia de llevar a cabo hábitos de higiene de los sistemas sexuales; practica acciones de autocuidado y toma decisiones para fortalecerlas. Comprende que la menstruación es un ciclo natural de desarrollo físico de las niñas a partir de describir y representar sus fases; explica la diversidad de síntomas físicos y sensaciones que se pueden experimentar, algunas creencias y tabúes alrededor de ésta, así como medidas de cuidado e higiene personal. Indaga y comunica ideas, valores, prácticas, costumbres y estereotipos que existen en las familias y la comunidad, en torno a los cambios anatómicos y fisiológicos que se presentan tanto en la pubertad como en la adolescencia, para distinguir entre las niñas y los niños, de las y los adolescentes."
+                        }
+                    ]
+                },
+                {
+                    "id": "pri-sab-19",
+                    "tema": "Alimentación saludable, con base en el Plato del Bien Comer, así como prácticas culturales y la toma de decisiones encaminadas a favorecer la salud y el medio ambiente y la economía familiar.",
+                    "pdas": [
+                        {
+                            "grado": 3,
+                            "texto": "Explica la importancia del consumo de una alimentación higiénica y variada que incluya verduras y frutas; cereales y tubérculos; leguminosas y alimentos de origen animal acorde con el Plato del Bien Comer y sus prácticas culturales, para el buen funcionamiento del cuerpo. Propone y practica acciones para favorecer una alimentación saludable, como consumir alimentos naturales, de la localidad y de temporada, en la cantidad recomendada para su edad, beber agua simple potable; disminuir el consumo de alimentos con exceso de grasas, azúcares y sal, entre otras. Comprende que las personas tienen diferentes necesidades alimentarias, de acuerdo con su edad y actividad física, y que satisfacerlas impacta en la economía familiar."
+                        },
+                        {
+                            "grado": 4,
+                            "texto": "Indaga y describe los nutrimentos que proporcionan los alimentos que consume e identifica los que necesita incluir en su alimentación, así como los beneficios para su salud y para realizar sus actividades diarias. Identifica y analiza la influencia de diversos medios de comunicación o redes sociales en el consumo de alimentos con alto contenido de grasa, azúcares y sal, así como su impacto en la salud, y toma decisiones que mejoren tanto su alimentación como la economía personal y familiar. Reconoce y valora las prácticas culturales, relacionadas con la alimentación saludable presentes en su comunidad, como la milpa, y la rotación de cultivos, que favorecen la producción y consumo responsable, la obtención de una variedad de alimentos y el cuidado del medio ambiente. Indaga y explica qué productos y alimentos son convenientes adquirir o consumir en su familia, por su costo económico y el impacto medio ambiental que provocan."
+                        }
+                    ]
+                },
+                {
+                    "id": "pri-sab-20",
+                    "tema": "Interacciones entre plantas, animales y el entorno natural: nutrición y locomoción.",
+                    "pdas": [
+                        {
+                            "grado": 3,
+                            "texto": "Indaga y describe la locomoción de animales, a partir de reconocer las formas en las que se mueven y desplazan en la búsqueda de alimento, agua o refugio y su relación con las características del lugar donde viven. Clasifica animales en vertebrados e invertebrados, a partir de sus características, y reconoce que los seres humanos pertenecen al grupo de los vertebrados, con base en similitudes y diferencias en la locomoción de otros animales. Explica el movimiento y desplazamiento de algún animal vertebrado de su interés, con modelos que muestran la acción coordinada de los sistemas óseo y muscular."
+                        },
+                        {
+                            "grado": 4,
+                            "texto": "Identifica y clasifica animales, con base en su tipo de alimentación: herbívoros, carnívoros y omnívoros, y su relación con el lugar donde viven. Identifica, representa y explica el proceso de nutrición de plantas, en el que intervienen la luz solar, el agua, las sales minerales y el dióxido de carbono, sin llegar al uso de fórmulas químicas. Analiza y describe la estructura de cadenas alimentarias: productores (plantas), consumidores (animales), y descomponedores (hongos y bacterias), así como su relación con el lugar donde habitan. Explica las condiciones del entorno propicias para la existencia y sobrevivencia de plantas y animales, entre ellos el ser humano; reconociendo su compromiso para cuidarlo."
+                        }
+                    ]
+                },
+                {
+                    "id": "pri-sab-21",
+                    "tema": "Relaciones entre los factores físicos y biológicos que conforman los ecosistemas y favorecen la preservación de la vida.",
+                    "pdas": [
+                        {
+                            "grado": 3,
+                            "texto": "Describe la importancia del aire, el agua, el suelo y el Sol para todos los seres vivos, a partir de representar las relaciones que establecen para su alimentación y protección. Reconoce y describe las condiciones en las que se encuentra el aire, el suelo y el agua en el lugar en donde vive; y argumenta acerca del impacto de dichas condiciones en la vida de plantas, animales y personas. Identifica y valora la presencia del aire, agua, suelo y Sol en las expresiones culturales de diversas personas y grupos."
+                        },
+                        {
+                            "grado": 4,
+                            "texto": "Identifica, representa y explica las interacciones entre los factores biológicos (plantas, animales, incluido el ser humano, hongos y organismos microscópicos como bacterias), y los factores físicos (agua, aire, suelo y Sol) en la conformación de los ecosistemas. Compara y describe la dinámica de distintos ecosistemas de México, a partir de la diversidad de seres vivos que habitan en ellos y las características de los factores físicos que los conforman. Reconoce y explica la importancia de los ecosistemas en la vida cotidiana de las personas y pueblos, así como en sus manifestaciones culturales."
+                        }
+                    ]
+                },
+                {
+                    "id": "pri-sab-22",
+                    "tema": "Impacto de las actividades humanas en la naturaleza y en la salud.",
+                    "pdas": [
+                        {
+                            "grado": 3,
+                            "texto": "Indaga y describe el impacto de las actividades humanas del entorno natural del lugar donde vive, y establece relaciones causa- efecto en la naturaleza y en la salud de las personas. Indaga saberes y prácticas de diversos pueblos y culturas, para cuidar la naturaleza y establecer una relación armónica. Propone y practica acciones que favorecen el cuidado de la naturaleza, la salud de las personas y el bienestar animal."
+                        },
+                        {
+                            "grado": 4,
+                            "texto": "Indaga y describe los problemas de contaminación de agua, aire y suelo, y generación de residuos sólidos en su comunidad; establece relaciones causa-efecto en los ecosistemas, así como en la salud de las personas y en el bienestar de pueblos y culturas. Propone y practica acciones de consumo responsable para prevenir o mitigar la contaminación de agua, aire y suelo, así como la generación de residuos sólidos."
+                        }
+                    ]
+                },
+                {
+                    "id": "pri-sab-23",
+                    "tema": "Propiedades de los materiales: masa y longitud; relación entre estados físicos y la temperatura.",
+                    "pdas": [
+                        {
+                            "grado": 3,
+                            "texto": "Describe la masa y la longitud como propiedades medibles de los materiales, a partir de experimentar con distintos objetos y materiales y el uso de instrumentos como balanza y regla, y establece relaciones entre el material, tamaño y forma. Reconoce al kilogramo (kg) como la unidad básica de medida de la masa, y al metro (m) como la unidad básica de medición de la longitud (distancia entre dos puntos), así como otras unidades que se utilizan en su comunidad para medir la masa y la longitud."
+                        },
+                        {
+                            "grado": 4,
+                            "texto": "Describe y representa los cambios físicos del ciclo del agua: evaporación, condensación, solidificación, y su relación con la variación de la temperatura. Indaga y describe los cambios de estado físico de los materiales, a partir de experimentar con la variación de la temperatura y sus efectos en diversos materiales (chocolate, mantequilla, agua, hielo, vela -cera-, alcohol, gelatina, otros). Reconoce los avances tecnológicos en el diseño de termómetros más precisos y su aplicación en la vida cotidiana, la industria, la medicina y la investigación."
+                        }
+                    ]
+                },
+                {
+                    "id": "pri-sab-24",
+                    "tema": "Formación de mezclas y sus propiedades.",
+                    "pdas": [
+                        {
+                            "grado": 3,
+                            "texto": "Identifica al agua como disolvente a partir de experimentar con distintos materiales como aceite, talco, azúcar, sal, arena, y los clasifica en solubles o insolubles en agua. Describe la aplicación de la solubilidad del agua en actividades cotidianas y en la industria."
+                        },
+                        {
+                            "grado": 4,
+                            "texto": "Comprende que una mezcla está formada por diversos materiales en diferentes proporciones, a partir de experimentar con mezclas de materiales como agua y arena, agua y aceite, semillas y clips. Experimenta con mezclas de diversos materiales y proporciones, para identificar sus propiedades de color y sabor."
+                        }
+                    ]
+                },
+                {
+                    "id": "pri-sab-25",
+                    "tema": "Efectos de la aplicación de fuerzas y del calor sobre los objetos.",
+                    "pdas": [
+                        {
+                            "grado": 3,
+                            "texto": "Describe y representa los movimientos de personas, objetos y animales, considera la dirección (izquierda a derecha, de arriba a abajo), la rapidez (lento o rápido), y su trayectoria (recta, curva o zigzag), así como los puntos de referencia. Describe el efecto de las fuerzas sobre los objetos: movimiento y reposo, al experimentar con los cambios en la rapidez o la dirección del movimiento, sin llegar a la noción de intensidad de la fuerza. Experimenta con la aplicación de fuerzas y el movimiento, con base en el diseño de distintos recorridos (circuitos), en los que interaccionan diversos objetos que chocan, son jalados o empujados, además de considerar diferentes distancias."
+                        },
+                        {
+                            "grado": 4,
+                            "texto": "Comprende algunas formas de generar calor, como la fricción y el contacto, e indaga su importancia en la vida cotidiana. Describe los efectos del calor sobre los objetos, a partir de experimentar con ellos al frotarlos unos con otros; reconoce que la transferencia de calor va del objeto de mayor al de menor temperatura. Diseña y construye un dispositivo o juguete sencillo que funcione con calor, y explica su funcionamiento."
+                        }
+                    ]
+                },
+                {
+                    "id": "pri-sab-26",
+                    "tema": "Sistema Tierra-Luna-Sol: interacciones, cambios y regularidades; diversas explicaciones acerca del movimiento de estos astros y su relación con algunos fenómenos naturales.",
+                    "pdas": [
+                        {
+                            "grado": 3,
+                            "texto": "Indaga y representa con modelos, los movimientos de rotación y traslación de la Tierra, y los asocia con la sucesión del día y la noche, con las estaciones del año y el cambio del punto de aparición y ocultamiento del Sol en el horizonte. Describe y representa mediante modelos el movimiento de rotación y traslación de la Luna y su relación con sus fases. Indaga aportaciones de diversas culturas en relación con el movimiento de la Tierra, la Luna y el Sol, y su influencia en aspectos socioculturales."
+                        },
+                        {
+                            "grado": 4,
+                            "texto": "Indaga la formación de eclipses de Sol y de Luna, y describe las similitudes y diferencias entre ellos. Describe y representa con modelos, la formación de eclipses solares y lunares, en los que considera los movimientos de la Tierra y la Luna con respecto al Sol, los tamaños de los cuerpos celestes, las distancias a las que se encuentran, las propiedades de la luz, en particular su propagación rectilínea, así como el punto de referencia del observador. Reconoce que hay diversas maneras de explicar los fenómenos naturales, al recuperar narraciones y descripciones desde otras perspectivas culturales, alrededor de las causas y consecuencias de la formación de eclipses."
+                        }
+                    ]
+                },
+                {
+                    "id": "pri-sab-27",
+                    "tema": "Cálculo de perímetro y área.",
+                    "pdas": [
+                        {
+                            "grado": 4,
+                            "texto": "Distingue entre contorno y superficie de caras de objetos de su entorno y de figuras y cuerpos geométricos; reconoce al perímetro como la suma de las longitudes de sus lados y área como la medida de la superficie; estima y compara áreas de manera directa, con unidades no convencionales y con retículas de cuadrados."
+                        }
+                    ]
+                },
+                {
+                    "id": "pri-sab-28",
+                    "tema": "Estructura y funcionamiento del cuerpo humano: sistemas circulatorio, respiratorio e inmunológico, y su relación con la salud ambiental, así como acciones para su cuidado.",
+                    "pdas": [
+                        {
+                            "grado": 5,
+                            "texto": "Describe y representa mediante modelos, la relación de la nariz, tráquea y pulmones, como parte del sistema respiratorio, con el intercambio de gases. Indaga y explica con modelos, la función general del corazón y los vasos sanguíneos (arterias y venas), que forman parte del sistema circulatorio y su relación con el intercambio de gases. Comprende que la frecuencia cardiaca es el número de latidos del corazón en un minuto, que se puede medir en los puntos en los que se ubican arterias (muñecas, cuello, tobillos) a través del pulso cardíaco; establece relaciones entre la actividad física y la frecuencia cardiaca. Indaga los factores del medio ambiente que inciden en la salud de los sistemas circulatorio y respiratorio; propone y practica acciones para prevenir infecciones y enfermedades y favorecer su cuidado."
+                        },
+                        {
+                            "grado": 6,
+                            "texto": "Explica la participación del sistema inmunológico en la defensa y protección del cuerpo humano ante infecciones y enfermedades, algunas de las células y órganos que lo conforman, sin profundizar en características y funciones específicas. Describe los beneficios y practica acciones para fortalecer y cuidar el sistema inmunológico: vacunación, higiene, alimentación saludable, consumo de agua simple potable, descanso, actividades físicas y recreativas. Argumenta la importancia de las vacunas como aportes científicos y tecnológicos para prevenir enfermedades transmisibles y de la Cartilla Nacional de Salud para dar seguimiento a su estado de salud, así como de prácticas culturales para prevenirlas. Explica los factores que ponen en riesgo la salud y aquellos que la favorecen al analizar diversas situaciones y propone acciones para reducir la propagación de enfermedades transmisibles en los entornos familiar, escolar y comunitario."
+                        }
+                    ]
+                },
+                {
+                    "id": "pri-sab-29",
+                    "tema": "Etapas del desarrollo humano: proceso de reproducción y prevención de infecciones de transmisión sexual (ITS) y embarazos en adolescentes, en el marco de la salud sexual y reproductiva.",
+                    "pdas": [
+                        {
+                            "grado": 5,
+                            "texto": "Describe a la infancia, adolescencia, madurez y vejez como parte del desarrollo humano, así como las características, necesidades, responsabilidades, formas de pensar y cuidados generales en cada una de ellas. Comprende que el embarazo es resultado de una relación sexual, a partir de describir y representar con modelos el proceso general de la reproducción en los seres humanos: fecundación, embarazo y parto, que implica la toma de decisiones libres e informadas y su prevención y planificación es responsabilidad tanto de hombres como de mujeres, y que forma parte de sus derechos sexuales y reproductivos. Analiza diversas situaciones acordes a su contexto relacionadas con el ejercicio de la sexualidad para reconocerlo como un derecho de todas las personas, y de vivirla de manera libre, informada, segura como parte de la salud sexual. Argumenta acerca de la importancia de los vínculos afectivos, la igualdad, el respeto, la responsabilidad, y la comunicación en las relaciones de pareja, con la finalidad de prevenir violencia en el noviazgo y embarazos en la adolescencia, considerando su proyecto de vida y el inicio de la actividad sexual."
+                        },
+                        {
+                            "grado": 6,
+                            "texto": "Analiza y argumenta las implicaciones y riesgos del embarazo a temprana edad o en adolescentes, y las consecuencias en los ámbitos de salud, personal, familiar, educativo, social y económico. Toma decisiones responsables e informadas relacionadas con la salud sexual y reproductiva, a partir de comprender que el ejercicio de la sexualidad es una decisión propia, en la que permean los valores, formas de pensar de cada persona y la cultura, y forma parte de los derechos sexuales. Compara y argumenta ventajas y desventajas de llevar a cabo conductas sexuales responsables para evitar embarazos e ITS, incluido el VIH: uso del condón, retraso de la actividad sexual o la abstención. Analiza creencias e ideas falsas en torno a las ITS, con base en las vías de transmisión y prevención, el uso de métodos anticonceptivos (variedad, efectividad y accesibilidad) y las conductas de autocuidado. Reconoce que el consumo de alcohol y otras sustancias adictivas, el rechazo al uso de métodos anticonceptivos, entre otros, son factores que propician conductas violentas vinculadas al ejercicio de la sexualidad: abuso sexual, hostigamiento, violación, violencia infantil y de género."
+                        }
+                    ]
+                },
+                {
+                    "id": "pri-sab-30",
+                    "tema": "Alimentación saludable: características de la dieta correcta, costumbres de la comunidad, riesgos del consumo de alimentos ultraprocesados, y acciones para mejorar la alimentación.",
+                    "pdas": [
+                        {
+                            "grado": 5,
+                            "texto": "Explica las características de la dieta correcta: variada, completa, equilibrada, inocua, suficiente, y las contrasta con sus hábitos de alimentación para tomar decisiones en beneficio de su salud. Indaga posibles riesgos de los hábitos de alimentación personales y familiares, como diabetes, hipertensión, colesterol elevado, entre otros; propone posibles cambios en su alimentación a partir de las alternativas que están disponibles en su localidad y en las prácticas de higiene relacionadas con la preparación y consumo de alimentos. Describe de dónde provienen y cómo se producen o procesan los alimentos que consume y los beneficios nutrimentales que estos tienen; diseña distintos menús basados en las características de la dieta correcta. Comprende que su alimentación está relacionada con las costumbres de la familia y los productos de consumo disponibles en su comunidad, a partir de compararla con otras formas de alimentación en diferentes regiones del país y con otros países. Analiza y explica la relación que tiene mantener una dieta correcta con el crecimiento y funcionamiento adecuado del organismo, así como para prevenir enfermedades no transmisibles como la diabetes o la hipertensión."
+                        },
+                        {
+                            "grado": 6,
+                            "texto": "Establece relaciones entre problemas asociados a la alimentación: sobrepeso, obesidad y desnutrición con factores de riesgo como consumo de alimentos y bebidas ultraprocesadas; analiza las causas y riesgos de trastornos de la alimentación como la anorexia y la bulimia. Analiza etiquetas de diversos productos que consume regularmente para conocer los ingredientes que los componen, así como su contenido y aporte nutrimental, y tomar decisiones a favor de una alimentación saludable. Propone platillos para el consumo familiar en los que incorpora alimentos regionales y de temporada que brinden una alimentación saludable a bajo costo. Propone y practica acciones para prevenir enfermedades no transmisibles como sobrepeso, obesidad y desnutrición, vinculadas con factores protectores como actividad física diaria, alimentación baja en azúcares, sal y grasas, además de beber agua simple potable."
+                        }
+                    ]
+                },
+                {
+                    "id": "pri-sab-31",
+                    "tema": "Funciones vitales que caracterizan a plantas y animales como seres vivos, y su relación con el entorno natural, así como sus cambios a través del tiempo.",
+                    "pdas": [
+                        {
+                            "grado": 5,
+                            "texto": "Explica la reproducción en plantas por semillas, tallos, hojas, raíces y su interacción con otros seres vivos y el entorno natural; identifica y representa las estructuras de una flor que participan en la reproducción. Describe interacciones que ocurren entre los factores físicos y biológicos que intervienen en el proceso de reproducción de las plantas: polinización, dispersión de semillas y frutos, o germinación. Indaga el tipo de desarrollo y nacimiento de diversos animales (insectos, arácnidos, moluscos, aves, mamíferos, reptiles, peces y anfibios) para clasificarlos en vivíparos y ovíparos. Comprende que la reproducción es una función que caracteriza a todas las plantas y los animales como seres vivos."
+                        },
+                        {
+                            "grado": 6,
+                            "texto": "Indaga y explica cambios en los seres vivos y en el entorno natural a través del tiempo, a partir de reconocer causas y consecuencias de su extinción hace más de 10 000 años y en la actualidad, en México y el mundo. Comprende y explica la importancia de los fósiles como evidencia para la reconstrucción de la vida en el pasado, su relación con organismos y entornos actuales, y la evolución de los seres vivos; describe cómo se lleva a cabo el proceso de fosilización a partir de construir modelos. Propone y practica acciones para cuidar a los seres vivos actuales y prevenir su extinción. Comprende que las funciones vitales de nutrición, reproducción y relación con el entorno natural caracterizan a los seres vivos, incluido el ser humano."
+                        }
+                    ]
+                },
+                {
+                    "id": "pri-sab-32",
+                    "tema": "Factores que conforman la biodiversidad y el medio ambiente, la riqueza natural de México y su relevancia como parte del patrimonio biocultural de la humanidad, y la importancia de su conservación.",
+                    "pdas": [
+                        {
+                            "grado": 5,
+                            "texto": "Comprende que la biodiversidad es la cantidad y variedad de ecosistemas y de seres vivos (animales, plantas, hongos y bacterias); e identifica la cantidad total de especies identificadas hasta el momento por la ciencia a nivel mundial. Indaga los factores que favorecen la presencia en México de una variedad de ecosistemas y seres vivos, que lo hacen megadiverso; valora la importancia natural y sociocultural de su conservación. Describe los servicios ambientales de la biodiversidad: producción de oxígeno, regulación de climas, abastecimiento de agua, moderación en el impacto de fenómenos naturales, control de plagas, obtención de materias primas, espacios vitales para plantas y animales, espacios para actividades recreativas y culturales, entre otros."
+                        },
+                        {
+                            "grado": 6,
+                            "texto": "Comprende que el medio ambiente es el conjunto de componentes naturales (factores biológicos: seres vivos, y factores físicos: agua, aire, suelo, Sol, clima, entre otros) en interacción con los componentes sociales (aspectos culturales, económicos, científicos, tecnológicos y políticos). Analiza situaciones que se relacionan con problemas medio ambientales de la comunidad y el impacto que tienen en la salud ambiental. Propone y practica acciones que favorecen el cuidado del medio ambiente; comprende el estrecho vínculo que tiene con el bienestar común, por lo que se requiere establecer una relación armónica con el medio ambiente."
+                        }
+                    ]
+                },
+                {
+                    "id": "pri-sab-33",
+                    "tema": "Pérdida de biodiversidad, problemas medio ambientales en la comunidad, México y el mundo, acciones orientadas a fortalecer estilos de vida sustentables.",
+                    "pdas": [
+                        {
+                            "grado": 5,
+                            "texto": "Analiza y explica el impacto de las actividades humanas en la biodiversidad, en particular sobre la variedad y cantidad de seres vivos que habitan en la comunidad, y en la salud. Analiza situaciones relacionadas con la pérdida de biodiversidad a nivel local y nacional, reconoce las causas y las consecuencias para la salud y la dinámica de los ecosistemas; identifica y explica prácticas locales y estrategias estatales o nacionales para el cuidado de la biodiversidad. Comprende la importancia que tiene la biodiversidad y el valor del cuidado de los seres vivos y las condiciones naturales que favorecen su existencia; propone y practica acciones, como el consumo responsable que favorecen su cuidado."
+                        },
+                        {
+                            "grado": 6,
+                            "texto": "Analiza y explica algunos problemas medio ambientales de la comunidad, México y el mundo, sus causas y consecuencias en la salud ambiental. Comprende que el efecto invernadero es un proceso natural que favorece la vida en el planeta; establece relaciones entre su alteración, la contaminación del aire y el cambio climático, así como las consecuencias en el medio ambiente y la salud. Indaga y propone acciones orientadas a promover el consumo responsable en la escuela, familia y comunidad para favorecer estilos de vida sustentables y el bienestar común. Indaga proyectos de mejora del medio ambiente desarrollados por diversos pueblos, culturas, grupos y organizaciones de la sociedad civil, dependencias estatales o nacionales; y, reconoce el papel que desempeñan en la prevención y mitigación de diferentes problemáticas medio ambientales."
+                        }
+                    ]
+                },
+                {
+                    "id": "pri-sab-34",
+                    "tema": "Costos y beneficios del consumo de agua, energía eléctrica y combustibles en la satisfacción de necesidades personales.",
+                    "pdas": [
+                        {
+                            "grado": 5,
+                            "texto": "Indaga y analiza la cantidad de agua que se consume en diversas actividades en la casa, compara su consumo diario e identifica en qué actividades se utiliza una mayor o menor cantidad de agua. Analiza problemas relacionados con el agua presentes en la casa, escuela y comunidad; reconoce la importancia de su consumo y practica acciones para aprovecharla de manera responsable. Describe en qué actividades de la casa y la escuela, se utilizan recursos energéticos: energía eléctrica y diversos combustibles (madera, petróleo, carbón, gas), y analiza cómo impactan en el medio ambiente. Indaga y calcula el consumo de energía eléctrica, de gas o carbón que se utiliza en cada actividad; reconoce y practica acciones concretas para disminuir su consumo en casa y escuela."
+                        },
+                        {
+                            "grado": 6,
+                            "texto": "Reconoce y calcula la cantidad de “agua virtual” que se utiliza en la producción de satisfactores (productos y servicios) y reflexiona acerca del consumo de aquellos productos que son necesarios y aquellos que no lo son, para tomar decisiones de consumo responsable y favorecer el cuidado del medio ambiente. Analiza el costo ambiental que implica el uso de combustibles y energía eléctrica para tomar decisiones de consumo responsable en casa, escuela y comunidad, y disminuir el impacto en el medio ambiente."
+                        }
+                    ]
+                },
+                {
+                    "id": "pri-sab-35",
+                    "tema": "Propiedades de los materiales: dureza, flexibilidad y permeabilidad y su aplicación en la satisfacción de necesidades; caracterización de los gases con base en sus propiedades.",
+                    "pdas": [
+                        {
+                            "grado": 5,
+                            "texto": "Experimenta con diversos materiales las propiedades de dureza -resistencia que tiene al rayado y el corte en su superficie-, flexibilidad -cambio de forma al doblarse sin romperse- y permeabilidad -paso de un líquido a través de él sin que se altere su composición-. Relaciona las propiedades de dureza, flexibilidad y permeabilidad de los materiales con su uso, para la satisfacción de algunas necesidades; toma decisiones sobre cuál es el más adecuado y de las consecuencias de su uso excesivo para el medio ambiente. Diseña y construye objetos con base en las propiedades de dureza, flexibilidad y permeabilidad de algunos materiales (vidrio, papel, cartón, plástico, unicel o metales). Analiza la relevancia de los materiales como aporte de la ciencia y la tecnología en la satisfacción de necesidades, así como los efectos de su uso inadecuado o poco ético en el medio ambiente."
+                        },
+                        {
+                            "grado": 6,
+                            "texto": "Comprende que el aire es un gas, a partir de describir sus características: color, olor, sabor y si se puede comprimir, asir o introducir a un recipiente. Describe propiedades de los gases al contrastarlos con sólidos y líquidos, con base en el volumen -espacio que ocupan-, la compresibilidad -propiedad de reducir su volumen- y la fluidez -propiedad de ocupar todo el espacio del recipiente que los contiene-. Comprende que los gases, al igual que los líquidos y los sólidos, tienen masa a partir de medirla con ayuda de una balanza. Describe los cambios de volumen que presenta un gas a partir de experimentar con la variación de la temperatura; comprende que lo ocurrido es por la expansión del gas y no por el aumento de la cantidad de materia de este."
+                        }
+                    ]
+                },
+                {
+                    "id": "pri-sab-36",
+                    "tema": "Cambios permanentes en los materiales y sus implicaciones en la vida diaria.",
+                    "pdas": [
+                        {
+                            "grado": 5,
+                            "texto": "Describe que, un cambio temporal, implica la transformación de la forma e incluso de las propiedades de los materiales, pero no de su composición, mientras que, en un cambio permanente, las propiedades y composición de los materiales se modifican, por lo que no vuelven a su estado original, ya que se transforman en otros diferentes. Describe a la cocción y descomposición de los alimentos como cambios permanentes, a partir de experimentar con alimentos y la variación de la temperatura. Indaga y describe los beneficios de la cocción de alimentos, en función de las variables de temperatura y tiempo; así como, los factores que aceleran o retardan la descomposición de los alimentos y las implicaciones para la salud. Reconoce y valora las técnicas utilizadas por diferentes pueblos y culturas relacionados con la cocción y conservación de alimentos."
+                        },
+                        {
+                            "grado": 6,
+                            "texto": "Explica la combustión y la oxidación de diferentes materiales como cambios permanentes, los factores que intervienen en ellos e identifica sus implicaciones en la vida diaria. Plantea y comprueba hipótesis relacionadas con la combustión, al experimentar con diversos materiales como madera o papel, y describir el cambio en sus propiedades, antes y después del proceso (trasformación de las propiedades originales). Identifica y describe la oxidación de materiales en su entorno, como la de los alimentos (manzanas, plátanos o aguacate), y de metales (hierro), así como, las sustancias o materiales que se utilizan para evitar la oxidación. Indaga y describe las implicaciones medio ambientales, económicas y sociales de los procesos de combustión y oxidación, y acciones que pueden realizarse para disminuir su efecto."
+                        }
+                    ]
+                },
+                {
+                    "id": "pri-sab-37",
+                    "tema": "Efecto del magnetismo y de la fuerza de gravedad.",
+                    "pdas": [
+                        {
+                            "grado": 5,
+                            "texto": "Comprende que el magnetismo es una fuerza que actúa a distancia en los objetos, a partir de experimentar con imanes y el movimiento de objetos de diversos materiales. Describe las características de los imanes: polos (norte y sur) y sus efectos de atracción y repulsión; establece relaciones entre el tipo de materiales y el efecto de los imanes. Describe el efecto de la fuerza gravitacional sobre los cuerpos, a partir de experimentar con la caída y reposo de objetos, explica y representa con modelos los cambios ocurridos en la caída de objetos. Comprende que la masa es la cantidad de materia de un cuerpo, a diferencia del peso, que es la fuerza con la que la Tierra atrae dicho cuerpo por acción de la gravedad, a partir de actividades prácticas o simuladores que ejemplifiquen la caída de diversos objetos con masas iguales y diferentes, e identifica que el tiempo de caída es independiente de la masa."
+                        },
+                        {
+                            "grado": 6,
+                            "texto": "Reconoce que la interacción de fuerzas magnéticas es la base de tecnologías modernas, incluidos motores eléctricos y generadores; indaga los cambios que su introducción ha significado en actividades humanas como la comunicación (celulares y WiFi) y el transporte."
+                        }
+                    ]
+                },
+                {
+                    "id": "pri-sab-38",
+                    "tema": "Transformaciones de la energía térmica y eléctrica, así como su aplicación tecnológica.",
+                    "pdas": [
+                        {
+                            "grado": 5,
+                            "texto": "Comprende que el calor es una forma de energía, que fluye entre objetos con diferente temperatura al ponerlos en contacto, siempre del objeto de mayor al de menor temperatura. Describe, experimenta y representa diferentes tipos de transferencia de energía térmica: conducción y convección; identifica su aplicación en las actividades humanas. Analiza los beneficios y riesgos generados en el medio ambiente y en la salud por la generación y consumo de energía térmica."
+                        },
+                        {
+                            "grado": 6,
+                            "texto": "Comprende que la electricidad es una forma de energía que se caracteriza por el movimiento o acumulación de cargas eléctricas, y experimenta con las propiedades de conducción o aislamiento eléctrico, para identificar algunos materiales, como los metales que poseen conductividad eléctrica. Describe que hay dos tipos de cargas eléctricas, “positiva (+)” y “negativa (-)”, a partir de las cuales se determinan las interacciones entre los objetos; cuando dos objetos cargados eléctricamente se atraen, significa que sus cargas eléctricas son diferentes (+ -), y si se repelen significa que sus cargas eléctricas son iguales (++ ; --). Reconoce las propiedades que tienen los materiales para conducir la corriente eléctrica (conductores) y aquellos que no la conducen (aislantes), y los aplica en un circuito eléctrico; experimenta y describe interacciones de atracción y repulsión eléctrica (electricidad estática) de objetos. Reflexiona acerca del uso de la energía eléctrica para satisfacer necesidades y el impacto negativo en el medio ambiente que produce su generación y consumo."
+                        }
+                    ]
+                },
+                {
+                    "id": "pri-sab-39",
+                    "tema": "Sistema Solar y Universo: características de sus componentes, y aportaciones culturales, científicas y tecnológicas que han favorecido su conocimiento.",
+                    "pdas": [
+                        {
+                            "grado": 5,
+                            "texto": "Indaga, describe y representa con modelos las características de forma, ubicación, color, tamaño, distancia al Sol, temperatura, masa, número de satélites naturales y anillos, entre otras, de los componentes del Sistema Solar: Sol, planetas, satélites y asteroides. Identifica y explica las características del movimiento de rotación y de traslación de los planetas y otros componentes del Sistema Solar: velocidad, dirección y trayectoria. Describe y valora diversas aportaciones culturales, científicas y tecnológicas, entre ellas, la invención del telescopio, para el conocimiento del Sistema Solar."
+                        },
+                        {
+                            "grado": 6,
+                            "texto": "Describe características de forma, ubicación, tamaño, distancia, color y temperatura de algunos componentes del Universo: galaxias y estrellas. Describe las características principales de la Vía Láctea, y la reconoce como la galaxia en la que se ubica el Sistema Solar. Indaga, argumenta y valora la importancia de diversas aportaciones culturales, científicas y tecnológicas, entre ellas, los telescopios, satélites artificiales y sondas espaciales en la investigación y conocimiento del Universo."
+                        }
+                    ]
+                },
+                {
+                    "id": "pri-sab-40",
+                    "tema": "Relaciones de proporcionalidad.",
+                    "pdas": [
+                        {
+                            "grado": 5,
+                            "texto": "Resuelve situaciones problemáticas de proporcionalidad en las que determina valores faltantes de números naturales, a partir de diferentes estrategias (cálculo del valor unitario, de dobles, triples o mitades). Resuelve situaciones problemáticas vinculadas a diferentes contextos que implican comparar razones expresadas con dos números naturales. Identifica que los porcentajes de 50%, 25%, 20%, 10% tienen relación con las fracciones 1/2, 1/4, 1/5, 1/10, a partir de resolver situaciones problemáticas que implican el cálculo de porcentajes."
+                        },
+                        {
+                            "grado": 6,
+                            "texto": "A partir de situaciones problemáticas de proporcionalidad vinculadas a diferentes contextos, determina valores faltantes en las que en ocasiones se conoce el valor unitario y en otras no. Resuelve situaciones problemáticas vinculadas a diferentes contextos que implican comparar razones expresadas con dos números naturales y con una fracción. Utiliza, explica y comprueba sus estrategias para calcular mentalmente los porcentajes: 50%, 25%, 10% y 1%, de un número natural. Resuelve situaciones problemáticas vinculadas a diferentes contextos que implican calcular el tanto por ciento de una cantidad o el porcentaje que representa una cantidad de otra."
+                        }
+                    ]
+                },
+                {
+                    "id": "pri-sab-41",
+                    "tema": "Ubicación espacial.",
+                    "pdas": [
+                        {
+                            "grado": 5,
+                            "texto": "Elabora e interpreta croquis para comunicar la ubicación de seres vivos, objetos, trayectos o lugares."
+                        },
+                        {
+                            "grado": 6,
+                            "texto": "Lee, interpreta y elabora planos para comunicar la ubicación de seres vivos y objetos. Resuelve situaciones que requieren ubicar puntos en el primer cuadrante del plano cartesiano."
+                        }
+                    ]
+                },
+                {
+                    "id": "pri-sab-42",
+                    "tema": "Perímetro, área y noción de volumen.",
+                    "pdas": [
+                        {
+                            "grado": 5,
+                            "texto": "Distingue unidades lineales de cuadráticas, al calcular, con el apoyo de retículas cuadriculadas, el perímetro y área de diferentes polígonos para reconocer que existen: a) figuras diferentes con el mismo perímetro y diferente área; b) figuras diferentes con la misma área y diferente perímetro; c) figuras diferentes con el mismo perímetro y con la misma área. Construye y usa fórmulas para calcular el perímetro de cualquier polígono, a partir de sumar la longitud de todos sus lados o multiplicar el número de lados por la medida de uno de ellos. Construye y usa fórmulas para calcular el área de rectángulos, romboides y triángulos; utiliza unidades convencionales (m² y cm²) para expresar sus resultados."
+                        },
+                        {
+                            "grado": 6,
+                            "texto": "Resuelve situaciones problemáticas que implican calcular el perímetro y área de figuras compuestas por triángulos y cuadriláteros; utiliza unidades convencionales (m, cm, m² y cm²) para expresar sus resultados. Resuelve problemas que implican construir, estimar y comparar el volumen de cuerpos y prismas rectos rectangulares mediante el conteo de cubos, y reconoce que existen diferentes cuerpos con el mismo volumen."
+                        }
+                    ]
+                },
+                {
+                    "id": "pri-sab-43",
+                    "tema": "Nociones de probabilidad.",
+                    "pdas": [
+                        {
+                            "grado": 5,
+                            "texto": "Identifica situaciones de distintos contextos en las que interviene o no el azar; registra resultados de experiencias aleatorias en tablas de frecuencias y expresa la frecuencia absoluta y la relativa."
+                        },
+                        {
+                            "grado": 6,
+                            "texto": "Clasifica eventos de diversos contextos utilizando términos como seguro, imposible, probable, muy probable o poco probable que sucedan. A partir de distintas situaciones azarosas, determina los resultados posibles y los representa en tablas de doble entrada o en diagramas de árbol."
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
