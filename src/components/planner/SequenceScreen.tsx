@@ -512,25 +512,32 @@ export const SequenceScreen = ({ projectData, plannedItems, actividades, setActi
                             if (isPremium) {
                               await generateAIActivity(fase.id, fase.titulo);
                             } else {
+                              // 1. Verificamos si hay chispas antes de empezar
                               if (freeCredits && freeCredits > 0) {
-                                // ✨ INYECCIÓN: Capturamos la memoria en frío ANTES de cualquier await
-                                const isLastCredit = Number(freeCredits) === 1;
+                                
+                                // 2. Consumimos el crédito y guardamos el NUEVO valor directamente
+                                // Si el saldo actual es 1, sabemos que después de esta acción será 0
+                                const seraUltimaChispa = Number(freeCredits) === 1;
 
                                 if (consumeCredit) {
-                                  // Esperamos a que se descuente la chispa antes de generar
                                   const canConsume = await consumeCredit();
                                   if (canConsume === false) return;
                                 }
-                                
+
+                                // 3. Ejecutamos la generación de la IA
                                 await generateAIActivity(fase.id, fase.titulo);
                                 
-                                // ✨ Venta en caliente: Leemos la memoria capturada
-                                // Al terminar la IA, si detecta que fue la última, lanza el modal automático
-                                if (isLastCredit) {
-                                  onPremiumClick && onPremiumClick();
+                                // 4. ✨ DISPARO AUTOMÁTICO:
+                                // No esperamos a que el usuario haga clic de nuevo.
+                                // Si detectamos que era la última chispa, lanzamos el modal de inmediato.
+                                if (seraUltimaChispa) {
+                                  setTimeout(() => {
+                                    onPremiumClick && onPremiumClick();
+                                  }, 500); // Un pequeño respiro para que termine de renderizar el texto
                                 }
                                 
                               } else {
+                                // Si ya estaba en 0 desde el inicio
                                 onPremiumClick && onPremiumClick();
                               }
                             }
