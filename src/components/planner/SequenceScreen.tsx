@@ -513,16 +513,20 @@ export const SequenceScreen = ({ projectData, plannedItems, actividades, setActi
                               await generateAIActivity(fase.id, fase.titulo);
                             } else {
                               if (freeCredits && freeCredits > 0) {
+                                // ✨ INYECCIÓN: Capturamos la memoria en frío ANTES de cualquier await
+                                const isLastCredit = Number(freeCredits) === 1;
+
                                 if (consumeCredit) {
                                   // Esperamos a que se descuente la chispa antes de generar
                                   const canConsume = await consumeCredit();
                                   if (canConsume === false) return;
                                 }
+                                
                                 await generateAIActivity(fase.id, fase.titulo);
                                 
-                                // ✨ INYECCIÓN: ¡Venta en caliente!
-                                // Si antes de hacer clic tenía solo 1 chispa, significa que se le acaban de agotar.
-                                if (freeCredits === 1) {
+                                // ✨ Venta en caliente: Leemos la memoria capturada
+                                // Al terminar la IA, si detecta que fue la última, lanza el modal automático
+                                if (isLastCredit) {
                                   onPremiumClick && onPremiumClick();
                                 }
                                 
