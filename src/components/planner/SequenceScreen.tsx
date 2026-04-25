@@ -539,7 +539,7 @@ export const SequenceScreen = ({ projectData, plannedItems, actividades, setActi
                                   // 2. Le damos 2.5 segundos de gloria al mensaje para que el maestro lo lea bien
                                   setTimeout(() => {
                                     onPremiumClick && onPremiumClick();
-                                  }, 2500); 
+                                  }, 7000); 
                                 }
                                 
                               } else {
