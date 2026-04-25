@@ -527,13 +527,19 @@ export const SequenceScreen = ({ projectData, plannedItems, actividades, setActi
                                 // 3. Ejecutamos la generación de la IA
                                 await generateAIActivity(fase.id, fase.titulo);
                                 
-                                // 4. ✨ DISPARO AUTOMÁTICO:
-                                // No esperamos a que el usuario haga clic de nuevo.
-                                // Si detectamos que era la última chispa, lanzamos el modal de inmediato.
+                                // 4. ✨ DISPARO AUTOMÁTICO CON AGRADECIMIENTO GARANTIZADO
                                 if (seraUltimaChispa) {
+                                  // 1. Primero lanzamos el agradecimiento inmediatamente al terminar la IA
+                                  showToast(
+                                    'success', 
+                                    '¡Planeación Generada!', 
+                                    'Gracias por confiar en NEM Pro. Has agotado tus chispas gratuitas.'
+                                  );
+                                  
+                                  // 2. Le damos 2.5 segundos de gloria al mensaje para que el maestro lo lea bien
                                   setTimeout(() => {
                                     onPremiumClick && onPremiumClick();
-                                  }, 500); // Un pequeño respiro para que termine de renderizar el texto
+                                  }, 2500); 
                                 }
                                 
                               } else {
