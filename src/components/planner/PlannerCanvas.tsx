@@ -74,15 +74,34 @@ export const PlannerCanvas = ({ items = MOCK_ITEMS, onRemoveItem }: PlannerCanva
       >
         {items.length === 0 ? (
           
-          /* ESTADO VACÍO (Igualado a tu captura de pantalla) */
-          <div className="absolute inset-0 flex flex-col items-center justify-center text-slate-400 select-none pointer-events-none animate-fade-in">
-            <div className="bg-blue-50 p-5 rounded-full mb-4">
-              <Layout size={40} className="text-blue-300" strokeWidth={1.5} />
+          /* ESTADO VACÍO (Con Navegación Didáctica Unificada) */
+          <div className="absolute inset-0 flex flex-col items-center justify-center text-slate-400 select-none pointer-events-none animate-fade-in px-4">
+            
+            {/* Indicador del Paso 4 (Ocurre en el panel lateral) */}
+            <div className="flex items-center gap-2 mb-6 opacity-70">
+               <span className="bg-slate-200 text-slate-500 px-1.5 py-0.5 rounded text-[10px] font-black tracking-widest border border-slate-300 shadow-sm">PASO 4</span>
+               <span className="text-xs font-bold text-slate-500 uppercase tracking-wide">Selecciona Campo, Grado y Disciplina a la izquierda</span>
             </div>
-            <p className="text-lg font-bold text-slate-600 mb-1">Tu Lienzo está vacío</p>
-            <p className="text-sm text-slate-400 font-medium max-w-xs text-center leading-relaxed">
-              Arrastra y suelta aquí los Contenidos y PDAs que usarás en tu proyecto.
-            </p>
+
+            <div className="bg-white/60 border border-slate-200 p-6 sm:p-8 rounded-[2rem] flex flex-col items-center max-w-md w-full text-center shadow-sm backdrop-blur-sm">
+              
+              <div className="bg-violet-50 p-4 rounded-full mb-5 shadow-inner border border-violet-100">
+                <Layout size={36} className="text-violet-500" strokeWidth={1.5} />
+              </div>
+
+              {/* Cápsula del Paso 5 (Unificada con Fase 1) */}
+              <div className="mb-3 inline-block">
+                <div className="flex items-center gap-3 px-4 py-2.5 bg-gradient-to-r from-violet-600 to-indigo-600 rounded-xl shadow-md shadow-violet-500/30 border border-transparent">
+                  <span className="bg-white/20 px-1.5 py-0.5 rounded text-[10px] border border-white/10 tracking-widest font-black text-white">PASO 5</span>
+                  <h3 className="text-sm font-bold text-white tracking-wide">Arrastra y Suelta Aquí</h3>
+                </div>
+              </div>
+              
+              <p className="text-xs sm:text-sm text-slate-500 font-medium leading-relaxed mt-2">
+                Construye tu planeación arrastrando con el mouse los Contenidos y PDAs desde el menú lateral hacia esta zona.
+              </p>
+            </div>
+           
           </div>
 
         ) : (

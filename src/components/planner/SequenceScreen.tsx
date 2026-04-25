@@ -295,13 +295,18 @@ export const SequenceScreen = ({ projectData, plannedItems, actividades, setActi
               </button>
             )}
 
-            <button 
-              onClick={onGoToEvaluation}
-              className={`flex items-center gap-2 px-5 py-2 rounded-xl border border-transparent ${btnGlossy}`}
-            >
-              <PenTool size={16} />
-              <span className="hidden sm:inline text-xs font-bold tracking-wide">Siguiente: Evaluación</span>
-            </button>
+            {/* Cápsula del Paso 8 */}
+            <div className="relative group">
+              <div className="absolute -inset-1 bg-gradient-to-r from-violet-600 to-indigo-600 rounded-xl blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200 hidden sm:block"></div>
+              <button 
+                onClick={onGoToEvaluation}
+                className={`relative flex items-center gap-2 px-4 sm:px-5 py-2 rounded-xl border border-transparent ${btnGlossy} ring-2 ring-[#135bec]/10 hover:scale-[1.02] transition-all`}
+              >
+                <span className="hidden sm:inline-block bg-white/20 px-1.5 py-0.5 rounded-md border border-white/30 text-[9px] font-black tracking-widest text-white shadow-sm">PASO 8</span>
+                <PenTool size={16} className="text-white" />
+                <span className="hidden sm:inline text-xs font-bold tracking-wide">Evaluación</span>
+              </button>
+            </div>
 
             {user && onLogout && (
               <div className="relative ml-1 md:ml-2 user-menu-container">
@@ -478,8 +483,17 @@ export const SequenceScreen = ({ projectData, plannedItems, actividades, setActi
                 )}
               </div>
 
+              {/* Encabezado del Paso 7 */}
+              <div className="mb-8 inline-block animate-fade-in-up">
+                <div className="flex items-center gap-3 px-4 py-2.5 bg-gradient-to-r from-violet-600 to-indigo-600 rounded-xl shadow-md shadow-violet-500/30 border border-transparent">
+                  <span className="bg-white/20 px-1.5 py-0.5 rounded text-[10px] border border-white/10 tracking-widest font-black text-white">PASO 7</span>
+                  <h3 className="text-sm font-bold text-white tracking-wide">Generar Actividades (Manualmente o con IA)</h3>
+                </div>
+              </div>
+
               <div className="space-y-8 xl:space-y-14">
                 {fases.map((fase, index) => (
+
                   <section key={fase.id}>
                     <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b border-slate-200 pb-3 mb-3 xl:mb-6 gap-2 group">
                       <div className="flex items-center gap-2 xl:gap-3">

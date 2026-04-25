@@ -824,9 +824,16 @@ function App() {
                   <h2 className="text-sm font-black text-slate-800 flex items-center gap-3 bg-white px-5 py-3 rounded-xl shadow-sm border border-slate-200">
                     <LayoutTemplate size={20} className="text-[#135bec]" /> Lienzo de Planeación
                   </h2>
-                  <button onClick={() => setCurrentView('sequence')} className={`flex items-center gap-2 px-6 py-3 rounded-xl border border-transparent ${btnGlossy}`}>
-                    <PenTool size={16} /> <span className="text-xs font-bold">Crear Secuencia Didáctica</span>
-                  </button>
+                  
+                  {/* Cápsula del Paso 6 - Llamado a la Acción */}
+                  <div className="relative group">
+                    <div className="absolute -inset-1 bg-gradient-to-r from-violet-600 to-indigo-600 rounded-xl blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
+                    <button onClick={() => setCurrentView('sequence')} className={`relative flex items-center gap-3 px-6 py-3.5 rounded-xl border border-transparent ${btnGlossy} ring-4 ring-[#135bec]/10 hover:scale-[1.02] transition-all`}>
+                      <span className="bg-white/20 px-2 py-1 rounded-lg border border-white/30 text-[10px] font-black tracking-widest text-white shadow-sm">PASO 6</span>
+                      <PenTool size={16} className="text-white" /> 
+                      <span className="text-sm font-bold tracking-wide">Crear Planeación Didáctica</span>
+                    </button>
+                  </div>
                 </div>
                 <PlannerCanvas items={itemsVisibleInCanvas} onRemoveItem={(id) => setPlannedItems(items => items.filter(i => i.id !== id))} />
               </div>
