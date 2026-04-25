@@ -64,9 +64,16 @@ serve(async (req) => {
         if (userEmail) {
           console.log(`Activando Premium para: ${userEmail}`);
 
+          // ✨ INYECCIÓN: Calculamos exactamente 1 año a partir de este momento
+          const fechaVencimiento = new Date();
+          fechaVencimiento.setFullYear(fechaVencimiento.getFullYear() + 1);
+
           const { error: updateError } = await supabase
             .from('usuarios_premium')
-            .update({ is_premium: true })
+            .update({ 
+              is_premium: true,
+              premium_until: fechaVencimiento.toISOString() // ✨ INYECCIÓN: Guardamos la fecha
+            })
             .eq('email', userEmail);
 
           if (updateError) throw updateError;
