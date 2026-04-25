@@ -180,16 +180,34 @@ function App() {
         return;
       }
 
+      // ✨ INYECCIÓN 1: Agregamos "premium_until" a la consulta
       const { data, error } = await supabase
         .from('usuarios_premium')
-        .select('is_premium, chispas_gratuitas')
+        .select('is_premium, chispas_gratuitas, premium_until') 
         .eq('email', email)
         .maybeSingle();
 
       if (error) throw error;
 
       if (data) {
-        const esPremiumReal = data.is_premium === true;
+        let esPremiumReal = data.is_premium === true;
+
+        // ✨ INYECCIÓN 2: La lógica del Reloj de Arena
+        if (esPremiumReal && data.premium_until) {
+          const fechaVencimiento = new Date(data.premium_until);
+          const hoy = new Date();
+
+          if (hoy > fechaVencimiento) {
+            esPremiumReal = false; // ¡El año expiró! Le quitamos el acceso Premium en la app.
+            
+            // Le avisamos silenciosamente a la base de datos para que apague el switch permanente
+            await supabase
+              .from('usuarios_premium')
+              .update({ is_premium: false })
+              .eq('email', email);
+          }
+        }
+
         setIsPremium(esPremiumReal);
         setFreeCredits(Number(data.chispas_gratuitas) || 0);
       } else {
