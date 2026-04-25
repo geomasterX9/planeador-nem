@@ -20,10 +20,10 @@ interface SetupScreenProps {
 export const SetupScreen = ({ data, onChange, onComplete, onOpenSchedule, onBackToDashboard, saveToCloud, isSaving, user, isPremium, onLogout, onPremiumClick, freeCredits }: SetupScreenProps) => {
   const safeData = data || {};
   const [showUserMenu, setShowUserMenu] = useState(false);
-  
+
   const scheduleData = JSON.parse(localStorage.getItem('nem_schedule') || '{}');
   const hasActiveSchedule = Object.keys(scheduleData).length > 0;
-  
+
   // 🔓 CANDADO ELIMINADO: Ahora todos ven el banner verde si tienen horario guardado
   const displayActiveSchedule = hasActiveSchedule;
 
@@ -31,7 +31,7 @@ export const SetupScreen = ({ data, onChange, onComplete, onOpenSchedule, onBack
 
   // ✨ MOTOR DE ARRASTRE PERSONALIZADO (PREMIUM UX) ✨
   const handleResizeMouseDown = (e: React.MouseEvent) => {
-    e.preventDefault(); 
+    e.preventDefault();
     const startY = e.clientY;
     const startHeight = contextoRef.current?.getBoundingClientRect().height || 250;
 
@@ -73,9 +73,9 @@ export const SetupScreen = ({ data, onChange, onComplete, onOpenSchedule, onBack
 
         // ✨ BLINDAJE 1: RASTREADOR DIFUSO DE GRUPOS
         const targetGroupIds = savedGroups.filter((g: any) => {
-            if (!g || !g.id || !g.name) return false;
-            const cleanName = String(g.name).toUpperCase().replace(/[\s°º\-_]/g, '');
-            return gruposBuscados.some(grupo => cleanName.includes(`${gradoBuscado}${grupo}`));
+          if (!g || !g.id || !g.name) return false;
+          const cleanName = String(g.name).toUpperCase().replace(/[\s°º\-_]/g, '');
+          return gruposBuscados.some(grupo => cleanName.includes(`${gradoBuscado}${grupo}`));
         }).map((g: any) => String(g.id));
 
         if (targetGroupIds.length > 0) {
@@ -156,7 +156,7 @@ export const SetupScreen = ({ data, onChange, onComplete, onOpenSchedule, onBack
   const inputClass = "w-full pl-11 pr-4 py-3.5 bg-slate-50/80 border border-slate-200 rounded-2xl focus:bg-white focus:ring-4 focus:ring-[#135bec]/10 focus:border-[#135bec] outline-none transition-all text-slate-700 font-bold placeholder:text-slate-400 text-sm shadow-inner";
   const selectClass = "w-full px-4 py-3.5 bg-slate-50/80 border border-slate-200 rounded-2xl focus:bg-white focus:ring-4 focus:ring-[#135bec]/10 focus:border-[#135bec] outline-none transition-all text-slate-700 font-bold text-sm shadow-inner cursor-pointer";
   const labelClass = "block text-[10px] md:text-[11px] font-black text-slate-400 uppercase tracking-widest mb-2.5 ml-1";
-  
+
   const btnUnselected = "bg-white text-slate-500 border border-slate-200 hover:bg-slate-50 hover:border-slate-300 hover:shadow-sm transition-all";
   const btnGlossy = "relative overflow-hidden bg-gradient-to-r from-violet-600 to-indigo-600 text-white shadow-lg shadow-violet-500/30 hover:shadow-violet-500/50 transition-all active:scale-95 after:absolute after:top-0 after:-left-[100%] hover:after:left-[200%] after:w-[50%] after:h-full after:bg-gradient-to-r after:from-transparent after:via-white/20 after:to-transparent after:skew-x-[-20deg] after:transition-all after:duration-[1500ms] after:ease-out";
   const btnSelected = `border-transparent transform scale-[1.02] ${btnGlossy}`;
@@ -175,14 +175,14 @@ export const SetupScreen = ({ data, onChange, onComplete, onOpenSchedule, onBack
               <h2 className="text-base md:text-lg font-bold tracking-tight text-slate-900 leading-none mb-1">Planeador NEM <span className="text-[#135bec]/80">Pro</span></h2>
               {isPremium ? (
                 <div className="hidden sm:flex items-center gap-1.5 w-fit px-2 py-0.5 bg-gradient-to-r from-amber-100 to-amber-50 border border-amber-200 rounded-full shadow-sm">
-                   <Sparkles size={10} className="text-amber-500" />
-                   <span className="text-[9px] font-black text-amber-700 tracking-widest uppercase">CUENTA PREMIUM ACTIVA</span>
+                  <Sparkles size={10} className="text-amber-500" />
+                  <span className="text-[9px] font-black text-amber-700 tracking-widest uppercase">CUENTA PREMIUM ACTIVA</span>
                 </div>
               ) : (
                 <div onClick={onPremiumClick} className="hidden sm:flex items-center gap-1.5 w-fit px-2 py-0.5 bg-slate-100 border border-slate-200 rounded-full shadow-sm mt-1 cursor-pointer hover:bg-slate-200 transition-colors">
-                   <Lock size={10} className="text-slate-500" />
-                   <span className="text-[9px] font-black text-slate-500 tracking-widest uppercase">VERSIÓN GRATUITA</span>
-                 </div>
+                  <Lock size={10} className="text-slate-500" />
+                  <span className="text-[9px] font-black text-slate-500 tracking-widest uppercase">VERSIÓN GRATUITA</span>
+                </div>
               )}
             </div>
           </div>
@@ -205,7 +205,7 @@ export const SetupScreen = ({ data, onChange, onComplete, onOpenSchedule, onBack
               <span className="hidden md:inline text-xs font-bold text-slate-500">Mis Planeaciones</span>
             </button>
           )}
-          
+
           {isPremium ? (
             <button onClick={saveToCloud} disabled={isSaving} className={`flex items-center gap-2 px-5 py-2 rounded-xl border border-transparent ${btnGlossy}`}>
               <UploadCloud size={16} className={isSaving ? "animate-bounce" : ""} />
@@ -227,12 +227,12 @@ export const SetupScreen = ({ data, onChange, onComplete, onOpenSchedule, onBack
               {showUserMenu && (
                 <div className="absolute top-14 right-0 w-64 bg-white rounded-2xl shadow-xl shadow-slate-200/50 border border-slate-100 p-4 z-50 animate-fade-in-down">
                   <div className="flex items-center gap-3 mb-4 pb-4 border-b border-slate-100">
-                     <div className="bg-[#135bec]/10 p-2 rounded-xl text-[#135bec]"><UserCircle size={28} /></div>
-                     <div className="overflow-hidden">
-                       <p className="text-xs font-bold text-slate-900 truncate" title={user.email}>{user.email}</p>
-                       <p className="text-[10px] text-slate-500 font-medium">{isPremium ? 'Docente Premium' : 'Docente Básico'}</p>
-                       {!isPremium && <p className="text-[10px] font-bold text-amber-500">⚡ {freeCredits} chispas restantes</p>}
-                     </div>
+                    <div className="bg-[#135bec]/10 p-2 rounded-xl text-[#135bec]"><UserCircle size={28} /></div>
+                    <div className="overflow-hidden">
+                      <p className="text-xs font-bold text-slate-900 truncate" title={user.email}>{user.email}</p>
+                      <p className="text-[10px] text-slate-500 font-medium">{isPremium ? 'Docente Premium' : 'Docente Básico'}</p>
+                      {!isPremium && <p className="text-[10px] font-bold text-amber-500">⚡ {freeCredits} chispas restantes</p>}
+                    </div>
                   </div>
                   <button onClick={onLogout} className="w-full flex items-center gap-3 px-4 py-3 rounded-xl bg-slate-50 border border-slate-100 hover:bg-rose-50 hover:border-rose-200 transition-colors group">
                     <img src="/exit.png" alt="Salir" className="w-5 h-5 drop-shadow-sm group-hover:scale-110 transition-transform" onError={(e) => { e.currentTarget.style.display = 'none'; e.currentTarget.nextElementSibling.style.display = 'inline'; }} />
@@ -249,7 +249,7 @@ export const SetupScreen = ({ data, onChange, onComplete, onOpenSchedule, onBack
       <div className="flex flex-1 overflow-hidden relative z-10">
         <aside className="hidden md:flex w-52 lg:w-60 xl:w-72 bg-[#0f172a] text-slate-300 flex-col shrink-0 z-20 shadow-2xl">
           <div className="p-4 xl:p-6 border-b border-slate-800 bg-slate-900/50">
-            <h3 className="text-white font-bold text-base xl:text-lg flex items-center gap-2"><Sparkles size={16} className="text-[#135bec]"/> Paso 1: Datos</h3>
+            <h3 className="text-white font-bold text-base xl:text-lg flex items-center gap-2"><Sparkles size={16} className="text-[#135bec]" /> Configuración Inicial</h3>
             <p className="text-[10px] xl:text-xs text-slate-400 mt-1">Configuración del proyecto</p>
           </div>
           <div className="flex-1 overflow-y-auto p-4 xl:p-6 scrollbar-thin">
@@ -260,13 +260,13 @@ export const SetupScreen = ({ data, onChange, onComplete, onOpenSchedule, onBack
             <div className="mt-6">
               <h4 className="text-[9px] xl:text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-3">Progreso</h4>
               <ul className="space-y-3 text-xs font-medium">
-                <li className={`flex items-center gap-2 transition-colors ${safeData.escuela ? 'text-emerald-400 font-bold' : 'text-slate-500'}`}><CheckCircle2 size={16}/> Escuela / CCT</li>
-                <li className={`flex items-center gap-2 transition-colors ${safeData.trimestre ? 'text-emerald-400 font-bold' : 'text-slate-500'}`}><CheckCircle2 size={16}/> Trimestre</li>
-                <li className={`flex items-center gap-2 transition-colors ${safeData.contexto ? 'text-emerald-400 font-bold' : 'text-slate-500'}`}><CheckCircle2 size={16}/> Contexto Analítico</li>
-                <li className={`flex items-center gap-2 transition-colors ${safeData.proyecto ? 'text-emerald-400 font-bold' : 'text-slate-500'}`}><CheckCircle2 size={16}/> Proyecto / Docente</li>
-                <li className={`flex items-center gap-2 transition-colors ${(safeData.ejes && safeData.ejes.length > 0) ? 'text-emerald-400 font-bold' : 'text-slate-500'}`}><CheckCircle2 size={16}/> Ejes Articuladores</li>
-                <li className={`flex items-center gap-2 transition-colors ${(safeData.estrategiaEvaluacion && safeData.estrategiaEvaluacion.length > 0) ? 'text-emerald-400 font-bold' : 'text-slate-500'}`}><CheckCircle2 size={16}/> Estrategias Eval.</li>
-                <li className={`flex items-center gap-2 transition-colors ${(safeData.herramientas && safeData.herramientas.length > 0) ? 'text-emerald-400 font-bold' : 'text-slate-500'}`}><CheckCircle2 size={16}/> Eval. Formativa</li>
+                <li className={`flex items-center gap-2 transition-colors ${safeData.escuela ? 'text-emerald-400 font-bold' : 'text-slate-500'}`}><CheckCircle2 size={16} /> Escuela / CCT</li>
+                <li className={`flex items-center gap-2 transition-colors ${safeData.trimestre ? 'text-emerald-400 font-bold' : 'text-slate-500'}`}><CheckCircle2 size={16} /> Trimestre</li>
+                <li className={`flex items-center gap-2 transition-colors ${safeData.contexto ? 'text-emerald-400 font-bold' : 'text-slate-500'}`}><CheckCircle2 size={16} /> Contexto Analítico</li>
+                <li className={`flex items-center gap-2 transition-colors ${safeData.proyecto ? 'text-emerald-400 font-bold' : 'text-slate-500'}`}><CheckCircle2 size={16} /> Proyecto / Docente</li>
+                <li className={`flex items-center gap-2 transition-colors ${(safeData.ejes && safeData.ejes.length > 0) ? 'text-emerald-400 font-bold' : 'text-slate-500'}`}><CheckCircle2 size={16} /> Ejes Articuladores</li>
+                <li className={`flex items-center gap-2 transition-colors ${(safeData.estrategiaEvaluacion && safeData.estrategiaEvaluacion.length > 0) ? 'text-emerald-400 font-bold' : 'text-slate-500'}`}><CheckCircle2 size={16} /> Estrategias Eval.</li>
+                <li className={`flex items-center gap-2 transition-colors ${(safeData.herramientas && safeData.herramientas.length > 0) ? 'text-emerald-400 font-bold' : 'text-slate-500'}`}><CheckCircle2 size={16} /> Eval. Formativa</li>
               </ul>
             </div>
           </div>
@@ -274,7 +274,7 @@ export const SetupScreen = ({ data, onChange, onComplete, onOpenSchedule, onBack
 
         <main className="flex-1 overflow-y-auto bg-transparent p-4 lg:p-6 xl:p-8 scrollbar-thin">
           <div className="max-w-4xl mx-auto flex flex-col gap-6 lg:gap-8 pb-10 animate-fade-in-up">
-            
+
             {displayActiveSchedule ? (
               <div className="bg-gradient-to-r from-emerald-50 to-teal-50 border-2 border-emerald-500/20 rounded-[2rem] p-4 sm:p-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 shadow-md relative overflow-hidden mb-2">
                 <div className="absolute right-0 top-0 w-32 h-32 bg-emerald-500/10 rounded-full blur-2xl -mr-10 -mt-10 pointer-events-none"></div>
@@ -287,8 +287,8 @@ export const SetupScreen = ({ data, onChange, onComplete, onOpenSchedule, onBack
                     <p className="text-xs sm:text-sm text-emerald-700 mt-1 font-medium leading-relaxed max-w-xl">La plataforma calculará automáticamente tus sesiones semanales.</p>
                   </div>
                 </div>
-                <button type="button" onClick={onOpenSchedule} className="w-full sm:w-auto px-5 py-2.5 bg-white border border-emerald-200 text-emerald-700 text-sm font-bold rounded-xl hover:bg-emerald-50 hover:border-emerald-300 transition-all shadow-sm active:scale-95 shrink-0 relative z-10">
-                  Revisar o cambiar
+                <button type="button" onClick={onOpenSchedule} className="w-full sm:w-auto px-5 py-2.5 bg-white border border-emerald-200 text-emerald-700 text-sm font-bold rounded-xl hover:bg-emerald-50 hover:border-emerald-300 transition-all shadow-sm active:scale-95 shrink-0 relative z-10 flex items-center justify-center gap-2">
+                  <span className="bg-emerald-100 px-1.5 py-0.5 rounded text-[10px] border border-emerald-200 tracking-widest font-black">PASO 1</span> Revisar o cambiar
                 </button>
               </div>
             ) : (
@@ -301,14 +301,21 @@ export const SetupScreen = ({ data, onChange, onComplete, onOpenSchedule, onBack
                   </div>
                 </div>
                 <button type="button" onClick={onOpenSchedule} className={`w-full sm:w-auto px-5 py-2.5 text-sm font-bold rounded-xl shrink-0 border border-transparent flex items-center justify-center gap-2 ${btnGlossy}`}>
-                  <Calendar size={14} /> Configurar Horario
+                  <span className="bg-white/20 px-1.5 py-0.5 rounded text-[10px] border border-white/10 tracking-widest font-black">PASO 1</span> <Calendar size={14} /> Configurar Horario
                 </button>
               </div>
             )}
-            
+
+            <div className="mb-4 animate-fade-in-up mt-4 inline-block">
+              <div className="flex items-center gap-3 px-4 py-2.5 bg-gradient-to-r from-violet-600 to-indigo-600 rounded-xl shadow-md shadow-violet-500/30 border border-transparent">
+                <span className="bg-white/20 px-1.5 py-0.5 rounded text-[10px] border border-white/10 tracking-widest font-black text-white">PASO 2</span>
+                <h3 className="text-sm font-bold text-white tracking-wide">Captura tus datos institucionales y pedagógicos</h3>
+              </div>
+            </div>
+
             <div className={panelClass}>
               <h2 className="text-sm md:text-base font-black text-slate-800 uppercase tracking-wider flex items-center gap-2 pb-4 border-b border-slate-100 mb-5 relative z-10">
-                <Building2 className="text-[#135bec]" size={20}/> Datos Institucionales
+                <Building2 className="text-[#135bec]" size={20} /> Datos Institucionales
               </h2>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-5 relative z-10">
@@ -319,7 +326,7 @@ export const SetupScreen = ({ data, onChange, onComplete, onOpenSchedule, onBack
                     <input name="escuela" type="text" value={safeData.escuela || ''} onChange={handleChange} placeholder="Ej. SECUNDARIA TÉCNICA NO. 84" className={inputClass} />
                   </div>
                 </div>
-                
+
                 <div>
                   <label className={labelClass}>Estado de la República</label>
                   <select name="estado" value={safeData.estado || ''} onChange={handleChange} className={selectClass}>
@@ -363,17 +370,17 @@ export const SetupScreen = ({ data, onChange, onComplete, onOpenSchedule, onBack
 
             <div className={panelClass}>
               <h2 className="text-sm md:text-base font-black text-slate-800 uppercase tracking-wider flex items-center gap-2 pb-4 border-b border-slate-100 mb-5 relative z-10">
-                <ImagePlus className="text-[#135bec]" size={20}/> Logos Institucionales (Exportación a Word)
+                <ImagePlus className="text-[#135bec]" size={20} /> Logos Institucionales (Exportación a Word)
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-5 relative z-10">
                 <div className="bg-slate-50 p-4 rounded-xl border border-slate-200 shadow-inner">
                   <label className={labelClass}>Logo Izquierdo (SEP / Estado)</label>
-                  <input type="file" accept="image/*" onChange={(e) => handleImageUpload(e, 'logoIzquierdo')} className="block w-full text-sm text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-bold file:bg-[#135bec]/10 file:text-[#135bec] hover:file:bg-[#135bec]/20 transition-all cursor-pointer"/>
+                  <input type="file" accept="image/*" onChange={(e) => handleImageUpload(e, 'logoIzquierdo')} className="block w-full text-sm text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-bold file:bg-[#135bec]/10 file:text-[#135bec] hover:file:bg-[#135bec]/20 transition-all cursor-pointer" />
                   {safeData.logoIzquierdo && <img src={safeData.logoIzquierdo} alt="Logo Izquierdo" className="mt-4 h-16 object-contain rounded-md border border-slate-200 shadow-sm bg-white p-1" />}
                 </div>
                 <div className="bg-slate-50 p-4 rounded-xl border border-slate-200 shadow-inner">
                   <label className={labelClass}>Logo Derecho (Escuela)</label>
-                  <input type="file" accept="image/*" onChange={(e) => handleImageUpload(e, 'logoDerecho')} className="block w-full text-sm text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-bold file:bg-[#135bec]/10 file:text-[#135bec] hover:file:bg-[#135bec]/20 transition-all cursor-pointer"/>
+                  <input type="file" accept="image/*" onChange={(e) => handleImageUpload(e, 'logoDerecho')} className="block w-full text-sm text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-bold file:bg-[#135bec]/10 file:text-[#135bec] hover:file:bg-[#135bec]/20 transition-all cursor-pointer" />
                   {safeData.logoDerecho && <img src={safeData.logoDerecho} alt="Logo Derecho" className="mt-4 h-16 object-contain rounded-md border border-slate-200 shadow-sm bg-white p-1" />}
                 </div>
               </div>
@@ -381,53 +388,53 @@ export const SetupScreen = ({ data, onChange, onComplete, onOpenSchedule, onBack
 
             <div className={panelClass}>
               <h2 className="text-sm md:text-base font-black text-slate-800 uppercase tracking-wider flex items-center gap-2 pb-4 border-b border-slate-100 mb-5 relative z-10">
-                <Map className="text-[#135bec]" size={20}/> Diagnóstico y Programa Analítico
+                <Map className="text-[#135bec]" size={20} /> Diagnóstico y Programa Analítico
               </h2>
-              
+
               <div className="relative z-10 bg-white border border-slate-200 rounded-2xl p-1 shadow-sm transition-all focus-within:ring-4 focus-within:ring-[#135bec]/10 focus-within:border-[#135bec]">
-                
+
                 <div className="bg-slate-50 border-b border-slate-100 px-4 py-3 rounded-t-xl flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-                    <div className="flex items-center gap-3">
-                       <div className="bg-white p-1.5 rounded-lg border border-slate-200 shadow-sm text-[#135bec]">
-                          <FileText size={18} />
-                       </div>
-                       <div>
-                          <h3 className="text-xs font-bold text-slate-800 uppercase tracking-wide">Contexto Socioeducativo</h3>
-                          <p className="text-[10px] text-slate-500 font-medium">Copia y pega aquí tu diagnóstico institucional</p>
-                       </div>
+                  <div className="flex items-center gap-3">
+                    <div className="bg-white p-1.5 rounded-lg border border-slate-200 shadow-sm text-[#135bec]">
+                      <FileText size={18} />
                     </div>
-                    <div className="flex items-center gap-1.5 px-3 py-1.5 bg-blue-50/50 border border-blue-100 rounded-lg shrink-0">
-                        <Sparkles size={14} className="text-[#135bec]" />
-                        <span className="text-[9px] font-bold text-[#135bec] uppercase tracking-wider">Lectura IA Activada</span>
+                    <div>
+                      <h3 className="text-xs font-bold text-slate-800 uppercase tracking-wide">Contexto Socioeducativo</h3>
+                      <p className="text-[10px] text-slate-500 font-medium">Copia y pega aquí tu diagnóstico institucional</p>
                     </div>
+                  </div>
+                  <div className="flex items-center gap-1.5 px-3 py-1.5 bg-blue-50/50 border border-blue-100 rounded-lg shrink-0">
+                    <Sparkles size={14} className="text-[#135bec]" />
+                    <span className="text-[9px] font-bold text-[#135bec] uppercase tracking-wider">Lectura IA Activada</span>
+                  </div>
                 </div>
 
-                <textarea 
+                <textarea
                   ref={contextoRef}
-                  name="contexto" 
-                  value={safeData.contexto || ''} 
-                  onChange={handleChange} 
-                  placeholder="Escribe o pega aquí las características de tu escuela, grupo y comunidad...&#10;&#10;La Inteligencia Artificial leerá este texto para adaptar las actividades de tu secuencia a tu realidad educativa." 
+                  name="contexto"
+                  value={safeData.contexto || ''}
+                  onChange={handleChange}
+                  placeholder="Escribe o pega aquí las características de tu escuela, grupo y comunidad...&#10;&#10;La Inteligencia Artificial leerá este texto para adaptar las actividades de tu secuencia a tu realidad educativa."
                   className="w-full px-5 py-4 bg-transparent outline-none text-slate-700 text-sm resize-none min-h-[250px] font-medium leading-relaxed"
                 />
-                
+
                 <div className="bg-slate-50 px-4 py-2 rounded-b-xl border-t border-slate-100 flex items-center justify-between text-[10px] text-slate-400 font-medium relative h-12">
-                    <span>💡 Arrastra la esquina azul para hacer más grande este cuadro ↘</span>
-                    
-                    <div 
-                      onMouseDown={handleResizeMouseDown}
-                      title="Arrastrar para ajustar tamaño"
-                      className="absolute bottom-0 right-0 bg-[#135bec] text-white p-2.5 rounded-br-xl rounded-tl-xl shadow-md cursor-nwse-resize hover:bg-[#135bec]/90 transition-colors active:bg-blue-800 flex items-center justify-center"
-                    >
-                        <ArrowRight size={16} className="transform rotate-45 pointer-events-none" /> 
-                    </div>
+                  <span>💡 Arrastra la esquina azul para hacer más grande este cuadro ↘</span>
+
+                  <div
+                    onMouseDown={handleResizeMouseDown}
+                    title="Arrastrar para ajustar tamaño"
+                    className="absolute bottom-0 right-0 bg-[#135bec] text-white p-2.5 rounded-br-xl rounded-tl-xl shadow-md cursor-nwse-resize hover:bg-[#135bec]/90 transition-colors active:bg-blue-800 flex items-center justify-center"
+                  >
+                    <ArrowRight size={16} className="transform rotate-45 pointer-events-none" />
+                  </div>
                 </div>
               </div>
             </div>
 
             <div className={panelClass}>
               <h2 className="text-sm md:text-base font-black text-slate-800 uppercase tracking-wider flex items-center gap-2 pb-4 border-b border-slate-100 mb-5 relative z-10">
-                <BookOpen className="text-[#135bec]" size={20}/> Datos Pedagógicos
+                <BookOpen className="text-[#135bec]" size={20} /> Datos Pedagógicos
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-5 relative z-10">
                 <div>
@@ -468,14 +475,14 @@ export const SetupScreen = ({ data, onChange, onComplete, onOpenSchedule, onBack
               <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-12 gap-5 mt-5 relative z-10">
                 <div className="md:col-span-2 xl:col-span-5">
                   <label className={labelClass}>Metodología Didáctica</label>
-                   <select name="estrategia" value={safeData.estrategia || ''} onChange={handleChange} className={selectClass}>
-                      <option value="">Seleccione...</option>
-                      <option value="Aprendizaje Basado en Problemas">Aprendizaje Basado en Problemas</option>
-                      <option value="Aprendizaje basado en indagación STEAM">Indagación STEAM</option>
-                      <option value="Aprendizaje Comunitario">Proyectos Comunitarios</option>
-                      <option value="Aprendizaje Servicio">Aprendizaje Servicio</option>
-                      <option value="Secuencia Didáctica">Secuencia Didáctica</option>
-                    </select>
+                  <select name="estrategia" value={safeData.estrategia || ''} onChange={handleChange} className={selectClass}>
+                    <option value="">Seleccione...</option>
+                    <option value="Aprendizaje Basado en Problemas">Aprendizaje Basado en Problemas</option>
+                    <option value="Aprendizaje basado en indagación STEAM">Indagación STEAM</option>
+                    <option value="Aprendizaje Comunitario">Proyectos Comunitarios</option>
+                    <option value="Aprendizaje Servicio">Aprendizaje Servicio</option>
+                    <option value="Secuencia Didáctica">Secuencia Didáctica</option>
+                  </select>
                 </div>
                 <div className="md:col-span-1 xl:col-span-4">
                   <label className={labelClass}>Periodo de Aplicación</label>
@@ -498,7 +505,7 @@ export const SetupScreen = ({ data, onChange, onComplete, onOpenSchedule, onBack
 
             <div className={panelClass}>
               <h2 className="text-sm md:text-base font-black text-slate-800 uppercase tracking-wider flex items-center gap-2 pb-4 border-b border-slate-100 mb-5 relative z-10">
-                <Target className="text-[#135bec]" size={20}/> Ejes Articuladores
+                <Target className="text-[#135bec]" size={20} /> Ejes Articuladores
               </h2>
               <div className="flex flex-wrap gap-2 md:gap-3 relative z-10">
                 {ejes.map(eje => (
@@ -515,7 +522,7 @@ export const SetupScreen = ({ data, onChange, onComplete, onOpenSchedule, onBack
 
             <div className={panelClass}>
               <h2 className="text-sm md:text-base font-black text-slate-800 uppercase tracking-wider flex items-center gap-2 pb-4 border-b border-slate-100 mb-5 relative z-10">
-                <UserCheck className="text-[#135bec]" size={20}/> Estrategias de Evaluación
+                <UserCheck className="text-[#135bec]" size={20} /> Estrategias de Evaluación
               </h2>
               <div className="flex flex-wrap gap-2 md:gap-3 relative z-10">
                 {tiposEvaluacion.map(tipo => (
@@ -532,7 +539,7 @@ export const SetupScreen = ({ data, onChange, onComplete, onOpenSchedule, onBack
 
             <div className={panelClass}>
               <h2 className="text-sm md:text-base font-black text-slate-800 uppercase tracking-wider flex items-center gap-2 pb-4 border-b border-slate-100 mb-5 relative z-10">
-                <CheckSquare className="text-[#135bec]" size={20}/> Herramientas de Evaluación Formativa
+                <CheckSquare className="text-[#135bec]" size={20} /> Herramientas de Evaluación Formativa
               </h2>
               <div className="flex flex-wrap gap-2 md:gap-3 relative z-10">
                 {herramientas.map(herr => (
@@ -547,16 +554,24 @@ export const SetupScreen = ({ data, onChange, onComplete, onOpenSchedule, onBack
               </div>
             </div>
 
-            <button 
-              onClick={onComplete}
-              disabled={!isFormValid}
-              className={`w-full py-4 md:py-5 rounded-2xl text-base md:text-lg font-black tracking-wide flex items-center justify-center gap-3 transition-all duration-300 border border-transparent
-                ${isFormValid 
-                  ? btnGlossy 
-                  : 'bg-slate-200 text-slate-400 cursor-not-allowed'}`}
-            >
-              IR AL LIENZO DE PLANEACIÓN
-            </button>
+            <div className="relative mt-6 mb-4">
+              {isFormValid && (
+                <div className="absolute -top-12 left-1/2 -translate-x-1/2 bg-slate-800 text-white text-[10px] md:text-xs font-bold px-4 py-2 rounded-xl shadow-xl animate-bounce whitespace-nowrap after:content-[''] after:absolute after:top-full after:left-1/2 after:-translate-x-1/2 after:border-4 after:border-transparent after:border-t-slate-800 z-20">
+                  ¡Datos completos! Haz clic aquí para continuar
+                </div>
+              )}
+              <button
+                onClick={onComplete}
+                disabled={!isFormValid}
+                className={`w-full py-4 md:py-5 rounded-2xl text-base md:text-lg font-black tracking-wide flex items-center justify-center gap-3 transition-all duration-300 border border-transparent group relative z-10
+                  ${isFormValid
+                    ? `${btnGlossy} ring-4 ring-[#135bec]/20`
+                    : 'bg-slate-200 text-slate-400 cursor-not-allowed'}`}
+              >
+                <span className={`px-2 py-1 rounded-lg text-[10px] md:text-xs border tracking-widest transition-colors ${isFormValid ? 'bg-white/20 border-white/30 text-white' : 'bg-slate-300 border-slate-300 text-slate-500'}`}>PASO 3</span>
+                IR AL LIENZO DE PLANEACIÓN
+              </button>
+            </div>
           </div>
         </main>
       </div>
