@@ -24,11 +24,11 @@ export const EvaluationScreen = ({ projectData, plannedItems, actividades, onBac
   const herramientasSeleccionadas = projectData.herramientas || [];
   const [activeTab, setActiveTab] = useState<string>(herramientasSeleccionadas[0] || '');
   const [showUserMenu, setShowUserMenu] = useState(false);
-  
+
   // ✨ CANDADOS DE SEGURIDAD
   const [isCustomized, setIsCustomized] = useState(false);
   const initializedKeyRef = useRef<string | null>(null);
-  
+
   const [criteriosCotejo, setCriteriosCotejo] = useState<string[]>([]);
   const [rubricaHeaders, setRubricaHeaders] = useState(["Sobresaliente (4)", "Satisfactorio (3)", "Suficiente (2)", "Requiere Apoyo (1)"]);
   const [criteriosRubrica, setCriteriosRubrica] = useState<any[]>([]);
@@ -36,7 +36,7 @@ export const EvaluationScreen = ({ projectData, plannedItems, actividades, onBac
   const [criteriosEscala, setCriteriosEscala] = useState<string[]>([]);
   const [textoCuestionario, setTextoCuestionario] = useState<string>("");
   const [textoExamen, setTextoExamen] = useState<string>("");
-  
+
   const [retroalimentacion, setRetroalimentacion] = useState("");
   const [isGenerating, setIsGenerating] = useState(false);
   const [examFormat, setExamFormat] = useState<'abiertas' | 'multiple'>('abiertas');
@@ -46,7 +46,7 @@ export const EvaluationScreen = ({ projectData, plannedItems, actividades, onBac
 
   const showToast = (type: 'success' | 'error' | 'info', title: string, message: string) => {
     setToast({ isOpen: true, type, title, message });
-    setTimeout(() => setToast(null), 12000); 
+    setTimeout(() => setToast(null), 12000);
   };
 
   useEffect(() => {
@@ -76,7 +76,7 @@ export const EvaluationScreen = ({ projectData, plannedItems, actividades, onBac
           setTextoExamen(parsed.textoExamen || "");
           setIsCustomized(true);
           initializedKeyRef.current = storageKey;
-          return; 
+          return;
         }
       } catch (e) {
         console.error("Error al recuperar datos locales:", e);
@@ -85,14 +85,14 @@ export const EvaluationScreen = ({ projectData, plannedItems, actividades, onBac
 
     const gradoActual = Number(projectData?.grado) || 1;
     const itemsDelGrado = plannedItems.filter(item => Number(item.grado) === gradoActual || !item.grado);
-    
+
     const disciplinaPrincipal = itemsDelGrado.length > 0 ? itemsDelGrado[itemsDelGrado.length - 1].disciplina : null;
     const itemsFiltrados = disciplinaPrincipal ? itemsDelGrado.filter(item => item.disciplina === disciplinaPrincipal) : itemsDelGrado;
 
     const pdas = itemsFiltrados.filter(item => item.type === 'pda').map(item => item.text);
     const contenidos = itemsFiltrados.filter(item => item.type === 'content').map(item => item.text);
     const baseCriterios = pdas.length > 0 ? pdas : contenidos.length > 0 ? contenidos : ["Participación activa en el proyecto"];
-    
+
     const cotejoInicial = baseCriterios.map(pda => `Logra identificar y aplicar los conceptos sobre: ${pda}`);
     cotejoInicial.push("Colabora de manera respetuosa y equitativa con todos sus compañeros.");
     setCriteriosCotejo(cotejoInicial);
@@ -136,21 +136,21 @@ export const EvaluationScreen = ({ projectData, plannedItems, actividades, onBac
   }, [isCustomized, criteriosCotejo, criteriosRubrica, criteriosObservacion, criteriosEscala, textoCuestionario, textoExamen, storageKey]);
 
 
-  const updateList = (setter: any, list: any[], index: number, value: string) => { 
-    setIsCustomized(true); 
-    const newList = [...list]; newList[index] = value; setter(newList); 
+  const updateList = (setter: any, list: any[], index: number, value: string) => {
+    setIsCustomized(true);
+    const newList = [...list]; newList[index] = value; setter(newList);
   };
-  const addList = (setter: any, list: any[], text: string) => { 
-    setIsCustomized(true); 
-    setter([...list, text]); 
+  const addList = (setter: any, list: any[], text: string) => {
+    setIsCustomized(true);
+    setter([...list, text]);
   };
-  const addCriterioRubrica = () => { 
-    setIsCustomized(true); 
-    setCriteriosRubrica([...criteriosRubrica, { id: Date.now(), criterio: "Nuevo criterio...", nivel4: "", nivel3: "", nivel2: "", nivel1: "" }]); 
+  const addCriterioRubrica = () => {
+    setIsCustomized(true);
+    setCriteriosRubrica([...criteriosRubrica, { id: Date.now(), criterio: "Nuevo criterio...", nivel4: "", nivel3: "", nivel2: "", nivel1: "" }]);
   };
-  const updateRubrica = (id: number, field: string, value: string) => { 
-    setIsCustomized(true); 
-    setCriteriosRubrica(criteriosRubrica.map(item => item.id === id ? { ...item, [field]: value } : item)); 
+  const updateRubrica = (id: number, field: string, value: string) => {
+    setIsCustomized(true);
+    setCriteriosRubrica(criteriosRubrica.map(item => item.id === id ? { ...item, [field]: value } : item));
   };
 
   const getFileName = () => {
@@ -160,7 +160,7 @@ export const EvaluationScreen = ({ projectData, plannedItems, actividades, onBac
     const periodo = `${inicio}_AL_${fin}`;
     const maestro = projectData.maestro || "DOCENTE";
     const disciplina = plannedItems.length > 0 ? plannedItems[0].disciplina : "GENERAL";
-    const grado = projectData.grado || "1"; 
+    const grado = projectData.grado || "1";
     const clean = (str: string) => str.trim().replace(/\s+/g, '_').replace(/[^a-zA-Z0-9_áéíóúÁÉÍÓÚñÑ\-]/g, '');
     return `${clean(trimestre)}-${clean(periodo)}-${clean(maestro)}-${clean(disciplina)}-${clean(grado)}.docx`.toUpperCase();
   };
@@ -180,7 +180,7 @@ export const EvaluationScreen = ({ projectData, plannedItems, actividades, onBac
   const handleDownloadLocal = async () => {
     if (!isPremium && consumeCredit) {
       const exito = consumeCredit();
-      if (!exito) return; 
+      if (!exito) return;
     }
 
     try {
@@ -222,9 +222,9 @@ export const EvaluationScreen = ({ projectData, plannedItems, actividades, onBac
 
   const generateAIEvaluation = async () => {
     const apiKey = import.meta.env.VITE_GEMINI_API_KEY;
-    if (!apiKey) { 
-      showToast('error', 'Sin Llave API', 'Falta configurar la Llave de Gemini en local o Vercel.'); 
-      return; 
+    if (!apiKey) {
+      showToast('error', 'Sin Llave API', 'Falta configurar la Llave de Gemini en local o Vercel.');
+      return;
     }
     setIsGenerating(true);
     try {
@@ -274,7 +274,7 @@ export const EvaluationScreen = ({ projectData, plannedItems, actividades, onBac
 
       let rawText = data.candidates?.[0]?.content?.parts?.[0]?.text || "";
       if (!rawText.trim()) throw new Error("empty_response");
-      
+
       rawText = rawText.replace(/```json/gi, '').replace(/```/g, '').trim();
       if (!rawText.startsWith('[') && !rawText.startsWith('{')) rawText = `[${rawText}]`;
       const jsonResponse = JSON.parse(rawText);
@@ -309,7 +309,7 @@ export const EvaluationScreen = ({ projectData, plannedItems, actividades, onBac
         setCriteriosEscala(stringsArray.slice(0, 5));
         showToast('success', '¡Generado!', 'Escala estimativa actualizada con IA.');
       } else if (nombrePestana.includes('rubrica')) {
-        setCriteriosRubrica(rawArray.slice(0, 5)); 
+        setCriteriosRubrica(rawArray.slice(0, 5));
         showToast('success', '¡Generado!', 'Rúbrica actualizada con IA.');
       } else {
         const text = rawArray.map((q: any, i: number) => {
@@ -330,8 +330,8 @@ export const EvaluationScreen = ({ projectData, plannedItems, actividades, onBac
         }
       }
 
-    } catch (error: any) { 
-      console.error("🔥 ERROR REAL DE LA API:", error); 
+    } catch (error: any) {
+      console.error("🔥 ERROR REAL DE LA API:", error);
       let mensajeAmigable = "Ocurrió un error inesperado al generar. Por favor, intenta de nuevo.";
       const rawError = (error.message || "").toLowerCase();
 
@@ -344,19 +344,19 @@ export const EvaluationScreen = ({ projectData, plannedItems, actividades, onBac
       }
 
       showToast('error', 'Pausa Técnica', mensajeAmigable);
-    } finally { 
-      setIsGenerating(false); 
+    } finally {
+      setIsGenerating(false);
     }
   };
 
   const getIconForTab = (tabName: string) => {
-    if (tabName.includes('Rúbrica')) return <TableIcon size={14}/>;
-    if (tabName.includes('cotejo')) return <CheckSquare size={14}/>;
-    if (tabName.includes('observación')) return <Eye size={14}/>;
-    if (tabName.includes('Escalas')) return <SlidersHorizontal size={14}/>;
-    if (tabName.includes('Cuestionarios')) return <FileQuestion size={14}/>;
-    if (tabName.includes('Exámenes')) return <FileSignature size={14}/>;
-    return <PenTool size={14}/>;
+    if (tabName.includes('Rúbrica')) return <TableIcon size={14} />;
+    if (tabName.includes('cotejo')) return <CheckSquare size={14} />;
+    if (tabName.includes('observación')) return <Eye size={14} />;
+    if (tabName.includes('Escalas')) return <SlidersHorizontal size={14} />;
+    if (tabName.includes('Cuestionarios')) return <FileQuestion size={14} />;
+    if (tabName.includes('Exámenes')) return <FileSignature size={14} />;
+    return <PenTool size={14} />;
   };
 
   const btnGlossy = "relative overflow-hidden bg-gradient-to-r from-violet-600 to-indigo-600 text-white shadow-lg shadow-violet-500/30 hover:shadow-violet-500/50 transition-all active:scale-95 after:absolute after:top-0 after:-left-[100%] hover:after:left-[200%] after:w-[50%] after:h-full after:bg-gradient-to-r after:from-transparent after:via-white/20 after:to-transparent after:skew-x-[-20deg] after:transition-all after:duration-[1500ms] after:ease-out";
@@ -369,7 +369,7 @@ export const EvaluationScreen = ({ projectData, plannedItems, actividades, onBac
         <div className="flex items-center gap-2 md:gap-4">
           <div className="flex items-center gap-3 text-[#135bec]">
             <div className="bg-[#135bec] p-1.5 rounded-lg text-white shadow-md">
-               <Layers size={22} />
+              <Layers size={22} />
             </div>
             <div className="flex flex-col justify-center">
               <h2 className="text-base md:text-lg font-bold tracking-tight text-slate-900 leading-none mb-1">
@@ -377,14 +377,14 @@ export const EvaluationScreen = ({ projectData, plannedItems, actividades, onBac
               </h2>
               {isPremium ? (
                 <div className="hidden sm:flex items-center gap-1.5 w-fit px-2 py-0.5 bg-gradient-to-r from-amber-100 to-amber-50 border border-amber-200 rounded-full shadow-sm">
-                   <Sparkles size={10} className="text-amber-500" />
-                   <span className="text-[9px] font-black text-amber-700 tracking-widest uppercase">CUENTA PREMIUM ACTIVA</span>
+                  <Sparkles size={10} className="text-amber-500" />
+                  <span className="text-[9px] font-black text-amber-700 tracking-widest uppercase">CUENTA PREMIUM ACTIVA</span>
                 </div>
               ) : (
                 <div onClick={onPremiumClick} className="hidden sm:flex items-center gap-1.5 w-fit px-2 py-0.5 bg-slate-100 border border-slate-200 rounded-full shadow-sm mt-1 cursor-pointer hover:bg-slate-200 transition-colors">
-                   <Lock size={10} className="text-slate-500" />
-                   <span className="text-[9px] font-black text-slate-500 tracking-widest uppercase">VERSIÓN GRATUITA</span>
-                 </div>
+                  <Lock size={10} className="text-slate-500" />
+                  <span className="text-[9px] font-black text-slate-500 tracking-widest uppercase">VERSIÓN GRATUITA</span>
+                </div>
               )}
             </div>
           </div>
@@ -395,79 +395,56 @@ export const EvaluationScreen = ({ projectData, plannedItems, actividades, onBac
           </div>
         </div>
         <div className="flex items-center gap-2 md:gap-3">
-          {isPremium ? (
-            <button onClick={onBackToDashboard} className="group flex items-center gap-2 px-4 py-2 bg-slate-50 hover:bg-slate-100 rounded-xl border border-slate-200 shadow-sm transition-all">
-              <FolderOpen size={16} className="text-slate-500 group-hover:text-[#135bec] transition-colors" />
-              <span className="hidden md:inline text-xs font-bold text-slate-700">Mis Planeaciones</span>
-            </button>
-          ) : (
-            <button onClick={onPremiumClick} className="flex items-center gap-2 px-4 py-2 bg-slate-50 hover:bg-slate-100 rounded-xl border border-slate-200 shadow-sm transition-all cursor-pointer">
-              <Lock size={14} className="text-slate-400" />
-              <span className="hidden md:inline text-xs font-bold text-slate-500">Mis Planeaciones</span>
-            </button>
-          )}
 
-          {/* ✨ ACTUALIZADO: "Guardar en mi Bóveda de Planeaciones" */}
-          {isPremium ? (
-            <button onClick={saveToCloud} disabled={isSaving} className={`flex items-center gap-2 px-5 py-2 rounded-xl border border-transparent ${btnGlossy}`}>
-              <UploadCloud size={16} className={isSaving ? "animate-bounce" : ""} />
-              <span className="hidden md:inline text-xs font-bold tracking-wide">{isSaving ? 'Guardando...' : 'Guardar en mi nube'}</span>
-            </button>
-          ) : (
-            <button onClick={onPremiumClick} className="flex items-center gap-2 px-5 py-2 bg-slate-50 hover:bg-slate-100 rounded-xl border border-slate-200 shadow-sm transition-all cursor-pointer">
-              <Lock size={14} className="text-slate-400" />
-              <span className="hidden md:inline text-xs font-bold text-slate-500 tracking-wide">Guardar en Mis Planeaciones</span>
-            </button>
-          )}
-
-          <button onClick={onBack} className="group flex items-center gap-2 px-4 py-2 bg-slate-50 hover:bg-slate-100 rounded-xl border border-slate-200 shadow-sm transition-all">
-            <ArrowLeft size={16} className="text-slate-500 group-hover:text-[#135bec] transition-colors" />
-            <span className="hidden md:inline text-xs font-bold text-slate-700">Volver a Secuencia</span>
+          <button onClick={onBack} className="group flex items-center gap-2 px-3 py-2.5 bg-slate-50 hover:bg-slate-100 rounded-xl border border-slate-200 shadow-sm transition-all" title="Volver a Secuencia Didáctica">
+            <ArrowLeft size={18} className="text-slate-500 group-hover:text-[#135bec] transition-colors" />
           </button>
 
-          {/* ✨ ACTUALIZADO: "Guardar en Drive" */}
-          <button 
-            onClick={() => {
-              if (isPremium) {
-                loginToDrive();
-              } else if (consumeCredit && consumeCredit()) {
-                loginToDrive();
-              }
-            }} 
-            className={`group flex items-center gap-2 px-4 py-2 rounded-xl border shadow-sm transition-all ${isPremium || (freeCredits && freeCredits > 0) ? 'bg-white hover:bg-slate-50 border-slate-200' : 'bg-slate-50 border-slate-200 opacity-80'}`}
-          >
+          <button onClick={onBackToDashboard} className="group flex items-center gap-2 px-3 py-2.5 bg-slate-50 hover:bg-slate-100 rounded-xl border border-slate-200 shadow-sm transition-all" title="Ver Mis Planeaciones Guardadas">
+            <img src="/carpeta.svg" alt="Carpeta" className="w-5 h-5 group-hover:scale-110 transition-transform drop-shadow-sm" onError={(e) => e.currentTarget.src = "/carpeta.png"} />
+            <span className="hidden md:inline text-[11px] font-bold text-slate-700 tracking-wide">Mis Planeaciones</span>
+          </button>
+
+          {/* Agrupador del PASO FINAL */}
+          <div className="flex items-center gap-1.5 bg-slate-100/80 p-1.5 rounded-2xl border border-slate-200 shadow-inner">
+            <span className="hidden xl:inline-block bg-gradient-to-r from-violet-600 to-indigo-600 text-white px-3 py-1.5 rounded-lg text-[9px] font-black tracking-widest shadow-sm mx-1">PASO FINAL</span>
+            
+            {/* Guardar en Nube (Tu Plataforma) */}
             {isPremium ? (
-               <Cloud size={16} className="text-slate-500 group-hover:text-[#135bec]" />
-            ) : (freeCredits && freeCredits > 0 ? (
-               <Cloud size={16} className="text-amber-500 group-hover:text-amber-600" />
+              <button onClick={saveToCloud} disabled={isSaving} className="group flex items-center gap-2 px-4 py-2 bg-white hover:bg-sky-50 rounded-xl border border-slate-200 shadow-sm transition-all">
+                <img src="/nube.svg" alt="Nube" className={`w-5 h-5 drop-shadow-sm ${isSaving ? 'animate-bounce' : 'group-hover:scale-110 transition-transform'}`} onError={(e) => e.currentTarget.src = "/nube.png"} />
+                <span className="hidden lg:inline text-[11px] font-extrabold text-slate-800 tracking-wide">{isSaving ? 'Guardando...' : 'Guardar mi Planeación'}</span>
+              </button>
             ) : (
-               <Lock size={14} className="text-slate-400" />
-            ))}
-            <span className="hidden lg:inline text-xs font-bold text-slate-700">
-               {isPremium ? "Guardar en Drive" : `Guardar en Drive (⚡ ${freeCredits || 0})`}
-            </span>
-          </button>
+              <button onClick={onPremiumClick} className="group flex items-center gap-2 px-4 py-2 bg-slate-100 rounded-xl border border-slate-200 shadow-sm transition-all cursor-not-allowed">
+                <img src="/nube.svg" alt="Nube" className="w-5 h-5 opacity-40" onError={(e) => e.currentTarget.src = "/nube.png"} />
+                <span className="hidden lg:inline text-[11px] font-extrabold text-slate-500 tracking-wide">Mi Planeación Nem (Pro)</span>
+              </button>
+            )}
 
-          {/* ✨ ACTUALIZADO: "Exportar a Word" */}
-          <button 
-            onClick={() => {
-              if (isPremium || (consumeCredit && consumeCredit())) {
-                handleDownloadLocal();
-              }
-            }} 
-            className={`group flex items-center gap-2 px-4 py-2 rounded-xl border shadow-sm transition-all ${isPremium || (freeCredits && freeCredits > 0) ? 'bg-white hover:bg-slate-50 border-slate-200' : 'bg-slate-50 border-slate-200 opacity-80'}`}
-          >
-            {isPremium ? (
-               <FileDown size={16} className="text-slate-500 group-hover:text-[#135bec]" />
-            ) : (freeCredits && freeCredits > 0 ? (
-               <FileDown size={16} className="text-amber-500 group-hover:text-amber-600" />
-            ) : (
-               <Lock size={14} className="text-slate-400" />
-            ))}
-            <span className="hidden lg:inline text-xs font-bold text-slate-700">
-               {isPremium ? "Exportar a Word" : `Exportar a Word (⚡ ${freeCredits || 0})`}
-            </span>
-          </button>
+            {/* Guardar en Drive (Nube Amarilla/Verde/Azul) */}
+            <button 
+              onClick={() => { if (isPremium) { loginToDrive(); } else if (consumeCredit && consumeCredit()) { loginToDrive(); } }} 
+              className={`group flex items-center gap-2 px-4 py-2 rounded-xl border shadow-sm transition-all ${isPremium || (freeCredits && freeCredits > 0) ? 'bg-white hover:bg-amber-50 border-slate-200' : 'bg-slate-100 border-slate-200 opacity-80 cursor-not-allowed'}`}
+              title="Guardar archivo en tu Google Drive"
+            >
+              <img src="/drive.svg" alt="Drive" className="w-5 h-5 drop-shadow-sm group-hover:scale-110 transition-transform" onError={(e) => e.currentTarget.src = "/drive.png"} />
+              <span className="hidden lg:inline text-[11px] font-extrabold text-slate-800 tracking-wide">Guardar en Drive</span>
+            </button>
+
+            {/* Descargar a Word (Icono Azul) */}
+            <div className="relative group/btn">
+              <div className="absolute -inset-1 bg-gradient-to-r from-violet-600 to-indigo-600 rounded-xl blur opacity-30 group-hover/btn:opacity-60 transition duration-1000 hidden sm:block"></div>
+              <button 
+                onClick={() => { if (isPremium || (consumeCredit && consumeCredit())) { handleDownloadLocal(); } }} 
+                className={`relative flex items-center gap-2 px-5 py-2 rounded-xl border border-transparent shadow-sm transition-all hover:scale-[1.02] ${isPremium || (freeCredits && freeCredits > 0) ? btnGlossy : 'bg-slate-100 border-slate-200 opacity-80 cursor-not-allowed'}`}
+                title="Descargar archivo .docx (Word) a tu computadora"
+              >
+                <img src="/word.svg" alt="Word" className="w-5 h-5 drop-shadow-sm group-hover:scale-110 transition-transform" onError={(e) => e.currentTarget.src = "/word.png"} />
+                <span className={`hidden lg:inline text-[11px] font-extrabold ${isPremium || (freeCredits && freeCredits > 0) ? 'text-white' : 'text-slate-500'}`}>Exportar a Word</span>
+              </button>
+            </div>
+          </div>
 
           {user && onLogout && (
             <div className="relative ml-1 md:ml-2 user-menu-container">
@@ -478,12 +455,12 @@ export const EvaluationScreen = ({ projectData, plannedItems, actividades, onBac
               {showUserMenu && (
                 <div className="absolute top-14 right-0 w-64 bg-white rounded-2xl shadow-xl shadow-slate-200/50 border border-slate-100 p-4 z-50 animate-fade-in-down">
                   <div className="flex items-center gap-3 mb-4 pb-4 border-b border-slate-100">
-                     <div className="bg-[#135bec]/10 p-2 rounded-xl text-[#135bec]"><UserCircle size={28} /></div>
-                     <div className="overflow-hidden">
-                       <p className="text-xs font-bold text-slate-900 truncate" title={user.email}>{user.email}</p>
-                       <p className="text-[10px] text-slate-500 font-medium">{isPremium ? 'Docente Premium' : 'Docente Básico'}</p>
-                       {!isPremium && <p className="text-[10px] font-bold text-amber-500 mt-1">⚡ {freeCredits} chispas restantes</p>}
-                     </div>
+                    <div className="bg-[#135bec]/10 p-2 rounded-xl text-[#135bec]"><UserCircle size={28} /></div>
+                    <div className="overflow-hidden">
+                      <p className="text-xs font-bold text-slate-900 truncate" title={user.email}>{user.email}</p>
+                      <p className="text-[10px] text-slate-500 font-medium">{isPremium ? 'Docente Premium' : 'Docente Básico'}</p>
+                      {!isPremium && <p className="text-[10px] font-bold text-amber-500 mt-1">⚡ {freeCredits} chispas restantes</p>}
+                    </div>
                   </div>
                   <button onClick={onLogout} className="w-full flex items-center gap-3 px-4 py-3 rounded-xl bg-slate-50 border border-slate-100 hover:bg-rose-50 hover:border-rose-200 transition-colors group">
                     <img src="/exit.png" alt="Salir" className="w-5 h-5 drop-shadow-sm group-hover:scale-110 transition-transform" onError={(e) => { e.currentTarget.style.display = 'none'; e.currentTarget.nextElementSibling.style.display = 'inline'; }} />
@@ -520,21 +497,30 @@ export const EvaluationScreen = ({ projectData, plannedItems, actividades, onBac
         <main className="flex-1 overflow-y-auto bg-transparent p-4 lg:p-8 scrollbar-thin">
           <div className="w-full max-w-[1200px] mr-auto flex flex-col">
             <div className="bg-white/90 backdrop-blur-md shadow-xl shadow-slate-200/40 border border-white/60 rounded-[2rem] p-6 lg:p-12 xl:p-16 mb-10 w-full">
+
+              {/* Encabezado del Paso 9 */}
+              <div className="mb-6 inline-block animate-fade-in-up">
+                <div className="flex items-center gap-3 px-4 py-2.5 bg-gradient-to-r from-violet-600 to-indigo-600 rounded-xl shadow-md shadow-violet-500/30 border border-transparent">
+                  <span className="bg-white/20 px-1.5 py-0.5 rounded text-[10px] border border-white/10 tracking-widest font-black text-white">PASO 9</span>
+                  <h3 className="text-sm font-bold text-white tracking-wide">Generar Herramientas de Evaluación</h3>
+                </div>
+              </div>
+
               <div className="mb-8 border-b border-slate-100 pb-8 flex justify-between items-center">
                 <div className="flex items-center gap-4">
                   <div className="p-3 bg-emerald-50 rounded-xl text-emerald-600 shadow-inner"><PenTool size={24} /></div>
                   <h1 className="text-xl lg:text-3xl font-extrabold text-slate-900 tracking-tight">{activeTab || "Instrumentos"}</h1>
                 </div>
-                <button 
+                <button
                   onClick={() => {
                     if (isPremium || (consumeCredit && consumeCredit())) {
                       generateAIEvaluation();
                     }
-                  }} 
-                  disabled={isGenerating} 
+                  }}
+                  disabled={isGenerating}
                   className={`flex items-center gap-2 px-5 py-2 rounded-xl border transition-all disabled:opacity-50 ${isPremium || (freeCredits && freeCredits > 0) ? `border-transparent ${btnGlossy}` : 'bg-slate-50 border-slate-200 text-slate-500 hover:bg-slate-100 cursor-pointer'}`}
                 >
-                  {isPremium ? <Sparkles size={18} className={isGenerating ? "animate-spin" : ""} /> : (freeCredits && freeCredits > 0 ? <Sparkles size={18} className={isGenerating ? "animate-spin text-amber-400" : "text-amber-400"} /> : <Lock size={16} />)} 
+                  {isPremium ? <Sparkles size={18} className={isGenerating ? "animate-spin" : ""} /> : (freeCredits && freeCredits > 0 ? <Sparkles size={18} className={isGenerating ? "animate-spin text-amber-400" : "text-amber-400"} /> : <Lock size={16} />)}
                   <span className="text-xs font-bold tracking-wide">{isGenerating ? "Generando..." : isPremium ? "Generar con IA" : `Generar (⚡ ${freeCredits})`}</span>
                 </button>
               </div>
@@ -555,15 +541,15 @@ export const EvaluationScreen = ({ projectData, plannedItems, actividades, onBac
                     <tbody className="divide-y">
                       {criteriosCotejo.map((c, i) => (
                         <tr key={i} className="hover:bg-slate-50/50">
-                          <td className="p-4 text-center text-slate-400 font-bold">{i+1}</td>
-                          <td className="p-4"><textarea value={c} onChange={(e) => updateList(setCriteriosCotejo, criteriosCotejo, i, e.target.value)} className="w-full bg-transparent text-sm text-slate-700 outline-none resize-none border-b border-transparent focus:border-[#135bec]"/></td>
-                          <td className="p-4 text-center"><div className="w-4 h-4 mx-auto border-2 border-slate-300 rounded"/></td>
-                          <td className="p-4 text-center"><div className="w-4 h-4 mx-auto border-2 border-slate-300 rounded"/></td>
+                          <td className="p-4 text-center text-slate-400 font-bold">{i + 1}</td>
+                          <td className="p-4"><textarea value={c} onChange={(e) => updateList(setCriteriosCotejo, criteriosCotejo, i, e.target.value)} className="w-full bg-transparent text-sm text-slate-700 outline-none resize-none border-b border-transparent focus:border-[#135bec]" /></td>
+                          <td className="p-4 text-center"><div className="w-4 h-4 mx-auto border-2 border-slate-300 rounded" /></td>
+                          <td className="p-4 text-center"><div className="w-4 h-4 mx-auto border-2 border-slate-300 rounded" /></td>
                         </tr>
                       ))}
                     </tbody>
                   </table>
-                  <button onClick={() => addList(setCriteriosCotejo, criteriosCotejo, "Nuevo...")} className="p-4 text-xs font-bold text-[#135bec] flex items-center gap-2 hover:bg-blue-50 w-full transition-colors"><Plus size={14}/> Agregar Fila</button>
+                  <button onClick={() => addList(setCriteriosCotejo, criteriosCotejo, "Nuevo...")} className="p-4 text-xs font-bold text-[#135bec] flex items-center gap-2 hover:bg-blue-50 w-full transition-colors"><Plus size={14} /> Agregar Fila</button>
                 </div>
               )}
 
@@ -583,17 +569,17 @@ export const EvaluationScreen = ({ projectData, plannedItems, actividades, onBac
                     <tbody className="divide-y">
                       {criteriosObservacion.map((c, i) => (
                         <tr key={i} className="hover:bg-slate-50/50">
-                          <td className="p-4 text-center text-slate-400 font-bold">{i+1}</td>
-                          <td className="p-4"><textarea value={c} onChange={(e) => updateList(setCriteriosObservacion, criteriosObservacion, i, e.target.value)} className="w-full bg-transparent text-sm text-slate-700 outline-none resize-none border-b border-transparent focus:border-[#135bec]"/></td>
-                          <td className="p-4 text-center"><div className="w-4 h-4 mx-auto border-2 border-slate-300 rounded-full"/></td>
-                          <td className="p-4 text-center"><div className="w-4 h-4 mx-auto border-2 border-slate-300 rounded-full"/></td>
-                          <td className="p-4 text-center"><div className="w-4 h-4 mx-auto border-2 border-slate-300 rounded-full"/></td>
-                          <td className="p-4 text-center"><div className="w-full h-4 border-b border-slate-300 border-dashed"/></td>
+                          <td className="p-4 text-center text-slate-400 font-bold">{i + 1}</td>
+                          <td className="p-4"><textarea value={c} onChange={(e) => updateList(setCriteriosObservacion, criteriosObservacion, i, e.target.value)} className="w-full bg-transparent text-sm text-slate-700 outline-none resize-none border-b border-transparent focus:border-[#135bec]" /></td>
+                          <td className="p-4 text-center"><div className="w-4 h-4 mx-auto border-2 border-slate-300 rounded-full" /></td>
+                          <td className="p-4 text-center"><div className="w-4 h-4 mx-auto border-2 border-slate-300 rounded-full" /></td>
+                          <td className="p-4 text-center"><div className="w-4 h-4 mx-auto border-2 border-slate-300 rounded-full" /></td>
+                          <td className="p-4 text-center"><div className="w-full h-4 border-b border-slate-300 border-dashed" /></td>
                         </tr>
                       ))}
                     </tbody>
                   </table>
-                  <button onClick={() => addList(setCriteriosObservacion, criteriosObservacion, "Nuevo...")} className="p-4 text-xs font-bold text-[#135bec] flex items-center gap-2 hover:bg-blue-50 w-full transition-colors"><Plus size={14}/> Agregar Fila</button>
+                  <button onClick={() => addList(setCriteriosObservacion, criteriosObservacion, "Nuevo...")} className="p-4 text-xs font-bold text-[#135bec] flex items-center gap-2 hover:bg-blue-50 w-full transition-colors"><Plus size={14} /> Agregar Fila</button>
                 </div>
               )}
 
@@ -613,17 +599,17 @@ export const EvaluationScreen = ({ projectData, plannedItems, actividades, onBac
                     <tbody className="divide-y">
                       {criteriosEscala.map((c, i) => (
                         <tr key={i} className="hover:bg-slate-50/50">
-                          <td className="p-4 text-center text-slate-400 font-bold">{i+1}</td>
-                          <td className="p-4"><textarea value={c} onChange={(e) => updateList(setCriteriosEscala, criteriosEscala, i, e.target.value)} className="w-full bg-transparent text-sm text-slate-700 outline-none resize-none border-b border-transparent focus:border-[#135bec]"/></td>
-                          <td className="p-4 text-center"><div className="w-4 h-4 mx-auto border-2 border-slate-300 rounded-full"/></td>
-                          <td className="p-4 text-center"><div className="w-4 h-4 mx-auto border-2 border-slate-300 rounded-full"/></td>
-                          <td className="p-4 text-center"><div className="w-4 h-4 mx-auto border-2 border-slate-300 rounded-full"/></td>
-                          <td className="p-4 text-center"><div className="w-4 h-4 mx-auto border-2 border-slate-300 rounded-full"/></td>
+                          <td className="p-4 text-center text-slate-400 font-bold">{i + 1}</td>
+                          <td className="p-4"><textarea value={c} onChange={(e) => updateList(setCriteriosEscala, criteriosEscala, i, e.target.value)} className="w-full bg-transparent text-sm text-slate-700 outline-none resize-none border-b border-transparent focus:border-[#135bec]" /></td>
+                          <td className="p-4 text-center"><div className="w-4 h-4 mx-auto border-2 border-slate-300 rounded-full" /></td>
+                          <td className="p-4 text-center"><div className="w-4 h-4 mx-auto border-2 border-slate-300 rounded-full" /></td>
+                          <td className="p-4 text-center"><div className="w-4 h-4 mx-auto border-2 border-slate-300 rounded-full" /></td>
+                          <td className="p-4 text-center"><div className="w-4 h-4 mx-auto border-2 border-slate-300 rounded-full" /></td>
                         </tr>
                       ))}
                     </tbody>
                   </table>
-                  <button onClick={() => addList(setCriteriosEscala, criteriosEscala, "Nuevo...")} className="p-4 text-xs font-bold text-[#135bec] flex items-center gap-2 hover:bg-blue-50 w-full transition-colors"><Plus size={14}/> Agregar Fila</button>
+                  <button onClick={() => addList(setCriteriosEscala, criteriosEscala, "Nuevo...")} className="p-4 text-xs font-bold text-[#135bec] flex items-center gap-2 hover:bg-blue-50 w-full transition-colors"><Plus size={14} /> Agregar Fila</button>
                 </div>
               )}
 
@@ -635,11 +621,11 @@ export const EvaluationScreen = ({ projectData, plannedItems, actividades, onBac
                     </thead>
                     <tbody className="divide-y">
                       {criteriosRubrica.map((r) => (
-                        <tr key={r.id} className="hover:bg-slate-50/30"><td className="p-4"><textarea value={r.criterio} onChange={(e) => updateRubrica(r.id, 'criterio', e.target.value)} className="w-full bg-transparent text-xs font-bold outline-none h-20"/></td><td className="p-4 bg-emerald-50/20"><textarea value={r.nivel4} onChange={(e) => updateRubrica(r.id, 'nivel4', e.target.value)} className="w-full bg-transparent text-[11px] outline-none h-20"/></td><td className="p-4 bg-blue-50/20"><textarea value={r.nivel3} onChange={(e) => updateRubrica(r.id, 'nivel3', e.target.value)} className="w-full bg-transparent text-[11px] outline-none h-20"/></td><td className="p-4 bg-amber-50/20"><textarea value={r.nivel2} onChange={(e) => updateRubrica(r.id, 'nivel2', e.target.value)} className="w-full bg-transparent text-[11px] outline-none h-20"/></td></tr>
+                        <tr key={r.id} className="hover:bg-slate-50/30"><td className="p-4"><textarea value={r.criterio} onChange={(e) => updateRubrica(r.id, 'criterio', e.target.value)} className="w-full bg-transparent text-xs font-bold outline-none h-20" /></td><td className="p-4 bg-emerald-50/20"><textarea value={r.nivel4} onChange={(e) => updateRubrica(r.id, 'nivel4', e.target.value)} className="w-full bg-transparent text-[11px] outline-none h-20" /></td><td className="p-4 bg-blue-50/20"><textarea value={r.nivel3} onChange={(e) => updateRubrica(r.id, 'nivel3', e.target.value)} className="w-full bg-transparent text-[11px] outline-none h-20" /></td><td className="p-4 bg-amber-50/20"><textarea value={r.nivel2} onChange={(e) => updateRubrica(r.id, 'nivel2', e.target.value)} className="w-full bg-transparent text-[11px] outline-none h-20" /></td></tr>
                       ))}
                     </tbody>
                   </table>
-                  <button onClick={addCriterioRubrica} className="p-4 text-xs font-bold text-[#135bec] flex items-center gap-2 hover:bg-blue-50 w-full transition-colors"><Plus size={14}/> Agregar Criterio</button>
+                  <button onClick={addCriterioRubrica} className="p-4 text-xs font-bold text-[#135bec] flex items-center gap-2 hover:bg-blue-50 w-full transition-colors"><Plus size={14} /> Agregar Criterio</button>
                 </div>
               )}
 
@@ -652,13 +638,13 @@ export const EvaluationScreen = ({ projectData, plannedItems, actividades, onBac
                       <button onClick={() => setExamFormat('multiple')} className={`px-4 py-1.5 text-[10px] font-bold rounded-md transition-all ${examFormat === 'multiple' ? 'bg-[#135bec] text-white' : 'text-slate-400'}`}>Múltiple</button>
                     </div>
                   </div>
-                  <textarea 
-                    value={activeTab === 'Cuestionarios' ? textoCuestionario : textoExamen} 
+                  <textarea
+                    value={activeTab === 'Cuestionarios' ? textoCuestionario : textoExamen}
                     onChange={(e) => {
                       setIsCustomized(true);
                       activeTab === 'Cuestionarios' ? setTextoCuestionario(e.target.value) : setTextoExamen(e.target.value);
-                    }} 
-                    className="w-full h-[500px] p-6 bg-white border border-slate-200 rounded-2xl outline-none focus:ring-4 focus:ring-blue-500/5 text-slate-700 leading-relaxed shadow-inner" 
+                    }}
+                    className="w-full h-[500px] p-6 bg-white border border-slate-200 rounded-2xl outline-none focus:ring-4 focus:ring-blue-500/5 text-slate-700 leading-relaxed shadow-inner"
                     placeholder="Escribe aquí..."
                   />
                 </div>
@@ -667,7 +653,7 @@ export const EvaluationScreen = ({ projectData, plannedItems, actividades, onBac
           </div>
         </main>
       </div>
-      
+
       {toast && (
         <div className={`fixed bottom-6 right-6 z-[200] max-w-sm w-full p-4 rounded-2xl shadow-2xl border flex gap-4 animate-in slide-in-from-bottom-5 duration-300 ${toast.type === 'success' ? 'bg-emerald-50 border-emerald-200 text-emerald-800' : toast.type === 'error' ? 'bg-rose-50 border-rose-200 text-rose-800' : 'bg-blue-50 border-blue-200 text-blue-800'}`}>
           <div className="shrink-0 mt-0.5">
