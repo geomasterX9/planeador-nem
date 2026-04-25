@@ -519,6 +519,13 @@ export const SequenceScreen = ({ projectData, plannedItems, actividades, setActi
                                   if (canConsume === false) return;
                                 }
                                 await generateAIActivity(fase.id, fase.titulo);
+                                
+                                // ✨ INYECCIÓN: ¡Venta en caliente!
+                                // Si antes de hacer clic tenía solo 1 chispa, significa que se le acaban de agotar.
+                                if (freeCredits === 1) {
+                                  onPremiumClick && onPremiumClick();
+                                }
+                                
                               } else {
                                 onPremiumClick && onPremiumClick();
                               }

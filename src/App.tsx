@@ -205,6 +205,14 @@ function App() {
               .from('usuarios_premium')
               .update({ is_premium: false })
               .eq('email', email);
+
+            // ✨ INYECCIÓN 3: El aviso amigable y la puerta de renovación
+            showToast(
+              'info', 
+              '¡Tu suscripción venció!', 
+              'Tu año de Planeador NEM Pro ha concluido. ¡Renueva ahora mismo para no perder tus superpoderes!'
+            );
+            setShowPremiumModal(true);
           }
         }
 
