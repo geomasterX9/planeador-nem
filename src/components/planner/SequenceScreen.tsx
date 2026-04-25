@@ -533,13 +533,13 @@ export const SequenceScreen = ({ projectData, plannedItems, actividades, setActi
                                   showToast(
                                     'success', 
                                     '¡Planeación Generada!', 
-                                    'Gracias por confiar en NEM Pro. Has agotado tus chispas gratuitas.'
+                                    'Gracias por confiar en NEM Pro. Has agotado tus chispas gratuitas. Te invitamos a renovar tu suscripción'
                                   );
                                   
                                   // 2. Le damos 2.5 segundos de gloria al mensaje para que el maestro lo lea bien
                                   setTimeout(() => {
                                     onPremiumClick && onPremiumClick();
-                                  }, 7000); 
+                                  }, 12000); 
                                 }
                                 
                               } else {
