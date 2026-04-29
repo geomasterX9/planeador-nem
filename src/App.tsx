@@ -183,7 +183,7 @@ function App() {
       // ✨ INYECCIÓN 1: Agregamos "premium_until" a la consulta
       const { data, error } = await supabase
         .from('usuarios_premium')
-        .select('is_premium, chispas_gratuitas, premium_until') 
+        .select('is_premium, chispas_gratuitas, premium_until')
         .eq('email', email)
         .maybeSingle();
 
@@ -199,7 +199,7 @@ function App() {
 
           if (hoy > fechaVencimiento) {
             esPremiumReal = false; // ¡El año expiró! Le quitamos el acceso Premium en la app.
-            
+
             // Le avisamos silenciosamente a la base de datos para que apague el switch permanente
             await supabase
               .from('usuarios_premium')
@@ -208,8 +208,8 @@ function App() {
 
             // ✨ INYECCIÓN 3: El aviso amigable y la puerta de renovación
             showToast(
-              'info', 
-              '¡Tu suscripción venció!', 
+              'info',
+              '¡Tu suscripción venció!',
               'Tu año de Planeador NEM Pro ha concluido. ¡Renueva ahora mismo para no perder tus superpoderes!'
             );
             setShowPremiumModal(true);
@@ -435,15 +435,15 @@ function App() {
 
           <div className="flex items-center gap-6">
             {/* ❌ Antes: onClick={() => setShowLanding(false)} */}
-            <button 
-              onClick={() => setShowAuthModal(true)} 
+            <button
+              onClick={() => setShowAuthModal(true)}
               className="text-xs font-bold text-slate-400 hover:text-white transition-colors tracking-widest uppercase border-b border-transparent hover:border-blue-500 pb-1"
             >
               Iniciar Sesión
             </button>
             {/* ❌ Antes: onClick={() => setShowLanding(false)} */}
-            <button 
-              onClick={() => setShowAuthModal(true)} 
+            <button
+              onClick={() => setShowAuthModal(true)}
               className={`px-6 py-3 rounded-xl font-black text-xs uppercase tracking-widest shadow-xl transition-transform hover:scale-105 active:scale-95 ${btnGlossy}`}
             >
               Empezar Ahora
@@ -502,7 +502,7 @@ function App() {
               </li>
             </ul>
 
-            <button onClick={() => setShowLanding(false)} className="w-full py-4 rounded-2xl font-bold text-slate-300 bg-white/5 hover:bg-white/10 transition-all border border-white/10 hover:border-white/20 uppercase text-xs tracking-widest">
+            <button onClick={() => setShowLanding(true)} className="w-full py-4 rounded-2xl font-bold text-slate-300 bg-white/5 hover:bg-white/10 transition-all border border-white/10 hover:border-white/20 uppercase text-xs tracking-widest">
               Comenzar gratis
             </button>
           </div>
@@ -530,8 +530,8 @@ function App() {
 
               <div className="mb-8 relative z-10">
                 <div className="flex items-baseline gap-2 leading-none">
-                  <span className="text-6xl font-black text-white tracking-tighter">$500</span>
-                  <span className="text-slate-500 font-bold text-sm uppercase tracking-widest">/ Ciclo</span>
+                  <span className="text-6xl font-black text-white tracking-tighter">$399</span>
+                  <span className="text-slate-500 font-bold text-sm uppercase tracking-widest">/ Año</span>
                 </div>
                 <p className="text-slate-400 text-xs mt-3 italic font-medium">Recupera tus fines de semana por menos de lo que cuesta un café al mes.</p>
               </div>
@@ -560,7 +560,7 @@ function App() {
               </ul>
 
               <button
-                onClick={() => setShowLanding(false)}
+                onClick={() => setShowAuthModal(true)} // 🟢 CAMBIO AQUÍ: Ahora dispara el registro
                 className={`w-full py-6 rounded-2xl font-black text-white shadow-2xl transition-all relative z-10 hover:scale-[1.02] active:scale-95 group ${btnGlossy}`}
               >
                 <div className="flex flex-col items-center gap-1">
@@ -595,12 +595,12 @@ function App() {
               <button onClick={() => setShowAuthModal(false)} className="absolute -top-12 right-0 text-white/50 hover:text-white transition-colors flex items-center gap-2 font-black text-xs uppercase tracking-widest">
                 <X size={20} /> Cerrar
               </button>
-              
+
               {/* ✨ AQUÍ ESTÁ EL ENVOLTORIO DE GOOGLE ✨ */}
               <GoogleOAuthProvider clientId={GOOGLE_CLIENT_ID}>
                 <AuthSandbox onLoginSuccess={() => setShowAuthModal(false)} onCancel={() => setShowAuthModal(false)} />
               </GoogleOAuthProvider>
-              
+
             </div>
           </div>
         )}
@@ -824,13 +824,13 @@ function App() {
                   <h2 className="text-sm font-black text-slate-800 flex items-center gap-3 bg-white px-5 py-3 rounded-xl shadow-sm border border-slate-200">
                     <LayoutTemplate size={20} className="text-[#135bec]" /> Lienzo de Planeación
                   </h2>
-                  
+
                   {/* Cápsula del Paso 6 - Llamado a la Acción */}
                   <div className="relative group">
                     <div className="absolute -inset-1 bg-gradient-to-r from-violet-600 to-indigo-600 rounded-xl blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
                     <button onClick={() => setCurrentView('sequence')} className={`relative flex items-center gap-3 px-6 py-3.5 rounded-xl border border-transparent ${btnGlossy} ring-4 ring-[#135bec]/10 hover:scale-[1.02] transition-all`}>
                       <span className="bg-white/20 px-2 py-1 rounded-lg border border-white/30 text-[10px] font-black tracking-widest text-white shadow-sm">PASO 6</span>
-                      <PenTool size={16} className="text-white" /> 
+                      <PenTool size={16} className="text-white" />
                       <span className="text-sm font-bold tracking-wide">Crear Planeación Didáctica</span>
                     </button>
                   </div>

@@ -10,7 +10,7 @@ interface SubscriptionModalProps {
 }
 
 // 💰 CONFIGURACIÓN DE PRECIO ÚNICA
-const PREMIUM_PRICE = 500; // Cambia aquí para tu prueba de 10 o el real de 500
+const PREMIUM_PRICE = 399; // Precio actualizado de lanzamiento
 const ORIGINAL_PRICE = 700;
 
 const SubscriptionModal: React.FC<SubscriptionModalProps> = ({
