@@ -502,7 +502,7 @@ function App() {
               </li>
             </ul>
 
-            <button onClick={() => setShowLanding(true)} className="w-full py-4 rounded-2xl font-bold text-slate-300 bg-white/5 hover:bg-white/10 transition-all border border-white/10 hover:border-white/20 uppercase text-xs tracking-widest">
+            <button onClick={() => setShowAuthModal(true)} className="w-full py-4 rounded-2xl font-bold text-slate-300 bg-white/5 hover:bg-white/10 transition-all border border-white/10 hover:border-white/20 uppercase text-xs tracking-widest">
               Comenzar gratis
             </button>
           </div>
