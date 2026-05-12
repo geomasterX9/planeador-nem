@@ -1,6 +1,6 @@
-import { createClient } from '@supabase/supabase-js';
+const { createClient } = require('@supabase/supabase-js');
 
-export default async function handler(req, res) {
+module.exports = async function handler(req, res) {
   // 1. Capa de Seguridad con Espía (Console logs para depurar)
   const authHeader = req.headers.authorization;
   const mySecret = process.env.CRON_SECRET;
@@ -32,7 +32,7 @@ export default async function handler(req, res) {
   const supabase = createClient(supabaseUrl, supabaseKey);
 
   try {
-    // 3. Ejecutamos el Ping (Asegúrate de que la tabla 'users' o la que pongas aquí exista)
+    // 3. Ejecutamos el Ping (Asegúrate de que la tabla 'users' exista)
     const { error } = await supabase.from('users').select('id').limit(1);
 
     if (error) throw error;
@@ -45,4 +45,4 @@ export default async function handler(req, res) {
     console.error('Error en el cron job:', error);
     return res.status(500).json({ success: false, error: error.message });
   }
-}
+};
