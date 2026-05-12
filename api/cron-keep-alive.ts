@@ -33,7 +33,7 @@ module.exports = async function handler(req, res) {
 
   try {
     // 3. Ejecutamos el Ping (Asegúrate de que la tabla 'users' exista)
-    const { error } = await supabase.from('users').select('id').limit(1);
+    const { error } = await supabase.from('usuarios_premium').select('id').limit(1);
 
     if (error) throw error;
 
