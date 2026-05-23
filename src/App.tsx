@@ -28,7 +28,7 @@ import { Dashboard } from './components/auth/Dashboard';
 import { PublicViewer } from './components/planner/PublicViewer';
 import { SubscriptionModal } from './components/SubscriptionModal';
 
-const GOOGLE_CLIENT_ID = "77099002011-s8ek3lmkchak77m1dpk5tockb3rh3a5t.apps.googleusercontent.com";
+const GOOGLE_CLIENT_ID = import.meta.env.VITE_GOOGLE_CLIENT_ID;
 
 const VIP_EMAILS = [
   'geomaster9@gmail.com',

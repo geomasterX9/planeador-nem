@@ -5,8 +5,7 @@ import './index.css'
 // 1. Importamos el proveedor de Google
 import { GoogleOAuthProvider } from '@react-oauth/google'
 
-// 2. Reemplaza esto con tu ID real de Google Cloud
-const GOOGLE_CLIENT_ID = "77099002011-s8ek3lmkchak77m1dpk5tockb3rh3a5t.apps.googleusercontent.com";
+const GOOGLE_CLIENT_ID = import.meta.env.VITE_GOOGLE_CLIENT_ID;
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
