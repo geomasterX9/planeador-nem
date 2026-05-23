@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { ArrowLeft, BookOpen, Layers, FileText, X, Check, Clipboard, GraduationCap, Plus, LogOut, Settings, ChevronRight, Sparkles, PenTool, Info, UploadCloud, FolderOpen, UserCircle, Lock, Search, CheckCircle2, AlertTriangle, Trash2 } from 'lucide-react';
 import librosData from '../../data/librosData.json';
+import { supabase } from '../../lib/supabaseClient';
 
 const fasesMetodologias: Record<string, { id: string, titulo: string, desc: string, guia: string }[]> = {
   "Aprendizaje basado en proyectos comunitarios": [
@@ -131,16 +132,11 @@ export const SequenceScreen = ({ projectData, plannedItems, actividades, setActi
   }, [plannedItems, fases, actividades, setActividades]); 
 
   const generateAIActivity = async (faseId: string, faseTitulo: string) => {
-    const apiKey = import.meta.env.VITE_GEMINI_API_KEY; 
-    if (!apiKey) {
-      showToast('error', 'Sin Llave API', 'Falta configurar la Llave de Gemini en local o Vercel. Revisa el tutorial.');
-      return;
-    }
-    setIsGenerating(faseId); 
+    setIsGenerating(faseId);
     try {
         const gradoActual = Number(projectData.grado) || 1;
         const itemsDelGrado = plannedItems.filter(item => Number(item.grado) === gradoActual || !item.grado);
-        
+
         const disciplinaDestacada = itemsDelGrado.length > 0 ? itemsDelGrado[itemsDelGrado.length - 1].disciplina : "la disciplina correspondiente";
         const campoActualTexto = itemsDelGrado.length > 0 ? itemsDelGrado[itemsDelGrado.length - 1].campo : campoActual;
 
@@ -148,7 +144,7 @@ export const SequenceScreen = ({ projectData, plannedItems, actividades, setActi
 
         const pdasList = itemsSaneados.filter(item => item.type === 'pda').map(i => i.text);
         const pdaDestacado = pdasList.length > 0 ? pdasList.join(" | ") : "tema general";
-        
+
         const contenidosList = itemsSaneados.filter(item => item.type === 'content').map(i => i.text);
         const contenidoDestacado = contenidosList.length > 0 ? contenidosList.join(" | ") : "contenido base";
 
@@ -158,13 +154,13 @@ export const SequenceScreen = ({ projectData, plannedItems, actividades, setActi
         const contextoEscuela = projectData.contexto ? `\n\n🏫 CONTEXTO SOCIOEDUCATIVO DE LA ESCUELA:\n"${projectData.contexto}"\n-> OBLIGATORIO: Adapta las actividades al contexto de forma explícita.` : "";
 
         const totalSesiones = Number(projectData.sesiones) || 1;
-        const totalMinutos = totalSesiones * 50; 
+        const totalMinutos = totalSesiones * 50;
         const numFases = fases.length || 1;
         const minutosPorFase = Math.round(totalMinutos / numFases);
         const limiteActividades = minutosPorFase <= 60 ? "MÁXIMO 1 o 2 actividades" : minutosPorFase <= 120 ? "MÁXIMO 2 o 3 actividades" : "MÁXIMO 3 o 4 actividades";
 
-        const prompt = `Eres un experto pedagogo y diseñador curricular de la Nueva Escuela Mexicana (NEM). 
-        🚨 REGLA DE ORO INQUEBRANTABLE: La FASE METODOLÓGICA dicta las acciones. El Contenido/PDA es solo el pretexto o tema de fondo. 
+        const prompt = `Eres un experto pedagogo y diseñador curricular de la Nueva Escuela Mexicana (NEM).
+        🚨 REGLA DE ORO INQUEBRANTABLE: La FASE METODOLÓGICA dicta las acciones. El Contenido/PDA es solo el pretexto o tema de fondo.
         📌 CONTEXTO METODOLÓGICO ESTRICTO:
         - Metodología: ${projectData.estrategia || "Libre"}
         - Fase o Momento actual: ${faseTitulo}
@@ -185,40 +181,36 @@ export const SequenceScreen = ({ projectData, plannedItems, actividades, setActi
         4. TÍTULOS VISIBLES Y SEPARADOS: Usa EXACTAMENTE este formato:
         🔸 NOMBRE DE LA ACTIVIDAD - XX MINUTOS 🔸
         --------------------------------------------------
-        5. Deja un renglón en blanco después de la línea punteada y describe paso a paso qué hará el alumno y el docente. 
+        5. Deja un renglón en blanco después de la línea punteada y describe paso a paso qué hará el alumno y el docente.
         6. Al final agrega un salto de línea y la palabra EXACTA "RECURSOS:" seguida de una lista de 4 o 5 materiales concretos.`;
 
-      const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent?key=${apiKey}`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ contents: [{ parts: [{ text: prompt }] }] })
+      const { data, error } = await supabase.functions.invoke('gemini-proxy', {
+        body: { prompt },
       });
 
-      const data = await response.json();
-      if (data.error) throw new Error(`API de Google: ${data.error.message}`);
-      
-      const rawText = data.candidates?.[0]?.content?.parts?.[0]?.text;
+      if (error) throw new Error(error.message);
+      if (data?.error) throw new Error(data.error);
+
+      const rawText: string = data?.text ?? '';
       if (!rawText) throw new Error("La IA no devolvió respuesta.");
-      
+
       const parts = rawText.split('RECURSOS:');
       const actividadesText = parts[0].replace(/\*\*/g, '').trim();
       const recursosText = parts.length > 1 ? parts[1].replace(/\*\*/g, '').trim() : "LTG, libreta, material impreso";
-      
+
       setActividades(prev => ({ ...prev, [faseId]: actividadesText }));
       setRecursos(prev => ({ ...prev, [faseId]: recursosText }));
 
     } catch (error: any) {
-      // CORRECCIÓN: Ahora imprimimos el error real en la consola para saber exactamente por qué falló
       console.error("Fallo detallado de IA al generar:", error);
-      console.warn("Fallo en IA. Desplegando fallback.");
       showToast('info', 'Aviso de conexión', 'Hubo una interrupción en la señal, pero te preparamos una actividad base para que no te detengas. Puedes editarla o volver a generar.');
-      
+
       await new Promise(resolve => setTimeout(resolve, 1500));
       const fallbackActivity = `🔸 ACTIVIDAD GUIADA - 15 MINUTOS 🔸\n--------------------------------------------------\nEl docente guiará a los alumnos para cumplir con el propósito de esta fase. Diálogo inicial.\n\n🔸 TRABAJO PRÁCTICO - 35 MINUTOS 🔸\n--------------------------------------------------\nLos alumnos desarrollarán los productos trabajando en equipos.`;
       setActividades(prev => ({ ...prev, [faseId]: fallbackActivity }));
       setRecursos(prev => ({ ...prev, [faseId]: "Libro de Texto, libreta, material de papelería." }));
     } finally {
-      setIsGenerating(null); 
+      setIsGenerating(null);
     }
   };
 

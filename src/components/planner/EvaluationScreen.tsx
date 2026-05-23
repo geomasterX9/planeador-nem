@@ -3,6 +3,7 @@ import { useGoogleLogin } from '@react-oauth/google';
 import { saveAs } from 'file-saver';
 import { ArrowLeft, Layers, PenTool, CheckSquare, Table as TableIcon, Eye, SlidersHorizontal, FileQuestion, FileSignature, Sparkles, Info, Cloud, FileDown, Plus, Trash2, Settings, UserCircle, FolderOpen, FileEdit, UploadCloud, FileText, Lock, AlertTriangle, CheckCircle2, X } from 'lucide-react';
 import { exportToWord } from '../../herramientas/exportUtils';
+import { supabase } from '../../lib/supabaseClient';
 
 interface EvaluationScreenProps {
   projectData: any;
@@ -221,11 +222,6 @@ export const EvaluationScreen = ({ projectData, plannedItems, actividades, onBac
   });
 
   const generateAIEvaluation = async () => {
-    const apiKey = import.meta.env.VITE_GEMINI_API_KEY;
-    if (!apiKey) {
-      showToast('error', 'Sin Llave API', 'Falta configurar la Llave de Gemini en local o Vercel.');
-      return;
-    }
     setIsGenerating(true);
     try {
       const gradoActual = Number(projectData?.grado) || 1;
@@ -263,16 +259,14 @@ export const EvaluationScreen = ({ projectData, plannedItems, actividades, onBac
         Arreglo de 10 objetos con llave "pregunta"${esMultiple ? ' y "opciones" (arreglo de 4 textos)' : ''}.`;
       }
 
-      const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite-preview:generateContent?key=${apiKey}`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ contents: [{ parts: [{ text: prompt }] }] })
+      const { data, error } = await supabase.functions.invoke('gemini-proxy', {
+        body: { prompt },
       });
 
-      const data = await response.json();
-      if (data.error) throw new Error(data.error.message);
+      if (error) throw new Error(error.message);
+      if (data?.error) throw new Error(data.error);
 
-      let rawText = data.candidates?.[0]?.content?.parts?.[0]?.text || "";
+      let rawText: string = data?.text ?? '';
       if (!rawText.trim()) throw new Error("empty_response");
 
       rawText = rawText.replace(/```json/gi, '').replace(/```/g, '').trim();
