@@ -59,25 +59,37 @@ serve(async (req) => {
 
       // 5. Si está APROBADO, actualizamos Supabase
       if (paymentData.status === 'approved') {
-        const userEmail = paymentData.external_reference; 
+        const userEmail = paymentData.external_reference;
 
         if (userEmail) {
-          console.log(`Activando Premium para: ${userEmail}`);
+          // 🛡️ Protección contra reenvíos: registramos este ID de pago antes de
+          // activar nada. Si ya se procesó antes (Mercado Pago reenvía
+          // notificaciones, o alguien reenvía la misma manualmente), el insert
+          // choca con la llave primaria y no volvemos a regalar otro año.
+          const { error: dedupeError } = await supabase
+            .from('pagos_procesados')
+            .insert({ payment_id: String(id), email: userEmail });
 
-          // ✨ INYECCIÓN: Calculamos exactamente 1 año a partir de este momento
-          const fechaVencimiento = new Date();
-          fechaVencimiento.setFullYear(fechaVencimiento.getFullYear() + 1);
+          if (dedupeError) {
+            console.log(`Pago ${id} ya había sido procesado antes, se ignora (idempotencia).`);
+          } else {
+            console.log(`Activando Premium para: ${userEmail}`);
 
-          const { error: updateError } = await supabase
-            .from('usuarios_premium')
-            .update({ 
-              is_premium: true,
-              premium_until: fechaVencimiento.toISOString() // ✨ INYECCIÓN: Guardamos la fecha
-            })
-            .eq('email', userEmail);
+            // ✨ INYECCIÓN: Calculamos exactamente 1 año a partir de este momento
+            const fechaVencimiento = new Date();
+            fechaVencimiento.setFullYear(fechaVencimiento.getFullYear() + 1);
 
-          if (updateError) throw updateError;
-          console.log('¡Base de datos actualizada con éxito!');
+            const { error: updateError } = await supabase
+              .from('usuarios_premium')
+              .update({
+                is_premium: true,
+                premium_until: fechaVencimiento.toISOString() // ✨ INYECCIÓN: Guardamos la fecha
+              })
+              .eq('email', userEmail);
+
+            if (updateError) throw updateError;
+            console.log('¡Base de datos actualizada con éxito!');
+          }
         } else {
           console.warn('El pago no incluye external_reference (email).');
         }

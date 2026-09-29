@@ -5,6 +5,12 @@ const corsHeaders = {
   'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type',
 }
 
+// 💰 El precio se define aquí, en el servidor — nunca se confía en lo que
+// mande el navegador. Mantenlo sincronizado con PREMIUM_PRICE en
+// src/components/SubscriptionModal.tsx (ese valor es solo para mostrarlo
+// en la pantalla; este es el que de verdad se cobra).
+const PREMIUM_PRICE = 399
+
 serve(async (req) => {
   // 1. Manejo de CORS
   if (req.method === 'OPTIONS') {
@@ -12,30 +18,30 @@ serve(async (req) => {
   }
 
   try {
-    // 2. Recibir datos del frontend
-    const { email, userId, price } = await req.json()
+    // 2. Recibir datos del frontend (el precio del cliente ya NO se usa)
+    const { email, userId } = await req.json()
 
-    if (!email || !price) {
-      throw new Error("Faltan datos obligatorios (email o precio)")
+    if (!email) {
+      throw new Error("Falta el correo del usuario")
     }
 
     // 3. Configurar la preferencia de Mercado Pago
     const mpAccessToken = Deno.env.get('MP_ACCESS_TOKEN')
-    
+
     const preference = {
       items: [
         {
           title: "Suscripción Plan NEM Pro",
-          unit_price: Number(price),
+          unit_price: PREMIUM_PRICE,
           quantity: 1,
           currency_id: "MXN",
         },
       ],
       external_reference: email, // El Webhook usará esto para saber a quién activar
       back_urls: {
-        success: "https://planeador-nem-pro.vercel.app",
-        failure: "https://planeador-nem-pro.vercel.app",
-        pending: "https://planeador-nem-pro.vercel.app",
+        success: "https://www.planeadorpro.com.mx",
+        failure: "https://www.planeadorpro.com.mx",
+        pending: "https://www.planeadorpro.com.mx",
       },
       auto_return: "approved", // Regresa automáticamente al sitio al aprobarse el pago
       notification_url: "https://yjgmlmrfvmztpncngsjq.supabase.co/functions/v1/mercadopago-webhook",
