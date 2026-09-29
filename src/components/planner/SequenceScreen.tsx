@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { ArrowLeft, BookOpen, Layers, FileText, X, Check, Clipboard, GraduationCap, Plus, LogOut, Settings, ChevronRight, Sparkles, PenTool, Info, UploadCloud, FolderOpen, UserCircle, Lock, Search, CheckCircle2, AlertTriangle, Trash2 } from 'lucide-react';
 import librosData from '../../data/librosData.json';
-import { supabase } from '../../lib/supabaseClient';
 
 const fasesMetodologias: Record<string, { id: string, titulo: string, desc: string, guia: string }[]> = {
   "Aprendizaje basado en proyectos comunitarios": [
@@ -184,11 +183,13 @@ export const SequenceScreen = ({ projectData, plannedItems, actividades, setActi
         5. Deja un renglón en blanco después de la línea punteada y describe paso a paso qué hará el alumno y el docente.
         6. Al final agrega un salto de línea y la palabra EXACTA "RECURSOS:" seguida de una lista de 4 o 5 materiales concretos.`;
 
-      const { data, error } = await supabase.functions.invoke('gemini-proxy', {
-        body: { prompt },
+      const response = await fetch('/api/gemini-proxy', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ prompt }),
       });
 
-      if (error) throw new Error(error.message);
+      const data = await response.json();
       if (data?.error) throw new Error(data.error);
 
       const rawText: string = data?.text ?? '';

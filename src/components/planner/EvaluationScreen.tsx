@@ -3,7 +3,6 @@ import { useGoogleLogin } from '@react-oauth/google';
 import { saveAs } from 'file-saver';
 import { ArrowLeft, Layers, PenTool, CheckSquare, Table as TableIcon, Eye, SlidersHorizontal, FileQuestion, FileSignature, Sparkles, Info, Cloud, FileDown, Plus, Trash2, Settings, UserCircle, FolderOpen, FileEdit, UploadCloud, FileText, Lock, AlertTriangle, CheckCircle2, X } from 'lucide-react';
 import { exportToWord } from '../../herramientas/exportUtils';
-import { supabase } from '../../lib/supabaseClient';
 
 interface EvaluationScreenProps {
   projectData: any;
@@ -259,11 +258,13 @@ export const EvaluationScreen = ({ projectData, plannedItems, actividades, onBac
         Arreglo de 10 objetos con llave "pregunta"${esMultiple ? ' y "opciones" (arreglo de 4 textos)' : ''}.`;
       }
 
-      const { data, error } = await supabase.functions.invoke('gemini-proxy', {
-        body: { prompt },
+      const response = await fetch('/api/gemini-proxy', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ prompt }),
       });
 
-      if (error) throw new Error(error.message);
+      const data = await response.json();
       if (data?.error) throw new Error(data.error);
 
       let rawText: string = data?.text ?? '';

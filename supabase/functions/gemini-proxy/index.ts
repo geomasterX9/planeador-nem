@@ -1,13 +1,12 @@
-import { serve } from "https://deno.land/std@0.168.0/http/server.ts"
-
 const corsHeaders = {
   'Access-Control-Allow-Origin': '*',
   'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type',
 }
 
 const GEMINI_MODEL = 'gemini-2.0-flash-lite'
+const GEMINI_TIMEOUT_MS = 20000
 
-serve(async (req) => {
+Deno.serve(async (req) => {
   if (req.method === 'OPTIONS') {
     return new Response('ok', { headers: corsHeaders })
   }
@@ -30,14 +29,23 @@ serve(async (req) => {
       )
     }
 
-    const geminiRes = await fetch(
-      `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent?key=${apiKey}`,
-      {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ contents: [{ parts: [{ text: prompt }] }] }),
-      }
-    )
+    const controller = new AbortController()
+    const timeout = setTimeout(() => controller.abort(), GEMINI_TIMEOUT_MS)
+
+    let geminiRes: Response
+    try {
+      geminiRes = await fetch(
+        `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent?key=${apiKey}`,
+        {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ contents: [{ parts: [{ text: prompt }] }] }),
+          signal: controller.signal,
+        }
+      )
+    } finally {
+      clearTimeout(timeout)
+    }
 
     const data = await geminiRes.json()
 
@@ -56,8 +64,11 @@ serve(async (req) => {
     )
 
   } catch (err) {
+    const message = err instanceof Error && err.name === 'AbortError'
+      ? 'Gemini tardó demasiado en responder (timeout de 20s).'
+      : String(err)
     return new Response(
-      JSON.stringify({ error: String(err) }),
+      JSON.stringify({ error: message }),
       { status: 500, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
     )
   }
