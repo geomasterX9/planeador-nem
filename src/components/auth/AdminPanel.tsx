@@ -33,16 +33,16 @@ export const AdminPanel = ({ onClose }: AdminPanelProps) => {
     }
   };
 
-  const togglePremium = async (id: string, currentStatus: boolean) => {
+  const togglePremium = async (id: string, currentStatus: boolean, email: string) => {
     setProcessingId(id);
     try {
-      const { error } = await supabase
-        .from('usuarios_premium')
-        .update({ is_premium: !currentStatus })
-        .eq('id', id);
-        
+      const { error } = await supabase.rpc('admin_set_premium', {
+        target_email: email,
+        nuevo_estado: !currentStatus,
+      });
+
       if (error) throw error;
-      
+
       // Actualizamos la lista local
       setUsuarios(usuarios.map(u => u.id === id ? { ...u, is_premium: !currentStatus } : u));
     } catch (error) {
@@ -52,16 +52,16 @@ export const AdminPanel = ({ onClose }: AdminPanelProps) => {
     }
   };
 
-  const updateChispas = async (id: string, nuevasChispas: number) => {
+  const updateChispas = async (id: string, nuevasChispas: number, email: string) => {
     setProcessingId(id);
     try {
-      const { error } = await supabase
-        .from('usuarios_premium')
-        .update({ chispas_gratuitas: nuevasChispas })
-        .eq('id', id);
-        
+      const { error } = await supabase.rpc('admin_set_chispas', {
+        target_email: email,
+        nuevo_valor: nuevasChispas,
+      });
+
       if (error) throw error;
-      
+
       setUsuarios(usuarios.map(u => u.id === id ? { ...u, chispas_gratuitas: nuevasChispas } : u));
     } catch (error) {
       console.error("Error actualizando chispas:", error);
@@ -147,7 +147,7 @@ export const AdminPanel = ({ onClose }: AdminPanelProps) => {
                     <td className="px-6 py-4 text-center">
                       <div className="flex items-center justify-center gap-2">
                         <button 
-                          onClick={() => updateChispas(u.id, Math.max(0, u.chispas_gratuitas - 5))}
+                          onClick={() => updateChispas(u.id, Math.max(0, u.chispas_gratuitas - 5), u.email)}
                           disabled={processingId === u.id || u.is_premium}
                           className="w-6 h-6 rounded-md bg-slate-100 hover:bg-slate-200 text-slate-600 flex items-center justify-center font-bold disabled:opacity-50"
                         >-</button>
@@ -155,7 +155,7 @@ export const AdminPanel = ({ onClose }: AdminPanelProps) => {
                           {u.is_premium ? '∞' : u.chispas_gratuitas}
                         </span>
                         <button 
-                          onClick={() => updateChispas(u.id, u.chispas_gratuitas + 5)}
+                          onClick={() => updateChispas(u.id, u.chispas_gratuitas + 5, u.email)}
                           disabled={processingId === u.id || u.is_premium}
                           className="w-6 h-6 rounded-md bg-blue-50 hover:bg-blue-100 text-[#135bec] flex items-center justify-center font-bold disabled:opacity-50"
                         >+</button>
@@ -163,7 +163,7 @@ export const AdminPanel = ({ onClose }: AdminPanelProps) => {
                     </td>
                     <td className="px-6 py-4 text-right">
                       <button 
-                        onClick={() => togglePremium(u.id, u.is_premium)}
+                        onClick={() => togglePremium(u.id, u.is_premium, u.email)}
                         disabled={processingId === u.id}
                         className={`px-4 py-2 rounded-xl text-xs font-bold transition-all ${
                           processingId === u.id ? 'opacity-50 cursor-not-allowed' :

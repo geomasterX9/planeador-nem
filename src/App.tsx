@@ -150,17 +150,20 @@ function App() {
   const consumeCredit = (): boolean => {
     if (isPremium) return true;
     if (freeCredits > 0) {
-      const nuevasChispas = freeCredits - 1;
-      setFreeCredits(nuevasChispas);
+      // Optimista en la UI; la función de BD es la que de verdad valida y descuenta
+      // (solo puede tocar la fila del propio usuario autenticado).
+      setFreeCredits(freeCredits - 1);
 
-      if (user?.email) {
-        supabase.from('usuarios_premium')
-          .update({ chispas_gratuitas: nuevasChispas })
-          .eq('email', user.email)
-          .then(({ error }) => {
-            if (error) console.error("Error descontando chispa en BD:", error);
-          });
-      }
+      supabase.rpc('consume_credit').then(({ data, error }) => {
+        if (error) {
+          console.error("Error descontando chispa en BD:", error);
+          return;
+        }
+        if (data === false) {
+          // El servidor dice que no había saldo real; corregimos el optimismo local.
+          setFreeCredits(0);
+        }
+      });
       return true;
     }
     setShowPremiumModal(true);
