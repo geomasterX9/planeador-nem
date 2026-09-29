@@ -1,4 +1,4 @@
-const GEMINI_MODEL = 'gemini-2.0-flash-lite';
+const GEMINI_MODEL = 'gemini-3.5-flash-lite';
 const GEMINI_TIMEOUT_MS = 20000;
 
 module.exports = async function handler(req, res) {

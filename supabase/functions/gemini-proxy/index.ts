@@ -3,7 +3,7 @@ const corsHeaders = {
   'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type',
 }
 
-const GEMINI_MODEL = 'gemini-2.0-flash-lite'
+const GEMINI_MODEL = 'gemini-3.5-flash-lite'
 const GEMINI_TIMEOUT_MS = 20000
 
 Deno.serve(async (req) => {
