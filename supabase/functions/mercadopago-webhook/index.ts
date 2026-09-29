@@ -57,10 +57,10 @@ serve(async (req) => {
       const paymentData = await mpResponse.json();
       console.log(`Estado del pago ${id}: ${paymentData.status}`);
 
-      // 5. Si está APROBADO, actualizamos Supabase
-      if (paymentData.status === 'approved') {
-        const userEmail = paymentData.external_reference;
+      const userEmail = paymentData.external_reference;
 
+      // 5. Si está APROBADO, activamos Premium
+      if (paymentData.status === 'approved') {
         if (userEmail) {
           // 🛡️ Protección contra reenvíos: registramos este ID de pago antes de
           // activar nada. Si ya se procesó antes (Mercado Pago reenvía
@@ -92,6 +92,25 @@ serve(async (req) => {
           }
         } else {
           console.warn('El pago no incluye external_reference (email).');
+        }
+      }
+
+      // 6. Si el pago se reembolsó o hubo un contracargo, revocamos Premium.
+      //    Mercado Pago reenvía la notificación de este mismo payment_id cuando
+      //    cambia de estado, así que llegamos aquí de nuevo con el status nuevo.
+      if (paymentData.status === 'refunded' || paymentData.status === 'charged_back') {
+        if (userEmail) {
+          console.log(`Revocando Premium por estado "${paymentData.status}" para: ${userEmail}`);
+
+          const { error: revokeError } = await supabase
+            .from('usuarios_premium')
+            .update({ is_premium: false })
+            .eq('email', userEmail);
+
+          if (revokeError) throw revokeError;
+          console.log('Premium revocado con éxito.');
+        } else {
+          console.warn('El reembolso/contracargo no incluye external_reference (email).');
         }
       }
     }
