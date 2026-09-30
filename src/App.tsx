@@ -587,8 +587,13 @@ function App() {
         </section>
 
         {/* ---------------- RESTAURAMOS EL FOOTER ---------------- */}
-        <footer className="mt-auto py-8 text-center border-t border-white/5 opacity-50">
+        <footer className="mt-auto py-8 text-center border-t border-white/5 opacity-50 space-y-2">
           <p className="text-[10px] text-slate-600 font-bold uppercase tracking-[0.4em]">© {new Date().getFullYear()} Planeador NEM PRO • San Luis Potosí, México</p>
+          <p className="text-[10px] text-slate-600 font-bold uppercase tracking-widest space-x-3">
+            <a href="/aviso-de-privacidad.html" className="hover:text-slate-400 transition-colors">Aviso de Privacidad</a>
+            <span>·</span>
+            <a href="/terminos-y-condiciones.html" className="hover:text-slate-400 transition-colors">Términos y Condiciones</a>
+          </p>
         </footer>
 
         {/* ---------------- RESTAURAMOS EL MODAL DE LOGIN ---------------- */}

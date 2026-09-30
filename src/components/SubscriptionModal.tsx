@@ -112,6 +112,17 @@ const SubscriptionModal: React.FC<SubscriptionModalProps> = ({
           <button onClick={onClose} disabled={loading} className="w-full mt-4 text-gray-500 hover:text-gray-700 text-sm font-medium">
             Quizás más tarde
           </button>
+
+          <p className="text-[10px] text-slate-400 text-center mt-4 leading-relaxed">
+            Al suscribirte aceptas nuestros{' '}
+            <a href="/terminos-y-condiciones.html" target="_blank" rel="noopener noreferrer" className="underline hover:text-slate-600">
+              Términos y Condiciones
+            </a>{' '}
+            y nuestro{' '}
+            <a href="/aviso-de-privacidad.html" target="_blank" rel="noopener noreferrer" className="underline hover:text-slate-600">
+              Aviso de Privacidad
+            </a>.
+          </p>
         </div>
 
         <div className="bg-gray-50 p-4 border-t border-gray-100 flex flex-col items-center">
